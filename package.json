@@ -1,0 +1,32 @@
+{
+  "name": "projet-gamerchallenges",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node --watch index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/O-clock-Cambridge/projet-gamerchallenges.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/O-clock-Cambridge/projet-gamerchallenges/issues"
+  },
+  "homepage": "https://github.com/O-clock-Cambridge/projet-gamerchallenges#readme",
+  "dependencies": {
+    "argon2": "^0.44.0",
+    "dotenv": "^17.2.2",
+    "ejs": "^3.1.10",
+    "emailjs": "^4.0.3",
+    "express": "^5.1.0",
+    "joi": "^18.0.1",
+    "pg": "^8.16.3",
+    "sequelize": "^6.37.7",
+    "xss": "^1.0.15"
+  }
+}
