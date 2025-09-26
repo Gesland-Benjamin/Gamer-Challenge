@@ -12,15 +12,12 @@ Participation.init(
         title: {
             type: DataTypes.STRING(100),
             allowNull: false,
-            unique: true, 
         },
 
         url: {
             type: DataTypes.STRING(255),
             allowNull: false,
-        },
-        
-    
+        }
     },
 
     {

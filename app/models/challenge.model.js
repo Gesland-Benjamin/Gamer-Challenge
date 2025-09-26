@@ -18,6 +18,7 @@ Challenge.init(
             allowNull: false,
         }
     },
+    
     {
         sequelize, // On indique que les informations de connexion
         modelName: "Challenge", // On indique le nom du model
