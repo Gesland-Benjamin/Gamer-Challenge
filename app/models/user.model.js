@@ -26,10 +26,17 @@ User.init(
             validate: {
                 isEmail: true, // On vérifie que le format de l'email est correct
             }
-        }
+        },
+
+        role: {
+            type: DataTypes.ENUM(["user", "admin"]), // seules les valeurs "user" et "admin" seront acceptées ici
+            allowNull: false,
+            defaultValue: "user"
+        },
     },
     {
         sequelize, // On indique que les informations de connexion
+        modelName: "User", // On indique le nom du model
         tableName: "user" // On indique le nom de la table dans la BDD.
     }
 );
