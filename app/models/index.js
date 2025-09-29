@@ -77,3 +77,4 @@ export {
     Participation,
     sequelize
 };
+
