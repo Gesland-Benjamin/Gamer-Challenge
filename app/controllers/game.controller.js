@@ -11,6 +11,7 @@
             ]
         });
 
+        res.render("game", { listGames })
     }
 
 }

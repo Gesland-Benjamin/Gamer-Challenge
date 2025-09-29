@@ -1,5 +1,5 @@
-import { Sequelize } from "sequelize";
 import 'dotenv/config';
+import { Sequelize } from "sequelize";
 
 // Connexion de la base de données à l'ORM
 // On définit l'architecture de la base de données
