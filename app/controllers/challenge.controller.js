@@ -1,54 +1,52 @@
 // Importe le modèle Game depuis les modèles
-import { Challenge } from "../models/index.js"
+import { Challenge } from "../models/index.js";
 import { errorController } from "./error.controller.js";
-import { createGameSchema, editGameSchema } from "../schemas/index.js";
+import { createChallengeSchema, editChallengeSchema } from "../schemas/index.js";
 import Joi from "joi";
 
-class gameController extends errorController {
+class ChallengeController extends errorController {
 
-    gamesListPage = async (req, res) => {
+    challengesListPage = async (req, res) => {
         console.log(this);
 
         try {
-            const listGames = await Game.findAll({
-                order: [
-                    ["name", "ASC"]
-                ]
-            });
-            res.status(200).render("games", { listGames });
+            const listChallenges = await Challenge.findAll();
+
+            res.status(200).render("challenges", { listChallenges });
+
         } catch (error) {
             console.error(error);
             res.status(404).render("error", { error });
         }
     };
 
-    gameDetailsPage = async (req, res, next) => {
+    challengeDetailsPage = async (req, res, next) => {
         try {
 
             const { id } = req.params;
 
-            const game = await Game.findByPk(id);
+            const challenge = await Challenge.findByPk(id);
 
-            if (!game) {
+            if (!challenge) {
                 return this.render404(req, res);
             }
 
-            res.render("game", { game });
+            res.render("challenge", { challenge });
         }
         catch (error) {
             console.error(error);
-            res.status(404).render("error");
+            res.status(404).render("error", { error });
         }
     };
 
-    addNewGame = async (req, res) => {
+    addNewChallenge = async (req, res) => {
         try {
 
-            const data = Joi.attempt(req.body, createGameSchema);
+            const data = Joi.attempt(req.body, createChallengeSchema);
 
-            const newGame = await Game.create(data);
+            const newChallenge = await Challenge.create(data);
 
-            res.status(201).redirect(`/games/${newGame.id}`);
+            res.status(201).redirect(`/challenges/${newChallenge.id}`);
 
         } catch (error) {
             console.error(error);
@@ -56,19 +54,19 @@ class gameController extends errorController {
         }
     };
 
-    deleteGame = async (req, res) => {
+    deleteChallenge = async (req, res) => {
         try {
             const { id } = req.params;
 
-            const game = await Game.findByPk(id);
+            const challenge = await Challenge.findByPk(id);
 
-            if (!game) {
+            if (!challenge) {
                 return this.render404(req, res);
             }
 
-            await game.destroy();
+            await challenge.destroy();
 
-            res.status(200).redirect("/games");
+            res.status(200).redirect("/challenges");
 
         } catch (error) {
             console.error(error);
@@ -76,21 +74,21 @@ class gameController extends errorController {
         }
     };
 
-    editGame = async (req, res) => {
+    editChallenge = async (req, res) => {
         try {
             const { id } = req.params;
 
-            const game = await Game.findByPk(id);
+            const challenge = await Challenge.findByPk(id);
 
-            if (!game) {
+            if (!challenge) {
                 return this.render404(req, res);
             }
 
-            const data = Joi.attempt(req.body, editGameSchema);
+            const data = Joi.attempt(req.body, editChallengeSchema);
 
-            await game.update(data);
+            await challenge.update(data);
 
-            res.status(200).redirect(`/games/${game.id}`);
+            res.status(200).redirect(`/challenges/${challenge.id}`);
 
         } catch (error) {
             console.error(error);
@@ -99,4 +97,4 @@ class gameController extends errorController {
     }
 }
 
-export default new gameController();
+export default new ChallengeController();
