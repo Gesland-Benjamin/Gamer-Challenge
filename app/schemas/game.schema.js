@@ -2,7 +2,7 @@ import Joi from "joi";
 
 // ici on stocke tous les schemas de validation pour les jeux
 
-export const createGameschema = Joi.object({
+export const createGameSchema = Joi.object({
     name: Joi.string().trim().min(1).max(100).required(), // nom obligatoire, max 100 caractères
     description: Joi.string().trim().min(1).required(), // description obligatoire
     release_year: Joi.date().required(), // date de sortie obligatoire
@@ -10,7 +10,7 @@ export const createGameschema = Joi.object({
     picture: Joi.string().trim().min(1).max(255).required(), // url de l'image obligatoire, max 255 caractères
 });
 
-export const editGameschema = Joi.object({
+export const editGameSchema = Joi.object({
     name: Joi.string().trim().min(1).max(100), // nom, max 100 caractères 
     description: Joi.string().trim().min(1), // description
     release_year: Joi.date(), // date de sortie

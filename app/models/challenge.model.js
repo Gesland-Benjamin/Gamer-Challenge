@@ -16,6 +16,21 @@ Challenge.init(
         description: {
             type: DataTypes.TEXT,
             allowNull: false,
+        },
+
+        picture: {
+            type: DataTypes.STRING(255),
+            allowNull: false,
+        },
+
+        release_date: {
+            type: DataTypes.DATE,
+            allowNull: false,
+        },
+
+        username: {
+            type: DataTypes.STRING(100),
+            allowNull: false,
         }
     },
     

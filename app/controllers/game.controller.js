@@ -1,7 +1,7 @@
 // Importe le modèle Game depuis les modèles
 import { Game } from "../models/index.js"
 import { errorController } from "./error.controller.js";
-import { createGameschema, editGame, editGameschema } from "../schemas/index.js";
+import { createGameschema, editGameschema } from "../schemas/index.js";
 import Joi from "joi";
 
 class gameController extends errorController {
