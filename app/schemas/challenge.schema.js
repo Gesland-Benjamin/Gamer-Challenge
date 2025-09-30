@@ -17,4 +17,4 @@ export const editChallengeSchema = Joi.object({
     picture: Joi.string().trim().min(1).max(255), // url de l'image du challenge, max 255 caractères
     username: Joi.string().trim().min(1).max(100), // nom d'utilisateur associé au challenge, max 100 caractères
 });
-/*
+

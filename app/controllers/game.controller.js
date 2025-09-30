@@ -1,7 +1,7 @@
 // Importe le modèle Game depuis les modèles
 import { Game } from "../models/index.js"
 import { errorController } from "./error.controller.js";
-import { createGameschema, editGameschema } from "../schemas/index.js";
+import { createGameSchema, editGameSchema } from "../schemas/index.js";
 import Joi from "joi";
 
 class gameController extends errorController {
@@ -44,7 +44,7 @@ class gameController extends errorController {
     addNewGame = async (req, res) => {
         try {
 
-            const data = Joi.attempt(req.body, createGameschema);
+            const data = Joi.attempt(req.body, createGameSchema);
 
             const newGame = await Game.create(data);
 
@@ -86,7 +86,7 @@ class gameController extends errorController {
                 return this.render404(req, res);
             }
 
-            const data = Joi.attempt(req.body, editGameschema);
+            const data = Joi.attempt(req.body, editGameSchema);
 
             await game.update(data);
 

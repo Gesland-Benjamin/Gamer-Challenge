@@ -13,18 +13,18 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static("./public"));
 
-app.use(
-  session({
-    secret: process.env.SESSION_SECRET, // clé secrète pour signer les cookies
-    resave: false,                      // évite de forcer la sauvegarde
-    saveUninitialized: false,           // évite de stocker des sessions vides
-    cookie: {
-      httpOnly: true,                   // empêche l’accès JS côté client
-      secure: process.env.NODE_ENV === "production", // HTTPS obligatoire en prod
-      maxAge: 1000 * 60 * 60,           // 1h
-    },
-  })
-);
+// app.use(
+//   session({
+//     secret: process.env.SESSION_SECRET, // clé secrète pour signer les cookies
+//     resave: false,                      // évite de forcer la sauvegarde
+//     saveUninitialized: false,           // évite de stocker des sessions vides
+//     cookie: {
+//       httpOnly: true,                   // empêche l’accès JS côté client
+//       secure: process.env.NODE_ENV === "production", // HTTPS obligatoire en prod
+//       maxAge: 1000 * 60 * 60,           // 1h
+//     },
+//   })
+// );
 
 app.use(mainRouter);
 

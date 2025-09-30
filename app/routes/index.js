@@ -5,6 +5,10 @@ import { challengeRouter } from "./challenge.router.js";
 // Créer une instance de routeur principal
  export const mainRouter = Router();
 
+mainRouter.get('/', (req,res) => {
+    res.send("Page d'accueil !")
+})
+
  mainRouter.use(gameRouter);
  
  mainRouter.use(challengeRouter);
