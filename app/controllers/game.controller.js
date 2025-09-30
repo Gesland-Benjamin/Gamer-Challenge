@@ -49,14 +49,33 @@ class gameController extends errorController {
         const newGame = await Game.create(data);
 
         res.status(201).redirect(`/games/${newGame.id}`);
-        
+
     } catch (error) {
         console.error(error);
         res.status(400).render("error", { error });
     }
   };
-}
 
+  deleteGame = async (req, res) => {
+    try {
+      const { id } = req.params;
+
+      const game = await Game.findByPk(id);
+
+      if (!game) {
+        return this.render404(req, res);
+      }
+
+      await game.destroy();
+
+      res.status(200).redirect("/games");
+      
+    } catch (error) {
+      console.error(error);
+      res.status(400).render("error", { error });
+    }
+}
+}
 //     // Afficher les détails d'un jeu 
 //     async getById(req,res) {
 

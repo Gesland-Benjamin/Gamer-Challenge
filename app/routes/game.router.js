@@ -17,3 +17,6 @@ gameRouter.get('/games/:id', checkId, gameController.gameDetailsPage);
 // Route pour ajouter un nouveau jeu
 gameRouter.post('/games', gameController.addNewGame);
 
+// Route pour supprimer un jeu par son id, avec vérification de l'id
+gameRouter.post('/games/:id/delete', checkId, gameController.deleteGame);
+
