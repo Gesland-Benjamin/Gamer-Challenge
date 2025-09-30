@@ -1,8 +1,11 @@
 // Importe le modèle Game depuis les modèles
 import { Game } from "../models/index.js"
 import { errorController } from "./error.controller.js";
+import { createGameschema } from "../schemas/game.schema.js";
+import Joi from "joi";
 
 class gameController extends errorController {
+
   gamesListPage = async (req, res) => {
     console.log(this);
 
@@ -34,11 +37,25 @@ class gameController extends errorController {
     }
      catch (error) {
       console.error(error);
-      res.status(404).render("pages/error");
+      res.status(404).render("error");
     }
   };
-};
 
+  addNewGame = async (req, res) => {
+    try {
+
+        const data = Joi.attempt(req.body, createGameschema);
+        
+        const newGame = await Game.create(data);
+
+        res.status(201).redirect(`/games/${newGame.id}`);
+        
+    } catch (error) {
+        console.error(error);
+        res.status(400).render("error", { error });
+    }
+  };
+}
 
 //     // Afficher les détails d'un jeu 
 //     async getById(req,res) {
