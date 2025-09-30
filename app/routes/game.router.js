@@ -9,8 +9,8 @@ import { checkId } from "../middlewares/checkId.middleware.js";
 export const gameRouter = Router();
 
 // Route pour récupérer tous les jeux
-gameRouter.get('/games', gameController.getAll);
+gameRouter.get('/games', gameController.gamesListPage);
 
 // Route pour récupérer un jeu par son id, avec vérification de l'id
-gameRouter.get('/games/:id', checkId, gameController.getById);
+gameRouter.get('/games/:id', checkId, gameController.gameDetailsPage);
 

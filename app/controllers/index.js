@@ -1,3 +1,3 @@
-import { gameController } from "./game.controller.js";
+import gameController  from "./game.controller.js";
 
 export { gameController }
