@@ -8,7 +8,7 @@ class authController extends errorController {
   
   showRegisterPage = (req, res) => {
     res.render("register");
-  }
+  };
 
   async register(req, res) {
 
@@ -29,7 +29,8 @@ class authController extends errorController {
 
     res.status(201).redirect("/", { newUser });
     
-  },
+  };
+  
   async login(req, res) {
     const { username, password } = Joi.attempt(req.body, authSchema);
     const user = await User.findOne({
@@ -53,7 +54,7 @@ class authController extends errorController {
       message: "Utilisateur connecté",
       user: req.session.user,
     });
-  },
+  }
   async getMe(req, res) {
     // Vérifier si l’utilisateur est en session
     if (!req.session.user) {
@@ -68,7 +69,7 @@ class authController extends errorController {
       return res.status(404).json({ error: "User does not exists" });
     }
     res.status(200).json({ user });
-  },
+  };
   async logout(req, res) {
     req.session.destroy((err) => {
       if (err) {
@@ -77,7 +78,7 @@ class authController extends errorController {
       res.clearCookie("connect.sid"); // supprime le cookie côté client
       res.status(200).json({ message: "Utilisateur déconnecté" });
     });
-  },
+  };
 
 };
 
