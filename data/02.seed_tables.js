@@ -44,24 +44,30 @@ const game3 = await Game.create({
     picture: "http://example.com/jeu3.jpg"
 });
 
-// Création des défis
+// Création des défis (Challenge) : on utilise username et pas user_id
 const challenge1 = await Challenge.create({
     name: "Défi 1",
     description: "Description du Défi 1",
+    picture: "http://example.com/defi1.jpg",
+    release_date: new Date(),
     game_id: game1.id,
-    user_id: user1.id
+    username: user1.username
 });
 const challenge2 = await Challenge.create({
     name: "Défi 2",
     description: "Description du Défi 2",
+    picture: "http://example.com/defi2.jpg",
+    release_date: new Date(),
     game_id: game2.id,
-    user_id: user2.id
+    username: user2.username
 });
 const challenge3 = await Challenge.create({
     name: "Défi 3",
     description: "Description du Défi 3",
+    picture: "http://example.com/defi3.jpg",
+    release_date: new Date(),
     game_id: game3.id,
-    user_id: user3.id
+    username: user3.username
 });
 
 // Création des participations
@@ -83,6 +89,6 @@ const participation3 = await Participation.create({
     challenge_id: challenge3.id,
     url: "http://example.com/participation3.jpg"
 });
-console.log("✅ Insertion des données de seed terminée");
 
+console.log("✅ Insertion des données de seed terminée");
 await sequelize.close();
