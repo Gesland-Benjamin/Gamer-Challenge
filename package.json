@@ -28,6 +28,7 @@
     "emailjs": "^4.0.3",
     "eslint": "^9.36.0",
     "express": "^5.1.0",
+    "express-session": "^1.18.2",
     "joi": "^18.0.1",
     "pg": "^8.16.3",
     "sequelize": "^6.37.7",

@@ -9,7 +9,7 @@ User.init(
     // Ils correspondront au champ des tables
     {
         username: {
-            type : DataTypes.STRING(50), // On limite le nom d'utilisateur à 50 caractères maximals
+            type : DataTypes.STRING(25), // On limite le nom d'utilisateur à 50 caractères maximals
             allowNull: false,   // On le définit comme non nullable
             unique: true, // On empêche la création d'utilisateur ayant le même nom.
         },
