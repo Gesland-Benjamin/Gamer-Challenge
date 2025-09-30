@@ -1,10 +1,10 @@
 // Importe le modèle Game depuis les modèles
 import { Challenge } from "../models/index.js";
-import { errorController } from "./error.controller.js";
+import { CoreController } from "./core.controller.js";
 import { createChallengeSchema, editChallengeSchema } from "../schemas/index.js";
 import Joi from "joi";
 
-class ChallengeController extends errorController {
+class ChallengeController extends CoreController {
 
     challengesListPage = async (req, res) => {
         console.log(this);

@@ -1,14 +1,12 @@
 // Importe le modèle Game depuis les modèles
 import { Game } from "../models/index.js"
-import { errorController } from "./error.controller.js";
+import { CoreController } from "./core.controller.js";
 import { createGameSchema, editGameSchema } from "../schemas/index.js";
 import Joi from "joi";
 
-class gameController extends errorController {
+class GameController extends CoreController {
 
     gamesListPage = async (req, res) => {
-        console.log(this);
-
         try {
             const listGames = await Game.findAll({
                 order: [
@@ -18,7 +16,7 @@ class gameController extends errorController {
             res.status(200).render("games", { listGames });
         } catch (error) {
             console.error(error);
-            res.status(404).render("error", { error });
+            return this.render404(req, res);
         }
     };
 
@@ -37,7 +35,7 @@ class gameController extends errorController {
         }
         catch (error) {
             console.error(error);
-            res.status(404).render("error");
+            return this.render404(req, res);
         }
     };
 
@@ -52,7 +50,7 @@ class gameController extends errorController {
 
         } catch (error) {
             console.error(error);
-            res.status(400).render("error", { error });
+            return this.render404(req, res);
         }
     };
 
@@ -72,7 +70,7 @@ class gameController extends errorController {
 
         } catch (error) {
             console.error(error);
-            res.status(400).render("error", { error });
+            return this.render404(req, res);
         }
     };
 
@@ -99,4 +97,4 @@ class gameController extends errorController {
     }
 }
 
-export default new gameController();
+export default new GameController();

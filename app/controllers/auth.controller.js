@@ -1,10 +1,10 @@
 import argon2 from "argon2";
 import Joi from "joi";
-import { errorController } from "./error.controller.js";
+import { CoreController } from "./core.controller.js";
 import { User } from "../models/index.js";
 import { registerSchema, authSchema  } from "../schemas/auth.schema.js";
 
-class authController extends errorController {
+class AuthController extends CoreController {
   
   showRegisterPage = (req, res) => {
     res.render("register");
@@ -12,11 +12,11 @@ class authController extends errorController {
 
   async register(req, res) {
 
-    const { username, mail, password } = Joi.attempt(req.body, authSchema);
+    const { username, mail, password } = Joi.attempt(req.body, registerSchema);
     const isUserExists = await User.findOne({ where: { username } });
 
     if (isUserExists) {
-      return res.status(409).json({ error: "Cet utilisateur existe déjà." });
+      return this.render409(req, res);
     }
 
     const hashedPassword = await argon2.hash(password);
@@ -31,56 +31,61 @@ class authController extends errorController {
     
   };
   
+  showLoginPage = (req, res) => {
+    res.render("login");
+  };
+
   async login(req, res) {
-    const { username, password } = Joi.attempt(req.body, authSchema);
+    const { username , mail, password } = Joi.attempt(req.body, authSchema);
     const user = await User.findOne({
-      where: { username },
-      include: { model: Role, as: "role", attributes: ["name"] },
+      where: { [Op.or]: [{ username }, { mail }] }
     });
+
     if (!user) {
-      return res.status(404).json({ error: "User does not exists" });
+      return this.render404(req, res);
     }
+
     const isPasswordValid = await argon2.verify(user.password, password);
     if (!isPasswordValid) {
-      return res.status(403).json({ error: "Password is not correct, retry" });
+      return this.render403(req, res);
     }
     // :clé: Stocker les infos utiles en session
     req.session.user = {
       id: user.id,
       username: user.username,
       role: user.role.name,
-    };
-    res.status(200).json({
-      message: "Utilisateur connecté",
-      user: req.session.user,
-    });
+      mail: user.mail,
+    }; 
+    console.log("Utilisateur connecté :", req.session.user);
+    res.redirect("/");
+    
   }
   async getMe(req, res) {
     // Vérifier si l’utilisateur est en session
     if (!req.session.user) {
-      return res.status(401).json({ error: "Not authenticated" });
+      return this.render401(req, res);
     }
     const user = await User.findOne({
       where: { username: req.session.user.username },
-      attributes: ["username"],
-      include: { model: Role, as: "role", attributes: ["name"] },
+      attributes: ["username"]
     });
     if (!user) {
-      return res.status(404).json({ error: "User does not exists" });
+      return this.render404(req, res);
     }
-    res.status(200).json({ user });
+    //a changer avec la view mon compte
+    res.status(200).render("user", { user }); 
   };
   async logout(req, res) {
     req.session.destroy((err) => {
       if (err) {
-        return res.status(500).json({ error: "Logout failed" });
+        return this.render500(req, res);
       }
       res.clearCookie("connect.sid"); // supprime le cookie côté client
-      res.status(200).json({ message: "Utilisateur déconnecté" });
-    });
+      res.redirect("/login", { message: "Déconnexion réussie" });
+    }); 
   };
 
 };
 
-export default new authController();
+export default new AuthController();
 
