@@ -1,8 +1,18 @@
+<%- include('partials/header') %>
+<%- include('partials/aside_nav') %>
 
 <ul>
+  <% if (listGames && listGames.length) { %>
     <% listGames.forEach(game => { %>
-        <li>
-            <a href="/games/<%= game.id %>"><%= game.name %></a>
-        </li>
+      <li>
+        <a href="/games/<%= game.id %>"><%= game.name %></a>
+      </li>
     <% }) %>
+  <% } else { %>
+    <li>Aucun jeu disponible.</li>
+  <% } %>
 </ul>
+
+<a href='/' class="button">Accueil</a>
+
+<%- include('partials/footer') %>

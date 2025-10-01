@@ -1,5 +1,5 @@
 // Importe le modèle Game depuis les modèles
-import { Game } from "../models/index.js"
+import { Game, Challenge } from "../models/index.js"
 import { CoreController } from "./core.controller.js";
 import { createGameSchema, editGameSchema } from "../schemas/index.js";
 import Joi from "joi";
@@ -25,7 +25,15 @@ class GameController extends CoreController {
 
             const { id } = req.params;
 
-            const game = await Game.findByPk(id);
+            const game = await Game.findByPk(id, {
+      include: [
+        {
+          model: Challenge,      // Ton modèle Challenge
+          as: "challenges",      // Doit correspondre à l'alias défini dans ton association
+          order: [["createdAt", "DESC"]]
+        }
+      ]
+    });
 
             if (!game) {
                 return this.render404(req, res);
