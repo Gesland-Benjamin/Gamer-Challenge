@@ -4,6 +4,7 @@ import { sequelize } from "../models/index.js";
 import Joi from "joi";
 
 class LadderController extends CoreController {
+    // On récupère les votes pour les Challenges
     async getTopChallenges(req, res) {
         const topChallenges = await Challenge.findAll({
             include: [{
@@ -25,7 +26,32 @@ class LadderController extends CoreController {
             subQuery: false
         });
 
-        res.render('ladder', { challenges: topChallenges });
+        res.render('ladder_challenges', { challenges: topChallenges });
+    }
+
+    // On récupère les votes pour les Users
+    async getTopUsers(req, res) {
+        const topUsers = await User.findAll({
+            include: [{
+                model: Challenge,
+                as: 'challenges',
+                attributes: [], // On ne veut pas les attributs des users, juste le compte
+                through: { attributes: [] } // On ne veut pas les attributs de la table de jointure
+            }],
+            attributes: [
+                'id',
+                'username',
+                [sequelize.fn('COUNT', sequelize.col('challenge->challenge_voters.id')), 'voteCount']
+                // ⚠️ mets bien "challenge_voters.id" (clé primaire du user),
+                // et pas "challenge_voters.user_id", car Sequelize gère l'alias différemment
+            ],
+            group: ['user.id'],
+            order: [[sequelize.col('voteCount'), 'DESC']],
+            limit: 3,
+            subQuery: false
+        });
+
+        res.render('ladder_users', { users: topUsers });
     }
 }
 
