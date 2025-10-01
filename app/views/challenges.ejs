@@ -1,0 +1,30 @@
+<%- include('partials/header.ejs') %>
+<%- include('partials/aside_nav.ejs') %>
+<body>
+  <div class="challenges-container">
+    <div class="title">CHALLENGES</div>
+
+    <div class="grid">
+      <% if (listChallenges && listChallenges.length > 0) { %>
+        <% listChallenges.forEach(function(challenge) { %>
+          <div class="challenge-card">
+            <img src="<%= challenge.picture %>" alt="<%= challenge.name %>">
+            <div class="challenge-name"><%= challenge.name %></div>
+            <div class="challenge-description"><%= challenge.description %></div>
+            <div class="challenge-date">Date de sortie : <%= challenge.release_date.toLocaleDateString() %></div>
+            <a href="/challenges/<%= challenge.id %>">Voir le challenge</a>
+          </div>
+        <% }) %>
+      <% } else { %>
+        <div>Aucun challenge trouvé.</div>
+      <% } %>
+    </div>
+
+    <div class="pagination">
+      &lt;123&gt;
+    </div>
+  </div>
+</body>
+
+<%- include('partials/aside_nav.ejs') %>
+<%- include('partials/footer.ejs') %>
