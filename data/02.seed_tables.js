@@ -20,6 +20,11 @@ const user3 = await User.create({
     email: "charlie@example.com",
     password: await argon2.hash("password3")
 });
+const user4 = await User.create({
+    username: "david",
+    email: "david@example.com",
+    password: await argon2.hash("password4")
+});
 
 // Création des jeux
 const game1 = await Game.create({
@@ -51,6 +56,7 @@ const challenge1 = await Challenge.create({
     picture: "http://example.com/defi1.jpg",
     release_date: new Date(),
     game_id: game1.id,
+    user_id: user1.id,
     username: user1.username
 });
 const challenge2 = await Challenge.create({
@@ -59,6 +65,7 @@ const challenge2 = await Challenge.create({
     picture: "http://example.com/defi2.jpg",
     release_date: new Date(),
     game_id: game2.id,
+    user_id: user1.id,
     username: user2.username
 });
 const challenge3 = await Challenge.create({
@@ -67,6 +74,16 @@ const challenge3 = await Challenge.create({
     picture: "http://example.com/defi3.jpg",
     release_date: new Date(),
     game_id: game3.id,
+    user_id: user1.id,
+    username: user3.username
+});
+const challenge4 = await Challenge.create({
+    name: "Défi 4",
+    description: "Description du Défi 4",
+    picture: "http://example.com/defi4.jpg",
+    release_date: new Date(),
+    game_id: game3.id,
+    user_id: user1.id,
     username: user3.username
 });
 
@@ -89,6 +106,14 @@ const participation3 = await Participation.create({
     challenge_id: challenge3.id,
     url: "http://example.com/participation3.jpg"
 });
+
+
+// add vote to challenge
+await user2.addVoted_challenges(challenge2);
+await user3.addVoted_challenges([challenge2, challenge3]);
+await user1.addVoted_challenges([challenge1, challenge2, challenge3]);
+await user4.addVoted_challenges(challenge2);
+
 
 console.log("✅ Insertion des données de seed terminée");
 await sequelize.close();

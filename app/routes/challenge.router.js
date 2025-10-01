@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { ChallengeController } from "../controllers/index.js";
+import { LadderController } from "../controllers/index.js";
 import { checkId } from "../middlewares/checkId.middleware.js";
 
 // Créer une instance de routeur pour les routes de challenges
@@ -19,3 +20,6 @@ challengeRouter.post('/challenges/:id/delete', checkId, ChallengeController.dele
 
 // Route pour mettre à jour un challenge par son id, avec vérification de l'id
 challengeRouter.post('/challenges/:id/edit', checkId, ChallengeController.editChallenge);
+
+// Route pour afficher le ladder des top challenges
+challengeRouter.get('/top-challenges', LadderController.getTopChallenges);
