@@ -26,7 +26,7 @@ class LadderController extends CoreController {
             subQuery: false
         });
 
-        res.render('ladder_challenges', { challenges: topChallenges });
+        res.render('ladder', { challenges: topChallenges });
     }
 
     // On récupère les votes pour les Users
@@ -34,24 +34,24 @@ class LadderController extends CoreController {
         const topUsers = await User.findAll({
             include: [{
                 model: Challenge,
-                as: 'challenges',
+                as: 'voted_challenges',
                 attributes: [], // On ne veut pas les attributs des users, juste le compte
                 through: { attributes: [] } // On ne veut pas les attributs de la table de jointure
             }],
             attributes: [
                 'id',
                 'username',
-                [sequelize.fn('COUNT', sequelize.col('challenge->challenge_voters.id')), 'voteCount']
+                [sequelize.fn('COUNT', sequelize.col('voted_challenges.id')), 'voteCount']
                 // ⚠️ mets bien "challenge_voters.id" (clé primaire du user),
                 // et pas "challenge_voters.user_id", car Sequelize gère l'alias différemment
             ],
-            group: ['user.id'],
+            group: ['User.id'],
             order: [[sequelize.col('voteCount'), 'DESC']],
-            limit: 3,
-            subQuery: false
+            subQuery: false,
+            raw: true
         });
 
-        res.render('ladder_users', { users: topUsers });
+        res.render('ladder', { users: topUsers });
     }
 }
 

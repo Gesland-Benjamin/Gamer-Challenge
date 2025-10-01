@@ -1,0 +1,40 @@
+<!-- Header -->
+<%- include('partials/header.ejs') %>
+
+    <!-- Contenu principal -->
+    <main class="main">
+        <h1>CLASSEMENT</h1>
+        <h2>TOP 3 USERS</h2>
+
+        <ol class="main__podium">
+            <% if (users.length > 0) { %>
+              <li class="podium__topUser1">
+                <strong class="topUser1__name"><%= users[0]?.username %> 🥇</strong>
+                <p class="topUser1__vote"><%= users[0]?.voteCount %> ❤️</p>
+              </li>
+            <% } %>
+          
+            <% if (users.length > 1) { %>
+              <li class="podium__topUser2">
+                <strong class="topUser2__name"><%= users[1]?.username %> 🥈</strong>
+                <p class="topUser2__vote"><%= users[1]?.voteCount %> ❤️</p>
+              </li>
+            <% } %>
+          
+            <% if (users.length > 2) { %>
+              <li class="podium__topUser3">
+                <strong class="topUser3__name"><%= users[2]?.username %> 🥉</strong>
+                <p class="topUser3__vote"><%= users[2]?.voteCount %> ❤️</p>
+              </li>
+            <% } %>
+        </ol>
+
+        <div class="main__congrats">
+            <p>BRAVO à , , qui sont dans le top 3 actuellement !</p>
+        </div>
+
+        <a href="#" class="main__challengesLink">CHALLENGES</a>
+    </main>
+
+<!-- Footer -->
+<%- include('partials/footer.ejs') %>
