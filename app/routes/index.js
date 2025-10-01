@@ -7,7 +7,7 @@ import { authRouter } from "./auth.router.js";
 export const mainRouter = Router();
 
 mainRouter.get('/', (req,res) => {
-    res.send("Page d'accueil !")
+    res.send("Bienvenue sur la page d'accueil !")
 })
 
  mainRouter.use(gameRouter);
