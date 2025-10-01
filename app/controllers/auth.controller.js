@@ -38,7 +38,7 @@ class AuthController extends CoreController {
   async login(req, res) {
     const { username , mail, password } = Joi.attempt(req.body, authSchema);
     const user = await User.findOne({
-      where: { [Op.or]: [{ username }, { mail }] }
+      where: { [Op.or]: [{ username : login }, { mail : login }] }
     });
 
     if (!user) {
