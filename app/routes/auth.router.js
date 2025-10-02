@@ -2,18 +2,21 @@
 import { Router } from "express";
 // Importe le contrôleur des jeux
 import { AuthController } from "../controllers/index.js";
+import { onlyGuest } from "../middlewares/auth.middleware.js";
+// Importe le middleware pour les utilisateurs authentifiés
+import { onlyAuthenticated } from "../middlewares/auth.middleware.js";
 
 // Crée une instance de routeur pour l'authentification&'
 export const authRouter = Router();
 
-authRouter.get('/register', AuthController.showRegisterPage);
+authRouter.get('/register', onlyGuest, AuthController.showRegisterPage);
 
-authRouter.post('/register', AuthController.register);
+authRouter.post('/register', onlyGuest, AuthController.register);
 
-authRouter.get('/login', AuthController.showLoginPage);
+authRouter.get('/login', onlyGuest, AuthController.showLoginPage);
 
-authRouter.post('/login', AuthController.login);
+authRouter.post('/login', onlyGuest, AuthController.login);
 
-authRouter.get('/me', AuthController.getMe);
+authRouter.get('/me', onlyAuthenticated, AuthController.getMe);
 
 authRouter.post('/logout', AuthController.logout);

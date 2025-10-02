@@ -62,6 +62,7 @@ class AuthController extends CoreController {
     res.redirect("/");
     
   }
+
   async getMe(req, res) {
     // Vérifier si l’utilisateur est en session
     if (!req.session.user) {
@@ -77,17 +78,14 @@ class AuthController extends CoreController {
     //a changer avec la view mon compte
     res.status(200).render("user", { user }); 
   };
+
   async logout(req, res) {
-    req.session.destroy((err) => {
-      if (err) {
-        return this.render500(req, res);
-      }
-      res.clearCookie("connect.sid"); // supprime le cookie côté client
-      res.redirect("/login", { message: "Déconnexion réussie" });
-    }); 
+    req.session.destroy();
+    res.redirect('/');
   };
 
 };
 
 export default new AuthController();
+
 
