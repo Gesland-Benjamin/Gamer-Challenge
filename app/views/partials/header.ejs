@@ -1,20 +1,39 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GamerChallenge - Home</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.1.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.1.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="/css/home.css">
 </head>
 
 <body>
-      <!-- Header -->
-  <header>
-      <nav class="header__menu">
-          <a href="#">Jeux</a>
-          <a href="#">Challenges</a>
-          <a href="#">Classement</a>
-          <a href="#">Insciption / Connexion</a>
-      </nav>
-  </header>
+    <!-- Header -->
+    <header>
+        <nav class="header__menu">
+            <a href="/games">Jeux</a>
+            <a href="/challenges">Challenges</a>
+            <a href="/ladder">Classement</a>
+            <% if (session && session.user) { %>
+                <a href="/">
+                    <img src="<%= session.user.avatar %>" alt="avatar" width="30" height="30" style="border-radius:50%">
+                    Mon compte
+                </a>
+                <form method="post" action="/logout">
+                    
+                            <button
+                                class="inline-flex items-center rounded-lg bg-primary px-3 py-1.5 text-white text-xs sm:text-sm lg:text-xl font-medium hover:bg-primary/90">
+                                Se déconnecter
+                            </button>
+                        </form>
+                <% } else { %>
+                    <a href="/register">Inscription / Connexion</a>
+                    <% } %>
+                        
+        </nav>
+    </header>
+

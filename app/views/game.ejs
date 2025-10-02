@@ -1,1 +1,41 @@
-<h1><%= game.name %></h1>
+<%- include('partials/header') %>
+<%- include('partials/aside_nav') %>
+
+<main class="game-page-main" role="main">
+  <section class="game-header" aria-label="Présentation du jeu">
+    <div class="game-cover-wrapper">
+      <img src="<%= game.cover %>" alt="<%= game.title %>" class="game-cover" />
+    </div>
+
+    <div class="game-info">
+      <h2 id="game-title" class="game-title"><%= game.title %></h2>
+
+      <p class="game-description">
+        <%= game.description %>
+      </p>
+
+      <p class="game-meta" aria-hidden="false">
+        <strong><%= game.year %></strong> &ndash; <%= game.genre %>
+      </p>
+    </div>
+
+  <% if (game.challenges && game.challenges.length) { %>
+  <% game.challenges.forEach(function(challenge) { %>
+    <div class="challenge">
+      <h2>
+        <a href="/challenges/<%= challenge.id %>">
+          <%= challenge.name %>
+        </a>
+      </h2>
+      <p>Votes: <%= challenge.dataValues.voteCount %></p>
+    </div>
+  <% }); %>
+<% } else { %>
+  <p>Aucun challenge disponible.</p>
+<% } %>
+    
+
+  </ul>
+</section>
+
+  <%- include('partials/footer') %>

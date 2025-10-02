@@ -1,22 +1,11 @@
+
 <%- include('partials/header.ejs') %>
+<%- include('partials/aside_nav') %>
 
   <!-- Contenu principal -->
   <main>
     <h1>Gamer Challenges</h1>
     <h2>Vous êtes prêts ? A vous de jouer !</h2>
-
-    <aside>
-      <nav class="main__navside">
-          <h4>Mon Compte</h4>
-
-          <a href="#">MES INFORMATIONS</a>
-          <a href="#">MES CHALLENGES</a>
-
-          <a href="#">A PROPOS</a>
-          <a href="#">NOUS CONTACTER</a>
-          <i class="fa-solid fa-address-book"></i>
-      </nav>
-    </aside>
 
     <h3>Top 3 Challenges</h3>
     <div class="main__topchallenge1"></div>
@@ -26,13 +15,11 @@
     <button>VOIR PLUS</button>
   </main>
 
-  <%- include('partials/footer.ejs') %>
-
-<!-- 
   <% challenges.forEach(function(challenge) { %>
     <div class="challenge">
         <h2><%= challenge.name %></h2>
         <p>Votes: <%= challenge.dataValues.voteCount %></p>
     </div>
   <% }); %>
--->
+
+  <%- include('partials/footer.ejs') %>

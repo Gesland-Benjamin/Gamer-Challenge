@@ -2,9 +2,9 @@ import { DataTypes, Model } from "sequelize"; // nécessaires pour créer les mo
 import { sequelize } from "./sequelize.client.js"; // correspond à la BDDexport class Game extends Model {}
 
 
-export class Participation extends Model {}
+export class VideoSubmit extends Model {}
 
-Participation.init(
+VideoSubmit.init(
 
     //Définition des attributs du model 
     // Ils correspondront au champ des tables
@@ -22,7 +22,7 @@ Participation.init(
 
     {
         sequelize, // On indique que les informations de connexion
-        modelName: "Participation", // On indique le nom du model
-        tableName: "participation" // On indique le nom de la table dans la BDD.
+        modelName: "VideoSubmit", // On indique le nom du model
+        tableName: "videosubmit" // On indique le nom de la table dans la BDD.
     }
 );

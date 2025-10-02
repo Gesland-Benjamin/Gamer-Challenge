@@ -3,6 +3,7 @@ import Joi from "joi";
 import { CoreController } from "./core.controller.js";
 import { User } from "../models/index.js";
 import { registerSchema, authSchema  } from "../schemas/auth.schema.js";
+import { Op } from "sequelize";
 
 class AuthController extends CoreController {
   
@@ -12,7 +13,7 @@ class AuthController extends CoreController {
 
   async register(req, res) {
 
-    const { username, mail, password } = Joi.attempt(req.body, registerSchema);
+    const { username, mail, password, privacy } = Joi.attempt(req.body, registerSchema);
     const isUserExists = await User.findOne({ where: { username } });
 
     if (isUserExists) {
@@ -24,10 +25,11 @@ class AuthController extends CoreController {
     const newUser = await User.create({
       username,
       mail,
-      password: hashedPassword
+      password: hashedPassword,
+      privacy,
     });
 
-    res.status(201).redirect("/", { newUser });
+    res.status(201).redirect("/");
     
   };
   
@@ -36,9 +38,9 @@ class AuthController extends CoreController {
   };
 
   async login(req, res) {
-    const { username , mail, password } = Joi.attempt(req.body, authSchema);
+    const { login, password } = Joi.attempt(req.body, authSchema);
     const user = await User.findOne({
-      where: { [Op.or]: [{ username }, { mail }] }
+      where: { [Op.or]: [{ username : login }, { mail : login }] }
     });
 
     if (!user) {
@@ -60,6 +62,7 @@ class AuthController extends CoreController {
     res.redirect("/");
     
   }
+
   async getMe(req, res) {
     // Vérifier si l’utilisateur est en session
     if (!req.session.user) {
@@ -75,17 +78,14 @@ class AuthController extends CoreController {
     //a changer avec la view mon compte
     res.status(200).render("user", { user }); 
   };
+
   async logout(req, res) {
-    req.session.destroy((err) => {
-      if (err) {
-        return this.render500(req, res);
-      }
-      res.clearCookie("connect.sid"); // supprime le cookie côté client
-      res.redirect("/login", { message: "Déconnexion réussie" });
-    }); 
+    req.session.destroy();
+    res.redirect('/');
   };
 
 };
 
 export default new AuthController();
+
 

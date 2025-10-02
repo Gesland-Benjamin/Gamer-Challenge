@@ -7,7 +7,6 @@ import Joi from "joi";
 class ChallengeController extends CoreController {
 
     challengesListPage = async (req, res) => {
-        console.log(this);
 
         try {
             const listChallenges = await Challenge.findAll();
@@ -83,6 +82,8 @@ class ChallengeController extends CoreController {
             if (!challenge) {
                 return this.render404(req, res);
             }
+
+            // Vérification de l'id de l'utilisateur dans req.session
 
             const data = Joi.attempt(req.body, editChallengeSchema);
 

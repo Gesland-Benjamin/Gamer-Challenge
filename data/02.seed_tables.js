@@ -1,4 +1,4 @@
-import { User, Challenge, Participation, Game, sequelize } from "../app/models/index.js";
+import { User, Challenge, VideoSubmit, Game, sequelize } from "../app/models/index.js";
 import argon2 from "argon2";
 
 console.log("🚧 Insertion des données de seed dans les tables");
@@ -88,23 +88,23 @@ const challenge4 = await Challenge.create({
 });
 
 // Création des participations
-const participation1 = await Participation.create({
-    title: "Participation 1",
+const VideoSubmit1 = await VideoSubmit.create({
+    title: "video 1",
     user_id: user1.id,
     challenge_id: challenge1.id,
-    url: "http://example.com/participation1.jpg"
+    url: "http://example.com/video1.jpg"
 });
-const participation2 = await Participation.create({
-    title: "Participation 2",
+const VideoSubmit2 = await VideoSubmit.create({
+    title: "video 2",
     user_id: user2.id,
     challenge_id: challenge2.id,
-    url: "http://example.com/participation2.jpg"
+    url: "http://example.com/video2.jpg"
 });
-const participation3 = await Participation.create({
-    title: "Participation 3",
+const VideoSubmit3 = await VideoSubmit.create({
+    title: "video 3",
     user_id: user3.id,
     challenge_id: challenge3.id,
-    url: "http://example.com/participation3.jpg"
+    url: "http://example.com/video3.jpg"
 });
 
 
