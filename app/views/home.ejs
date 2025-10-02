@@ -1,4 +1,5 @@
-<%- include('partials/header') %>
+
+<%- include('partials/header.ejs') %>
 <%- include('partials/aside_nav') %>
 
   <!-- Contenu principal -->
@@ -14,4 +15,11 @@
     <button>VOIR PLUS</button>
   </main>
 
-  <%- include('partials/footer') %>
+  <% challenges.forEach(function(challenge) { %>
+    <div class="challenge">
+        <h2><%= challenge.name %></h2>
+        <p>Votes: <%= challenge.dataValues.voteCount %></p>
+    </div>
+  <% }); %>
+
+  <%- include('partials/footer.ejs') %>

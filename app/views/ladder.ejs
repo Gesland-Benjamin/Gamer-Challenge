@@ -1,7 +1,62 @@
-<% challenges.forEach(function(challenge) { %>
-    <div class="challenge">
-        <h2><%= challenge.name %></h2>
-        <p>Votes: <%= challenge.dataValues.voteCount %></p>
-    </div>
-<% }); %>
+<%- include('partials/header.ejs') %>
+
+    <!-- Contenu principal -->
+    <main class="main">
+        <h1>CLASSEMENT</h1>
+        <h2>TOP 3 USERS</h2>
+
+
+        <img src="<%= image.ref  %>" alt="">
+
+        <table class="main__podium">
+          <tbody>
+            <% users.forEach((user, index) => { %>
+              <tr class="podium__topUser1">
+                <td class="topUser1__image">
+                  <img src="<%= user.picture %>" alt="photo de profil de <%= user.username %>">
+                </td>
+                <td class="topUser1__name">
+                  1 - <%= users[0]?.username %> 🥇
+                </td>
+                <td class="topUser1__likes">
+                  <%= users[0]?.voteCount %> ❤️
+                </td>
+              </tr>
+
+              <tr>
+                <td class="podiumtopUser2__image">
+                  <img src="<%= user.picture %>" alt="photo de profil de <%= user.username %>">
+                </td>
+                <td class="topUser2__name">
+                  2 - <%= users[1]?.username %> 🥈
+                </td>
+                <td class="topUser2__likes">
+                  <%= users[1]?.voteCount %> ❤️
+                </td>
+              </tr>
+
+              <tr>
+                <td class="podiumtopUser3__image">
+                  <img src="<%= user.picture %>" alt="photo de profil de <%= user.username %>">
+                </td>
+                <td class="topUser3__name">
+                  3 - <%= users[2]?.username %> 🥉
+                </td>
+                <td class="topUser3__likes">
+                  <%= users[2]?.voteCount %> ❤️
+                </td>
+              </tr>
+            <% }) %>
+          </tbody>
+        </table>
+
+        <div class="main__congrats">
+            <p>BRAVO à <%= users[0]?.username %> 🥇, <%= users[1]?.username %> 🥈 et <%= users[2]?.username %> 🥉 qui sont dans le top 3 actuellement !</p>
+        </div>
+
+        <a href="#" class="main__challengesLink">CHALLENGES</a>
+    </main>
+
+<!-- Footer -->
+<%- include('partials/footer.ejs') %>
 

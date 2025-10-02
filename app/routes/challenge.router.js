@@ -3,6 +3,7 @@ import { ChallengeController } from "../controllers/index.js";
 import { LadderController } from "../controllers/index.js";
 import { checkId } from "../middlewares/checkId.middleware.js";
 
+
 // Créer une instance de routeur pour les routes de challenges
 export const challengeRouter = Router();
 
@@ -23,3 +24,6 @@ challengeRouter.post('/challenges/:id/edit', checkId, ChallengeController.editCh
 
 // Route pour afficher le ladder des top challenges
 challengeRouter.get('/top-challenges', LadderController.getTopChallenges);
+
+// Route pour afficher le ladder des top users
+challengeRouter.get('/top-users', LadderController.getTopUsers);
