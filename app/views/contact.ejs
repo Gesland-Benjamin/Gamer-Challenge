@@ -2,24 +2,53 @@
 <%- include('partials/aside_nav.ejs') %>
 
 <main>
-  <h2>Contactez-nous</h2>
-  <form action="/contact" method="POST">
-    <label for="name">Nom:</label>
-    <input type="text" id="name" name="name" placeholder="Votre nom" required>
+  <div>
+    <h2>Contactez-nous</h2>
+    <div>
+      <form id="contact-form" class="contact-form" action="/contact" method="POST">
+      <label for="name">Nom:</label>
+      <input type="text" id="name" name="user_name" class="contact-input" placeholder="Votre nom" required>
 
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" placeholder="Votre email" required>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="user_email" class="contact-input" placeholder="Votre email" required>
 
-    <label for="message">Message:</label>
-    <textarea id="message" name="message" placeholder="Votre message" required></textarea>
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" class="contact-textarea" placeholder="Votre message" required></textarea>
 
-    <label for="privacy">
-      <input type="checkbox" id="privacy" name="privacy" required>
-      J'ai pris connaissance et j'accepte la politique de confidentialité
-    </label>
+      <label for="privacy" class="contact-privacy">
+        <input type="checkbox" id="privacy" name="privacy" required>
+        J'ai pris connaissance et j'accepte la politique de confidentialité
+      </label>
 
-    <button type="submit">Envoyer</button>
-  </form>
+      <button type="submit" class="contact-submit">Envoyer</button>
+    </form>
+    </div>
+    <div id="status-message" class="status-message"></div>
+  </div>
 </main>
 
 <%- include('partials/footer.ejs') %>
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  // Initialisation EmailJS avec ta Public Key
+  emailjs.init("CG6FK3jA7MCh__qUR"); 
+
+  const form = document.querySelector(".contact-form");
+  const statusMessage = document.querySelector(".status-message");
+
+  form.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    // Envoi du formulaire à EmailJS (ignore la checkbox privacy)
+    emailjs.sendForm("service_9plrbor", "template_4aowbu4", this)
+      .then(function() {
+        statusMessage.textContent = "Message envoyé avec succès ! 🎉";
+        statusMessage.style.color = "#9754EF";
+        form.reset();
+      }, function(error) {
+        statusMessage.textContent = "Erreur, le message n'a pas pu être envoyé.";
+        statusMessage.style.color = "red";
+        console.log(error);
+      });
+  });
+</script>
