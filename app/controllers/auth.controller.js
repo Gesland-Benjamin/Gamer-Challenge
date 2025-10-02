@@ -3,6 +3,7 @@ import Joi from "joi";
 import { CoreController } from "./core.controller.js";
 import { User } from "../models/index.js";
 import { registerSchema, authSchema  } from "../schemas/auth.schema.js";
+import { Op } from "sequelize";
 
 class AuthController extends CoreController {
   
@@ -12,7 +13,7 @@ class AuthController extends CoreController {
 
   async register(req, res) {
 
-    const { username, mail, password } = Joi.attempt(req.body, registerSchema);
+    const { username, mail, password, privacy } = Joi.attempt(req.body, registerSchema);
     const isUserExists = await User.findOne({ where: { username } });
 
     if (isUserExists) {
@@ -24,10 +25,11 @@ class AuthController extends CoreController {
     const newUser = await User.create({
       username,
       mail,
-      password: hashedPassword
+      password: hashedPassword,
+      privacy,
     });
 
-    res.status(201).redirect("/", { newUser });
+    res.status(201).redirect("/");
     
   };
   
@@ -36,7 +38,7 @@ class AuthController extends CoreController {
   };
 
   async login(req, res) {
-    const { username , mail, password } = Joi.attempt(req.body, authSchema);
+    const { login, password } = Joi.attempt(req.body, authSchema);
     const user = await User.findOne({
       where: { [Op.or]: [{ username : login }, { mail : login }] }
     });
