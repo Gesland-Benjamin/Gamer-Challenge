@@ -6,23 +6,23 @@ console.log("🚧 Insertion des données de seed dans les tables");
 // Création des utilisateurs
 const user1 = await User.create({
     username: "alice",
-    email: "alice@example.com",
+    mail: "alice@example.com",
     password: await argon2.hash("password1"),
     role: "admin"
 });
 const user2 = await User.create({
     username: "bob",
-    email: "bob@example.com",
+    mail: "bob@example.com",
     password: await argon2.hash("password2")
 });
 const user3 = await User.create({
     username: "charlie",
-    email: "charlie@example.com",
+    mail: "charlie@example.com",
     password: await argon2.hash("password3")
 });
 const user4 = await User.create({
     username: "david",
-    email: "david@example.com",
+    mail: "david@example.com",
     password: await argon2.hash("password4")
 });
 
