@@ -1,8 +1,7 @@
 import { User } from "./user.model.js";
 import { Game } from "./game.model.js";
 import { Challenge } from "./challenge.model.js";
-import { Participation } from "./participation.model.js";
-
+import { VideoSubmit } from "./video_submit.model.js";
 import { sequelize } from "./sequelize.client.js";
 
 // Définition des relations entre les modèles
@@ -48,17 +47,6 @@ User.belongsToMany(Challenge, {
     as: "voted_challenges"
 });
 
-// Déclare une relation Many-to-Many entre Participation et User via la table de jointure "vote_participation".
-// Cela permet de savoir quels utilisateurs ont voté pour une participation donnée.
-// La clé étrangère "participation_id" relie la participation à la table de jointure.
-// L'alias "participation_voters" permet d'accéder à la liste des utilisateurs ayant voté pour une participation.
-Participation.belongsToMany(User, {
-    through: "vote_participation",
-    foreignKey: "participation_id",
-    otherKey: "user_id",
-    as: "participation_voters"
-});
-
 // Déclare une relation Many-to-Many entre Challenge et User via la table de jointure "vote_challenge".
 // Cela permet de savoir quels utilisateurs ont voté pour un défi donné.
 // La clé étrangère "challenge_id" relie le défi à la table de jointure.
@@ -70,11 +58,61 @@ Challenge.belongsToMany(User, {
     as: "challenge_voters"
 });
 
+// Relation Many-to-Many entre VideoSubmit et User via la table de jointure "vote_video".
+// -> Un utilisateur peut voter pour plusieurs vidéos.
+// -> Une vidéo peut recevoir des votes de plusieurs utilisateurs.
+// "foreignKey: video_id" : clé qui relie une vidéo à la table de jointure.
+// "otherKey: user_id" : clé qui relie un utilisateur à la table de jointure.
+// "as: video_voters" : permet d’accéder à la liste des utilisateurs ayant voté pour une vidéo.
+VideoSubmit.belongsToMany(User, {
+    through: "vote_video",
+    foreignKey: "video_id",
+    otherKey: "user_id",
+    as: "video_voters"
+});
+
+// Relation Many-to-Many entre User et VideoSubmit via la table de jointure "vote_video".
+// -> Permet de savoir pour quelles vidéos un utilisateur a voté.
+// "foreignKey: user_id" : clé qui relie un utilisateur à la table de jointure.
+// "otherKey: video_id" : clé qui relie une vidéo à la table de jointure.
+// "as: voted_videos" : permet d’accéder à la liste des vidéos votées par un utilisateur.
+User.belongsToMany(VideoSubmit, {
+    through: "vote_video",
+    foreignKey: "user_id",
+    otherKey: "video_id",
+    as: "voted_videos"
+});
+
+// Déclare qu'un défi (Challenge) peut avoir plusieurs vidéos (VideoSubmit).
+Challenge.hasMany(VideoSubmit, {
+    foreignKey: "challenge_id",
+    as: "videos"
+});
+
+// Déclare qu'une vidéo (VideoSubmit) appartient à un défi (Challenge).
+VideoSubmit.belongsTo(Challenge, {
+    foreignKey: "challenge_id",
+    as: "challenge"
+});
+
+// Déclare qu'un utilisateur (User) peut avoir plusieurs vidéos (VideoSubmit).
+User.hasMany(VideoSubmit, {
+    foreignKey: "user_id",
+    as: "videos"
+});
+
+// Déclare qu'une vidéo (VideoSubmit) appartient à un utilisateur (User).
+VideoSubmit.belongsTo(User, {
+    foreignKey: "user_id",
+    as: "user"
+}); 
+
+
 export {
     User,
     Game,
     Challenge,
-    Participation,
+    VideoSubmit,
     sequelize
 };
 
