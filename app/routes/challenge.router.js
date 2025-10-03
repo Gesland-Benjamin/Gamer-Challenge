@@ -2,6 +2,8 @@ import { Router } from "express";
 import { ChallengeController } from "../controllers/index.js";
 import { LadderController } from "../controllers/index.js";
 import { checkId } from "../middlewares/checkId.middleware.js";
+import { onlyAuthenticated, onlyGuest } from "../middlewares/auth.middleware.js";
+import { Challenge } from "../models/challenge.model.js";
 
 
 // Créer une instance de routeur pour les routes de challenges
@@ -12,6 +14,8 @@ challengeRouter.get('/challenges', ChallengeController.challengesListPage);
 
 // Route pour récupérer un challenge par son id, avec vérification de l'id
 challengeRouter.get('/challenges/:id', checkId, ChallengeController.challengeDetailsPage);
+
+challengeRouter.get('/challenge-pagination', ChallengeController.challengesSinglePage);
 
 // Route pour ajouter un nouveau challenge
 challengeRouter.post('/challenges', ChallengeController.addNewChallenge);
@@ -27,3 +31,7 @@ challengeRouter.get('/top-challenges', LadderController.getTopChallenges);
 
 // Route pour afficher le ladder des top users
 challengeRouter.get('/ladder', LadderController.getTopUsers);
+
+// Route pour afficher les challenges de l'utilisateur sur son compte 
+challengeRouter.get('/mychallenges', onlyAuthenticated, ChallengeController.getUserVideos)
+

@@ -6,6 +6,7 @@ import { onlyGuest } from "../middlewares/auth.middleware.js";
 // Importe le middleware pour les utilisateurs authentifiés
 import { onlyAuthenticated } from "../middlewares/auth.middleware.js";
 
+
 // Crée une instance de routeur pour l'authentification&'
 export const authRouter = Router();
 

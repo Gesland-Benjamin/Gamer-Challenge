@@ -1,23 +1,41 @@
 // Importe le modèle Game depuis les modèles
-import { Challenge } from "../models/index.js";
+import { Challenge, VideoSubmit, User } from "../models/index.js";
 import { CoreController } from "./core.controller.js";
 import { createChallengeSchema, editChallengeSchema } from "../schemas/index.js";
 import Joi from "joi";
 
 class ChallengeController extends CoreController {
 
-    challengesListPage = async (req, res) => {
+// Méthode pour afficher la liste paginée des challenges
+challengesListPage = async (req, res) => {
+    try {
+        // Récupère le numéro de page depuis la requête, ou 1 par défaut
+        const page = parseInt(req.query.page) || 1;
 
-        try {
-            const listChallenges = await Challenge.findAll();
+        // Définit le nombre de challenges à afficher par page
+        const limit = 9;
 
-            res.status(200).render("challenges", { listChallenges });
+        // Calcule l'offset pour la requête SQL (combien d'éléments ignorer)
+        const offset = (page - 1) * limit;
 
-        } catch (error) {
-            console.error(error);
-            res.status(404).render("error", { error });
-        }
-    };
+        // Récupère les challenges paginés et le nombre total d'éléments
+        const { count, rows: listChallenges } = await Challenge.findAndCountAll({
+            limit, // nombre d'éléments à récupérer
+            offset, // nombre d'éléments à ignorer
+            order: [["release_date", "DESC"]], // tri par date de sortie décroissante
+        });
+
+        // Calcule le nombre total de pages
+        const totalPages = Math.ceil(count / limit);
+
+        // Rend la vue "challenges" en passant les challenges, la page courante et le nombre total de pages
+        res.status(200).render("challenges", { listChallenges, page, totalPages });
+    } catch (error) {
+        // En cas d'erreur, affiche la page d'erreur
+        console.error(error);
+        res.status(404).render("error", { error });
+    }
+};
 
     challengeDetailsPage = async (req, res, next) => {
         try {
@@ -30,13 +48,39 @@ class ChallengeController extends CoreController {
                 return this.render404(req, res);
             }
 
-            res.render("challenge", { challenge });
+            res.render("challenge", { challenge, page: 1, totalPages: 1 });
         }
         catch (error) {
             console.error(error);
             res.status(404).render("error", { error });
         }
     };
+    challengesSinglePage = async (req, res) => {
+    try {
+        const page = parseInt(req.query.page) || 1;
+        const limit = 1;
+        const offset = (page - 1) * limit;
+
+        // Récupère le challenge courant et le nombre total de challenges
+        const { count, rows } = await Challenge.findAndCountAll({
+            limit,
+            offset,
+            order: [["release_date", "DESC"]],
+            include: [
+                { model: User, as: "user" },
+                { model: Participation, as: "participations" }
+            ]
+        });
+
+        const challenge = rows[0];
+        const totalPages = Math.ceil(count / limit);
+
+        res.render("challenge", { challenge, page, totalPages });
+    } catch (error) {
+        console.error(error);
+        res.status(404).render("error", { error });
+    }
+};
 
     addNewChallenge = async (req, res) => {
         try {
@@ -95,7 +139,37 @@ class ChallengeController extends CoreController {
             console.error(error);
             res.status(400).render("error", { error });
         }
-    }
+    };
+
+    getUserVideos = async (req, res) => {
+        try {
+
+            // On récupère l'id de l'utilisateur connecté
+            const { id } = req.session.user;
+
+            // On récupère les vidéos de cet utilisateur avec l'id récupéré
+            const user = await User.findByPk(id, {
+                include: [{
+                    model: VideoSubmit,
+                    as: "videos", // Utilise l'alias défini dans l'association
+                    attributes: ['title', 'url'], 
+                }],
+            });
+
+            // Si l'utilisateur recherché n'existe pas, on renvoie un message d'erreur
+            if (!user) {
+                return this.render404(req, res);
+            }
+
+            // On renvoie dans la view les vidéos et le username
+            res.status(200).render('mychallenges', { videos: user.videos, username: user.username });
+
+        } catch (error) {
+            console.error(error);
+            res.status(400).render("error", { error: "Une erreur est survenue lors de la récupération des vidéos." });
+        }
+    };
+
 }
 
 export default new ChallengeController();

@@ -1,0 +1,65 @@
+<%- include('partials/header') %>
+<%- include('partials/aside_nav') %>
+
+<section class="account">
+    <h1>Mon compte</h1>
+    <p> 
+        Bienvenue sur votre page de profil, <%= user.username %> !
+        Ici, vous pouvez gérer vos informations personnelles, consulter vos participations aux défis et suivre
+        vos progrès dans la communauté GamerChallenges.
+    </p>
+    <form action="/me" method="post">
+        <legend>Mon compte</legend>
+        <fieldset>
+            <div class="field_form_container">
+                <label for="username">Pseudo</label>
+                <input type="text" name="username" class="input_content">
+                <i class="fa-regular fa-square-check"></i>
+            </div>
+            <div class="field_form_container">
+                <label for="mail">Adresse mail</label>
+                <input type="email" name="mail" class="input_content">
+                <i class="fa-regular fa-square-check"></i>
+            </div>
+            <div class="field_form_container">
+                <label for="password">Mot de passe</label>
+                <input type="password" name="password" class="input_content">
+                <i class="fa-regular fa-square-check"></i>
+            </div>
+            <div class="field_form_container">
+                <label for="favoriteGame">Jeu préféré</label>
+                <input type="text" name="favoriteGame" class="input_content">
+                <i class="fa-regular fa-square-check"></i>
+            </div>
+            <div class="socials">
+                <label for="">Réseaux sociaux</label>
+                <div class="socials_form_container">
+                    <div class="field_form_container">
+                        <input type="url" name="x" class="input_content" placeholder="https://x.com/votrepseudo" value="<%= user.socials ? user.socials.twitter : '' %>">
+                        <i class="fa-regular fa-square-check"></i>
+                    </div>
+                    <div class="field_form_container">
+                        <input type="url" name="instagram" class="input_content" placeholder="https://instagram.com/votrepseudo" value="<%= user.socials ? user.socials.instagram : '' %>">
+                        <i class="fa-regular fa-square-check"></i>
+                    </div>
+                    <div class="field_form_container">
+                        <input type="url" name="twitch" class="input_content" placeholder="https://twitch.tv/votrepseudo" value="<%= user.socials ? user.socials.twitch : '' %>">
+                        <i class="fa-regular fa-square-check"></i>
+                    </div>
+                    <div class="field_form_container">
+                        <input type="url" name="youtube" class="input_content" placeholder="https://youtube.com/votrepseudo" value="<%= user.socials ? user.socials.youtube : '' %>">
+                        <i class="fa-regular fa-square-check"></i>
+                    </div>
+                    <div class="field_form_container">
+                        <input type="text" name="discord" class="input_content" placeholder="Votre pseudo Discord#1234" value="<%= user.socials ? user.socials.discord : '' %>">
+                        <i class="fa-regular fa-square-check"></i>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn_submit">Modifier mes informations</button>
+        </fieldset>
+    </form>
+    <button>Retour à l'accueil</button>
+</section>
+
+<%- include('partials/footer') %>

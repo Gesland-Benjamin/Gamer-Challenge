@@ -21,9 +21,16 @@
     </div>
 
     <div class="pagination">
-      &lt;123&gt;
-    </div>
-  </div>
+  <% if (totalPages > 1) { %>
+    <% for (let i = 1; i <= totalPages; i++) { %>
+      <% if (i === page) { %>
+        <span><%= i %></span>
+      <% } else { %>
+        <a href="/challenges?page=<%= i %>"><%= i %></a>
+      <% } %>
+    <% } %>
+  <% } %>
+</div>
 </body>
 
 <%- include('partials/aside_nav.ejs') %>

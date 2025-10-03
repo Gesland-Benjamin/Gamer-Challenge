@@ -115,7 +115,7 @@ const challenge2 = await Challenge.create({
     picture: "http://example.com/defi2.jpg",
     release_date: new Date(),
     game_id: game2.id,
-    user_id: user1.id,
+    user_id: user2.id,
     username: user2.username
 });
 const challenge3 = await Challenge.create({
@@ -124,7 +124,7 @@ const challenge3 = await Challenge.create({
     picture: "http://example.com/defi3.jpg",
     release_date: new Date(),
     game_id: game3.id,
-    user_id: user1.id,
+    user_id: user3.id,
     username: user3.username
 });
 const challenge4 = await Challenge.create({
@@ -132,10 +132,119 @@ const challenge4 = await Challenge.create({
     description: "Description du Défi 4",
     picture: "http://example.com/defi4.jpg",
     release_date: new Date(),
-    game_id: game3.id,
+    game_id: game1.id,
+    user_id: user4.id,
+    username: user4.username
+});
+const challenge5 = await Challenge.create({
+    name: "Défi 5",
+    description: "Description du Défi 5",
+    picture: "http://example.com/defi5.jpg",
+    release_date: new Date(),
+    game_id: game2.id,
     user_id: user1.id,
+    username: user1.username
+});
+const challenge6 = await Challenge.create({
+    name: "Défi 6",
+    description: "Description du Défi 6",
+    picture: "http://example.com/defi6.jpg",
+    release_date: new Date(),
+    game_id: game3.id,
+    user_id: user2.id,
+    username: user2.username
+});
+const challenge7 = await Challenge.create({
+    name: "Défi 7",
+    description: "Description du Défi 7",
+    picture: "http://example.com/defi7.jpg",
+    release_date: new Date(),
+    game_id: game1.id,
+    user_id: user3.id,
     username: user3.username
 });
+const challenge8 = await Challenge.create({
+    name: "Défi 8",
+    description: "Description du Défi 8",
+    picture: "http://example.com/defi8.jpg",
+    release_date: new Date(),
+    game_id: game2.id,
+    user_id: user4.id,
+    username: user4.username
+});
+const challenge9 = await Challenge.create({
+    name: "Défi 9",
+    description: "Description du Défi 9",
+    picture: "http://example.com/defi9.jpg",
+    release_date: new Date(),
+    game_id: game3.id,
+    user_id: user1.id,
+    username: user1.username
+});
+const challenge10 = await Challenge.create({
+    name: "Défi 10",
+    description: "Description du Défi 10",
+    picture: "http://example.com/defi10.jpg",
+    release_date: new Date(),
+    game_id: game1.id,
+    user_id: user2.id,
+    username: user2.username
+});
+const challenge11 = await Challenge.create({
+    name: "Défi 11",
+    description: "Description du Défi 11",
+    picture: "http://example.com/defi11.jpg",
+    release_date: new Date(),
+    game_id: game2.id,
+    user_id: user3.id,
+    username: user3.username
+});
+const challenge12 = await Challenge.create({
+    name: "Défi 12",
+    description: "Description du Défi 12",
+    picture: "http://example.com/defi12.jpg",
+    release_date: new Date(),
+    game_id: game3.id,
+    user_id: user4.id,
+    username: user4.username
+});
+const challenge13 = await Challenge.create({
+    name: "Défi 13",
+    description: "Description du Défi 13",
+    picture: "http://example.com/defi13.jpg",
+    release_date: new Date(),
+    game_id: game1.id,
+    user_id: user1.id,
+    username: user1.username
+});
+const challenge14 = await Challenge.create({
+    name: "Défi 14",
+    description: "Description du Défi 14",
+    picture: "http://example.com/defi14.jpg",
+    release_date: new Date(),
+    game_id: game2.id,
+    user_id: user2.id,
+    username: user2.username
+});
+const challenge15 = await Challenge.create({
+    name: "Défi 15",
+    description: "Description du Défi 15",
+    picture: "http://example.com/defi15.jpg",
+    release_date: new Date(),
+    game_id: game3.id,
+    user_id: user3.id,
+    username: user3.username
+});
+const challenge16 = await Challenge.create({
+    name: "Défi 16",
+    description: "Description du Défi 16",
+    picture: "http://example.com/defi16.jpg",
+    release_date: new Date(),
+    game_id: game1.id,
+    user_id: user4.id,
+    username: user4.username
+});
+
 
 // Création des participations
 const VideoSubmit1 = await VideoSubmit.create({
