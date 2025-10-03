@@ -55,6 +55,7 @@ challengesListPage = async (req, res) => {
             res.status(404).render("error", { error });
         }
     };
+    
     challengesSinglePage = async (req, res) => {
     try {
         const page = parseInt(req.query.page) || 1;
