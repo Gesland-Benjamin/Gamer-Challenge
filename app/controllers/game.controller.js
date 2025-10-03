@@ -27,82 +27,58 @@ class GameController extends CoreController {
     }
   };
 
-    gamesListPage = async (req, res) => {
-        try {
-            const listGames = await Game.findAll({
-                order: [
-                    ["name", "ASC"]
-                ]
-            });
-            res.status(200).render("games", { listGames });
-        } catch (error) {
-            console.error(error);
-            return this.render404(req, res);
-        }
-    };
-
       gameDetailsPage = async (req, res) => {
-    try {
-      const { id } = req.params;
+  try {
+    const { id } = req.params;
+    const page = parseInt(req.query.page) || 1;
+    const limit = 5;
+    const offset = (page - 1) * limit;
 
-    const game = await Game.findByPk(id, {
+    // 1️⃣ Récupération du jeu
+    const game = await Game.findByPk(id);
+    if (!game) return this.render404(req, res);
+
+    // 2️⃣ Récupération paginée des challenges avec votes
+    const challenges = await Challenge.findAll({
+      where: { game_id: id },
+      limit,
+      offset,
+      order: [["release_date", "DESC"]],
       include: [
         {
-        model: Challenge,
-        as: "challenges",
-        attributes: {
-          include: [
-            [
-            sequelize.fn(
-              "COUNT",
-              sequelize.col("challenges->challenge_voters.id")
-            ),
-            "voteCount"
-            ]
-          ]
+          model: User,
+          as: "challenge_voters",
+          attributes: [], // juste pour le COUNT
+          through: { attributes: [] },
         },
-        include: [
-          {
-            model: User,
-            as: "challenge_voters",
-            attributes: [], // On ne veut pas les attributs des users, juste le compte
-            through: { attributes: [] } // On ne veut pas les attributs de la table de jointure
-          }
-        ]
-        }
       ],
-      group: ["Game.id", "challenges.id"]
+      attributes: {
+        include: [
+          [
+            sequelize.literal(`(
+              SELECT COUNT(*)
+              FROM vote_challenge AS vc
+              WHERE vc.challenge_id = "Challenge".id
+            )`),
+            "voteCount",
+          ],
+        ],
+      },
     });
 
-      if (!game) {
-        return this.render404(req, res);
-      }
+    // 3️⃣ Nombre total pour la pagination
+    const totalChallenges = await Challenge.count({ where: { game_id: id } });
+    const totalPages = Math.ceil(totalChallenges / limit);
 
-      res.render("game", { game });
-    } catch (error) {
-      console.error(error);
-      return this.render404(req, res);
-    }
-  };
+    // 4️⃣ Ajouter les challenges paginés à l'objet game
+    game.challenges = challenges;
 
-      const { count, rows: challenges } = await Challenge.findAndCountAll({
-        where: { game_id: gameId },
-        limit,
-        offset,
-        order: [["release_date", "DESC"]],
-      });
-
-      const totalPages = Math.ceil(count / limit);
-
-      // Ajoute les challenges paginés à l'objet game
-      game.challenges = challenges;
-
-      res.render("game", { game, page, totalPages });
-    } catch (error) {
-      console.error(error);
-      return this.render404(req, res);
-    }
-  };
+    res.render("game", { game, page, totalPages });
+  } catch (error) {
+    console.error(error);
+    return this.render404(req, res);
+  }
+};
 
   addNewGame = async (req, res) => {
     try {
