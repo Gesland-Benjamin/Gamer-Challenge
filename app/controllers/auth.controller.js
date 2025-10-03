@@ -76,7 +76,7 @@ class AuthController extends CoreController {
       return this.render404(req, res);
     }
     //a changer avec la view mon compte
-    res.status(200).render("user", { user }); 
+    res.status(200).render("me", { user }); 
   };
 
   async logout(req, res) {
