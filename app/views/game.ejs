@@ -15,11 +15,11 @@
       </p>
 
       <p class="game-date">
-        <%= game.release_year %>
+        <%= game.release_year.getFullYear() %>
       </p>
 
       <p class="game-meta" aria-hidden="false">
-        <strong><%= game.year %></strong> &ndash; <%= game.genre %>
+        <%= game.genre %>
       </p>
     </div>
 

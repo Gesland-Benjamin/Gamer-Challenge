@@ -140,7 +140,7 @@ const challenge5 = await Challenge.create({
     name: "Défi 5",
     description: "Description du Défi 5",
     picture: "http://example.com/defi5.jpg",
-    release_date: new Date(),
+    release_date: new Date(2025, 0, 10),
     game_id: game2.id,
     user_id: user1.id,
     username: user1.username
