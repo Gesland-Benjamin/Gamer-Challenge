@@ -5,7 +5,7 @@
   <% if (listGames && listGames.length) { %>
     <% listGames.forEach(game => { %>
       <li>
-        <a href="/games/<%= game.id %>"><%= game.name %></a>
+        <img src="/images/<%= game.picture %>" alt="<%= game.name %>" class="game-cover" />
       </li>
     <% }) %>
   <% } else { %>

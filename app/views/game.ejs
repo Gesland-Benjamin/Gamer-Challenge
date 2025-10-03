@@ -4,14 +4,18 @@
 <main class="game-page-main" role="main">
   <section class="game-header" aria-label="Présentation du jeu">
     <div class="game-cover-wrapper">
-      <img src="<%= game.cover %>" alt="<%= game.title %>" class="game-cover" />
+      <img src="/images/<%= game.picture %>" alt="<%= game.name %>" class="game-cover" />
     </div>
 
     <div class="game-info">
-      <h2 id="game-title" class="game-title"><%= game.title %></h2>
+      <h2 id="game-name" class="game-name"><%= game.name %></h2>
 
       <p class="game-description">
         <%= game.description %>
+      </p>
+
+      <p class="game-date">
+        <%= game.release_year %>
       </p>
 
       <p class="game-meta" aria-hidden="false">
@@ -28,24 +32,13 @@
         </a>
       </h2>
       <p>Votes: <%= challenge.dataValues.voteCount %></p>
+      <form action="/challenges/<%= challenge.id %>/vote" method="POST">
+        <button type="submit">J'aime</button>
+      </form>
     </div>
   <% }); %>
 <% } else { %>
   <p>Aucun challenge disponible.</p>
 <% } %>
     
-
-  </ul>
-</section>
-<div class="pagination">
-  <% if (totalPages > 1) { %>
-    <% for (let i = 1; i <= totalPages; i++) { %>
-      <% if (i === page) { %>
-        <span><%= i %></span>
-      <% } else { %>
-        <a href="/games/<%= game.id %>?page=<%= i %>"><%= i %></a>
-      <% } %>
-    <% } %>
-  <% } %>
-</div>
   <%- include('partials/footer') %>

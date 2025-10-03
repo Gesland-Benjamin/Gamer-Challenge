@@ -1,7 +1,8 @@
 // Importe le modèle Game depuis les modèles
-import { Game, Challenge } from "../models/index.js";
+import { Game, Challenge, User } from "../models/index.js"
 import { CoreController } from "./core.controller.js";
 import { createGameSchema, editGameSchema } from "../schemas/index.js";
+import { sequelize } from "../models/index.js";
 import Joi from "joi";
 
 class GameController extends CoreController {
@@ -26,14 +27,63 @@ class GameController extends CoreController {
     }
   };
 
-  gameDetailsPage = async (req, res, next) => {
-    try {
-      const gameId = req.params.id;
-      const page = parseInt(req.query.page) || 1;
-      const limit = 5;
-      const offset = (page - 1) * limit;
+    gamesListPage = async (req, res) => {
+        try {
+            const listGames = await Game.findAll({
+                order: [
+                    ["name", "ASC"]
+                ]
+            });
+            res.status(200).render("games", { listGames });
+        } catch (error) {
+            console.error(error);
+            return this.render404(req, res);
+        }
+    };
 
-      const game = await Game.findByPk(gameId);
+      gameDetailsPage = async (req, res) => {
+    try {
+      const { id } = req.params;
+
+    const game = await Game.findByPk(id, {
+      include: [
+        {
+        model: Challenge,
+        as: "challenges",
+        attributes: {
+          include: [
+            [
+            sequelize.fn(
+              "COUNT",
+              sequelize.col("challenges->challenge_voters.id")
+            ),
+            "voteCount"
+            ]
+          ]
+        },
+        include: [
+          {
+            model: User,
+            as: "challenge_voters",
+            attributes: [], // On ne veut pas les attributs des users, juste le compte
+            through: { attributes: [] } // On ne veut pas les attributs de la table de jointure
+          }
+        ]
+        }
+      ],
+      group: ["Game.id", "challenges.id"]
+    });
+
+      if (!game) {
+        return this.render404(req, res);
+      }
+
+      res.render("game", { game });
+    } catch (error) {
+      console.error(error);
+      return this.render404(req, res);
+    }
+  };
 
       const { count, rows: challenges } = await Challenge.findAndCountAll({
         where: { game_id: gameId },
