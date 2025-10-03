@@ -1,11 +1,13 @@
 <%- include('partials/header') %>
 <%- include('partials/aside_nav') %>
-
 <ul>
   <% if (listGames && listGames.length) { %>
     <% listGames.forEach(game => { %>
       <li>
-        <img src="/images/<%= game.picture %>" alt="<%= game.name %>" class="game-cover" />
+        <a href="/games/<%= game.id %>">
+          <img src="/images/<%= game.picture %>" alt="<%= game.name %>" class="game-cover" />
+          <h2 id="game-name" class="game-name"><%= game.name %></h2>
+        </a>
       </li>
     <% }) %>
   <% } else { %>
