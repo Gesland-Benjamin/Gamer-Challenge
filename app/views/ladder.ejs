@@ -1,22 +1,50 @@
 <%- include('partials/header.ejs') %>
+<%- include('./partials/aside_nav') %>
 
-    <!-- Contenu principal -->
-    <main class="main">
-      <h1>CLASSEMENT</h1>
+<main class="main">
+  <h1>CLASSEMENT</h1>
+
+  <!-- TOP 3 USERS -->
+  <section id="top-users">
       <h2>TOP 3 USERS</h2>
 
-      <% const = podium;
+      <ul>
+        <% users.slice(0,3).forEach((user, index) => { %>
+        <li>
+          <article class="user-card">
+            <img
+              src="<%= user.picture %>"
+              alt="Photo de profil de <%= user.username %>"
+            />
+            <div> 
+              <h3>
+                <%= user.username %>
+                <% if(index === 0){ %> 🥇 <% } %>
+                <% if(index === 1){ %> 🥈 <% } %>
+                <% if(index === 2){ %> 🥉 <% } %>
+              </h3>
+              <p>Votes : <%= user.voteCount %> ❤️</p>
+            </div>
+          </article>
+        </li>
+        <% }) %>
+      </ul>
+      <div class="podium__congrats">
+        <p>
+          BRAVO à 
+          <% users.slice(0,3).forEach((user, index) => { %>
+            <%= user.username %> 
+            <% if(index === 0){ %>🥇<% } %>
+            <% if(index === 1){ %>🥈<% } %>
+            <% if(index === 2){ %>🥉<% } %>
+            <% if(index < users.slice(0,3).length - 1){ %>, <% } %>
+          <% }) %>
+          qui sont dans le top 3 actuellement !
+        </p>
+    </div>
+  </section>
 
-      podium.forEach(user, index) =>%>
+  <a href="#" class="main__challengesLink">Voir tous les challenges</a>
+</main>
 
-
-      <div class="main__congrats">
-          <p>BRAVO à <%= users[0]?.username %> 🥇, <%= users[1]?.username %> 🥈 et <%= users[2]?.username %> 🥉 qui sont dans le top 3 actuellement !</p>
-      </div>
-
-      <a href="#" class="main__challengesLink">CHALLENGES</a>
-    </main>
-
-<!-- Footer -->
 <%- include('partials/footer.ejs') %>
-

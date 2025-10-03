@@ -26,7 +26,7 @@ class LadderController extends CoreController {
             subQuery: false
         });
 
-        res.render('ladder', { challenges: topChallenges });
+        res.render('home', { challenges: topChallenges });
     }
 
     // On récupère les votes pour les Users

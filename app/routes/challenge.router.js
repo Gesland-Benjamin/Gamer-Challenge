@@ -26,4 +26,4 @@ challengeRouter.post('/challenges/:id/edit', checkId, ChallengeController.editCh
 challengeRouter.get('/top-challenges', LadderController.getTopChallenges);
 
 // Route pour afficher le ladder des top users
-challengeRouter.get('/top-users', LadderController.getTopUsers);
+challengeRouter.get('/ladder', LadderController.getTopUsers);
