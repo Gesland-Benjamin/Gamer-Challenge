@@ -6,22 +6,22 @@
     <h2>Contactez-nous</h2>
     <div>
       <form id="contact-form" class="contact-form" action="/contact" method="POST">
-      <label for="name">Nom:</label>
-      <input type="text" id="name" name="user_name" class="contact-input" placeholder="Votre nom" required>
+        <label for="name">Nom:</label>
+        <input type="text" id="name" name="name" class="contact-input" placeholder="Votre nom" required>
 
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="user_email" class="contact-input" placeholder="Votre email" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" class="contact-input" placeholder="Votre email" required>
 
-      <label for="message">Message:</label>
-      <textarea id="message" name="message" class="contact-textarea" placeholder="Votre message" required></textarea>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" class="contact-textarea" placeholder="Votre message" required></textarea>
 
-      <label for="privacy" class="contact-privacy">
-        <input type="checkbox" id="privacy" name="privacy" value="true" required>
-        J'ai pris connaissance et j'accepte la politique de confidentialité
-      </label>
+        <label for="privacy" class="contact-privacy">
+          <input type="checkbox" id="privacy" name="privacy" value="true" required>
+          J'ai pris connaissance et j'accepte la politique de confidentialité
+        </label>
 
-      <button type="submit" class="contact-submit">Envoyer</button>
-    </form>
+        <button type="submit" class="contact-submit">Envoyer</button>
+      </form>
     </div>
     <div id="status-message" class="status-message"></div>
   </div>
@@ -39,7 +39,42 @@
   form.addEventListener("submit", function(event) {
     event.preventDefault();
 
-    // Envoi du formulaire à EmailJS (ignore la checkbox privacy)
+    // --- Validation côté front ---
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const message = document.getElementById("message").value.trim();
+    const privacy = document.getElementById("privacy").checked;
+
+    // Vérif basique du nom
+    if (name.length < 2 || name.length > 100) {
+      statusMessage.textContent = "⚠️ Le nom doit contenir entre 2 et 100 caractères.";
+      statusMessage.style.color = "red";
+      return;
+    }
+
+    // Vérif email avec regex simple
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email) || email.length > 255) {
+      statusMessage.textContent = "⚠️ Email invalide.";
+      statusMessage.style.color = "red";
+      return;
+    }
+
+    // Vérif du message
+    if (message.length < 5 || message.length > 1000) {
+      statusMessage.textContent = "⚠️ Le message doit contenir entre 5 et 1000 caractères.";
+      statusMessage.style.color = "red";
+      return;
+    }
+
+    // Vérif de la checkbox privacy
+    if (!privacy) {
+      statusMessage.textContent = "⚠️ Vous devez accepter la politique de confidentialité.";
+      statusMessage.style.color = "red";
+      return;
+    }
+
+    // --- Envoi du formulaire si tout est valide ---
     emailjs.sendForm("service_9plrbor", "template_4aowbu4", this)
       .then(function() {
         statusMessage.textContent = "Message envoyé avec succès ! 🎉";
