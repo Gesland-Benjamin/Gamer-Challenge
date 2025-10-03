@@ -1,5 +1,5 @@
 // Importe le modèle Game depuis les modèles
-import { Challenge } from "../models/index.js";
+import { Challenge, VideoSubmit, User } from "../models/index.js";
 import { CoreController } from "./core.controller.js";
 import { createChallengeSchema, editChallengeSchema } from "../schemas/index.js";
 import Joi from "joi";
@@ -140,7 +140,37 @@ challengesListPage = async (req, res) => {
             console.error(error);
             res.status(400).render("error", { error });
         }
-    }
+    };
+
+    getUserVideos = async (req, res) => {
+        try {
+
+            // On récupère l'id de l'utilisateur connecté
+            const { id } = req.session.user;
+
+            // On récupère les vidéos de cet utilisateur avec l'id récupéré
+            const user = await User.findByPk(id, {
+                include: [{
+                    model: VideoSubmit,
+                    as: "videos", // Utilise l'alias défini dans l'association
+                    attributes: ['title', 'url'], 
+                }],
+            });
+
+            // Si l'utilisateur recherché n'existe pas, on renvoie un message d'erreur
+            if (!user) {
+                return this.render404(req, res);
+            }
+
+            // On renvoie dans la view les vidéos et le username
+            res.status(200).render('mychallenges', { videos: user.videos, username: user.username });
+
+        } catch (error) {
+            console.error(error);
+            res.status(400).render("error", { error: "Une erreur est survenue lors de la récupération des vidéos." });
+        }
+    };
+
 }
 
 export default new ChallengeController();

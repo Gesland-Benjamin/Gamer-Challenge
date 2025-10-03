@@ -5,7 +5,7 @@
   <% if (listGames && listGames.length) { %>
     <% listGames.forEach(game => { %>
       <li>
-        <a href="/games/<%= game.id %>"><%= game.name %></a>
+        <img src="/images/<%= game.picture %>" alt="<%= game.name %>" class="game-cover" />
       </li>
     <% }) %>
   <% } else { %>
@@ -14,5 +14,15 @@
 </ul>
 
 <a href='/' class="button">Accueil</a>
-
+<div class="pagination">
+  <% if (totalPages > 1) { %>
+    <% for (let i = 1; i <= totalPages; i++) { %>
+      <% if (i === page) { %>
+        <span><%= i %></span>
+      <% } else { %>
+        <a href="/games?page=<%= i %>"><%= i %></a>
+      <% } %>
+    <% } %>
+  <% } %>
+</div>
 <%- include('partials/footer') %>
