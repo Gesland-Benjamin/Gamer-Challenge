@@ -48,6 +48,69 @@ const game3 = await Game.create({
     release_year: new Date('2022-01-01'),
     picture: "http://example.com/jeu3.jpg"
 });
+const game4 = await Game.create({
+    name: "Jeu 4",
+    description: "Description du Jeu 4",
+    genre: "RPG",
+    release_year: new Date('2019-05-15'),
+    picture: "http://example.com/jeu4.jpg"
+});
+const game5 = await Game.create({
+    name: "Jeu 5",
+    description: "Description du Jeu 5",
+    genre: "Simulation",
+    release_year: new Date('2018-11-20'),
+    picture: "http://example.com/jeu5.jpg"
+});
+const game6 = await Game.create({
+    name: "Jeu 6",
+    description: "Description du Jeu 6",
+    genre: "Stratégie",
+    release_year: new Date('2017-03-10'),
+    picture: "http://example.com/jeu6.jpg"
+});
+const game7 = await Game.create({
+    name: "Jeu 7",
+    description: "Description du Jeu 7",
+    genre: "Course",
+    release_year: new Date('2021-07-07'),
+    picture: "http://example.com/jeu7.jpg"
+});
+const game8 = await Game.create({
+    name: "Jeu 8",
+    description: "Description du Jeu 8",
+    genre: "Sport",
+    release_year: new Date('2020-09-30'),
+    picture: "http://example.com/jeu8.jpg"
+});
+const game9 = await Game.create({
+    name: "Jeu 9",
+    description: "Description du Jeu 9",
+    genre: "Plateforme",
+    release_year: new Date('2016-12-12'),
+    picture: "http://example.com/jeu9.jpg"
+});
+const game10 = await Game.create({
+    name: "Jeu 10",
+    description: "Description du Jeu 10",
+    genre: "Combat",
+    release_year: new Date('2015-04-04'),
+    picture: "http://example.com/jeu10.jpg"
+});
+const game11 = await Game.create({
+    name: "Jeu 11",
+    description: "Description du Jeu 11",
+    genre: "FPS",
+    release_year: new Date('2022-02-22'),
+    picture: "http://example.com/jeu11.jpg"
+});
+const game12 = await Game.create({
+    name: "Jeu 12",
+    description: "Description du Jeu 12",
+    genre: "MMO",
+    release_year: new Date('2018-08-08'),
+    picture: "http://example.com/jeu12.jpg"
+});
 
 // Création des défis (Challenge) : on utilise username et pas user_id
 const challenge1 = await Challenge.create({
