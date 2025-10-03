@@ -22,3 +22,13 @@ export const mainRouter = Router();
 
  mainRouter.use(contactRouter);
 
+ mainRouter.get("/legal", (req, res) => {
+  res.render("legal"); // ça cherche app/views/legal.ejs
+});
+
+ mainRouter.get("/about", (req, res) => {
+  res.render("about"); // ça cherche app/views/about.ejs
+});
+
+
+
