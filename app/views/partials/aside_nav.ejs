@@ -1,12 +1,27 @@
-   <aside>
-      <nav class="main__navside">
-          <h4>Mon Compte</h4>
+  <link rel="stylesheet" href="/css/navside.css">
+<body>
 
-          <a href="/me">MES INFORMATIONS</a>
-          <a href="/mychallenges">MES CHALLENGES</a>
+  <!-- Burger Checkbox -->
+  <input type="checkbox" id="burger-toggle">
 
-          <a href="/about">A PROPOS</a>
-          <a href="/contact">NOUS CONTACTER</a>
-          <i class="fa-solid fa-address-book"></i>
-      </nav>
-    </aside>
+  <!-- Burger Icon -->
+  <label for="burger-toggle" class="burger-container">
+    <div class="burger-line"></div>
+    <div class="burger-line"></div>
+    <div class="burger-line"></div>
+  </label>
+
+  <!-- Navigation Menu -->
+  <aside class="nav-menu">
+    <nav class="main__navside">
+      <h4>Mon Compte</h4>
+      <ul>
+        <li><a href="/me">MES INFORMATIONS</a></li>
+        <li><a href="/mychallenges">MES CHALLENGES</a></li>
+        <li><a href="/about">A PROPOS</a></li>
+        <li><a href="/contact">NOUS CONTACTER</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+</body>
