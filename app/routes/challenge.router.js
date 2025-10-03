@@ -13,6 +13,8 @@ challengeRouter.get('/challenges', ChallengeController.challengesListPage);
 // Route pour récupérer un challenge par son id, avec vérification de l'id
 challengeRouter.get('/challenges/:id', checkId, ChallengeController.challengeDetailsPage);
 
+challengeRouter.get('/challenge-pagination', ChallengeController.challengesSinglePage);
+
 // Route pour ajouter un nouveau challenge
 challengeRouter.post('/challenges', ChallengeController.addNewChallenge);
 
@@ -27,3 +29,4 @@ challengeRouter.get('/top-challenges', LadderController.getTopChallenges);
 
 // Route pour afficher le ladder des top users
 challengeRouter.get('/ladder', LadderController.getTopUsers);
+
