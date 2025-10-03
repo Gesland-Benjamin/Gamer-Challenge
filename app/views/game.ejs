@@ -23,23 +23,32 @@
       </p>
     </div>
 
-  <% if (game.challenges && game.challenges.length) { %>
-  <% game.challenges.forEach(function(challenge) { %>
-    <div class="challenge">
-      <h2>
-        <a href="/challenges/<%= challenge.id %>">
-          <%= challenge.name %>
-        </a>
-      </h2>
-      <p>Votes: <%= challenge.dataValues.voteCount %></p>
-      <form action="/challenges/<%= challenge.id %>/vote" method="POST">
-        <button type="submit">J'aime</button>
-      </form>
-    </div>
-  <% }); %>
-<% } else { %>
-  <p>Aucun challenge disponible.</p>
-<% } %>
-<a href='/' class="button">Accueil</a>
-    
-  <%- include('partials/footer') %>
+    <% if (game.challenges && game.challenges.length) { %>
+      <% game.challenges.forEach(function(challenge) { %>
+        <div class="challenge">
+          <h2>
+            <a href="/challenges/<%= challenge.id %>">
+              <%= challenge.name %>
+            </a>
+          </h2>
+
+          <p>
+            Votes: <span id="votes-<%= challenge.id %>"><%= challenge.dataValues.voteCount %></span>
+          </p>
+
+          <!-- Bouton Like -->
+          <button class="like-btn" data-id="<%= challenge.id %>">J'aime</button>
+        </div>
+      <% }); %>
+    <% } else { %>
+      <p>Aucun challenge disponible.</p>
+    <% } %>
+
+    <a href='/' class="button">Accueil</a>
+  </section>
+</main>
+
+<%- include('partials/footer') %>
+
+<!-- Script pour gérer le Like -->
+<script src="/js/like.js"></script>

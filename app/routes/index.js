@@ -3,6 +3,7 @@ import { gameRouter } from "./game.router.js";
 import { challengeRouter } from "./challenge.router.js";
 import { LadderController } from "../controllers/index.js";
 import { authRouter } from "./auth.router.js";
+import { apiRouter } from "./apiRouter.js";
 
 import { contactRouter } from "./contact.router.js";
 
@@ -30,5 +31,4 @@ export const mainRouter = Router();
   res.render("about"); // ça cherche app/views/about.ejs
 });
 
-
-
+mainRouter.use("/api", apiRouter)
