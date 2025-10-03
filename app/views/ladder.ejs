@@ -5,42 +5,43 @@
   <h1>CLASSEMENT</h1>
 
   <!-- TOP 3 USERS -->
-  <section id="top-users">
-      <h2>TOP 3 USERS</h2>
+  <section id="main__podium">
+    <h2>TOP 3 USERS</h2>
 
-      <ul>
+    <ul>
+      <% users.slice(0,3).forEach((user, index) => { %>
+      <li>
+        <article class="podium__userCard">
+          <img
+            src="<%= user.picture %>"
+            alt="Photo de profil de <%= user.username %>"
+          />
+          <div> 
+            <h3>
+              <%= user.username %>
+              <% if(index === 0){ %> 🥇 <% } %>
+              <% if(index === 1){ %> 🥈 <% } %>
+              <% if(index === 2){ %> 🥉 <% } %>
+            </h3>
+            <p>Votes : <%= user.voteCount %> ❤️</p>
+          </div>
+        </article>
+      </li>
+      <% }) %>
+    </ul>
+    
+    <div class="podium__congrats">
+      <p>
+        BRAVO à 
         <% users.slice(0,3).forEach((user, index) => { %>
-        <li>
-          <article class="user-card">
-            <img
-              src="<%= user.picture %>"
-              alt="Photo de profil de <%= user.username %>"
-            />
-            <div> 
-              <h3>
-                <%= user.username %>
-                <% if(index === 0){ %> 🥇 <% } %>
-                <% if(index === 1){ %> 🥈 <% } %>
-                <% if(index === 2){ %> 🥉 <% } %>
-              </h3>
-              <p>Votes : <%= user.voteCount %> ❤️</p>
-            </div>
-          </article>
-        </li>
+          <%= user.username %> 
+          <% if(index === 0){ %>🥇<% } %>
+          <% if(index === 1){ %>🥈<% } %>
+          <% if(index === 2){ %>🥉<% } %>
+          <% if(index < users.slice(0,3).length - 1){ %>, <% } %>
         <% }) %>
-      </ul>
-      <div class="podium__congrats">
-        <p>
-          BRAVO à 
-          <% users.slice(0,3).forEach((user, index) => { %>
-            <%= user.username %> 
-            <% if(index === 0){ %>🥇<% } %>
-            <% if(index === 1){ %>🥈<% } %>
-            <% if(index === 2){ %>🥉<% } %>
-            <% if(index < users.slice(0,3).length - 1){ %>, <% } %>
-          <% }) %>
-          qui sont dans le top 3 actuellement !
-        </p>
+        qui sont dans le top 3 actuellement !
+      </p>
     </div>
   </section>
 
