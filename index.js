@@ -3,6 +3,7 @@ import session from "express-session";
 import 'dotenv/config';
 import { mainRouter } from "./app/routes/index.js";
 
+
 const app = express();
 const PORT = process.env.PORT;
 
