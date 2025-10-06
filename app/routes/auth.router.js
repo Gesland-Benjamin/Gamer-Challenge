@@ -23,8 +23,4 @@ authRouter.get('/me', onlyAuthenticated, AuthController.getMe);
 
 authRouter.get('/admin', onlyAdmin, AdminController.adminPage);
 
-authRouter.get('/admin/addgame', onlyAdmin, AdminController.formNewGame);
-
-authRouter.post('/admin/addgame', onlyAdmin, AdminController.addNewGame);
-
 authRouter.post('/logout', AuthController.logout);

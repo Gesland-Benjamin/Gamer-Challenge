@@ -55,33 +55,6 @@ challengesListPage = async (req, res) => {
             res.status(404).render("error", { error });
         }
     };
-    
-    challengesSinglePage = async (req, res) => {
-    try {
-        const page = parseInt(req.query.page) || 1;
-        const limit = 1;
-        const offset = (page - 1) * limit;
-
-        // Récupère le challenge courant et le nombre total de challenges
-        const { count, rows } = await Challenge.findAndCountAll({
-            limit,
-            offset,
-            order: [["release_date", "DESC"]],
-            include: [
-                { model: User, as: "user" },
-                { model: Participation, as: "participations" }
-            ]
-        });
-
-        const challenge = rows[0];
-        const totalPages = Math.ceil(count / limit);
-
-        res.render("challenge", { challenge, page, totalPages });
-    } catch (error) {
-        console.error(error);
-        res.status(404).render("error", { error });
-    }
-};
 
     addNewChallenge = async (req, res) => {
         try {
@@ -134,7 +107,7 @@ challengesListPage = async (req, res) => {
 
             await challenge.update(data);
 
-            res.status(200).redirect(`/challenges/${challenge.id}`);
+            res.status(200).redirect(`/videos/${newVideo.id}`);
 
         } catch (error) {
             console.error(error);

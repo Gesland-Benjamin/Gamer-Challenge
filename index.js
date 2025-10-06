@@ -2,6 +2,7 @@ import express from "express";
 import session from "express-session";
 import 'dotenv/config';
 import { mainRouter } from "./app/routes/index.js";
+import multer from "multer";
 
 
 const app = express();
@@ -13,6 +14,9 @@ app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static("./public"));
+
+// Servir le dossier 'uploads'
+app.use(express.static('./uploads'));
 
 app.use(
   session({
@@ -37,3 +41,4 @@ app.use(mainRouter);
 app.listen(PORT, () => {
   console.log(`listening on http://localhost:${PORT}`);
 });
+

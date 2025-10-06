@@ -1,0 +1,12 @@
+<%- include('partials/header.ejs') %>
+<%- include('partials/aside_nav.ejs') %>
+
+<body>
+  <h1><%= video.title %></h1>
+  <p>Posté par <%= video.user.username %></p>
+  <div class="video-container">
+    <iframe width="560" height="315" src="<%= video.url %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  </div>
+  <a href="/" class="back_link">Retour à l'accueil</a>
+</body>
+<%- include('partials/footer.ejs') %>

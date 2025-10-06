@@ -13,6 +13,7 @@
         <% if (challenge.user) { %> - <%= challenge.user.username %> <% } %>
         <span>♥</span>
       </div>
+      <a href="/challenges/<%= challenge.id %>/upload/video" class="upload-link">Uploader une vidéo</a>
       <div class="videos">
         <% if (challenge.participations && challenge.participations.length > 0) { %>
           <% challenge.participations.forEach(function(video) { %>
