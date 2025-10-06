@@ -55,7 +55,7 @@ class AuthController extends CoreController {
     req.session.user = {
       id: user.id,
       username: user.username,
-      role: user.role.name,
+      role: user.role,
       mail: user.mail,
     }; 
     console.log("Utilisateur connecté :", req.session.user);
