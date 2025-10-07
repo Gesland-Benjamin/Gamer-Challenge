@@ -48,7 +48,7 @@ challengesListPage = async (req, res) => {
                 return this.render404(req, res);
             }
 
-            res.render("challenge", { challenge, page: 1, totalPages: 1 });
+            res.render("challenge", { challenge, user: req.session.user, page: 1, totalPages: 1 });
         }
         catch (error) {
             console.error(error);

@@ -57,9 +57,11 @@
         <% } %>
       <% } %>
     </div>
-    <form action="/challenges/<%= challenge.id %>/delete" method="POST">
-      <button type="submit">Supprimer</button>
-    </form>
+    <% if (user && (user.id === challenge.user_id || user.role === 'admin')) { %>
+  <form action="/challenges/<%= challenge.id %>/delete" method="POST">
+    <button type="submit">Supprimer</button>
+  </form>
+<% } %>
   </div>
 </body>
 
