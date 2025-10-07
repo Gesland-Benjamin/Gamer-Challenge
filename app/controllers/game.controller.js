@@ -73,7 +73,7 @@ class GameController extends CoreController {
       // 4️⃣ Ajouter les challenges paginés à l'objet game
       game.challenges = challenges;
 
-      res.render("game", { game, page, totalPages });
+      res.render("game", { game, page, user: req.session.user, totalPages });
     } catch (error) {
       console.error(error);
       return this.render404(req, res);

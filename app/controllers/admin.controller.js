@@ -53,22 +53,23 @@ class AdminController extends CoreController {
 
     deleteGame = async (req, res) => {
         try {
-            const { id } = req.params;
+                   const gameId = req.params.id;
+       
+                   const game = await Game.findByPk(gameId);
+       
+                   if (!game) {
+                       return this.render404(req, res);
+                   }
 
-            const game = await Game.findByPk(id);
-
-            if (!game) {
-                return this.render404(req, res);
-            }
-
-            await game.destroy();
-
-            res.status(200).redirect("/games");
-        } catch (error) {
-            console.error(error);
-            return this.render404(req, res);
-        }
-    };
+                   await game.destroy();
+       
+                   res.status(200).redirect("/games");
+       
+               } catch (error) {
+                   console.error(error);
+                   res.status(400).render("error", { error });
+               }
+           };
 
     editGame = async (req, res) => {
         try {

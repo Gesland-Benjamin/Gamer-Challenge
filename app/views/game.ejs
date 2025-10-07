@@ -42,6 +42,11 @@
     <% } else { %>
       <p>Aucun challenge disponible.</p>
     <% } %>
+    <% if (user.role === 'admin') { %>
+  <form action="/games/<%= game.id %>/delete" method="POST">
+    <button type="submit">Supprimer</button>
+  </form>
+<% } %>
     <a href='/challenges/<%= game.id %>/addChallenge' class="button">Ajouter un challenge</a>
     <a href='/' class="button">Accueil</a>
   </section>
