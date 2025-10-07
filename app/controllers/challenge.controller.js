@@ -82,16 +82,16 @@ challengesListPage = async (req, res) => {
 
     deleteChallenge = async (req, res) => {
         try {
-            const { id } = req.params;
+            const challengeId = req.params.id;
 
-            const challenge = await Challenge.findByPk(id);
+            const challenge = await Challenge.findByPk(challengeId);
 
             if (!challenge) {
                 return this.render404(req, res);
             }
-            if (challenge.user_id !== req.session.user.id) {
-            return this.render403(req, res);
-            }
+            if (challenge.user_id !== req.session.user.id && req.session.user.role !== "admin") {
+      return this.render403(req, res);
+    }
             await challenge.destroy();
 
             res.status(200).redirect("/challenges");
