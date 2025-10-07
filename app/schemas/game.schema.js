@@ -7,7 +7,7 @@ export const createGameSchema = Joi.object({
     description: Joi.string().trim().min(1).required(), // description obligatoire
     release_year: Joi.date().required(), // date de sortie obligatoire
     genre: Joi.string().trim().min(1).max(50).required(), // genre obligatoire, max 50 caractères
-    picture: Joi.string().trim().min(1).max(255).required(), // url de l'image obligatoire, max 255 caractères
+    picture: Joi.string().trim().uri().min(1).max(255).required(), // url de l'image obligatoire, max 255 caractères
 });
 
 export const editGameSchema = Joi.object({
