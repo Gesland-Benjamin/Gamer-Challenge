@@ -5,8 +5,8 @@
     <% listGames.forEach(game => { %>
       <li>
         <a href="/games/<%= game.id %>">
-          <img src="/images/<%= game.picture %>" alt="<%= game.name %>" />
-          <h2 id="game-name" ><%= game.name %></h2>
+          <img src="<%= game.picture %>" alt="<%= game.name %>" class="game-cover" />
+          <h2 id="game-name" class="game-name"><%= game.name %></h2>
         </a>
       </li>
     <% }) %>

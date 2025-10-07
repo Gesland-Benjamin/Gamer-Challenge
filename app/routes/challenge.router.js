@@ -15,11 +15,13 @@ challengeRouter.get('/challenges', ChallengeController.challengesListPage);
 // Route pour récupérer un challenge par son id, avec vérification de l'id
 challengeRouter.get('/challenges/:id', checkId, ChallengeController.challengeDetailsPage);
 
-// Route pour ajouter un nouveau challenge
-challengeRouter.post('/challenges', ChallengeController.addNewChallenge);
+// Route pour afficher le formulaire d'ajout de challenge 
+challengeRouter.get('/challenges/:id/addChallenge', onlyAuthenticated, ChallengeController.formNewChallenge);
+
+challengeRouter.post('/challenges/:id/addChallenge', onlyAuthenticated, ChallengeController.addNewChallenge);
 
 // Route pour supprimer un challenge par son id, avec vérification de l'id
-challengeRouter.post('/challenges/:id/delete', checkId, ChallengeController.deleteChallenge);
+challengeRouter.post('/challenges/:id/delete', checkId, onlyAuthenticated, ChallengeController.deleteChallenge);
 
 // Route pour mettre à jour un challenge par son id, avec vérification de l'id 
 challengeRouter.post('/challenges/:id/edit', checkId, ChallengeController.editChallenge);
@@ -37,3 +39,7 @@ challengeRouter.post('/challenges/:id/upload/video', onlyAuthenticated, VideoCon
 
 // Route pour récupérer une vidéo par son id, avec vérification de l'id
 challengeRouter.get('/videos/:id', checkId, VideoController.videoDetailsPage);
+
+
+
+

@@ -2,6 +2,7 @@ import { User } from "./user.model.js";
 import { Game } from "./game.model.js";
 import { Challenge } from "./challenge.model.js";
 import { VideoSubmit } from "./video_submit.model.js";
+import { ImageSubmit } from "./image_submit.model.js";
 import { sequelize } from "./sequelize.client.js";
 
 // Définition des relations entre les modèles
@@ -107,12 +108,27 @@ VideoSubmit.belongsTo(User, {
     as: "user"
 }); 
 
+//declare la relation entre imagesubmit et un game.
+// Un jeu a UNE image
+Game.hasOne(ImageSubmit, {
+  foreignKey: "game_id",
+  as: "image", // au singulier
+});
+
+// Une image appartient à UN jeu
+ImageSubmit.belongsTo(Game, {
+  foreignKey: "game_id",
+  as: "game",
+});
+
+
 
 export {
     User,
     Game,
     Challenge,
     VideoSubmit,
+    ImageSubmit,
     sequelize
 };
 

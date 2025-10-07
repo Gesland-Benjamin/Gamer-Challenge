@@ -49,7 +49,7 @@ class AuthController extends CoreController {
 
     const isPasswordValid = await argon2.verify(user.password, password);
     if (!isPasswordValid) {
-      return this.render403(req, res);
+      return this.render401(req, res);
     }
     // :clé: Stocker les infos utiles en session
     req.session.user = {

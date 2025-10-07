@@ -1,20 +1,35 @@
 <%- include('partials/header.ejs') %>
 <%- include('partials/aside_nav.ejs') %>
+
 <body>
-  <div >
+  <div class="challenge-container">
+
     <% if (challenge) { %>
-      <div >
+      <!-- Image du challenge -->
+      <div class="challenge-image">
         <img src="<%= challenge.picture %>" alt="<%= challenge.name %>" width="250">
       </div>
-      <div ><%= challenge.name %></div>
-      <div ><%= challenge.description %></div>
-      <div >
+
+      <!-- Titre et description -->
+      <div class="challenge-title"><%= challenge.name %></div>
+      <div class="challenge-description"><%= challenge.description %></div>
+
+      <!-- Date -->
+      <div class="challenge-meta">
         <%= new Date(challenge.release_date).toLocaleDateString() %>
-        <% if (challenge.user) { %> - <%= challenge.user.username %> <% } %>
-        <span>♥</span>
       </div>
-      <a href="/challenges/<%= challenge.id %>/upload/video" >Uploader une vidéo</a>
-      <div >
+
+      <!-- Bouton J'aime -->
+      <p>
+        Votes: <span id="votes-<%= challenge.id %>"><%= challenge.dataValues.voteCount || 0 %></span>
+      </p>
+      <button class="like-btn" data-id="<%= challenge.id %>">J'aime</button>
+
+      <!-- Lien pour uploader une vidéo -->
+      <a href="/challenges/<%= challenge.id %>/upload/video" class="upload-link">Uploader une vidéo</a>
+
+      <!-- Liste des vidéos -->
+      <div class="videos">
         <% if (challenge.participations && challenge.participations.length > 0) { %>
           <% challenge.participations.forEach(function(video) { %>
             <a href="<%= video.url %>">
@@ -25,11 +40,13 @@
           <div>Aucune vidéo pour ce challenge.</div>
         <% } %>
       </div>
+
     <% } else { %>
       <div>Aucun challenge trouvé.</div>
     <% } %>
-    
-    <div >
+
+    <!-- Pagination -->
+    <div class="pagination">
       <% if (totalPages > 1) { %>
         <% for (let i = 1; i <= totalPages; i++) { %>
           <% if (i === page) { %>
@@ -40,7 +57,14 @@
         <% } %>
       <% } %>
     </div>
+    <% if (user && (user.id === challenge.user_id || user.role === 'admin')) { %>
+  <form action="/challenges/<%= challenge.id %>/delete" method="POST">
+    <button type="submit">Supprimer</button>
+  </form>
+<% } %>
   </div>
 </body>
-<%- include('partials/footer.ejs') %>
 
+<%- include('partials/footer.ejs') %>
+<!-- Script pour gérer le Like -->
+<script src="/js/like.js"></script>
