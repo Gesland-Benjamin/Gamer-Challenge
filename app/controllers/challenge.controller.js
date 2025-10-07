@@ -89,7 +89,9 @@ challengesListPage = async (req, res) => {
             if (!challenge) {
                 return this.render404(req, res);
             }
-
+            if (challenge.user_id !== req.session.user.id) {
+            return this.render403(req, res);
+            }
             await challenge.destroy();
 
             res.status(200).redirect("/challenges");
