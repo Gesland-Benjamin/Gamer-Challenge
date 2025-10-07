@@ -4,17 +4,25 @@
   --background-color: #ecf0f1;
   --text-color: #333;
   --hover-color: #2980b9;
+  --main-font : "Poppins", sans-serif
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+/* SIDENAV 
+.sidenav {
+  height: 25%;
+  border: 1px solid var(--lightgreen-color);
+}
+*/
+
+.sidenav {
+  height: 25%;
+  width: 10%;
+  border: 1px solid var(--lightgreen-color);
 }
 
 body {
-  font-family: "Inter", sans-serif;
+  height: 25%;
+  font-family: var(--main-font);
   background-color: var(--background-color);
   color: var(--text-color);
   line-height: 1.6;
@@ -34,9 +42,9 @@ body {
   justify-content: space-between;
   padding: 5px;
   border-radius: 5px;
-  background: rgba(255,255,255,0.1);
   backdrop-filter: blur(10px);
   box-shadow: 0 4px 6px #0000001a;
+  background-color: white;
 }
 
 .burger-line {
@@ -118,3 +126,4 @@ body {
 #burger-toggle:checked ~ .nav-menu {
   right: 0;
 }
+

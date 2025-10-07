@@ -3,11 +3,11 @@
 
 <h1>Voici tous tes challenges <%=username %> :</h1>
 
-<ul class="mychallenge_container">
+<ul >
 
     <% videos.forEach(video => { %>
 
-        <article class="card_challenge">
+        <article >
             <h2><%= video.name %></h2>
             <a href="<%= video.url %>" alt=""></a>
         </article>

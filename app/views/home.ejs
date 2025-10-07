@@ -1,25 +1,35 @@
 
 <%- include('partials/header.ejs') %>
-<%- include('partials/aside_nav') %>
 
   <!-- Contenu principal -->
-  <main >
-    <h1 class="">Gamer Challenges</h1>
+  <main>
+    <h1>Gamer Challenges</h1>
     <h2>Vous êtes prêts ? A vous de jouer !</h2>
 
-    <h3>Top 3 Challenges</h3>
-    <div class="main__topchallenge1"></div>
-    <div class="main__topchallenge2"></div>
-    <div class="main__topchallenge3"></div>    
+    <%- include('partials/aside_nav') %>
 
-    <button>VOIR PLUS</button>
-  </main>
-
-  <% challenges.forEach(function(challenge) { %>
-    <div class="challenge">
+    <section class="top-challenges-section">
+  <div class="top-title-wrapper">
+    <span class="top-title">Top 3 Challenges</span>
+    <div class="top-bar"></div>
+  </div>
+  <div class="challenges-list">
+    <% challenges.forEach(function(challenge) { %>
+      <div class="challenge">
         <h2><%= challenge.name %></h2>
         <p>Votes: <%= challenge.dataValues.voteCount %></p>
-    </div>
-  <% }); %>
+        
+      </div>
+      
+    <% }); %>
+    <button class="myButton">VOIR PLUS</button>
+  </div>
+  
+  </main>
+</section>
+
+    
+
+ 
 
   <%- include('partials/footer.ejs') %>

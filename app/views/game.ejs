@@ -1,31 +1,31 @@
 <%- include('partials/header') %>
 <%- include('partials/aside_nav') %>
 
-<main class="game-page-main" role="main">
-  <section class="game-header" aria-label="Présentation du jeu">
-    <div class="game-cover-wrapper">
-      <img src="/images/<%= game.picture %>" alt="<%= game.name %>" class="game-cover" />
+<main  role="main">
+  <section  aria-label="Présentation du jeu">
+    <div 
+      <img src="/images/<%= game.picture %>" alt="<%= game.name %>"  />
     </div>
 
-    <div class="game-info">
+    <div >
       <h2 id="game-name" class="game-name"><%= game.name %></h2>
 
-      <p class="game-description">
+      <p >
         <%= game.description %>
       </p>
 
-      <p class="game-date">
+      <p >
         <%= game.release_year.getFullYear() %>
       </p>
 
-      <p class="game-meta" aria-hidden="false">
+      <p  aria-hidden="false">
         <%= game.genre %>
       </p>
     </div>
 
     <% if (game.challenges && game.challenges.length) { %>
       <% game.challenges.forEach(function(challenge) { %>
-        <div class="challenge">
+        <div >
           <h2>
             <a href="/challenges/<%= challenge.id %>">
               <%= challenge.name %>
@@ -37,14 +37,14 @@
           </p>
 
           <!-- Bouton Like -->
-          <button class="like-btn" data-id="<%= challenge.id %>">J'aime</button>
+          <button  data-id="<%= challenge.id %>">J'aime</button>
         </div>
       <% }); %>
     <% } else { %>
       <p>Aucun challenge disponible.</p>
     <% } %>
 
-    <a href='/' class="button">Accueil</a>
+    <a href='/' >Accueil</a>
   </section>
 </main>
 

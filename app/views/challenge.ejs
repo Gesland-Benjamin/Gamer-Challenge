@@ -1,20 +1,20 @@
 <%- include('partials/header.ejs') %>
 <%- include('partials/aside_nav.ejs') %>
 <body>
-  <div class="challenge-container">
+  <div >
     <% if (challenge) { %>
-      <div class="challenge-image">
+      <div >
         <img src="<%= challenge.picture %>" alt="<%= challenge.name %>" width="250">
       </div>
-      <div class="challenge-title"><%= challenge.name %></div>
-      <div class="challenge-description"><%= challenge.description %></div>
-      <div class="challenge-meta">
+      <div ><%= challenge.name %></div>
+      <div ><%= challenge.description %></div>
+      <div >
         <%= new Date(challenge.release_date).toLocaleDateString() %>
         <% if (challenge.user) { %> - <%= challenge.user.username %> <% } %>
         <span>♥</span>
       </div>
-      <a href="/challenges/<%= challenge.id %>/upload/video" class="upload-link">Uploader une vidéo</a>
-      <div class="videos">
+      <a href="/challenges/<%= challenge.id %>/upload/video" >Uploader une vidéo</a>
+      <div >
         <% if (challenge.participations && challenge.participations.length > 0) { %>
           <% challenge.participations.forEach(function(video) { %>
             <a href="<%= video.url %>">
@@ -29,7 +29,7 @@
       <div>Aucun challenge trouvé.</div>
     <% } %>
     
-    <div class="pagination">
+    <div >
       <% if (totalPages > 1) { %>
         <% for (let i = 1; i <= totalPages; i++) { %>
           <% if (i === page) { %>
