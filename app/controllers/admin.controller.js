@@ -71,6 +71,17 @@ class AdminController extends CoreController {
                }
            };
 
+    formEditGame = async (req, res) => {
+
+        const gameId = req.params.id;
+        
+        const game = await Game.findByPk(gameId);
+       if (!game) {
+         return this.render404(req, res);
+       }
+       res.status(200).render('editGame', { game });
+     }
+    
     editGame = async (req, res) => {
         try {
             const { id } = req.params;

@@ -23,6 +23,8 @@ gameRouter.post('/admin/addgame', onlyAdmin, AdminController.addNewGame);
 //Route pour supprimer un jeu par son id, avec vérification de l'id
 gameRouter.post('/games/:id/delete', checkId, onlyAdmin, AdminController.deleteGame);
 
+gameRouter.get('/games/:id/edit', onlyAdmin, AdminController.formEditGame);
+
 // Route pour mettre à jour un jeu par son id, avec vérification de l'id
-//gameRouter.post('/games/:id/edit', checkId, GameController.editGame);
+gameRouter.post('/games/:id/edit', checkId, onlyAdmin, AdminController.editGame);
 
