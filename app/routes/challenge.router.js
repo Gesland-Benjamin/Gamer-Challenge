@@ -21,7 +21,7 @@ challengeRouter.get('/challenges/:id/addChallenge', onlyAuthenticated, Challenge
 challengeRouter.post('/challenges/:id/addChallenge', onlyAuthenticated, ChallengeController.addNewChallenge);
 
 // Route pour supprimer un challenge par son id, avec vérification de l'id
-challengeRouter.post('/challenges/:id/delete', checkId, ChallengeController.deleteChallenge);
+challengeRouter.post('/challenges/:id/delete', checkId, onlyAuthenticated, ChallengeController.deleteChallenge);
 
 // Route pour mettre à jour un challenge par son id, avec vérification de l'id 
 challengeRouter.post('/challenges/:id/edit', checkId, ChallengeController.editChallenge);

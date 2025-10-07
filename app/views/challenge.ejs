@@ -57,7 +57,9 @@
         <% } %>
       <% } %>
     </div>
-
+    <form action="/challenges/<%= challenge.id %>/delete" method="POST">
+      <button type="submit">Supprimer</button>
+    </form>
   </div>
 </body>
 
