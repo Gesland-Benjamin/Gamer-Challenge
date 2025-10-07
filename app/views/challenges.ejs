@@ -1,17 +1,17 @@
 <%- include('partials/header.ejs') %>
 <%- include('partials/aside_nav.ejs') %>
 <body>
-  <div class="challenges-container">
-    <div class="title">CHALLENGES</div>
+  <div >
+    <div >CHALLENGES</div>
 
-    <div class="grid">
+    <div >
       <% if (listChallenges && listChallenges.length > 0) { %>
         <% listChallenges.forEach(function(challenge) { %>
-          <div class="challenge-card">
+          <div >
             <img src="<%= challenge.picture %>" alt="<%= challenge.name %>">
-            <div class="challenge-name"><%= challenge.name %></div>
-            <div class="challenge-description"><%= challenge.description %></div>
-            <div class="challenge-date">Date de sortie : <%= challenge.release_date.toLocaleDateString() %></div>
+            <div ><%= challenge.name %></div>
+            <div ><%= challenge.description %></div>
+            <div >Date de sortie : <%= challenge.release_date.toLocaleDateString() %></div>
             <a href="/challenges/<%= challenge.id %>">Voir le challenge</a>
           </div>
         <% }) %>
@@ -20,7 +20,7 @@
       <% } %>
     </div>
 
-    <div class="pagination">
+    <div >
   <% if (totalPages > 1) { %>
     <% for (let i = 1; i <= totalPages; i++) { %>
       <% if (i === page) { %>

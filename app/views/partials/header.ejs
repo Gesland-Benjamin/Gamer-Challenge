@@ -12,40 +12,35 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cal+Sans&family=Courgette&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-    <!-- <link rel="stylesheet" href="/css/output.css" /> -->
+    <link rel="stylesheet" href="/css/output.css" />
   </head>
 
-  <body class="min-h-screen w-full bg-gradient-to-b from-[#1A4C0E] to-[#001C22] bg-no-repeat" >
+  <body>
+    <div class="container">
     <!-- Header -->
-    <header class="rounded-lg bg-primary bg-opacity-20 shadow-lg mx-4 mt-4 p-4">
-      <nav class="header__menu">
-        
-        <% if (session && session.user) { %>
-        <a href="/">
-          <img
-            src="<%= session.user.avatar %>"
-            alt="avatar"
-            width="30"
-            height="30"
-            style="border-radius: 50%"
-          />
-          Mon compte
-        </a>
-        <form method="post" action="/logout">
-          <button
-            class="inline-flex items-center rounded-lg bg-primary px-3 py-1.5 text-white text-xs sm:text-sm lg:text-xl font-medium hover:bg-primary/90"
-          >
-            Se déconnecter
-          </button>
-        </form>
-        <% } else { %>
-        <a href="/register">Inscription / Connexion</a>
-        <% } %>
+      <header>
+        <nav class="header__aria-label">
+          <% if (session && session.user) { %>
+            <a href="/" class="user-link">
+              <img
+                src="<%= session.user.avatar %>"
+                alt="avatar"
+                width="30"
+                height="30"
+                style="border-radius: 50%"
+              />
+              Mon compte
+            </a>
+            <form method="post" action="/logout">
+              <button class="logout-btn">Se déconnecter</button>
+            </form>
+          <% } else { %>
+            <a href="/register" class="highlight">Inscription / Connexion</a>
+          <% } %>
 
-        <a href="/games">Jeux</a>
-        <a href="/challenges">Challenges</a>
-        <a href="/ladder">Classement</a>
-      </nav>
-     
-    </header>
+          <a href="/games">Jeux</a>
+          <a href="/challenges">Challenges</a>
+          <a href="/ladder">Classement</a>
+        </nav>
+      </header>
 

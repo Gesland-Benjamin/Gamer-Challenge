@@ -1,27 +1,31 @@
-  <link rel="stylesheet" href="/css/navside.css">
-<body>
+<link rel="stylesheet" href="/css/navside.css">
 
-  <!-- Burger Checkbox -->
-  <input type="checkbox" id="burger-toggle">
 
-  <!-- Burger Icon -->
-  <label for="burger-toggle" class="burger-container">
-    <div class="burger-line"></div>
-    <div class="burger-line"></div>
-    <div class="burger-line"></div>
-  </label>
+<section class="navside">
+  <svg class="menu-burger-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M4 6a1 1 0 0 1 1-1h14a1 1 0 1 1 0 2H5a1 1 0 0 1-1-1m0 6a1 1 0 0 1 1-1h14a1 1 0 1 1 0 2H5a1 1 0 0 1-1-1m1 5a1 1 0 1 0 0 2h14a1 1 0 1 0 0-2z"/></svg>
 
-  <!-- Navigation Menu -->
-  <aside class="nav-menu">
-    <nav class="main__navside">
-      <h4>Mon Compte</h4>
-      <ul>
-        <li><a href="/me">MES INFORMATIONS</a></li>
-        <li><a href="/mychallenges">MES CHALLENGES</a></li>
-        <li><a href="/about">A PROPOS</a></li>
-        <li><a href="/contact">NOUS CONTACTER</a></li>
-      </ul>
-    </nav>
-  </aside>
+  <div class="navside-content">
+    <!-- Burger Checkbox -->
+    <input type="checkbox" id="burger-toggle">
 
-</body>
+    <!-- Burger Icon -->
+    <label for="burger-toggle" class="menu-burger-icon">
+      <div class="burger-line"></div>
+      <div class="burger-line"></div>
+      <div class="burger-line"></div>
+    </label>
+
+    <!-- Navigation Menu -->
+    <aside class="nav-menu">
+      <nav class="main__navside">
+        <h4>Mon Compte</h4>
+        <ul>
+          <li><a href="/me">MES INFORMATIONS</a></li>
+          <li><a href="/mychallenges">MES CHALLENGES</a></li>
+          <li><a href="/about">A PROPOS</a></li>
+          <li><a href="/contact">NOUS CONTACTER</a></li>
+        </ul>
+      </nav>
+    </aside>
+  </div>
+</section>

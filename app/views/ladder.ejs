@@ -1,7 +1,7 @@
 <%- include('partials/header.ejs') %>
 <%- include('./partials/aside_nav') %>
 
-<main class="main">
+<main>
   <h1>CLASSEMENT</h1>
 
   <!-- TOP 3 USERS -->
@@ -11,7 +11,7 @@
     <ul>
       <% users.slice(0,3).forEach((user, index) => { %>
       <li>
-        <article class="podium__userCard">
+        <article >
           <img
             src="<%= user.picture %>"
             alt="Photo de profil de <%= user.username %>"
@@ -30,7 +30,7 @@
       <% }) %>
     </ul>
 
-    <div class="podium__congrats">
+    <div >
       <p>
         BRAVO à 
         <% users.slice(0,3).forEach((user, index) => { %>
@@ -45,7 +45,7 @@
     </div>
   </section>
 
-  <a href="#" class="main__challengesLink">Voir tous les challenges</a>
+  <a href="#" >Voir tous les challenges</a>
 </main>
 
 <%- include('partials/footer.ejs') %>
