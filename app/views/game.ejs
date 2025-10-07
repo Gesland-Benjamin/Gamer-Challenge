@@ -31,7 +31,6 @@
               <%= challenge.name %>
             </a>
           </h2>
-
           <p>
             Votes: <span id="votes-<%= challenge.id %>"><%= challenge.dataValues.voteCount %></span>
           </p>
@@ -43,7 +42,7 @@
     <% } else { %>
       <p>Aucun challenge disponible.</p>
     <% } %>
-
+    <a href='/challenges/<%= game.id %>/addChallenge' class="button">Ajouter un challenge</a>
     <a href='/' class="button">Accueil</a>
   </section>
 </main>

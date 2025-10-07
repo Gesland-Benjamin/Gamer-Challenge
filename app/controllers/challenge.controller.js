@@ -1,5 +1,5 @@
 // Importe le modèle Game depuis les modèles
-import { Challenge, VideoSubmit, User } from "../models/index.js";
+import { Challenge, VideoSubmit, User, Game } from "../models/index.js";
 import { CoreController } from "./core.controller.js";
 import { createChallengeSchema, editChallengeSchema } from "../schemas/index.js";
 import Joi from "joi";
@@ -56,20 +56,29 @@ challengesListPage = async (req, res) => {
         }
     };
 
-    addNewChallenge = async (req, res) => {
-        try {
-
-            const data = Joi.attempt(req.body, createChallengeSchema);
-
-            const newChallenge = await Challenge.create(data);
-
-            res.status(201).redirect(`/challenges/${newChallenge.id}`);
-
-        } catch (error) {
-            console.error(error);
-            res.status(400).render("error", { error });
-        }
-    };
+     formNewChallenge = async (req, res) => {
+       const gameId = req.params.id
+       const game = await Game.findByPk(gameId);
+       if (!game) {
+         return this.render404(req, res);
+       }
+       res.render('addChallenge', { game });
+     }
+   
+     addNewChallenge = async (req, res) => {
+       try {
+         const data = Joi.attempt(req.body, createChallengeSchema);
+         const newChallenge = await Challenge.create(data);
+         newChallenge.user_id = req.session.user.id;
+         newChallenge.game_id = req.params.id;
+         await newChallenge.save();
+         
+         res.status(201).redirect(`/challenges/${newChallenge.id}`);
+       } catch (error) {
+         console.error(error);
+         res.status(400).render("error", { error });
+       }
+     };
 
     deleteChallenge = async (req, res) => {
         try {
