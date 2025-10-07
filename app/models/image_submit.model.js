@@ -14,10 +14,11 @@ export const ImageSubmit = sequelize.define(
       validate: {
         isUrl: true,
       },
-    
+    }
   },
-  sequelize,
-    tableName: "imagesubmit",
-    modelName: "ImageSubmit",
+  {
+    sequelize,          
+    tableName: "image_submits",
+    modelName: "ImageSubmit"
   }
 );

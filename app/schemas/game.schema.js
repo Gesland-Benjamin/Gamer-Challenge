@@ -15,6 +15,5 @@ export const editGameSchema = Joi.object({
     description: Joi.string().trim().min(1), // description
     release_year: Joi.date(), // date de sortie
     genre: Joi.string().trim().min(1).max(50), // genre, max 50 caractères
-    picture: Joi.string().trim().min(1).max(255), // url de l'image, max 255 caractères
-});
-
+    picture: Joi.string().trim().uri().min(1).max(255), // url de l'image, max 255 caractères
+}).or('name', 'description', 'release_year', 'genre', 'picture');

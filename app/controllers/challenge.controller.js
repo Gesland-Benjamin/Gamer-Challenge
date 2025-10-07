@@ -1,5 +1,5 @@
 // Importe le modèle Game depuis les modèles
-import { Challenge, VideoSubmit, User } from "../models/index.js";
+import { Challenge, VideoSubmit, User, Game } from "../models/index.js";
 import { CoreController } from "./core.controller.js";
 import { createChallengeSchema, editChallengeSchema } from "../schemas/index.js";
 import Joi from "joi";
@@ -48,7 +48,7 @@ challengesListPage = async (req, res) => {
                 return this.render404(req, res);
             }
 
-            res.render("challenge", { challenge, page: 1, totalPages: 1 });
+            res.render("challenge", { challenge, user: req.session.user, page: 1, totalPages: 1 });
         }
         catch (error) {
             console.error(error);
@@ -56,31 +56,42 @@ challengesListPage = async (req, res) => {
         }
     };
 
-    addNewChallenge = async (req, res) => {
-        try {
-
-            const data = Joi.attempt(req.body, createChallengeSchema);
-
-            const newChallenge = await Challenge.create(data);
-
-            res.status(201).redirect(`/challenges/${newChallenge.id}`);
-
-        } catch (error) {
-            console.error(error);
-            res.status(400).render("error", { error });
-        }
-    };
+     formNewChallenge = async (req, res) => {
+       const gameId = req.params.id
+       const game = await Game.findByPk(gameId);
+       if (!game) {
+         return this.render404(req, res);
+       }
+       res.render('addChallenge', { game });
+     }
+   
+     addNewChallenge = async (req, res) => {
+       try {
+         const data = Joi.attempt(req.body, createChallengeSchema);
+         const newChallenge = await Challenge.create(data);
+         newChallenge.user_id = req.session.user.id;
+         newChallenge.game_id = req.params.id;
+         await newChallenge.save();
+         
+         res.status(201).redirect(`/challenges/${newChallenge.id}`);
+       } catch (error) {
+         console.error(error);
+         res.status(400).render("error", { error });
+       }
+     };
 
     deleteChallenge = async (req, res) => {
         try {
-            const { id } = req.params;
+            const challengeId = req.params.id;
 
-            const challenge = await Challenge.findByPk(id);
+            const challenge = await Challenge.findByPk(challengeId);
 
             if (!challenge) {
                 return this.render404(req, res);
             }
-
+            if (challenge.user_id !== req.session.user.id && req.session.user.role !== "admin") {
+      return this.render403(req, res);
+    }
             await challenge.destroy();
 
             res.status(200).redirect("/challenges");
