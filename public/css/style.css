@@ -1,12 +1,13 @@
+@import url("navside.css");
+
 :root {
   --green-color: #449f05;
   --lightgreen-color: #55cb04;
   --fluogreen-color: #6bff05;
   --deepblue-color: #043640;
   --blue-color: #034b57;
-  --main-font : "Poppins", sans-serif;
-  --color : #ffffff;
-  
+  --main-font: "Poppins", sans-serif;
+  --color: #ffffff;
 }
 
 /* BODY */
@@ -17,24 +18,24 @@ body {
       rgba(0, 40, 0, 0.2) 40%,
       #001c22 100%
     ),
-    linear-gradient(to bottom, #1A4C0E, #001C22);
+    linear-gradient(to bottom, #1a4c0e, #001c22);
   background-repeat: no-repeat;
   background-attachment: fixed;
   color: #fff;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   margin: 0;
   padding: 0;
-   min-height: 100vh;
+  min-height: 100vh;
   width: 100%;
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
 }
 
 .container {
-  padding: 20px 20px 10px 20px; 
+  padding: 20px 20px 10px 20px;
   display: flex;
   flex-direction: column;
-  flex: 1
+  flex: 1;
 }
 
 /* HEADER */
@@ -46,7 +47,6 @@ header {
   padding: 16px 0;
   border-radius: 30px;
 }
-
 
 .header__aria-label {
   max-width: 1400px;
@@ -63,7 +63,6 @@ header {
   white-space: nowrap;
 }
 
-
 .header__aria-label a {
   color: #ffffff;
   text-decoration: none;
@@ -74,10 +73,14 @@ header {
   color: #8bff6b;
 }
 
-
 .header__aria-label .highlight {
   font-weight: 700;
   text-shadow: 0 0 6px rgba(255, 255, 255, 0.4);
+}
+
+.main__container-top {
+  height: 50%;
+  width: 100%;
 }
 
 /* === Section utilisateur (connexion, profil, déconnexion) === */
@@ -87,7 +90,6 @@ header {
   gap: 8px;
   color: #ffffff;
 }
-
 
 .logout-btn {
   background-color: #007f33;
@@ -105,8 +107,11 @@ header {
   background-color: #009944;
 }
 
-/* === Section Top Challenges === */
-/* Conteneur flex pour les challenges */
+/* NAVSIDE */
+.menu-burger-icon {
+  cursor: pointer;
+}
+
 .top-challenges-section {
   margin-top: 40px;
 }
@@ -125,15 +130,15 @@ header {
 
 .top-title {
   position: relative;
-  background: #001c22;
   padding: 0 24px;
   z-index: 1;
-  color: #baff96;
+  color: white;
   font-family: "Poppins", Arial, sans-serif;
   font-size: 18px;
-  font-weight: 700;
+  font-weight: bolder;
+  box-shadow: #001c22;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
 }
 
 .top-bar {
@@ -148,7 +153,6 @@ header {
   z-index: 0;
 }
 
-/* Flex pour les challenges */
 .top-challenges-section {
   display: flex;
   flex-direction: column;
@@ -164,39 +168,111 @@ header {
   height: 160px;
   background: #043640;
   border-radius: 20px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
   color: #fff;
   margin: 0 16px;
   margin-bottom: 24px;
 }
 
-/* Pour aligner les challenges côte à côte */
 .top-challenges-section .challenges-list {
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  align-items: center;
   gap: 13rem;
   margin-top: 24px;
   flex-wrap: wrap;
+  padding: 1rem;
 }
+
+.challenge {
+  padding: 0;
+  border: 1px var(--fluogreen-color);
+}
+
 .myButton {
-	background-color:#44c767;
-	border-radius:28px;
-	border:1px solid #18ab29;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Poppins;
-	font-size:1rem;
-	padding:1px 15px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #2f6627;
+  height: 8%;
+  background-color: var(--green-color);
+  border-radius: 28px;
+  border: 1px solid #18ab29;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0.3rem 2rem 0.3rem 2rem;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #2f6627;
 }
+
 .myButton:hover {
-	background-color:#5cbf2a;
+  background-color: #5cbf2a;
 }
+
 .myButton:active {
-	position:relative;
-	top:1px;
+  position: relative;
+  top: 1px;
+}
+
+/* FORMULAIRE INSCRIPTION/CONNEXION */
+.forms-container {
+  display: flex;
+  gap: 10rem;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 2rem 0;
+}
+
+.forms-container form {
+  background: #11380f;
+  padding: 2rem 1.5rem;
+  border-radius: 18px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+  min-width: 300px;
+  color: #fff;
+  border: #44b716 2px solid;
+  
+
+}
+.form-legend {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 1.2rem;
+  letter-spacing: 1px;
+  font-family: "Poppins", Arial, sans-serif;
+  text-transform: uppercase;
+  
+}
+
+.input {
+  background-color: #081c08;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 13px;
+  margin: 20px;
+}
+
+.myButton-form {
+  display: block;
+  margin: 1.5rem auto 0 auto;
+  height: 8%;
+  background-color: var(--green-color);
+  border-radius: 28px;
+  border: 1px solid #18ab29;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0.3rem 2rem 0.3rem 2rem;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #2f6627;
 }
 
 
@@ -210,6 +286,7 @@ footer {
   align-items: center;
   border-radius: 30px;
   margin-top: auto;
+  background: linear-gradient(to bottom, #043640 0%, #001c22 100%);
   background-color: rgba(4, 54, 64, 0.2);
 }
 
@@ -223,13 +300,13 @@ footer {
 }
 
 .footer a {
-  color: white;        
+  color: white;
   font-weight: bold;
-  text-decoration: none; 
+  text-decoration: none;
 }
 
 .footer a:hover {
-  color: var(--green-color); 
+  color: var(--green-color);
 }
 
 .gamerchallenges__tag {

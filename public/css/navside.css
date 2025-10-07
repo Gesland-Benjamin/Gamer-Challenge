@@ -1,129 +1,14 @@
-:root {
-  --primary-color: #2c3e50;
-  --secondary-color: #3498db;
-  --background-color: #ecf0f1;
-  --text-color: #333;
-  --hover-color: #2980b9;
-  --main-font : "Poppins", sans-serif
-}
-
-/* SIDENAV 
 .sidenav {
-  height: 25%;
-  border: 1px solid var(--lightgreen-color);
-}
-*/
-
-.sidenav {
-  height: 25%;
-  width: 10%;
-  border: 1px solid var(--lightgreen-color);
+  height: 100%;
+  width: 5%;
+  margin-left: auto;
+  background-color: bisque;
 }
 
-body {
-  height: 25%;
-  font-family: var(--main-font);
-  background-color: var(--background-color);
-  color: var(--text-color);
-  line-height: 1.6;
-}
-
-/* Burger Icon */
-.burger-container {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 1001;
-  cursor: pointer;
-  width: 40px;
-  height: 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 5px;
-  border-radius: 5px;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 4px 6px #0000001a;
-  background-color: white;
-}
-
-.burger-line {
-  width: 100%;
-  height: 3px;
-  background-color: var(--primary-color);
-  border-radius: 2px;
-  transform-origin: center;
-  transition: all 0.4s ease-in-out;
-}
-
-#burger-toggle {
+.sidenav-content {
   display: none;
 }
 
-/* Menu Navigation */
-.nav-menu {
-  position: fixed;
-  top: 0;
-  right: -300px;
-  width: 300px;
-  height: 100%;
-  background: linear-gradient(135deg, var(--primary-color) 0%, #273849 100%);
-  transition: right 0.4s cubic-bezier(0.77, 0.2, 0.05, 1);
-  box-shadow: -4px 0 15px #00000033;
-  overflow-y: auto;
-  padding-top: 100px;
-  z-index: 1000;
-}
-
-.nav-menu ul {
-  list-style-type: none;
-}
-
-.nav-menu ul li {
-  margin: 0 15px;
-  border-bottom: 1px solid #ffffff1a;
-}
-
-.nav-menu ul li a {
-  color: white;
-  text-decoration: none;
+.sidenav-content.show {
   display: block;
-  padding: 15px;
-  font-weight: 500;
-  position: relative;
-  overflow: hidden;
 }
-
-.nav-menu ul li a::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: -100%;
-  width: 100%;
-  height: 2px;
-  background-color: var(--secondary-color);
-  transition: left 0.3s ease;
-}
-
-.nav-menu ul li a:hover::after {
-  left: 0;
-}
-
-/* Burger Animation */
-#burger-toggle:checked ~ .burger-container .burger-line:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-
-#burger-toggle:checked ~ .burger-container .burger-line:nth-child(2) {
-  opacity: 0;
-}
-
-#burger-toggle:checked ~ .burger-container .burger-line:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
-}
-
-/* Slide In Menu */
-#burger-toggle:checked ~ .nav-menu {
-  right: 0;
-}
-
