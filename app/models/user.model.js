@@ -1,7 +1,7 @@
 import { DataTypes, Model } from "sequelize"; // nécessaires pour créer les models
 import { sequelize } from "./sequelize.client.js"; // correspond à la BDD
 
-export class User extends Model {}
+export class User extends Model { }
 
 User.init(
   //Définition des attributs du model
@@ -42,14 +42,34 @@ User.init(
     picture: {
       type: DataTypes.STRING, // URL ou chemin de l'avatar de l'utilisateur
       allowNull: true,
-      
+
+    },
+
+    favoriteGame: {
+      type: DataTypes.STRING(255),
+      allowNull: true,
     },
 
     isBanned: {
       type: DataTypes.BOOLEAN,
       defaultValue: false,
       allowNull: false
-    }
+    },
+
+    youtube_url: {
+      type: DataTypes.STRING(255),
+      allowNull: true,
+    },
+
+    twitch_url: {
+      type: DataTypes.STRING(255),
+      allowNull: true,
+    },
+
+    discord_url: {
+      type: DataTypes.STRING(255),
+      allowNull: true,
+    },
   },
   {
     sequelize, // On indique que les informations de connexion

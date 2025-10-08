@@ -21,6 +21,8 @@ authRouter.post('/login', onlyGuest, AuthController.login);
 
 authRouter.get('/me', onlyAuthenticated, AuthController.getMe);
 
+authRouter.post('/me', onlyAuthenticated, AuthController.editMe);
+
 authRouter.get('/admin', onlyAdmin, AdminController.adminPage);
 
 authRouter.post('/logout', AuthController.logout);
