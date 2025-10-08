@@ -16,21 +16,15 @@
     <link rel="stylesheet" href="">
   </head>
 
-  <body>
+  
     <div class="container">
     <!-- Header -->
       <header>
         <nav class="header__aria-label">
-          <img src="/logos/manette.jpg" alt="Logo" class="header-logo-left">
+          <img  src="/logos/manette.jpg" alt="Logo" class="header-logo-left">
           <% if (session && session.user) { %>
             <a href="/me" class="user-link">
-              <img
-                src="<%= session.user.avatar %>"
-                alt="avatar"
-                width="30"
-                height="30"
-                style="border-radius: 50%"
-              />
+              
               Mon compte
             </a>
             <form method="post" action="/logout">

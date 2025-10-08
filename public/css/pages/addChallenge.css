@@ -42,6 +42,7 @@
   border: 3px solid var(--fluogreen-color);
 }
 
+
 .form__legend {
   font-family: var(--main-font);
   font-weight: bolder;
@@ -63,10 +64,10 @@
 
 .div__btn {
   width: 100%;
-  margin-top: 10rem;
+  margin-top: 8rem;
+  box-sizing: border-box;
   display: flex;
   justify-content: center;
-
 }
 
 .btn__submit {

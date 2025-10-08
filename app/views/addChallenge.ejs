@@ -3,11 +3,17 @@
 
 <main class="addChallenge__main">
 
+  <div class="games__top-title-wrapper">
+    <span class="games__top-title">AJOUTER UN CHALLENGE</span>
+    <div class="games__top-bar"></div>
+  </div>
+
+  <!-- FORM -->
   <section class="addChallenge_form">
 
     <div class="form__container">
       <form method="POST" class="form_register" action="/challenges/<%= game.id %>/addchallenge">
-      <legend class="form__legend">Ajouter un challenge pour <%= game.name %></legend>
+      <legend class="form__legend">Ajouter un challenge sur <%= game.name %></legend>
 
         <div class="form_content_container">
           <input type="text" placeholder="Titre du challenge" name="challenge_name" class="form__input">
