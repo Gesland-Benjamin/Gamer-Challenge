@@ -1,0 +1,89 @@
+:root {
+  --green-color: #449f05;
+  --lightgreen-color: #55cb04;
+  --fluogreen-color: #6bff05;
+  --deepblue-color: #043640;
+  --blue-color: #034b57;
+  --main-font: "Poppins", sans-serif;
+}
+
+.games__main {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* WRAPPER */
+
+.games__top-title-wrapper {
+  height: 10%;
+  width: 100%;
+  position: relative;
+  max-width: 1200px;
+  margin: 1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.games__top-title {
+  position: relative;
+  padding: 0 24px;
+  color: white;
+  font-family: "Poppins", Arial, sans-serif;
+  font-size: 18px;
+  font-weight: bolder;
+  box-shadow: #001c22;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.games__top-bar {
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(to right, transparent, #32ff0a, transparent);
+  box-shadow: 0 0 10px rgba(50, 255, 10, 0.6);
+}
+
+
+/* JEUX */
+
+.list {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  box-sizing: border-box;
+}
+
+.list__game {
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.game-cover {
+  height: 25%;
+  width: 45%;
+  border: 2px solid var(--fluogreen-color);
+  border-radius: 20px;
+}
+
+.game-name {
+  font-family: var(--main-font);
+  color: white;
+  text-decoration: none;
+}

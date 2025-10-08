@@ -1,51 +1,43 @@
-<%- include('partials/header.ejs') %>
-<%- include('./partials/aside_nav') %>
+<%- include('partials/header.ejs') %> <%- include('./partials/aside_nav') %>
 
-<main>
-  <h1>CLASSEMENT</h1>
+<main class="classement-container">
+  <div class="classement-header">
+    <img
+      src="/logos/logo-classement.png"
+      alt="Bannière classement"
+      class="classement-logo"
+    />
+    <h1 class="classement-title">CLASSEMENT</h1>
+  </div>
 
-  <!-- TOP 3 USERS -->
+  <div class="top-bar-ladder"></div>
   <section id="main__podium">
-    <h2>TOP 3 USERS</h2>
+    <h2 class="classement-subtitle">TOP 3 DES MEILLEURS GAMERS</h2>
 
-    <ul>
+    <div class="podium">
       <% users.slice(0,3).forEach((user, index) => { %>
-      <li>
-        <article >
-          <img
-            src="<%= user.picture %>"
-            alt="Photo de profil de <%= user.username %>"
-          />
-          <div> 
-            <h3>
-              <%= user.username %>
-              <% if(index === 0){ %> 🥇 <% } %>
-              <% if(index === 1){ %> 🥈 <% } %>
-              <% if(index === 2){ %> 🥉 <% } %>
-            </h3>
-            <p>Votes : <%= user.voteCount %> ❤️</p>
-          </div>
-        </article>
-      </li>
+      <article class="podium-card <% if(index === 0){ %>first<% } %>">
+        <div class="podium-img-wrapper">
+          <img src="<%= user.picture %>" alt="Profil de <%= user.username %>" />
+        </div>
+        <h3 class="podium-username"><%= user.username %></h3>
+        <p class="podium-score">
+          <%= user.voteCount %> <span class="heart">❤️</span>
+        </p>
+      </article>
       <% }) %>
-    </ul>
+    </div>
 
-    <div >
-      <p>
-        BRAVO à 
-        <% users.slice(0,3).forEach((user, index) => { %>
-          <%= user.username %> 
-          <% if(index === 0){ %>🥇<% } %>
-          <% if(index === 1){ %>🥈<% } %>
-          <% if(index === 2){ %>🥉<% } %>
-          <% if(index < users.slice(0,3).length - 1){ %>, <% } %>
-        <% }) %>
-        qui sont dans le top 3 actuellement !
-      </p>
+    <p class="podium-congrats">
+      BRAVO ! <% users.slice(0,3).forEach((user, index) => { %> <%=
+      user.username %> <% if(index < 2){ %>, <% } %> <% }) %> qui sont nos 3
+      meilleurs gamers ! Pour le moment !
+    </p>
+
+    <div class="center-btn">
+      <a href="/challenges" class="back-link">RETOUR CHALLENGES</a>
     </div>
   </section>
-
-  <a href="#" >Voir tous les challenges</a>
 </main>
 
 <%- include('partials/footer.ejs') %>

@@ -1,42 +1,46 @@
 <%- include('./partials/header') %>
 <%- include('./partials/aside_nav') %>
 
-<section class="add_form">
 
-  <div >
-    <form action="/admin/addgame" method="POST" >
-      <legend>ADD GAME</legend>
-      <fieldset>
+<main class="addGame__main">
 
-        <div >
-          <input type="text" placeholder="name" name="name" >
-        </div>
+  <section class="add_form">
 
-        <div >
-          <textarea placeholder="Description" name="description" ></textarea>
-        </div>
+    <div >
+      <form action="/admin/addgame" method="POST" >
+        <legend>ADD GAME</legend>
+        <fieldset>
 
-        <div >
-          <input type="date" placeholder="Release Year" name="release_year"  >
-        </div>
+          <div >
+            <input type="text" placeholder="name" name="name" >
+          </div>
 
-        <div >
-          <input type="text" placeholder="Genre" name="genre" >
-        </div>
+          <div >
+            <textarea placeholder="Description" name="description" ></textarea>
+          </div>
 
-        <div class="form_content_container">
-          <label for="picture" class="form_label">Game Picture</label>
-          <input type="url" id="picture" name="picture" class="form_input">
-        </div>
+          <div >
+            <input type="date" placeholder="Release Year" name="release_year"  >
+          </div>
 
-        <button type="submit" >Valider</button>
+          <div >
+            <input type="text" placeholder="Genre" name="genre" >
+          </div>
 
-      </fieldset>
-    </form>
+          <div class="form_content_container">
+            <label for="picture" class="form_label">Game Picture</label>
+            <input type="url" id="picture" name="picture" class="form_input">
+          </div>
 
-    <a href="/" >Retour à l'accueil</a>
-  </div>
+          <button type="submit" >Valider</button>
 
-</section>
+        </fieldset>
+      </form>
+
+      <a href="/" >Retour à l'accueil</a>
+    </div>
+
+  </section>
+</main>
 
 <%- include('./partials/footer') %>

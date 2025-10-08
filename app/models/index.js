@@ -15,6 +15,7 @@ User.hasMany(Challenge, {
     as : "challenges"
 });
 
+
 // Déclare qu'un défi (Challenge) appartient à un utilisateur (User).
 // Utilise également la clé étrangère "user_id" pour faire le lien.
 // L'alias "user" permet d'accéder à l'utilisateur associé à un défi.

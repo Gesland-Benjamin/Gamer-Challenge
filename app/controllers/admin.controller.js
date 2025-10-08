@@ -53,35 +53,35 @@ class AdminController extends CoreController {
 
     deleteGame = async (req, res) => {
         try {
-                   const gameId = req.params.id;
-       
-                   const game = await Game.findByPk(gameId);
-       
-                   if (!game) {
-                       return this.render404(req, res);
-                   }
+            const gameId = req.params.id;
 
-                   await game.destroy();
-       
-                   res.status(200).redirect("/games");
-       
-               } catch (error) {
-                   console.error(error);
-                   res.status(400).render("error", { error });
-               }
-           };
+            const game = await Game.findByPk(gameId);
+
+            if (!game) {
+                return this.render404(req, res);
+            }
+
+            await game.destroy();
+
+            res.status(200).redirect("/games");
+
+        } catch (error) {
+            console.error(error);
+            res.status(400).render("error", { error });
+        }
+    };
 
     formEditGame = async (req, res) => {
 
         const gameId = req.params.id;
-        
+
         const game = await Game.findByPk(gameId);
-       if (!game) {
-         return this.render404(req, res);
-       }
-       res.status(200).render('editGame', { game });
-     }
-    
+        if (!game) {
+            return this.render404(req, res);
+        }
+        res.status(200).render('editGame', { game });
+    }
+
     editGame = async (req, res) => {
         try {
             const { id } = req.params;
@@ -102,6 +102,58 @@ class AdminController extends CoreController {
             res.status(400).render("error", { error });
         }
     };
+
+    getAll = async (req, res) => {
+        try {
+
+            const users = await User.findAll({
+                attributes: ["id", "username", "isBanned"],
+                order: [["username", "ASC"]]
+            });
+
+            res.status(200).render("usersList", { users });
+
+        } catch (error) {
+            console.error(error);
+            return this.render404(req, res);
+        }
+    };
+
+    banUser = async (req, res) => {
+        try {
+            const { id } = req.params;
+
+            const user = await User.findByPk(id);
+            if (!user) {
+                return res.status(404).send("Utilisateur introuvable");
+            }
+
+            await user.update({ isBanned: true });
+
+            res.redirect("/admin/userslist");
+        } catch (error) {
+            console.error(error);
+            this.render500(req, res);
+        }
+    }
+
+    unbanUser = async (req, res) => {
+        try {
+            const { id } = req.params;
+
+            const user = await User.findByPk(id);
+            if (!user) {
+                return res.status(404).send("Utilisateur introuvable");
+            }
+
+            await user.update({ isBanned: false });
+
+            res.redirect("/admin/userslist");
+        } catch (error) {
+            console.error(error);
+            this.render500(req, res);
+        }
+    }
 
 };
 

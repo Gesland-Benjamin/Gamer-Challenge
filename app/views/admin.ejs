@@ -1,0 +1,21 @@
+<%- include('partials/header') %>
+    <%- include('partials/aside_nav') %>
+
+        <section>
+            <h1>Centre de contrôle ADMIN</h1>
+            <h2>Bienvenue sur votre page d'Admin </h2>
+            <form action="/admin" method="post">
+                <fieldset>
+                    <div>
+                        <a href="/games">Modifier des jeux</a>
+                        <a href="/admin/addgame">Ajouter un jeu</a>
+                        <a href="/challenges">Ajouter, modifier ou supprimer des challenges</a>
+                        <a href="/admin/userslist">Bannir un utilisateur</a>
+                        <a href="/">Modifier mes informations</a>
+                    </div>
+                </fieldset>
+            </form>
+            <a href="/"> Retour à l'accueil</a>
+        </section>
+
+        <%- include('partials/footer') %>

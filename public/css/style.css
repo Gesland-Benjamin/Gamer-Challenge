@@ -1,3 +1,10 @@
+@import url('../css/pages/games.css');
+@import url('../css/pages/classement.css');
+@import url('../css/pages/addChallenge.css');
+@import url('../css/pages/game.css');
+@import url('../css/pages/challenge.css');
+
+
 :root {
   --green-color: #449f05;
   --lightgreen-color: #55cb04;
@@ -5,10 +12,15 @@
   --deepblue-color: #043640;
   --blue-color: #034b57;
   --main-font: "Poppins", sans-serif;
-  --color: #ffffff;
 }
 
 /* BODY */
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   background: radial-gradient(
       circle at 50% 20%,
@@ -38,6 +50,8 @@ body {
   flex: 1;
 }
 
+
+
 /* HEADER */
 header {
   width: 98%;
@@ -62,6 +76,12 @@ header {
   font-size: 16px;
   white-space: nowrap;
 }
+.header-logo-left {
+  height: 40px;        
+  margin-right: 24px;  
+  margin-left: 0;
+  align-self: center;
+}
 
 .header__aria-label a {
   color: #ffffff;
@@ -79,11 +99,27 @@ header {
 }
 
 /* TITRES & MASCOTTES */
-.main__container-top {
-  height: 50%;
+.main__logos-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 3vw; /* espace entre les logos */
   width: 100%;
-  box-sizing: border-box;
+  margin-bottom: 2rem;
 }
+.main-logo{
+ max-width: 800px;   /* taille identique pour les deux logos */
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.main__logos-row img:last-child {
+  max-width: 800px; 
+ 
+}
+
 
 /* === Section utilisateur (connexion, profil, déconnexion) === */
 .user-link {
@@ -118,10 +154,8 @@ header {
   z-index: 2000;
 }
 
+
 /* CHALLENGES */
-.top-challenges-section {
-  margin-top: 40px;
-}
 
 .top-title-wrapper {
   position: relative;
@@ -133,6 +167,7 @@ header {
   align-items: center;
   justify-content: center;
   height: 48px;
+  margin-bottom: 0rem
 }
 
 .top-title {
@@ -154,7 +189,7 @@ header {
   top: 50%;
   transform: translateY(-50%);
   width: 100%;
-  height: 2px;
+  height: 4px;
   background: linear-gradient(to right, transparent, #32ff0a, transparent);
   box-shadow: 0 0 10px rgba(50, 255, 10, 0.6);
   z-index: 0;
@@ -181,7 +216,7 @@ header {
   margin-bottom: 24px;
 }
 
-.top-challenges-section .challenges-list  {
+.top-challenges-section .challenges-list {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -197,8 +232,7 @@ header {
   border: 1px var(--fluogreen-color);
 }
 
-.myButton {
-  
+.back-link{
   height: 8%;
   background-color: var(--green-color);
   border-radius: 28px;
@@ -214,16 +248,16 @@ header {
   text-shadow: 0px 1px 0px #2f6627;
 }
 
-.myButton:hover {
+.back-link:hover {
   background-color: #5cbf2a;
 }
 
-.myButton:active {
+.back-link:active {
   position: relative;
   top: 1px;
 }
 
-/* FORMULAIRE INSCRIPTION/CONNEXION */
+/* FORMULAIRE */
 .forms-container {
   display: flex;
   gap: 10rem;
@@ -242,13 +276,14 @@ header {
 
 .forms-container form {
   background: #11380f;
-  border: 3px solid #44b716;
+  border: 3px solid #44b716; /* ou border: none; */
   padding: 2rem 1.5rem;
   border-radius: 18px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
-  min-width: 300px;
   color: #fff;
   width: 100%;
+  max-width: 350px;
+  min-width: unset;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -265,7 +300,6 @@ header {
   font-family: "Poppins", Arial, sans-serif;
   text-transform: uppercase;
 }
-
 
 .input {
   background-color: #081c08;
@@ -294,6 +328,7 @@ header {
   text-decoration: none;
   text-shadow: 0px 1px 0px #2f6627;
 }
+
 .center-btn {
   display: flex;
   justify-content: center;
@@ -301,24 +336,44 @@ header {
   min-height: 40vh; /* ajuste la hauteur selon ton besoin */
 }
 
-/*ABOUT*/
-
-.about-container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 2rem;
-    max-width: 800px;
-    margin: 2rem auto;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-family: "Poppins", Arial, sans-serif;
-    font-weight: 600;
-
+.input-with-icon {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
 }
 
+.input-with-icon .input {
+  flex: 1;
+  padding-right: 2.2em; /* espace pour l'icône */
+}
+
+.edit-icon {
+  position: absolute;
+  right: 12px;
+  color: #44b716;
+  font-size: 1.1em;
+  pointer-events: none; /* l'icône ne bloque pas l'input */
+}
+
+
+/*ABOUT*/
+
+.about-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  max-width: 800px;
+  margin: 2rem auto;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: "Poppins", Arial, sans-serif;
+  font-weight: 600;
+  color: white;
+}
 
 /* FOOTER */
 footer {
@@ -357,4 +412,31 @@ footer {
   font-size: x-small;
   color: #ffffff;
   margin: 0 auto;
+}
+
+
+/* PAGINATION */
+
+.pagination {
+  width: 4%;
+  display: flex;
+  justify-content: center;
+  justify-content: space-evenly;
+  font-family: var(--main-font);
+  color: white;
+}
+
+.pagination__span {
+  font-family: var(--main-font);
+  font-weight: bolder;
+  text-decoration: none;
+  color: white;
+}
+
+
+a {
+  font-family: var(--main-font);
+  font-weight: bolder;
+  text-decoration: none;
+  color: white;
 }

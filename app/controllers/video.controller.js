@@ -29,40 +29,12 @@ class VideoController extends CoreController {
       newVideo.challenge_id = req.params.id;
       await newVideo.save();
       
-      res.status(201).redirect(`/videos/${newVideo.id}`);
+      res.status(201).redirect(`/challenges/${newVideo.challenge_id}`);
     } catch (error) {
       console.error(error);
       res.status(400).render("error", { error });
     }
   };
-
-  videoDetailsPage = async (req, res, next) => {
-    try {
-      const { id } = req.params;
-      const video = await VideoSubmit.findByPk(id, {
-        include: [{
-          model: User,
-          as : "user",
-          attributes: ['username']
-        }]
-      });
-
-      if (!video) {
-        return this.render404(req, res);
-      }
-
-      res.render("video", { video, page: 1, totalPages: 1 });
-      
-    } catch (error) {
-      console.error(error);
-      res.status(404).render("error", { error });
-    }
-  };
-
-  // getIndex = async (req, res) => {
-  //   const videos = fs.readdirSync('uploads/');
-  //   res.render('addVideo', { videos }); // Passe les vidéos à la vue
-  // };
 
 }
 
