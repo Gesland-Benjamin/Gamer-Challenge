@@ -102,6 +102,29 @@ challengesListPage = async (req, res) => {
         }
     };
 
+    formEditChallenge = async (req, res) => {
+        try {
+            const { id } = req.params;
+
+            const challenge = await Challenge.findByPk(id);
+
+            if (!challenge) {
+                return this.render404(req, res);
+            }
+
+            // Vérification de l'id de l'utilisateur dans req.session
+            if (challenge.user_id !== req.session.user.id && req.session.user.role !== "admin") {
+                return this.render403(req, res);
+            }
+
+            res.status(200).render("editChallenge", { challenge });
+
+        } catch (error) {
+            console.error(error);
+            return this.render404(req, res);
+        }
+    };
+
     editChallenge = async (req, res) => {
         try {
             const { id } = req.params;
@@ -118,7 +141,7 @@ challengesListPage = async (req, res) => {
 
             await challenge.update(data);
 
-            res.status(200).redirect(`/videos/${newVideo.id}`);
+            res.status(200).redirect(`/challenges/${challenge.id}`);
 
         } catch (error) {
             console.error(error);
@@ -155,6 +178,6 @@ challengesListPage = async (req, res) => {
         }
     };
 
-}
+};
 
 export default new ChallengeController();
