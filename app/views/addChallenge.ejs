@@ -1,33 +1,30 @@
 <%- include('./partials/header') %> 
 <%- include('./partials/aside_nav') %>
 
-<section class="add_form">
+<main class="addChallenge__main">
 
-  <div class="forms_container">
-    <form method="POST" class="form_register" action="/challenges/<%= game.id %>/addchallenge">
-  <legend>ADD CHALLENGE for <%= game.name %></legend>
-      <fieldset>
+  <section class="addChallenge_form">
+
+    <div class="form__container">
+      <form method="POST" class="form_register" action="/challenges/<%= game.id %>/addchallenge">
+      <legend class="form__legend">Ajouter un challenge pour <%= game.name %></legend>
 
         <div class="form_content_container">
-          <input type="text" placeholder="name" name="name" class="form_input">
+          <input type="text" placeholder="Titre du challenge" name="challenge_name" class="form__input">
         </div>
 
         <div class="form_content_container">
-          <textarea placeholder="Description" name="description" class="form_input"></textarea>
+          <textarea placeholder="Description" name="description" class="form__input"></textarea>
         </div>
 
-        <div class="form_content_container">
-          <input type="date" placeholder="Release Date" name="release_date" class="form_input" >
+        <div class="div__btn">
+          <button type="submit" class="btn__submit">Valider</button>
         </div>
-
-        <button type="submit" class="btn_submit">Valider</button>
-
-      </fieldset>
-    </form>
+      </form>
+    </div>
 
     <a href="/" class="back_link">Retour à l'accueil</a>
-  </div>
-
-</section>
+  </section>
+</main>
 
 <%- include('./partials/footer') %>

@@ -1,63 +1,65 @@
 <%- include('partials/header') %>
-  <%- include('partials/aside_nav') %>
+<%- include('partials/aside_nav') %>
 
-    <main class="game-page-main" role="main">
-      <section class="game-header" aria-label="Présentation du jeu">
-        <div class="game-cover-wrapper">
-          <img src="<%= game.picture %>" alt="<%= game.name %>" class="game-cover" />
-        </div>
+<main class="game-page-main" role="main">
+  <section class="game-header" aria-label="Présentation du jeu">
+    <div class="game-cover-wrapper">
+      <img src="<%= game.picture %>" alt="<%= game.name %>" class="game-cover" />
+    </div>
+    <div class="game-info">
+      <h2 id="game-name" class="game-name">
+        <%= game.name %>
+      </h2>
+      <p class="game-description">
+        <%= game.description %>
+      </p>
+      <p class="game-date">
+        <%= game.release_year.getFullYear() %>
+      </p>
+      <p class="game-meta" aria-hidden="false">
+        <%= game.genre %>
+      </p>
+    </div>
+  </section>
 
-        <div class="game-info">
-          <h2 id="game-name" class="game-name">
-            <%= game.name %>
-          </h2>
-
-          <p class="game-description">
-            <%= game.description %>
-          </p>
-
-          <p class="game-date">
-            <%= game.release_year.getFullYear() %>
-          </p>
-
-          <p class="game-meta" aria-hidden="false">
-            <%= game.genre %>
-          </p>
-        </div>
-
-        <% if (game.challenges && game.challenges.length) { %>
-          <% game.challenges.forEach(function(challenge) { %>
-            <div class="challenge">
-              <h2>
+  <section class="challenges-section">
+    <h2>CHALLENGES</h2>
+    <% if (game.challenges && game.challenges.length) { %>
+      <div class="challenges-list">
+        <% game.challenges.forEach(function(challenge) { %>
+          <div class="challenge">
+            <div class="challenge-info">
+              <h3>
                 <a href="/challenges/<%= challenge.id %>">
                   <%= challenge.name %>
                 </a>
-              </h2>
-              <p>
-                Votes: <span id="votes-<%= challenge.id %>">
-                  <%= challenge.dataValues.voteCount %>
-                </span>
-              </p>
-
-              <!-- Bouton Like -->
-              <button class="like-btn" data-id="<%= challenge.id %>">J'aime</button>
+              </h3>
             </div>
-            <% }); %>
-              <% } else { %>
-                <p>Aucun challenge disponible.</p>
-                <% } %>
-                  <% if (user && user.role==='admin' ) { %>
-                    <a href="/games/<%= game.id %>/edit">Modifier</a>
-                    <form action="/games/<%= game.id %>/delete" method="POST">
-                      <button type="submit">Supprimer</button>
-                    </form>
-                    <% } %>
-                      <a href='/challenges/<%= game.id %>/addChallenge' class="button">Ajouter un challenge</a>
-                      <a href='/' class="button">Accueil</a>
-      </section>
-    </main>
+            <div class="challenge-votes">
+              <span id="votes-<%= challenge.id %>">
+                <%= challenge.dataValues.voteCount %> ❤️
+              </span>
+            </div>
+            <button class="like-btn" data-id="<%= challenge.id %>">J'aime</button>
+          </div>
+        <% }); %>
+      </div>
+    <% } else { %>
+      <p>Aucun challenge disponible.</p>
+    <% } %>
+  </section>
 
-    <%- include('partials/footer') %>
+  <div class="game-actions">
+    <% if (user && user.role === 'admin') { %>
+      <a href="/games/<%= game.id %>/edit" class="button">Modifier</a>
+      <form action="/games/<%= game.id %>/delete" method="POST" style="display: inline;">
+        <button type="submit" class="button">Supprimer</button>
+      </form>
+    <% } %>
+    <a href='/challenges/<%= game.id %>/addChallenge' class="button">Ajouter un challenge</a>
+    <a href='/' class="button">Accueil</a>
+  </div>
+</main>
 
-      <!-- Script pour gérer le Like -->
-      <script src="/js/like.js"></script>
+<%- include('partials/footer') %>
+<script src="/js/like.js"></script>

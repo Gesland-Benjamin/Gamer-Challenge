@@ -1,0 +1,111 @@
+
+:root {
+    font-family: "Poppins", sans-serif;
+    color: white;
+}
+
+
+
+
+
+
+/* Contenu principal */
+.game-page-main {
+    margin-left: 2rem;
+    margin-right: 80px;
+    padding: 2rem;
+}
+
+.game-cover {
+    width: 300px;
+    height: auto;
+    border-radius: 10px;
+    border: 3px solid #4dff4d;
+}
+
+.game-info {
+    flex: 1;
+}
+
+
+
+
+
+/* Section des défis */
+section h2 {
+    color: #4dff4d;
+    font-size: 1.8rem;
+    margin: 2rem 0 1rem 0;
+    text-align: center;
+}
+
+.challenge {
+    background-color: #003311;
+    border: 1px solid #4dff4d;
+    border-radius: 20px;
+    padding: 1rem;
+    margin: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.challenge h2 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.challenge a {
+    color: #e0e0e0;
+    text-decoration: none;
+}
+
+.challenge a:hover {
+    color: #4dff4d;
+}
+
+.like-btn {
+    background-color: #4dff4d;
+    color: #000;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.like-btn:hover {
+    background-color: #33cc33;
+}
+
+/* Pied de page */
+footer {
+    background-color: #003311;
+    padding: 1rem;
+    text-align: center;
+    color: #a0a0a0;
+    font-size: 0.9rem;
+    margin-top: 2rem;
+}
+
+/* Boutons */
+.button {
+    display: inline-block;
+    background-color: var(--green-color);
+    color: white;
+    cursor: pointer;
+    font-family: "Poppins", sans-serif;
+    padding: 0.3rem 2rem;
+    margin: 0.5rem;
+    text-decoration: none;
+    border-radius: 28px;
+    font-weight: bold;
+    font-size: 1rem;
+    border: 1px solid #18ab29;
+    text-shadow: 0px 1px 0px #2f6627;
+    
+}
+
+.button:hover {
+    background-color: #33cc33;
+}
