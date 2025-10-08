@@ -1,0 +1,27 @@
+ <%- include('partials/header') %>
+ <%- include('partials/aside_nav') %>
+ 
+ <h1>Résultats pour "<%= query %>"</h1>
+
+  <% if (!results || (Array.isArray(results) && results.length === 0) || (typeof results === 'object' && Object.keys(results).length === 0)) { %>
+    <p>Aucun résultat trouvé.</p>
+  <% } else { %>
+    <% if (type === 'games') { %>
+      <h2>Jeux</h2>
+      <ul>
+        <% results.forEach(game => { %>
+          <li><a href="/games/<%= game.id %>"><%= game.name %></a></li>
+        <% }) %>
+      </ul>
+    <% } else if (type === 'challenges') { %>
+      <h2>Challenges</h2>
+      <ul>
+        <% results.forEach(challenge => { %>
+          <li><a href="/challenges/<%= challenge.id %>"><%= challenge.name %></a></li>
+        <% }) %>
+      </ul>
+      <% } %>
+  <% } %>
+</body>
+
+<%- include('./partials/footer') %>

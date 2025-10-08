@@ -13,53 +13,38 @@
         <fieldset>
             <div >
                 <label for="username">Pseudo</label>
-                <input type="text" name="username" >
+                <input type="text" name="username" value="<%= user.username%>" >
                 <i ></i>
             </div>
             <div >
                 <label for="mail">Adresse mail</label>
-                <input type="email" name="mail" >
-                <i ></i>
-            </div>
-            <div class="field_form_container">
-                <label for="password">Mot de passe</label>
-                <input type="password" name="password" >
+                <input type="email" name="mail" value="<%= user.mail%>">
                 <i ></i>
             </div>
             <div class="field_form_container">
                 <label for="favoriteGame">Jeu préféré</label>
-                <input type="text" name="favoriteGame" >
+                <input type="text" name="favoriteGame" value="<%= user.favoriteGame%>" >
                 <i ></i>
             </div>
             <div class="socials">
                 <label for="">Réseaux sociaux</label>
                 <div class="socials_form_container">
                     <div class="field_form_container">
-                        <input type="url" name="x"  placeholder="https://x.com/votrepseudo" value="<%= user.socials ? user.socials.twitter : '' %>">
+                        <input type="url" name="twitch_url"placeholder="https://www.twitch.tv/votrepseudo" value="<%= user.twitch_url%>">
                         <i ></i>
-                    </div>
-                    <div class="field_form_container">
-                        <input type="url" name="instagram"  placeholder="https://instagram.com/votrepseudo" value="<%= user.socials ? user.socials.instagram : '' %>">
+                        <input type="url" name="youtube_url"placeholder="https://www.youtube.com/votrepseudo" value="<%= user.youtube_url%>">
                         <i ></i>
-                    </div>
-                    <div class="field_form_container">
-                        <input type="url" name="twitch"  placeholder="https://twitch.tv/votrepseudo" value="<%= user.socials ? user.socials.twitch : '' %>">
-                        <i ></i>
-                    </div>
-                    <div class="field_form_container">
-                        <input type="url" name="youtube"  placeholder="https://youtube.com/votrepseudo" value="<%= user.socials ? user.socials.youtube : '' %>">
-                        <i ></i>
-                    </div>
-                    <div class="field_form_container">
-                        <input type="text" name="discord"  placeholder="Votre pseudo Discord#1234" value="<%= user.socials ? user.socials.discord : '' %>">
-                        <i ></i>
+                        <input type="url" name="discord_url"  placeholder="discord.gg/votrepseudo" value="<%= user.discord_url%>">
                     </div>
                 </div>
             </div>
             <button type="submit" >Modifier mes informations</button>
+            <a href="/"> Retour à l'accueil</a>
         </fieldset>
     </form>
-    <button>Retour à l'accueil</button>
 </section>
+<form action="/me/delete" method="post">
+    <button type="submit" onclick="return confirm('Êtes-vous sûr de vouloir supprimer votre compte ? Cette action est irréversible.')">Supprimer mon compte</button>
+</form>
 
 <%- include('partials/footer') %>

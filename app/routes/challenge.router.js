@@ -23,8 +23,11 @@ challengeRouter.post('/challenges/:id/addChallenge', onlyAuthenticated, Challeng
 // Route pour supprimer un challenge par son id, avec vérification de l'id
 challengeRouter.post('/challenges/:id/delete', checkId, onlyAuthenticated, ChallengeController.deleteChallenge);
 
+// Route pour afficher le formulaire d'édition d'un challenge
+challengeRouter.get('/challenges/:id/edit', onlyAuthenticated, ChallengeController.formEditChallenge);
+
 // Route pour mettre à jour un challenge par son id, avec vérification de l'id 
-challengeRouter.post('/challenges/:id/edit', checkId, ChallengeController.editChallenge);
+challengeRouter.post('/challenges/:id/edit', checkId, onlyAuthenticated, ChallengeController.editChallenge);
 
 // Route pour afficher le ladder des top users
 challengeRouter.get('/ladder', LadderController.getTopUsers);
@@ -37,8 +40,7 @@ challengeRouter.get('/challenges/:id/upload/video', onlyAuthenticated, VideoCont
 
 challengeRouter.post('/challenges/:id/upload/video', onlyAuthenticated, VideoController.uploadVideo);
 
-// Route pour récupérer une vidéo par son id, avec vérification de l'id
-challengeRouter.get('/videos/:id', checkId, VideoController.videoDetailsPage);
+
 
 
 
