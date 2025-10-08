@@ -44,6 +44,12 @@ User.init(
       allowNull: true,
       
     },
+
+    isBanned: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
+      allowNull: false
+    }
   },
   {
     sequelize, // On indique que les informations de connexion

@@ -18,7 +18,8 @@ const user2 = await User.create({
 const user3 = await User.create({
     username: "charlie",
     mail: "charlie@example.com",
-    password: await argon2.hash("password3")
+    password: await argon2.hash("password3"),
+    isBanned: true
 });
 const user4 = await User.create({
     username: "david",

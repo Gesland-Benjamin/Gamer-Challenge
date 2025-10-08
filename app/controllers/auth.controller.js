@@ -1,6 +1,6 @@
 import argon2 from "argon2";
 import Joi from "joi";
-import { CoreController } from "./core.controller.js";
+import { CoreController } from "./index.js";
 import { User } from "../models/index.js";
 import { registerSchema, authSchema  } from "../schemas/auth.schema.js";
 import { Op } from "sequelize";
@@ -37,7 +37,7 @@ class AuthController extends CoreController {
     res.render("login");
   };
 
-  async login(req, res) {
+  login = async (req, res) => {
     const { login, password } = Joi.attempt(req.body, authSchema);
     const user = await User.findOne({
       where: { [Op.or]: [{ username : login }, { mail : login }] }
@@ -45,6 +45,10 @@ class AuthController extends CoreController {
 
     if (!user) {
       return this.render404(req, res);
+    }
+
+    if (user.isBanned) {
+      return this.render403(req, res);
     }
 
     const isPasswordValid = await argon2.verify(user.password, password);

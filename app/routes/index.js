@@ -4,6 +4,7 @@ import { challengeRouter } from "./challenge.router.js";
 import { LadderController } from "../controllers/index.js";
 import { authRouter } from "./auth.router.js";
 import { apiRouter } from "./api.router.js";
+import { adminRouter } from "./admin.router.js";
 
 import { contactRouter } from "./contact.router.js";
 
@@ -22,6 +23,8 @@ export const mainRouter = Router();
  mainRouter.use(authRouter);
 
  mainRouter.use(contactRouter);
+
+ mainRouter.use(adminRouter);
 
  mainRouter.get("/legal", (req, res) => {
   res.render("legal"); // ça cherche app/views/legal.ejs
