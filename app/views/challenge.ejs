@@ -3,8 +3,6 @@
 
 <body>
   <div class="challenge-container">
-
-    <% if (challenge) { %>
       <!-- Image du challenge -->
       <div class="challenge-image">
         <img src="<%= challenge.picture %>" alt="<%= challenge.name %>" width="250">
@@ -30,38 +28,36 @@
 
       <!-- Liste des vidéos -->
       <div class="videos">
-        <% if (challenge.participations && challenge.participations.length > 0) { %>
-          <% challenge.participations.forEach(function(video) { %>
-            <a href="<%= video.url %>">
-              <img src="/images/youtube-logo.png" alt="YouTube">
-            </a>
+        <% if (challenge.videos && challenge.videos.length > 0) { %>
+          <% challenge.videos.forEach(function(video) { %>
+            <div class="video-entry">
+              <p><strong><%= video.user.username %> :</strong> <%= video.title %></p>
+              <iframe width="560" height="315" src="<%= video.url %>" frameborder="0" allowfullscreen></iframe>
+            </div>
           <% }) %>
         <% } else { %>
           <div>Aucune vidéo pour ce challenge.</div>
         <% } %>
       </div>
 
-    <% } else { %>
-      <div>Aucun challenge trouvé.</div>
-    <% } %>
-
-    <!-- Pagination -->
-    <div class="pagination">
-      <% if (totalPages > 1) { %>
-        <% for (let i = 1; i <= totalPages; i++) { %>
-          <% if (i === page) { %>
-            <span><%= i %></span>
-          <% } else { %>
-            <a href="/challenge-pagination?page=<%= i %>"><%= i %></a>
+      <!-- Pagination -->
+      <div class="pagination">
+        <% if (totalPages > 1) { %>
+          <% for (let i = 1; i <= totalPages; i++) { %>
+            <% if (i === page) { %>
+              <span><%= i %></span>
+            <% } else { %>
+              <a href="/challenge-pagination?page=<%= i %>"><%= i %></a>
+            <% } %>
           <% } %>
         <% } %>
+      </div>
+      <% if (user && (user.id === challenge.user_id || user.role === 'admin')) { %>
+        <form action="/challenges/<%= challenge.id %>/delete" method="POST">
+          <button type="submit">Supprimer</button>
+        </form>
+        <a href="/challenges/<%= challenge.id %>/edit">Modifier</a>
       <% } %>
-    </div>
-    <% if (user && (user.id === challenge.user_id || user.role === 'admin')) { %>
-  <form action="/challenges/<%= challenge.id %>/delete" method="POST">
-    <button type="submit">Supprimer</button>
-  </form>
-<% } %>
   </div>
 </body>
 

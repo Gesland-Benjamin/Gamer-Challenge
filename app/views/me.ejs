@@ -1,70 +1,50 @@
 <%- include('partials/header') %>
 <%- include('partials/aside_nav') %>
 
-<section>
-  
-  <div class="forms-container">
-    <div>
-      <h2 class="form-legend">Mon compte</h2>
-      <form action="/me" method="post">
-        <div>
-          <label for="username">Pseudo</label>
-          <div class="input-with-icon">
-            <input class="input" type="text" name="username" value="<%= user.username %>">
-            <i class="fa fa-pen-to-square edit-icon"></i>
-          </div>
-        </div>
-        <div>
-          <label for="mail">Adresse mail</label>
-          <div class="input-with-icon">
-            <input class="input" type="email" name="mail" value="<%= user.mail %>">
-            <i class="fa fa-pen-to-square edit-icon"></i>
-          </div>
-        </div>
-        <div>
-          <label for="password">Mot de passe</label>
-          <div class="input-with-icon">
-            <input class="input" type="password" name="password">
-            <i class="fa fa-pen-to-square edit-icon"></i>
-          </div>
-        </div>
-        <div>
-          <label for="favoriteGame">Jeu préféré</label>
-          <div class="input-with-icon">
-            <input class="input" type="text" name="favoriteGame" value="<%= user.favoriteGame %>">
-            <i class="fa fa-pen-to-square edit-icon"></i>
-          </div>
-        </div>
-        <div class="socials">
-          <label>Réseaux sociaux</label>
-          <div class="socials_form_container">
-            <div class="input-with-icon">
-              <input class="input" type="url" name="x" placeholder="https://x.com/votrepseudo" value="<%= user.socials ? user.socials.twitter : '' %>">
-              <i class="fa fa-pen-to-square edit-icon"></i>
+<section >
+    <h1>Mon compte</h1>
+    <p> 
+        Bienvenue sur votre page de profil, <%= user.username %> !
+        Ici, vous pouvez gérer vos informations personnelles, consulter vos participations aux défis et suivre
+        vos progrès dans la communauté GamerChallenges.
+    </p>
+    <form action="/me" method="post">
+        <legend>Mon compte</legend>
+        <fieldset>
+            <div >
+                <label for="username">Pseudo</label>
+                <input type="text" name="username" value="<%= user.username%>" >
+                <i ></i>
             </div>
-            <div class="input-with-icon">
-              <input class="input" type="url" name="instagram" placeholder="https://instagram.com/votrepseudo" value="<%= user.socials ? user.socials.instagram : '' %>">
-              <i class="fa fa-pen-to-square edit-icon"></i>
+            <div >
+                <label for="mail">Adresse mail</label>
+                <input type="email" name="mail" value="<%= user.mail%>">
+                <i ></i>
             </div>
-            <div class="input-with-icon">
-              <input class="input" type="url" name="twitch" placeholder="https://twitch.tv/votrepseudo" value="<%= user.socials ? user.socials.twitch : '' %>">
-              <i class="fa fa-pen-to-square edit-icon"></i>
+            <div class="field_form_container">
+                <label for="favoriteGame">Jeu préféré</label>
+                <input type="text" name="favoriteGame" value="<%= user.favoriteGame%>" >
+                <i ></i>
             </div>
-            <div class="input-with-icon">
-              <input class="input" type="url" name="youtube" placeholder="https://youtube.com/votrepseudo" value="<%= user.socials ? user.socials.youtube : '' %>">
-              <i class="fa fa-pen-to-square edit-icon"></i>
+            <div class="socials">
+                <label for="">Réseaux sociaux</label>
+                <div class="socials_form_container">
+                    <div class="field_form_container">
+                        <input type="url" name="twitch_url"placeholder="https://www.twitch.tv/votrepseudo" value="<%= user.twitch_url%>">
+                        <i ></i>
+                        <input type="url" name="youtube_url"placeholder="https://www.youtube.com/votrepseudo" value="<%= user.youtube_url%>">
+                        <i ></i>
+                        <input type="url" name="discord_url"  placeholder="discord.gg/votrepseudo" value="<%= user.discord_url%>">
+                    </div>
+                </div>
             </div>
-            <div class="input-with-icon">
-              <input class="input" type="text" name="discord" placeholder="Votre pseudo Discord#1234" value="<%= user.socials ? user.socials.discord : '' %>">
-              <i class="fa fa-pen-to-square edit-icon"></i>
-            </div>
-          </div>
-        </div>
-        
-      </form>
-    </div>
-  </div>
-  <a href="/" class="back-link">Retour à l'accueil</a>
+            <button type="submit" >Modifier mes informations</button>
+            <a href="/"> Retour à l'accueil</a>
+        </fieldset>
+    </form>
 </section>
+<form action="/me/delete" method="post">
+    <button type="submit" onclick="return confirm('Êtes-vous sûr de vouloir supprimer votre compte ? Cette action est irréversible.')">Supprimer mon compte</button>
+</form>
 
 <%- include('partials/footer') %>
