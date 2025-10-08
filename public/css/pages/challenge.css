@@ -1,0 +1,103 @@
+/* Utilise la police et la couleur globale définies dans :root et body */
+
+.challenge-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.challenge-image {
+  margin-bottom: 2rem;
+  border: 3px solid var(--fluogreen-color);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(107, 255, 5, 0.5);
+  background-color: #000;
+}
+
+.challenge-image img {
+  display: block;
+  width: 100%;
+  max-width: 400px;
+}
+
+.challenge-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 5px rgba(107, 255, 5, 0.7);
+  text-transform: uppercase;
+  font-family: var(--main-font);
+  font-weight: 700;
+}
+
+.challenge-description {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 1.5rem;
+  border-radius: 10px;
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  line-height: 1.8;
+  font-size: 1rem;
+  text-align: justify;
+}
+
+.challenge-meta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  color: #a0a0a0;
+}
+
+.like-btn {
+  background-color: var(--fluogreen-color);
+  color: #000;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 2rem;
+  transition: background-color 0.3s;
+}
+
+.like-btn:hover {
+  background-color: #33cc33;
+}
+
+.upload-link {
+  display: inline-block;
+  color: var(--fluogreen-color);
+  text-decoration: none;
+  margin-bottom: 2rem;
+  font-weight: bold;
+}
+
+.upload-link:hover {
+  text-decoration: underline;
+}
+
+.videos {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.videos a {
+  display: block;
+}
+
+.videos img {
+  width: 200px;
+  height: auto;
+  border: 2px solid var(--fluogreen-color);
+  border-radius: 10px;
+  transition: transform 0.3s;
+}

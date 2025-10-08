@@ -1,33 +1,36 @@
 <%- include('./partials/header') %> 
 <%- include('./partials/aside_nav') %>
 
-<section class="add_form">
+<main class="addChallenge__main">
 
-  <div class="forms_container">
-    <form method="POST" class="form_register" action="/challenges/<%= game.id %>/addchallenge">
-  <legend>ADD CHALLENGE for <%= game.name %></legend>
-      <fieldset>
-
-        <div class="form_content_container">
-          <input type="text" placeholder="name" name="name" class="form_input">
-        </div>
-
-        <div class="form_content_container">
-          <textarea placeholder="Description" name="description" class="form_input"></textarea>
-        </div>
-
-        <div class="form_content_container">
-          <input type="date" placeholder="Release Date" name="release_date" class="form_input" >
-        </div>
-
-        <button type="submit" class="btn_submit">Valider</button>
-
-      </fieldset>
-    </form>
-
-    <a href="/" class="back_link">Retour à l'accueil</a>
+  <div class="games__top-title-wrapper">
+    <span class="games__top-title">AJOUTER UN CHALLENGE</span>
+    <div class="games__top-bar"></div>
   </div>
 
-</section>
+  <!-- FORM -->
+  <section class="addChallenge_form">
+
+    <div class="form__container">
+      <form method="POST" class="form_register" action="/challenges/<%= game.id %>/addchallenge">
+      <legend class="form__legend">Ajouter un challenge sur <%= game.name %></legend>
+
+        <div class="form_content_container">
+          <input type="text" placeholder="Titre du challenge" name="challenge_name" class="form__input">
+        </div>
+
+        <div class="form_content_container">
+          <textarea placeholder="Description" name="description" class="form__input"></textarea>
+        </div>
+
+        <div class="div__btn">
+          <button type="submit" class="btn__submit">Valider</button>
+        </div>
+      </form>
+    </div>
+
+    <a href="/" class="back_link">Retour à l'accueil</a>
+  </section>
+</main>
 
 <%- include('./partials/footer') %>

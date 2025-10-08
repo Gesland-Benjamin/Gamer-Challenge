@@ -230,7 +230,7 @@ const challenge14 = await Challenge.create({
 const challenge15 = await Challenge.create({
     name: "Défi 15",
     description: "Description du Défi 15",
-    picture: "http://example.com/defi15.jpg",
+    picture: "https://www.tropheesdiffusion.com/5977-large_default/pack-trophee-bois-couleurs-manette-jeux-video-ba-rw002m42.jpg",
     release_date: new Date(),
     game_id: game3.id,
     user_id: user3.id,
@@ -239,7 +239,7 @@ const challenge15 = await Challenge.create({
 const challenge16 = await Challenge.create({
     name: "Défi 16",
     description: "Description du Défi 16",
-    picture: "http://example.com/defi16.jpg",
+    picture: "https://www.tropheesdiffusion.com/5977-large_default/pack-trophee-bois-couleurs-manette-jeux-video-ba-rw002m42.jpg",
     release_date: new Date(),
     game_id: game1.id,
     user_id: user4.id,
@@ -252,19 +252,19 @@ const VideoSubmit1 = await VideoSubmit.create({
     title: "video 1",
     user_id: user1.id,
     challenge_id: challenge1.id,
-    url: "http://example.com/video1.jpg"
+    url: "https://www.youtube.com/watch?v=EfG2Evfgp2o"
 });
 const VideoSubmit2 = await VideoSubmit.create({
     title: "video 2",
     user_id: user2.id,
     challenge_id: challenge2.id,
-    url: "http://example.com/video2.jpg"
+    url: "https://www.youtube.com/watch?v=EfG2Evfgp2o"
 });
 const VideoSubmit3 = await VideoSubmit.create({
     title: "video 3",
     user_id: user3.id,
     challenge_id: challenge3.id,
-    url: "http://example.com/video3.jpg"
+    url: "https://www.youtube.com/watch?v=EfG2Evfgp2o"
 });
 
 

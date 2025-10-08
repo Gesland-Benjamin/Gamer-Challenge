@@ -1,24 +1,24 @@
 <%- include('partials/header.ejs') %>
 <%- include('partials/aside_nav.ejs') %>
-<body>
-  <div >
-    <div >CHALLENGES</div>
-
-    <div >
+<main class="games__main">
+   <div class="games__top-title-wrapper">
+    <span class="games__top-title">CHALLENGES</span>
+    <div class="games__top-bar"></div>
+  </div>
+  <ul class="list">
       <% if (listChallenges && listChallenges.length > 0) { %>
         <% listChallenges.forEach(function(challenge) { %>
-          <div >
-            <img src="<%= challenge.picture %>" alt="<%= challenge.name %>">
-            <div ><%= challenge.name %></div>
-            <div ><%= challenge.description %></div>
-            <div >Date de sortie : <%= challenge.release_date.toLocaleDateString() %></div>
-            <a href="/challenges/<%= challenge.id %>">Voir le challenge</a>
-          </div>
+          <li class="list__game">
+            <a href="/challenges/<%= challenge.id %>">
+              <img src="<%= challenge.picture %>" alt="<%= challenge.name %>">
+              <h2 id="challenge<%= challenge.id %>" class="game-name"><%= challenge.name %></h2>
+            </a>
+          </li>
         <% }) %>
       <% } else { %>
-        <div>Aucun challenge trouvé.</div>
+        <li class="list__error-message">Aucun challenge disponible.</li>
       <% } %>
-    </div>
+    </ul>
 
     <div >
   <% if (totalPages > 1) { %>
@@ -31,7 +31,7 @@
     <% } %>
   <% } %>
 </div>
-</body>
+</main>
 
 <%- include('partials/aside_nav.ejs') %>
 <%- include('partials/footer.ejs') %>
