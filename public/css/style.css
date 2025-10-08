@@ -1,3 +1,5 @@
+@import url('../css/pages/games.css');
+
 :root {
   --green-color: #449f05;
   --lightgreen-color: #55cb04;
@@ -5,7 +7,6 @@
   --deepblue-color: #043640;
   --blue-color: #034b57;
   --main-font: "Poppins", sans-serif;
-  --color: #ffffff;
 }
 
 /* BODY */
@@ -37,6 +38,8 @@ body {
   flex-direction: column;
   flex: 1;
 }
+
+
 
 /* HEADER */
 header {
@@ -79,11 +82,27 @@ header {
 }
 
 /* TITRES & MASCOTTES */
-.main__container-top {
-  height: 50%;
+.main__logos-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 3vw; /* espace entre les logos */
   width: 100%;
-  box-sizing: border-box;
+  margin-bottom: 2rem;
 }
+.main-logo{
+ max-width: 800px;   /* taille identique pour les deux logos */
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.main__logos-row img:last-child {
+  max-width: 800px; 
+ 
+}
+
 
 /* === Section utilisateur (connexion, profil, déconnexion) === */
 .user-link {
@@ -119,9 +138,7 @@ header {
 }
 
 /* CHALLENGES */
-.top-challenges-section {
-  margin-top: 40px;
-}
+
 
 .top-title-wrapper {
   position: relative;
@@ -133,6 +150,7 @@ header {
   align-items: center;
   justify-content: center;
   height: 48px;
+  margin-bottom: 0rem
 }
 
 .top-title {
@@ -149,6 +167,7 @@ header {
 }
 
 .top-bar {
+  
   position: absolute;
   left: 0;
   top: 50%;
@@ -181,7 +200,7 @@ header {
   margin-bottom: 24px;
 }
 
-.top-challenges-section .challenges-list  {
+.top-challenges-section .challenges-list {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -198,7 +217,6 @@ header {
 }
 
 .myButton {
-  
   height: 8%;
   background-color: var(--green-color);
   border-radius: 28px;
@@ -266,7 +284,6 @@ header {
   text-transform: uppercase;
 }
 
-
 .input {
   background-color: #081c08;
   color: white;
@@ -303,22 +320,20 @@ header {
 
 /*ABOUT*/
 
-.about-container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 2rem;
-    max-width: 800px;
-    margin: 2rem auto;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-family: "Poppins", Arial, sans-serif;
-    font-weight: 600;
-
+.about-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  max-width: 800px;
+  margin: 2rem auto;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: "Poppins", Arial, sans-serif;
+  font-weight: 600;
 }
-
 
 /* FOOTER */
 footer {
@@ -357,4 +372,10 @@ footer {
   font-size: x-small;
   color: #ffffff;
   margin: 0 auto;
+}
+
+
+.pagination {
+  font-family: var(--main-font);
+  color: white;
 }

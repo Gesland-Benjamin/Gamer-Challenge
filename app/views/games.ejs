@@ -1,30 +1,37 @@
 <%- include('partials/header') %>
-<%- include('partials/aside_nav') %>
-<ul>
-  <% if (listGames && listGames.length) { %>
-    <% listGames.forEach(game => { %>
-      <li>
-        <a href="/games/<%= game.id %>">
-          <img src="<%= game.picture %>" alt="<%= game.name %>" class="game-cover" />
-          <h2 id="game-name" class="game-name"><%= game.name %></h2>
-        </a>
-      </li>
-    <% }) %>
-  <% } else { %>
-    <li>Aucun jeu disponible.</li>
-  <% } %>
-</ul>
 
-<a href='/' >Accueil</a>
-<div >
-  <% if (totalPages > 1) { %>
-    <% for (let i = 1; i <= totalPages; i++) { %>
-      <% if (i === page) { %>
-        <span><%= i %></span>
-      <% } else { %>
-        <a href="/games?page=<%= i %>"><%= i %></a>
+<main class="games__main">
+
+  <%- include('partials/aside_nav') %>
+
+  <ul class="list">
+    <% if (listGames && listGames.length) { %>
+      <% listGames.forEach(game => { %>
+        <li class="list__game">
+          <a href="/games/<%= game.id %>">
+            <img src="<%= game.picture %>" alt="<%= game.name %>" class="game-cover" />
+            <h2 id="game-name" class="game-name"><%= game.name %></h2>
+          </a>
+        </li>
+      <% }) %>
+
+    <% } else { %>
+      <li class="list__error-message">Aucun jeu disponible.</li>
+    <% } %>
+  </ul>
+
+  <a href='/' >Accueil</a>
+  <div class="pagination">
+    <% if (totalPages > 1) { %>
+      <% for (let i = 1; i <= totalPages; i++) { %>
+        <% if (i === page) { %>
+          <span><%= i %></span>
+        <% } else { %>
+          <a href="/games?page=<%= i %>"><%= i %></a>
+        <% } %>
       <% } %>
     <% } %>
-  <% } %>
-</div>
+  </div>
+</main>
+
 <%- include('partials/footer') %>

@@ -1,0 +1,37 @@
+:root {
+  --green-color: #449f05;
+  --lightgreen-color: #55cb04;
+  --fluogreen-color: #6bff05;
+  --deepblue-color: #043640;
+  --blue-color: #034b57;
+  --main-font: "Poppins", sans-serif;
+}
+
+.games__main {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: orange;
+}
+
+.list {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  box-sizing: border-box;
+  background-color: #043640;
+}
+
+
+.game-name {
+  font-family: var(--main-font);
+  color: white;
+  text-decoration: none;
+}
