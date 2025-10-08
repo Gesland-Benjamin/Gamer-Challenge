@@ -11,7 +11,7 @@ class AuthController extends CoreController {
     res.render("register");
   };
 
-  async register(req, res) {
+  register = async (req, res) => {
 
     const { username, mail, password, privacy } = Joi.attempt(req.body, registerSchema);
     const isUserExists = await User.findOne({ where: { username } });
@@ -39,6 +39,7 @@ class AuthController extends CoreController {
 
   login = async (req, res) => {
     const { login, password } = Joi.attempt(req.body, authSchema);
+    console.log(login, password);
     const user = await User.findOne({
       where: { [Op.or]: [{ username: login }, { mail: login }] }
     });
@@ -74,7 +75,7 @@ class AuthController extends CoreController {
     }
     const user = await User.findOne({
       where: { username: req.session.user.username },
-      attributes: ["username", "mail", "password","favoriteGame", "youtube_url", "twitch_url", "discord_url"]
+      attributes: ["username", "mail", "password", "favoriteGame", "youtube_url", "twitch_url", "discord_url"]
     });
     if (!user) {
       return this.render404(req, res);
@@ -89,39 +90,57 @@ class AuthController extends CoreController {
   };
 
   editMe = async (req, res) => {
-  try {
-    const user = await User.findByPk(req.session.user.id);
+    try {
+      const user = await User.findByPk(req.session.user.id);
+      if (!user) return this.render404(req, res);
+
+      // Séparer le password des autres champs
+      const { password, ...otherData } = req.body;
+
+      // Valider les autres champs (username, mail, favoriteGame, socials_url)
+      const validatedData = Joi.attempt(otherData, editMeSchema);
+
+      // Filtrer les champs vides
+      const filteredData = Object.fromEntries(
+        Object.entries(validatedData).filter(([_, v]) => v !== '')
+      );
+
+      // Mise à jour de l'utilisateur
+      await user.update(filteredData);
+
+      // Mettre à jour la session si username modifié
+      if (filteredData.username) req.session.user.username = filteredData.username;
+
+      req.session.flashMessage = { type: 'success', message: 'Profil mis à jour avec succès !' };
+
+      res.redirect("/me");
+
+    } catch (error) {
+      console.error(error);
+      return this.render400(req, res);
+    }
+  };
+
+  deleteAccount = async (req, res) => {
+    try {
+    const userId = req.session.user?.id;
+    if (!userId) return this.render401(req, res);
+
+    const user = await User.findByPk(userId);
     if (!user) return this.render404(req, res);
 
-    // Séparer le password des autres champs
-    const { password, ...otherData } = req.body;
-
-    // Valider les autres champs (username, mail, favoriteGame, socials_url)
-    const validatedData = Joi.attempt(otherData, editMeSchema);
-
-    // Filtrer les champs vides
-    const filteredData = Object.fromEntries(
-      Object.entries(validatedData).filter(([_, v]) => v !== '')
-    );
-
-    // Hasher le password si rempli
-    if (password && password.trim() !== '') {
-      filteredData.password = await argon2.hash(password);
+      await user.destroy();
+      req.session.destroy((err) => {
+      if (err) {
+        console.error("Erreur lors de la destruction de la session :", err);
+        return this.render400(req, res);
+      }
+    });
+      res.redirect('/');
+    } catch (error) {
+      console.error(error);
+      return this.render400(req, res);
     }
-
-    // Mise à jour de l'utilisateur
-    await user.update(filteredData);
-
-    // Mettre à jour la session si username modifié
-    if (filteredData.username) req.session.user.username = filteredData.username;
-
-    res.redirect("/me");
-
-  } catch (error) {
-    console.error(error);
-    return this.render400(req, res);
-  }
-};
+  };
 }
-
 export default new AuthController();

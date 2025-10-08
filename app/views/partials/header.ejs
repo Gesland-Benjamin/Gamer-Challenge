@@ -17,6 +17,15 @@
 
 <body>
   <div class="container">
+
+    <% if (typeof session !== 'undefined' && session.flashMessage) { %>
+    <div class="flash-messages">
+        <div class="flash-message <%= session.flashMessage.type %>">
+          <p><%= session.flashMessage.message %></p>
+        </div>
+        <% session.flashMessage = null; %> 
+    </div>
+    <% } %>
     <!-- Header -->
     <header>
       <nav class="header__aria-label">
@@ -34,8 +43,19 @@
               <% if (session && session.user && session.user.role==='admin' ) { %>
                 <a href="/admin">Dashboard</a>
                 <% } %>
+
                   <a href="/games">Jeux</a>
                   <a href="/challenges">Challenges</a>
                   <a href="/ladder">Classement</a>
+
+                  <!-- Barre de recherche -->
+                  <form action="/search" method="GET" class="search-form">
+                    <input type="text" name="q" placeholder="Rechercher..." required />
+                    <select name="type">
+                      <option value="games">Jeux</option>
+                      <option value="challenges">Challenges</option>
+                    </select>
+                    <button type="submit">OK</button>
+                  </form>
       </nav>
     </header>

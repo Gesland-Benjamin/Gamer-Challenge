@@ -40,8 +40,7 @@ challengeRouter.get('/challenges/:id/upload/video', onlyAuthenticated, VideoCont
 
 challengeRouter.post('/challenges/:id/upload/video', onlyAuthenticated, VideoController.uploadVideo);
 
-// Route pour récupérer une vidéo par son id, avec vérification de l'id
-challengeRouter.get('/videos/:id', checkId, VideoController.videoDetailsPage);
+
 
 
 

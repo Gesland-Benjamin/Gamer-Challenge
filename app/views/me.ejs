@@ -22,11 +22,6 @@
                 <i ></i>
             </div>
             <div class="field_form_container">
-                <label for="password">Mot de passe</label>
-                <input type="password" name="password" value="<%= user.password%>" >
-                <i ></i>
-            </div>
-            <div class="field_form_container">
                 <label for="favoriteGame">Jeu préféré</label>
                 <input type="text" name="favoriteGame" value="<%= user.favoriteGame%>" >
                 <i ></i>
@@ -48,5 +43,8 @@
         </fieldset>
     </form>
 </section>
+<form action="/me/delete" method="post">
+    <button type="submit" onclick="return confirm('Êtes-vous sûr de vouloir supprimer votre compte ? Cette action est irréversible.')">Supprimer mon compte</button>
+</form>
 
 <%- include('partials/footer') %>

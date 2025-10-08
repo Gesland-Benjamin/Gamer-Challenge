@@ -5,6 +5,7 @@ import { LadderController } from "../controllers/index.js";
 import { authRouter } from "./auth.router.js";
 import { apiRouter } from "./api.router.js";
 import { adminRouter } from "./admin.router.js";
+import { searchRouter } from "./search.router.js"
 
 import { contactRouter } from "./contact.router.js";
 
@@ -35,3 +36,5 @@ export const mainRouter = Router();
 });
 
 mainRouter.use("/api", apiRouter)
+
+mainRouter.use('/', searchRouter); // toutes les routes /search seront prises en compte

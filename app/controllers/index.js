@@ -7,5 +7,7 @@ import ContactController from "./contact.controller.js";
 import LikeController from "./like.controller.js";
 import AdminController from "./admin.controller.js";
 import VideoController from "./video.controller.js";
+import SearchController from "./search.controller.js";
 
-export { GameController, AuthController, ChallengeController, LadderController, ContactController, LikeController, AdminController, CoreController, VideoController };
+export { GameController, AuthController, ChallengeController, LadderController, ContactController, LikeController, AdminController, CoreController, VideoController, SearchController
+};

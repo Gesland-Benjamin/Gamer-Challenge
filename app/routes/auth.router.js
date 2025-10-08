@@ -26,3 +26,5 @@ authRouter.post('/me', onlyAuthenticated, AuthController.editMe);
 authRouter.get('/admin', onlyAdmin, AdminController.adminPage);
 
 authRouter.post('/logout', AuthController.logout);
+
+authRouter.post('/me/delete', onlyAuthenticated, AuthController.deleteAccount);
