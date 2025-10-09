@@ -1,47 +1,50 @@
 <%- include('partials/header') %>
 <%- include('partials/aside_nav') %>
 
-<main>
-  <section>
-    <div class="forms-container">
-      <div>
-        <form action="/me" method="post">
-          <legend class="form-legend">Mon compte</legend>
-
-          <div class="input-with-icon">
-            <input class="input" type="text" name="username" value="<%= user.username%>" placeholder="Pseudo">
-            <i class="edit-icon"></i>
-          </div>
-
-          <div class="input-with-icon">
-            <input class="input" type="email" name="mail" value="<%= user.mail%>" placeholder="Adresse mail">
-            <i class="edit-icon"></i>
-          </div>
-
-          <div class="input-with-icon">
-            <input class="input" type="text" name="favoriteGame" value="<%= user.favoriteGame%>" placeholder="Jeu préféré">
-            <i class="edit-icon"></i>
-          </div>
-
-          <div class="input-with-icon">
-            <input class="input" type="url" name="twitch_url" placeholder="https://www.twitch.tv/votrepseudo" value="<%= user.twitch_url%>">
-            <i class="edit-icon"></i>
-          </div>
-
-          <div class="input-with-icon">
-            <input class="input" type="url" name="youtube_url" placeholder="https://www.youtube.com/votrepseudo" value="<%= user.youtube_url%>">
-            <i class="edit-icon"></i>
-          </div>
-
-          <div class="input-with-icon">
-            <input class="input" type="url" name="discord_url" placeholder="discord.gg/votrepseudo" value="<%= user.discord_url%>">
-            <i class="edit-icon"></i>
-          </div>
-
-          <button class="myButton-form" type="submit">Modifier mes informations</button>
-          <a href="/" class="myButton-form" style="background:#333; border:none;">Retour à l'accueil</a>
-        </form>
-      </div>
+<section >
+    <h1>Mon compte</h1>
+    <p> 
+        Bienvenue sur votre page de profil, <%= user.username %> !
+        Ici, vous pouvez gérer vos informations personnelles, consulter vos participations aux défis et suivre
+        vos progrès dans la communauté GamerChallenges.
+    </p>
+    <form action="/me" method="post">
+        <legend>Mon compte</legend>
+        <fieldset>
+            <div >
+                <label for="username">Pseudo</label>
+                <input type="text" name="username" value="<%= user.username%>" >
+                <i ></i>
+            </div>
+            <div >
+                <label for="mail">Adresse mail</label>
+                <input type="email" name="mail" value="<%= user.mail%>">
+                <i ></i>
+            </div>
+            <div >
+                <a href="/me/password">Modifier le mot de passe</a>
+            </div>
+            <div class="field_form_container">
+                <label for="favoriteGame">Jeu préféré</label>
+                <input type="text" name="favoriteGame" value="<%= user.favoriteGame%>" >
+                <i ></i>
+            </div>
+            <div class="socials">
+                <label for="">Réseaux sociaux</label>
+                <div class="socials_form_container">
+                    <div class="field_form_container">
+                        <input type="url" name="twitch_url"placeholder="https://www.twitch.tv/votrepseudo" value="<%= user.twitch_url%>">
+                        <i class="fa-brands fa-twitch"></i>
+                        <input type="url" name="youtube_url"placeholder="https://www.youtube.com/votrepseudo" value="<%= user.youtube_url%>">
+                        <i class="fa-brands fa-youtube"></i>
+                        <input type="url" name="discord_url"  placeholder="discord.gg/votrepseudo" value="<%= user.discord_url%>">
+                        <i class="fa-brands fa-discord"></i>
+                    </div>
+                </div>
+                <button class="myButton-form" type="submit">Modifier mes informations</button>
+                <a href="/" class="myButton-form" style="background:#333; border:none;">Retour à l'accueil</a>
+            </form>
+        </div>
     </div>
   </section>
 </main>
@@ -51,3 +54,4 @@
 </form>
 
 <%- include('partials/footer') %>
+

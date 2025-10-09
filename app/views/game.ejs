@@ -27,9 +27,7 @@
       <div class="challenges-list">
         <% game.challenges.forEach(function(challenge) { %>
           <div class="challenge">
-            <p class="challenge-text">
-              <%= challenge.name %>
-            </p>
+            <a href="/challenges/<%= challenge.id %>"><%= challenge.name %></a>
             <div class="challenge-likes">
               <span id="votes-<%= challenge.id %>" class="vote-count">
                 <%= challenge.dataValues.voteCount %>

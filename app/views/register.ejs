@@ -1,84 +1,52 @@
 <link rel="stylesheet" href="/css/reset.css" />
-    <link rel="stylesheet" href="/css/style.css" />
+<link rel="stylesheet" href="/css/style.css" />
 <%- include('./partials/header') %> <%- include('./partials/aside_nav') %>
 
-<main>
-  <section>
-    <div class="forms-container">
-
-      <div>
-        <h2 class="form-legend">Inscription</h2>
-        <form action="/register" method="post">
-          <div>
-            <input
-              class="input"
-              type="text"
-              placeholder="PSEUDO"
-              name="username"
-            />
-          </div>
+    <main>
+      <section>
+        <div class="forms-container">
 
           <div>
-            <input
-              class="input"
-              type="mail"
-              placeholder="MAIL@MAIL.COM"
-              name="mail"
-            />
-          </div>
+            <h2 class="form-legend">Inscription</h2>
+            <form action="/register" method="post">
+              <div>
+                <input class="input" type="text" placeholder="PSEUDO" name="username" />
+              </div>
 
-          <div>
-            <input
-              class="input"
-              type="password"
-              placeholder="MOT DE PASSE"
-              name="password"
-            />
+              <div>
+                <input class="input" type="mail" placeholder="MAIL@MAIL.COM" name="mail" />
+              </div>
+
+              <div>
+                <input class="input" type="password" placeholder="MOT DE PASSE" name="password" />
+              </div>
+
+              <div>
+                <input class="input" type="checkbox" name="privacy" value="true" required />J'ai pris connaissance et
+                j'accepte la politique de confidentialité
+              </div>
+
+              <button class="myButton-form" type="submit">Valider</button>
+            </form>
           </div>
 
           <div>
-            <input
-              class="input"
-              type="checkbox"
-              name="privacy"
-              value="true"
-              required
-            />J'ai pris connaissance et j'accepte la politique de confidentialité
+            <h2 class="form-legend">Connexion</h2>
+            <form action="/login" method="post">
+              <div>
+                <input class="input" value="alice" type="text" placeholder="PSEUDO OU MAIL@MAIL.COM" name="login" />
+              </div>
+
+              <div class="form_content_container">
+                <input class="input" value="password1" type="password" placeholder="MOT DE PASSE" name="password" />
+              </div>
+              <button class="myButton-form" type="submit">Valider</button>
+            </form>
           </div>
+        </div>
+        <div class="center-btn">
+          <a class="myButton" href="/">Retour à l'accueil</a>
+        </div>
+      </section>
 
-          <button class="myButton-form" type="submit">Valider</button>
-        </form>
-      </div>
-
-      <div>
-        <h2 class="form-legend">Connexion</h2>
-        <form action="/login" method="post">
-          <div>
-            <input
-              class="input"
-              value="alice"
-              type="text"
-              placeholder="PSEUDO OU MAIL@MAIL.COM"
-              name="login"
-            />
-          </div>
-
-          <div class="form_content_container">
-            <input
-              class="input"
-              value="password1"
-              type="password"
-              placeholder="MOT DE PASSE"
-              name="password"
-            />
-          </div>
-
-          <button class="myButton-form" type="submit">Valider</button>
-          
-        </form>
-      </div>
-    </div>
-  </section>
-</main>
-
-<%- include('./partials/footer') %>
+      <%- include('./partials/footer') %>

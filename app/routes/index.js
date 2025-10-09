@@ -6,6 +6,7 @@ import { authRouter } from "./auth.router.js";
 import { apiRouter } from "./api.router.js";
 import { adminRouter } from "./admin.router.js";
 import { searchRouter } from "./search.router.js"
+import { profileRouter } from "./profile.router.js";
 
 import { contactRouter } from "./contact.router.js";
 
@@ -20,6 +21,8 @@ export const mainRouter = Router();
  mainRouter.use(gameRouter);
  
  mainRouter.use(challengeRouter);
+
+ mainRouter.use(profileRouter);
 
  mainRouter.use(authRouter);
 

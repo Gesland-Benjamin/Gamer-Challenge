@@ -41,6 +41,7 @@ class LadderController extends CoreController {
             attributes: [
                 'id',
                 'username',
+                'picture',
                 [sequelize.fn('COUNT', sequelize.col('voted_challenges.id')), 'voteCount']
                 // ⚠️ mets bien "challenge_voters.id" (clé primaire du user),
                 // et pas "challenge_voters.user_id", car Sequelize gère l'alias différemment

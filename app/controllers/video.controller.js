@@ -32,7 +32,7 @@ class VideoController extends CoreController {
       res.status(201).redirect(`/challenges/${newVideo.challenge_id}`);
     } catch (error) {
       console.error(error);
-      res.status(400).render("error", { error });
+      return this.render404(req, res);
     }
   };
 

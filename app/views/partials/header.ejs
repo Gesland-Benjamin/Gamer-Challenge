@@ -34,9 +34,9 @@
 
       <nav class="header__aria-label">
         <% if (session && session.user) { %>
-          <a href="/me" class="user-link">
-            <img src="<%= session.user.avatar %>" alt="avatar" width="30" height="30" style="border-radius: 50%" />
-            Mon compte
+          <a href="/mychallenges" class="user-link">
+            <img src="<%= session.user.picture %>" alt="avatar" width="30" height="30" style="border-radius: 50%" />
+            Mon profil
           </a>
           <form method="post" action="/logout">
             <button class="logout-btn">Se déconnecter</button>
@@ -58,6 +58,7 @@
                     <select name="type" class="search-form__select">
                       <option value="games">Jeux</option>
                       <option value="challenges">Challenges</option>
+                      <option value="users">Joueurs</option>
                     </select>
                     <button type="submit" class="search-form__btn">OK</button>
                   </form>
