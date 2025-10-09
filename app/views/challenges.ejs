@@ -10,7 +10,7 @@
         <% listChallenges.forEach(function(challenge) { %>
           <li class="list__game">
             <a href="/challenges/<%= challenge.id %>">
-              <img src="<%= challenge.picture %>" alt="<%= challenge.name %>">
+              <img src="<%= challenge.game.picture %>" alt="<%= challenge.name %>" width="250">
               <h2 id="challenge<%= challenge.id %>" class="game-name"><%= challenge.name %></h2>
             </a>
           </li>
