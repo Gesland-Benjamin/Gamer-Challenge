@@ -1,29 +1,22 @@
 <%- include('./partials/header') %>
 <%- include('./partials/aside_nav') %>
 
-<section >
-
-  <div >
-    <form method="POST" >
-      <legend>ADD VIDEO pour <%= challenge.name %></legend>
-      <fieldset>
-
-        <div >
-          <input type="text" placeholder="title" name="title" >
+<main>
+  <section class="add_form">
+    <div class="forms-container">
+      <form method="POST" class="form_register">
+        <legend class="form-legend">Ajouter une vidéo pour <%= challenge.name %></legend>
+        <div class="form_content_container">
+          <input type="text" placeholder="Titre de la vidéo" name="title" class="input" required>
         </div>
-
-        <div >
-          <input type="text" placeholder="url" name="url" >
+        <div class="form_content_container">
+          <input type="text" placeholder="URL de la vidéo" name="url" class="input" required>
         </div>
-
-        <button type="submit" >Valider</button>
-
-      </fieldset>
-    </form>
-
-    <a href="/" >Retour à l'accueil</a>
-  </div>
-
-</section>
+        <button type="submit" class="myButton-form">Valider</button>
+      </form>
+      <a href="/" class="button">Retour à l'accueil</a>
+    </div>
+  </section>
+</main>
 
 <%- include('./partials/footer') %>
