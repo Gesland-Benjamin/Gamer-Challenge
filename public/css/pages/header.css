@@ -102,26 +102,10 @@ header {
   font-weight: bold;
 }
 
-
-/* TITRES & MASCOTTES */
-.main__logos-row {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 3vw; /* espace entre les logos */
-  width: 100%;
-  margin-bottom: 2rem;
+.search-form__btn:hover {
+  background-color: #33cc33;
+  transform: scale(1.05);
 }
 
-.main-logo{
-  max-width: 800px;   /* taille identique pour les deux logos */
-  width: 100%;
-  height: auto;
-  display: block;
-}
 
-.main__logos-row img:last-child {
-  max-width: 800px; 
-}
 

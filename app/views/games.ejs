@@ -15,7 +15,7 @@
     <% if (listGames && listGames.length) { %>
       <% listGames.forEach(game => { %>
         <li class="list__game">
-          <a href="/games/<%= game.id %>">
+          <a class="game__a" href="/games/<%= game.id %>">
             <img src="<%= game.picture %>" alt="<%= game.name %>" class="game-cover" />
             <h2 id="game<%= game.id %>-name" class="game-name"><%= game.name %></h2>
           </a>

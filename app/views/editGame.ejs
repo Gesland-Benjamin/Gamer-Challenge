@@ -1,35 +1,42 @@
 <%- include('./partials/header') %>
 <%- include('./partials/aside_nav') %>
 
-<section class="add_form">
-  <div class="forms-container">
-    <form action="/games/<%= game.id %>/edit" method="POST" class="form_register">
-      <legend class="form-legend">Modifier un jeu</legend>
-      
-        <div class="form_content_container">
-          <input type="text" placeholder="Nom du jeu" name="name" class="input" value="<%= game.name %>" required>
-        </div>
-        <div class="form_content_container">
-            <label for="description" class="form_label">Description</label>
-          <textarea placeholder="Description" name="description" class="input" required><%= game.description %></textarea>
-        </div>
-        <div class="form_content_container">
-            <label for="release_year" class="form_label">Année de sortie</label>
-          <input type="date" placeholder="Année de sortie" name="release_year" class="input" value="<%= game.release_year %>" required>
-        </div>
-        <div class="form_content_container">
-            <label for="genre" class="form_label">Genre</label>
-          <input type="text" placeholder="Genre" name="genre" class="input" value="<%= game.genre %>" required>
-        </div>
-        <div class="form_content_container">
-          <label for="picture" class="form_label">Image du jeu</label>
-          <input type="url" id="picture" name="picture" class="input" value="<%= game.picture %>">
-        </div>
-        <button type="submit" class="myButton-form">Valider</button>
-      
-    </form>
-    <a href="/" class="back_link">Retour à l'accueil</a>
-  </div>
-</section>
+<main>
+  <section class="add_form">
+    <div class="forms-container">
+      <form action="/games/<%= game.id %>/edit" method="POST" class="form_register">
+        <legend class="form-legend">Modifier un jeu</legend>
+        
+          <div class="form_content_container">
+            <input type="text" placeholder="Nom du jeu" name="name" class="input" value="<%= game.name %>" required>
+          </div>
+
+          <div class="form_content_container">
+              <label for="description" class="form_label">Description</label>
+            <textarea placeholder="Description" name="description" class="input" required><%= game.description %></textarea>
+          </div>
+
+          <div class="form_content_container">
+              <label for="release_year" class="form_label">Année de sortie</label>
+            <input type="date" placeholder="Année de sortie" name="release_year" class="input" value="<%= game.release_year %>" required>
+          </div>
+
+          <div class="form_content_container">
+              <label for="genre" class="form_label">Genre</label>
+            <input type="text" placeholder="Genre" name="genre" class="input" value="<%= game.genre %>" required>
+          </div>
+
+          <div class="form_content_container">
+            <label for="picture" class="form_label">Image du jeu</label>
+            <input type="url" id="picture" name="picture" class="input" value="<%= game.picture %>">
+          </div>
+          
+          <button type="submit" class="myButton-form">Valider</button>
+        
+      </form>
+      <a href="/" class="back_link">Retour à l'accueil</a>
+    </div>
+  </section>
+</main>
 
 <%- include('./partials/footer') %>
