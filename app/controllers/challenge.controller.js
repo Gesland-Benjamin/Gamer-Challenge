@@ -36,7 +36,7 @@ class ChallengeController extends CoreController {
         });
     } catch (error) {
         console.error(error);
-        res.status(404).render("error", { error });
+       return this.render404(req, res);
     }
 };
 
@@ -72,7 +72,7 @@ class ChallengeController extends CoreController {
         res.render("challenge", { challenge, user: req.session.user, page: 1, totalPages: 1 });
     } catch (error) {
         console.error(error);
-        res.status(404).render("error", { error });
+        return this.render404(req, res);
     }
 };
 
@@ -86,7 +86,6 @@ class ChallengeController extends CoreController {
     }
 
     addNewChallenge = async (req, res) => {
-        console.log(req.body);
         try {
             const data = Joi.attempt(req.body, createChallengeSchema);
             const newChallenge = await Challenge.create({
@@ -100,7 +99,7 @@ class ChallengeController extends CoreController {
             res.status(201).redirect(`/challenges/${newChallenge.id}`);
         } catch (error) {
             console.error(error);
-            res.status(400).render("error", { error });
+            return this.render400(req, res);
         }
     };
 
@@ -122,7 +121,7 @@ class ChallengeController extends CoreController {
 
         } catch (error) {
             console.error(error);
-            res.status(400).render("error", { error });
+            return this.render400(req, res);
         }
     };
 
@@ -169,7 +168,7 @@ class ChallengeController extends CoreController {
 
         } catch (error) {
             console.error(error);
-            res.status(400).render("error", { error });
+            return this.render400(req, res);
         }
     };
 

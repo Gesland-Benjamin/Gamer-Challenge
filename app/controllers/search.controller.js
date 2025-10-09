@@ -35,7 +35,6 @@ class SearchController extends CoreController {
             },
            attributes: ['id', 'username'] // Sélectionne uniquement les champs nécessaires
           });
-          console.log(results); 
           break;
 
       default:
@@ -51,7 +50,7 @@ class SearchController extends CoreController {
     res.render('search', { results, query: q, type });
   } catch (err) {
     console.error('Erreur recherche :', err);
-    res.status(500).send('Erreur serveur');
+    return this.render500(req, res);
   }
 };
 }

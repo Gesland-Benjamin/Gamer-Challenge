@@ -143,7 +143,7 @@ class AdminController extends CoreController {
 
             const user = await User.findByPk(id);
             if (!user) {
-                return res.status(404).send("Utilisateur introuvable");
+                return this.render404(req, res);
             }
 
             await user.update({ isBanned: false });

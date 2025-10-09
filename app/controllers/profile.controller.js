@@ -46,7 +46,7 @@ challengesListUser = async (req, res) => {
 
     } catch (error) {
         console.error(error);
-        res.status(404).render("error", { error });
+        return this.render404(req, res);
     }
 };
 userProfile = async (req, res) => {
@@ -88,7 +88,7 @@ userProfile = async (req, res) => {
 
     } catch (error) {
         console.error(error);
-        res.status(404).render("error", { error });
+        return this.render404(req, res);
     }   
 
 }

@@ -52,9 +52,10 @@ class AuthController extends CoreController {
     }
 
     const isPasswordValid = await argon2.verify(user.password, password);
-    if (!isPasswordValid) {
-      return this.render401(req, res);
-    }
+      if (!isPasswordValid) {
+        req.session.flashMessage = { type: 'error', message: 'Le mot de passe actuel est incorrect.' };
+        return res.redirect('/register');
+      };
     // :clé: Stocker les infos utiles en session
     req.session.user = {
       id: user.id,
