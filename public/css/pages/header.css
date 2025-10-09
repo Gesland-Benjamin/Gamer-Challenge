@@ -8,8 +8,24 @@ header {
   background: linear-gradient(to bottom, #1a4c0e 0%, #001c22 100%);
   color: #ffffff;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-  padding: 16px 0;
+  padding: 1rem;
   border-radius: 30px;
+}
+
+.header__logo {
+  height: auto;
+  width: 10%;
+  margin-right: auto;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo__xbox {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 
 .header__aria-label {
