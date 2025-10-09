@@ -31,5 +31,5 @@ export const editMeSchema = Joi.object({
   twitch_url : Joi.string().uri().trim().allow('').max(255),
   discord_url : Joi.string().uri().trim().allow('').max(255),
 
-}).or('username', 'mail', 'favoriteGame');
+}).or('username', 'mail', 'favoriteGame', 'youtube_url', 'twitch_url', 'discord_url'); // au moins un des champs doit être présent
 

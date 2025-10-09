@@ -1,18 +1,48 @@
 <%- include('partials/header.ejs') %>
-<%- include('partials/aside_nav.ejs') %>
+  <%- include('partials/aside_nav.ejs') %>
 
-<h2>Mes challenges</h2>
-<ul >
+    <h1>
+      <%= user.username %>
+    </h1>
 
-    <% videos.forEach(video => { %>
+    <% if (user.picture) { %>
+      <a href="<%= user.picture %>" target="_blank">
+        <img src="<%= user.picture %>" alt="Photo de profil" width="100" height="100" style="border-radius:10px;">
+      </a>
+      <% } %>
 
-        <article >
-            <h2><%= video.name %></h2>
-            <a href="<%= video.url %>" alt=""></a>
-        </article>
-    
-    <% }) %>
-    
-</ul>
+        <h2>Réseaux sociaux</h2>
+        <div class="socials">
+          <% const socials=[ { url: user.twitch_url, icon: 'fa-twitch' }, { url: user.youtube_url, icon: 'fa-youtube' },
+            { url: user.discord_url, icon: 'fa-discord' } ]; socials.forEach(social=> {
+            if (social.url) { %>
+            <a href="<%= social.url %>" target="_blank">
+              <i class="fa-brands <%= social.icon %>"></i>
+            </a>
+            <% } }); %>
+        </div>
 
-<%- include('partials/footer.ejs') %>
+
+        <h2>Mes challenges</h2>
+
+        <ul>
+          <% if (listChallenges && listChallenges.length> 0) { %>
+            <% listChallenges.forEach(challenge=> { %>
+              <li>
+                <article>
+                  <h3>
+                    <%= challenge.name %>
+                  </h3>
+                  <p>Jeu : <%= challenge.game.name %>
+                  </p>
+                  <a href="/challenges/<%= challenge.id %>" target="_blank">Voir le challenge</a>
+                </article>
+              </li>
+              <% }) %>
+                <% } else { %>
+                  <p>Aucun challenge pour le moment 😢</p>
+                  <% } %>
+        </ul>
+
+
+        <%- include('partials/footer.ejs') %>

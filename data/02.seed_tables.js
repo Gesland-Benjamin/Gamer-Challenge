@@ -13,7 +13,8 @@ const user1 = await User.create({
 const user2 = await User.create({
     username: "bob",
     mail: "bob@example.com",
-    password: await argon2.hash("password2")
+    password: await argon2.hash("password2"),
+    picture : "https://upload.wikimedia.org/wikipedia/en/9/9f/Cyberpunk_2077_box_art.jpg"
 });
 const user3 = await User.create({
     username: "charlie",
@@ -24,7 +25,8 @@ const user3 = await User.create({
 const user4 = await User.create({
     username: "david",
     mail: "david@example.com",
-    password: await argon2.hash("password4")
+    password: await argon2.hash("password4"),
+    picture: "https://upload.wikimedia.org/wikipedia/en/thumb/4/46/Grand_Theft_Auto_VI.png/250px-Grand_Theft_Auto_VI.png"
 });
 
 // Création des jeux

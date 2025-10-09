@@ -61,6 +61,7 @@ class AuthController extends CoreController {
       username: user.username,
       role: user.role,
       mail: user.mail,
+      picture : user.picture,
     };
     console.log("Utilisateur connecté :", req.session.user);
     res.redirect("/");
@@ -100,8 +101,8 @@ class AuthController extends CoreController {
 
       // Filtrer les champs vides
       const filteredData = Object.fromEntries(
-        Object.entries(validatedData).filter(([_, v]) => v !== '')
-      );
+  Object.entries(validatedData).map(([key, value]) => [key, value === '' ? null : value])
+);
 
       // Mise à jour de l'utilisateur
       await user.update(filteredData);

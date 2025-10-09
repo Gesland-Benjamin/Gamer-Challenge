@@ -40,7 +40,7 @@ User.init(
     },
 
     picture: {
-      type: DataTypes.STRING, // URL ou chemin de l'avatar de l'utilisateur
+      type: DataTypes.STRING(255), // URL ou chemin de l'avatar de l'utilisateur
       allowNull: true,
 
     },
