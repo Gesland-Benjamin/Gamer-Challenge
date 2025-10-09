@@ -1,0 +1,124 @@
+/* HEADER */
+header {
+  height: 10%;
+  width: 98%;
+  box-sizing: border-box;
+  background: linear-gradient(to bottom, #1a4c0e 0%, #001c22 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  padding: 16px 0;
+  border-radius: 30px;
+}
+
+.header__aria-label {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px; /* espace entre les éléments */
+  font-family: "Poppins", Arial, sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 16px;
+  white-space: nowrap;
+}
+
+.header-logo-left {
+  height: 40px;        
+  margin-right: 24px;  
+  margin-left: 0;
+  align-self: center;
+}
+
+.header__aria-label a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.header__aria-label a:hover {
+  color: #8bff6b;
+}
+
+.header__aria-label .highlight {
+  font-weight: 700;
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.4);
+}
+
+
+/* BARRE DE RECHERCHE */
+
+.search-form {
+  height: 5%;
+  width: 30%;
+  margin-left: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.search-form__input {
+  width: 50%;
+  border: none;
+  border-radius: 25px;
+  padding: 1rem;
+  box-sizing: border-box;
+  background-color: #081c08;
+  font-family: var(--main-font);
+  color: white;
+}
+
+.search-form__select {
+  width: 20%;
+  border: none;
+  border-radius: 25px;
+  padding: 1rem;
+  box-sizing: border-box;
+  background-color: #081c08;
+  font-family: var(--main-font);
+  color: white;
+}
+
+.search-form__btn {
+  height: 5%;
+  width: 10%;
+  display: block;
+  border-radius: 28px;
+  border: 1px solid #18ab29;
+  cursor: pointer;
+  padding: 0.3rem 2rem;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #2f6627;
+  background-color: var(--green-color);
+  color: #ffffff;
+  font-family: var(--main-font);
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+
+/* TITRES & MASCOTTES */
+.main__logos-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 3vw; /* espace entre les logos */
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.main-logo{
+  max-width: 800px;   /* taille identique pour les deux logos */
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.main__logos-row img:last-child {
+  max-width: 800px; 
+}
+

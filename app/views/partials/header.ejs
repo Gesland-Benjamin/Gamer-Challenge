@@ -48,14 +48,14 @@
                   <a href="/challenges">Challenges</a>
                   <a href="/ladder">Classement</a>
 
-                  <!-- Barre de recherche -->
+                  <!-- BARRE DE RECHERCHE -->
                   <form action="/search" method="GET" class="search-form">
-                    <input type="text" name="q" placeholder="Rechercher..." required />
-                    <select name="type">
+                    <input type="text" name="q" placeholder="Rechercher..." class="search-form__input" required />
+                    <select name="type" class="search-form__select">
                       <option value="games">Jeux</option>
                       <option value="challenges">Challenges</option>
                     </select>
-                    <button type="submit">OK</button>
+                    <button type="submit" class="search-form__btn">OK</button>
                   </form>
       </nav>
     </header>
