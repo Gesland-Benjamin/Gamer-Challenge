@@ -22,10 +22,11 @@
 
 /* Section des défis */
 section h2 {
-  color: #4dff4d;
+  color: white;
   font-size: 1.8rem;
   margin: 2rem 0 1rem 0;
   text-align: center;
+  text-shadow: 0 0 5px rgba(107, 255, 5, 0.7);
 }
 
 .challenge {
@@ -38,6 +39,7 @@ section h2 {
   justify-content: space-between;
   align-items: center;
 }
+
 
 .challenge h2 {
   margin: 0;

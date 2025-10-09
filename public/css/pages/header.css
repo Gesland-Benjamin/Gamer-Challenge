@@ -2,6 +2,8 @@
 header {
   height: 10%;
   width: 98%;
+  display: flex;
+  align-items: center;
   box-sizing: border-box;
   background: linear-gradient(to bottom, #1a4c0e 0%, #001c22 100%);
   color: #ffffff;
@@ -85,7 +87,8 @@ header {
 .search-form__btn {
   height: 5%;
   width: 10%;
-  display: block;
+  display: flex;
+  justify-content: center;
   border-radius: 28px;
   border: 1px solid #18ab29;
   cursor: pointer;

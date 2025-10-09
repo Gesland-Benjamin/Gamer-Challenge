@@ -18,9 +18,10 @@
   --deepblue-color: #043640;
   --blue-color: #034b57;
   --main-font: "Poppins", sans-serif;
+  
 }
 
-body {
+html, body {
   background: radial-gradient(
       circle at 50% 20%,
       rgba(0, 100, 0, 0.4) 0%,
@@ -30,7 +31,7 @@ body {
     linear-gradient(to bottom, #1a4c0e, #001c22);
   background-repeat: no-repeat;
   background-attachment: fixed;
-  color: #fff;
+  color: #fff !important;
   font-family: "Poppins", sans-serif;
   margin: 0;
   padding: 0;
@@ -38,6 +39,11 @@ body {
   width: 100%;
   display: flex;
   flex-direction: column;
+}
+
+main {
+  height: 100vh;
+  width: 100%;
 }
 
 .container {
