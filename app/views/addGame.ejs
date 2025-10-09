@@ -1,45 +1,39 @@
 <%- include('./partials/header') %>
 <%- include('./partials/aside_nav') %>
 
-
 <main class="addGame__main">
-
   <section class="add_form">
-
-    <div >
-      <form action="/admin/addgame" method="POST" >
-        <legend>ADD GAME</legend>
-        <fieldset>
-
-          <div >
-            <input type="text" placeholder="name" name="name" >
-          </div>
-
-          <div >
-            <textarea placeholder="Description" name="description" ></textarea>
-          </div>
-
-          <div >
-            <input type="date" placeholder="Release Year" name="release_year"  >
-          </div>
-
-          <div >
-            <input type="text" placeholder="Genre" name="genre" >
-          </div>
-
-          <div class="form_content_container">
-            <label for="picture" class="form_label">Game Picture</label>
-            <input type="url" id="picture" name="picture" class="form_input">
-          </div>
-
-          <button type="submit" >Valider</button>
-
-        </fieldset>
-      </form>
-
-      <a href="/" >Retour à l'accueil</a>
+    <div class="forms-container">
+      <div>
+        <form action="/admin/addgame" method="POST">
+          <legend class="form-legend">AJOUTER UN JEU</legend>
+         
+            <div class="input-with-icon">
+              <input class="input" type="text" placeholder="Nom du jeu" name="name">
+              <i class="edit-icon"></i>
+            </div>
+            <div class="input-with-icon">
+              <textarea class="input" placeholder="Description" name="description"></textarea>
+              <i class="edit-icon"></i>
+            </div>
+            <div class="input-with-icon">
+              <input class="input" type="date" placeholder="Release Year" name="release_year">
+              <i class="edit-icon"></i>
+            </div>
+            <div class="input-with-icon">
+              <input class="input" type="text" placeholder="Genre" name="genre">
+              <i class="edit-icon"></i>
+            </div>
+            <div class="input-with-icon">
+              <input class="input" type="url" id="picture" name="picture" placeholder="URL de l'image du jeu">
+              <i class="edit-icon"></i>
+            </div>
+            <button class="myButton-form" type="submit">Valider</button>
+          
+        </form>
+        <a href="/" class="myButton-form" style="background:#333; border:none;">Retour à l'accueil</a>
+      </div>
     </div>
-
   </section>
 </main>
 

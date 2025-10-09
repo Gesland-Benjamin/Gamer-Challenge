@@ -1,0 +1,25 @@
+/* PAGINATION */
+
+.pagination {
+  width: 4%;
+  display: flex;
+  justify-content: center;
+  justify-content: space-evenly;
+  font-family: var(--main-font);
+  color: white;
+}
+
+.pagination__span {
+  font-family: var(--main-font);
+  font-weight: bolder;
+  text-decoration: none;
+  color: white;
+}
+
+
+a {
+  font-family: var(--main-font);
+  font-weight: bolder;
+  text-decoration: none;
+  color: white;
+}
