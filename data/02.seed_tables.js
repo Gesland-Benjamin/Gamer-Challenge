@@ -8,7 +8,8 @@ const user1 = await User.create({
     username: "alice",
     mail: "alice@example.com",
     password: await argon2.hash("password1"),
-    role: "admin"
+    role: "admin",
+    picture : "https://upload.wikimedia.org/wikipedia/en/b/b5/MarioKart8Boxart.jpg"
 });
 const user2 = await User.create({
     username: "bob",
@@ -20,7 +21,8 @@ const user3 = await User.create({
     username: "charlie",
     mail: "charlie@example.com",
     password: await argon2.hash("password3"),
-    isBanned: true
+    isBanned: true,
+    picture : "https://upload.wikimedia.org/wikipedia/en/1/1f/Animal_Crossing_New_Horizons.jpg"
 });
 const user4 = await User.create({
     username: "david",
