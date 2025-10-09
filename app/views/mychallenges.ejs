@@ -1,6 +1,7 @@
 <%- include('partials/header.ejs') %>
   <%- include('partials/aside_nav.ejs') %>
 
+<<<<<<< HEAD
     <h1>
       <%= user.username %>
     </h1>
@@ -37,6 +38,22 @@
               <p>Aucun challenge pour le moment 😢</p>
               <% } %>
     </ul>
+=======
+<main>
+  <h1>Voici tous tes challenges <%=username %> :</h1>
+
+  <ul >
+    <% videos.forEach(video => { %>
+
+      <article >
+        <h2><%= video.name %></h2>
+        <a href="<%= video.url %>" alt=""></a>
+      </article>
+        
+    <% }) %>
+  </ul>
+</main>
+>>>>>>> dev
 
 
     <%- include('partials/footer.ejs') %>

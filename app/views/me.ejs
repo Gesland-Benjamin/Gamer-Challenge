@@ -1,6 +1,7 @@
 <%- include('partials/header') %>
 <%- include('partials/aside_nav') %>
 
+<<<<<<< HEAD
 <section >
     <h1>Mon compte</h1>
     <p> 
@@ -45,8 +46,52 @@
                 <a href="/" class="myButton-form" style="background:#333; border:none;">Retour à l'accueil</a>
             </form>
         </div>
+=======
+<main>
+  <section>
+    <div class="forms-container">
+      <div>
+        <form action="/me" method="post">
+          <legend class="form-legend">Mon compte</legend>
+
+          <div class="input-with-icon">
+            <input class="input" type="text" name="username" value="<%= user.username%>" placeholder="Pseudo">
+            <i class="edit-icon"></i>
+          </div>
+
+          <div class="input-with-icon">
+            <input class="input" type="email" name="mail" value="<%= user.mail%>" placeholder="Adresse mail">
+            <i class="edit-icon"></i>
+          </div>
+
+          <div class="input-with-icon">
+            <input class="input" type="text" name="favoriteGame" value="<%= user.favoriteGame%>" placeholder="Jeu préféré">
+            <i class="edit-icon"></i>
+          </div>
+
+          <div class="input-with-icon">
+            <input class="input" type="url" name="twitch_url" placeholder="https://www.twitch.tv/votrepseudo" value="<%= user.twitch_url%>">
+            <i class="edit-icon"></i>
+          </div>
+
+          <div class="input-with-icon">
+            <input class="input" type="url" name="youtube_url" placeholder="https://www.youtube.com/votrepseudo" value="<%= user.youtube_url%>">
+            <i class="edit-icon"></i>
+          </div>
+
+          <div class="input-with-icon">
+            <input class="input" type="url" name="discord_url" placeholder="discord.gg/votrepseudo" value="<%= user.discord_url%>">
+            <i class="edit-icon"></i>
+          </div>
+
+          <button class="myButton-form" type="submit">Modifier mes informations</button>
+          <a href="/" class="myButton-form" style="background:#333; border:none;">Retour à l'accueil</a>
+        </form>
+      </div>
+>>>>>>> dev
     </div>
-</section>
+  </section>
+</main>
 
 <form action="/me/delete" method="post" class="center-btn">
     <button class="myButton-form" type="submit" style="background:#c00; border-color:#a00;" onclick="return confirm('Êtes-vous sûr de vouloir supprimer votre compte ? Cette action est irréversible.')">Supprimer mon compte</button>
