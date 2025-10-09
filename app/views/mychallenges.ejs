@@ -1,19 +1,19 @@
 <%- include('partials/header.ejs') %>
 <%- include('partials/aside_nav.ejs') %>
 
-<h1>Voici tous tes challenges <%=username %> :</h1>
+<main>
+  <h1>Voici tous tes challenges <%=username %> :</h1>
 
-<ul >
-
+  <ul >
     <% videos.forEach(video => { %>
 
-        <article >
-            <h2><%= video.name %></h2>
-            <a href="<%= video.url %>" alt=""></a>
-        </article>
-    
+      <article >
+        <h2><%= video.name %></h2>
+        <a href="<%= video.url %>" alt=""></a>
+      </article>
+        
     <% }) %>
-    
-</ul>
+  </ul>
+</main>
 
 <%- include('partials/footer.ejs') %>

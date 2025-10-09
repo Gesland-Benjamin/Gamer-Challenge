@@ -1,35 +1,32 @@
 <%- include('./partials/header') %>
-    <%- include('./partials/aside_nav') %>
+<%- include('./partials/aside_nav') %>
 
-        <section class="add_form">
+<main>
+  <section class="add_form">
+    <div class="forms-container">
+      <form action="/challenges/<%= challenge.id %>/edit" method="POST" class="form_register">
+        <legend class="form-legend">Modifier un challenge</legend>
+        
+        <div class="form_content_container">
+          <label for="name" class="form_label">Nom du challenge</label>
+          <input type="text" id="name" placeholder="Nom du challenge" name="name" class="input" value="<%= challenge.name %>" required>
+        </div>
 
-            <div class="forms_container">
-                <form action="/challenges/<%= challenge.id %>/edit" method="POST" class="form_register">
-                    <legend>Modifier un challenge</legend>
-                    <fieldset>
+        <div class="form_content_container">
+          <label for="description" class="form_label">Description</label>
+          <textarea id="description" placeholder="Description" name="description" class="input" required><%= challenge.description %></textarea>
+        </div>
 
-                        <div class="form_content_container">
-                            <input type="text" placeholder="name" name="name" class="form_input">
-                        </div>
+        <div class="form_content_container">
+          <label for="release_date" class="form_label">Date de sortie</label>
+          <input type="date" id="release_date" placeholder="Date de sortie" name="release_date" class="input" value="<%= challenge.release_date ? challenge.release_date.toISOString().split('T')[0] : '' %>" required>
+        </div>
 
-                        <div class="form_content_container">
-                            <textarea placeholder="Description" name="description" class="form_input"></textarea>
-                        </div>
+        <button type="submit" class="myButton-form">Valider</button>
+      </form>
+      <a href="/" class="button">Retour à l'accueil</a>
+    </div>
+  </section>
+</main>
 
-                        <div class="form_content_container">
-                            <input type="date" placeholder="Release Date" name="release_date" class="form_input">
-                        </div>
-
-                        <form action="/challenges/<%= challenge.id %>/edit" method="POST">
-                            <button type="submit">Valider</button>
-                        </form>
-
-                    </fieldset>
-                </form>
-
-                <a href="/" class="back_link">Retour à l'accueil</a>
-            </div>
-
-        </section>
-
-        <%- include('./partials/footer') %>
+<%- include('./partials/footer') %>

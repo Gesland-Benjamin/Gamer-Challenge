@@ -1,36 +1,38 @@
 <%- include('partials/header.ejs') %>
 <%- include('partials/aside_nav.ejs') %>
-<main class="games__main">
-   <div class="games__top-title-wrapper">
+
+<main>
+  <div class="games__top-title-wrapper">
     <span class="games__top-title">CHALLENGES</span>
     <div class="games__top-bar"></div>
   </div>
-  <ul class="list">
-      <% if (listChallenges && listChallenges.length > 0) { %>
-        <% listChallenges.forEach(function(challenge) { %>
-          <li class="list__game">
-            <a href="/challenges/<%= challenge.id %>">
-              <img src="<%= challenge.picture %>" alt="<%= challenge.name %>">
-              <h2 id="challenge<%= challenge.id %>" class="game-name"><%= challenge.name %></h2>
-            </a>
-          </li>
-        <% }) %>
-      <% } else { %>
-        <li class="list__error-message">Aucun challenge disponible.</li>
-      <% } %>
-    </ul>
 
-    <div >
-  <% if (totalPages > 1) { %>
-    <% for (let i = 1; i <= totalPages; i++) { %>
-      <% if (i === page) { %>
-        <span><%= i %></span>
-      <% } else { %>
-        <a href="/challenges?page=<%= i %>"><%= i %></a>
+  <ul class="list">
+    <% if (listChallenges && listChallenges.length > 0) { %>
+      <% listChallenges.forEach(function(challenge) { %>
+        <li class="list__game">
+          <a href="/challenges/<%= challenge.id %>">
+            <img src="<%= challenge.game.picture %>" alt="<%= challenge.name %>" width="250">
+            <h2 id="challenge<%= challenge.id %>" class="game-name"><%= challenge.name %></h2>
+          </a>
+        </li>
+      <% }) %>
+    <% } else { %>
+      <li class="list__error-message">Aucun challenge disponible.</li>
+    <% } %>
+  </ul>
+
+  <div class="pagination">
+    <% if (totalPages > 1) { %>
+      <% for (let i = 1; i <= totalPages; i++) { %>
+        <% if (i === page) { %>
+          <span class="pagination__span"><%= i %></span>
+        <% } else { %>
+          <a href="/challenges?page=<%= i %>"><%= i %></a>
+        <% } %>
       <% } %>
     <% } %>
-  <% } %>
-</div>
+  </div>
 </main>
 
 <%- include('partials/aside_nav.ejs') %>

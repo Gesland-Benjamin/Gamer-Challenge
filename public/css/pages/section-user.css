@@ -1,0 +1,24 @@
+/* === Section utilisateur (connexion, profil, déconnexion) === */
+.user-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #ffffff;
+}
+
+.logout-btn {
+  background-color: #007f33;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 14px;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.logout-btn:hover {
+  background-color: #009944;
+}
+

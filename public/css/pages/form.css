@@ -1,0 +1,101 @@
+/* FORMULAIRE */
+.forms-container {
+  display: flex;
+  gap: 10rem;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 2rem 0;
+}
+.forms-container > div {
+  width: 350px;
+  min-width: 350px;
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.forms-container form {
+  background: #11380f;
+  border: 3px solid #44b716; /* ou border: none; */
+  padding: 2rem 1.5rem;
+  border-radius: 18px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+  color: #fff;
+  width: 100%;
+  max-width: 350px;
+  min-width: unset;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.form-legend {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 1.2rem;
+  letter-spacing: 1px;
+  font-family: "Poppins", Arial, sans-serif;
+  text-transform: uppercase;
+}
+
+.input {
+  background-color: #081c08;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 13px;
+  margin: 20px 0;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.myButton-form {
+  display: block;
+  margin: 1.5rem auto 0 auto;
+  background-color: var(--green-color);
+  border-radius: 28px;
+  border: 1px solid #18ab29;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0.3rem 2rem;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #2f6627;
+}
+
+.center-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.input-with-icon {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.input-with-icon .input {
+  flex: 1;
+  padding-right: 2.2em; /* espace pour l'icône */
+}
+
+.edit-icon {
+  position: absolute;
+  right: 12px;
+  color: #44b716;
+  font-size: 1.1em;
+  pointer-events: none; /* l'icône ne bloque pas l'input */
+}
+
+
+

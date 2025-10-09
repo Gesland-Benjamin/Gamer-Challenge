@@ -1,0 +1,38 @@
+/* FOOTER */
+footer {
+  height: 10%;
+  width: 98%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 30px;
+  margin-top: auto;
+  background: linear-gradient(to bottom, #043640 0%, #001c22 100%);
+  background-color: rgba(4, 54, 64, 0.2);
+}
+
+.footer__links {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-evenly;
+}
+
+.footer a {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: var(--green-color);
+}
+
+.gamerchallenges__tag {
+  font-size: x-small;
+  color: #ffffff;
+  margin: 0 auto;
+}

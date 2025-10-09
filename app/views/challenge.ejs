@@ -5,7 +5,7 @@
   <div class="challenge-container">
       <!-- Image du challenge -->
       <div class="challenge-image">
-        <img src="<%= challenge.picture %>" alt="<%= challenge.name %>" width="250">
+        <img src="<%= challenge.game.picture %>" alt="<%= challenge.name %>" width="250">
       </div>
 
       <!-- Titre et description -->
@@ -54,9 +54,9 @@
       </div>
       <% if (user && (user.id === challenge.user_id || user.role === 'admin')) { %>
         <form action="/challenges/<%= challenge.id %>/delete" method="POST">
-          <button type="submit">Supprimer</button>
+          <button class="button-delete" type="submit">Supprimer</button>
         </form>
-        <a href="/challenges/<%= challenge.id %>/edit">Modifier</a>
+        <a class="button" href="/challenges/<%= challenge.id %>/edit">Modifier</a>
       <% } %>
   </div>
 </body>

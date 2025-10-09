@@ -1,6 +1,7 @@
  <%- include('partials/header') %>
  <%- include('partials/aside_nav') %>
  
+<main>
  <h1>Résultats pour "<%= query %>"</h1>
 
   <% if (!results || (Array.isArray(results) && results.length === 0) || (typeof results === 'object' && Object.keys(results).length === 0)) { %>
@@ -23,5 +24,6 @@
       <% } %>
   <% } %>
 </body>
+</main>
 
 <%- include('./partials/footer') %>

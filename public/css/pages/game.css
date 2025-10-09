@@ -1,88 +1,162 @@
 :root {
+  --green: #4dff4d;
+  --dark-green: #003311;
+  --text-light: #e0e0e0;
   font-family: "Poppins", sans-serif;
   color: white;
 }
 
+/* ----- STRUCTURE GLOBALE ----- */
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* ✅ empêche le scroll horizontal */
+  background-color: #000; /* optionnel, fond neutre */
+}
+
 .game-page-main {
-  margin-left: 2rem;
-  margin-right: 80px;
-  padding: 2rem;
+  margin: 0 auto;
+  padding: 1.5rem;
+  max-width: 1200px; /* ✅ largeur max maîtrisée */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ----- EN-TÊTE DU JEU ----- */
+.game-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap; /* ✅ s’adapte aux petits écrans */
+}
+
+.game-cover-wrapper {
+  flex: 0 0 250px; /* ✅ taille réduite */
 }
 
 .game-cover {
-  width: 300px;
+  width: 250px;
   height: auto;
-  border-radius: 10px;
-  border: 3px solid #4dff4d;
+  border-radius: 12px;
+  border: 3px solid var(--green);
+  box-shadow: 0 0 10px rgba(77, 255, 77, 0.4);
 }
 
+/* ----- INFOS DU JEU ----- */
 .game-info {
   flex: 1;
+  min-width: 300px;
+  max-width: 600px; /* ✅ évite d’occuper trop d’espace */
 }
 
-/* Section des défis */
-section h2 {
-  color: #4dff4d;
+.game-name {
   font-size: 1.8rem;
-  margin: 2rem 0 1rem 0;
-  text-align: center;
+  color: var(--green);
+  text-shadow: 0 0 8px rgba(77, 255, 77, 0.8);
+  margin-bottom: 1rem;
 }
 
+.game-description {
+  color: var(--text-light);
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.game-date,
+.game-meta {
+  font-weight: bold;
+  color: #9aff9a;
+  font-size: 0.9rem;
+}
+
+/* ----- SECTION CHALLENGES ----- */
+section h2 {
+  color: white;
+  font-size: 1.6rem;
+  margin: 1.5rem 0 1rem 0;
+  text-align: center;
+  text-shadow: 0 0 5px rgba(107, 255, 5, 0.7);
+}
+
+.challenges-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  width: 100%;
+}
+
+/* Chaque défi */
 .challenge {
-  background-color: #003311;
-  border: 1px solid #4dff4d;
-  border-radius: 20px;
-  padding: 1rem;
-  margin: 1rem 0;
+  background-color: transparent;
+  border: 1px solid var(--green);
+  border-radius: 15px;
+  padding: 0.8rem 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.challenge h2 {
+.challenge:hover {
+  transform: scale(1.01);
+  box-shadow: 0 0 10px rgba(77, 255, 77, 0.3);
+}
+
+/* ✅ Fond vert foncé uniquement pour les noms */
+.challenge h3 {
   margin: 0;
-  font-size: 1.2rem;
+  font-size: 1rem;
+  background-color: var(--dark-green);
+  padding: 0.3rem 0.6rem;
+  border-radius: 8px;
+  border: 1px solid var(--green);
+  box-shadow: 0 0 6px rgba(77, 255, 77, 0.3);
 }
 
 .challenge a {
-  color: #e0e0e0;
+  color: var(--text-light);
   text-decoration: none;
+  font-weight: 500;
 }
 
 .challenge a:hover {
-  color: #4dff4d;
+  color: var(--green);
+}
+
+.challenge-votes {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.challenge-votes span {
+  font-weight: bold;
+  color: var(--green);
 }
 
 .like-btn {
-  background-color: #4dff4d;
+  background-color: var(--green);
   color: #000;
   border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
+  padding: 0.3rem 0.8rem;
+  border-radius: 8px;
   cursor: pointer;
   font-weight: bold;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
 }
 
 .like-btn:hover {
   background-color: #33cc33;
+  transform: scale(1.05);
 }
 
-.button {
-  display: inline-block;
-  background-color: var(--green-color);
-  color: white;
-  cursor: pointer;
-  font-family: "Poppins", sans-serif;
-  padding: 0.3rem 2rem;
-  margin: 0.5rem;
-  text-decoration: none;
-  border-radius: 28px;
-  font-weight: bold;
-  font-size: 1rem;
-  border: 1px solid #18ab29;
-  text-shadow: 0px 1px 0px #2f6627;
+/* ----- ACTIONS ----- */
+.game-actions {
+  margin-top: 2rem;
+  text-align: center;
 }
 
-.button:hover {
-  background-color: #33cc33;
-}
