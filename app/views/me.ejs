@@ -21,6 +21,9 @@
                 <input type="email" name="mail" value="<%= user.mail%>">
                 <i ></i>
             </div>
+            <div >
+                <a href="/me/password">Modifier le mot de passe</a>
+            </div>
             <div class="field_form_container">
                 <label for="favoriteGame">Jeu préféré</label>
                 <input type="text" name="favoriteGame" value="<%= user.favoriteGame%>" >
@@ -31,10 +34,11 @@
                 <div class="socials_form_container">
                     <div class="field_form_container">
                         <input type="url" name="twitch_url"placeholder="https://www.twitch.tv/votrepseudo" value="<%= user.twitch_url%>">
-                        <i ></i>
+                        <i class="fa-brands fa-twitch"></i>
                         <input type="url" name="youtube_url"placeholder="https://www.youtube.com/votrepseudo" value="<%= user.youtube_url%>">
-                        <i ></i>
+                        <i class="fa-brands fa-youtube"></i>
                         <input type="url" name="discord_url"  placeholder="discord.gg/votrepseudo" value="<%= user.discord_url%>">
+                        <i class="fa-brands fa-discord"></i>
                     </div>
                 </div>
             </div>
@@ -48,3 +52,4 @@
 </form>
 
 <%- include('partials/footer') %>
+

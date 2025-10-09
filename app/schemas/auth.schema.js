@@ -26,11 +26,10 @@ export const authSchema = Joi.object({
 export const editMeSchema = Joi.object({
   username: Joi.string().alphanum().min(3).max(25).allow('').invalid(...forbiddenUsernames),    // interdit de la liste, // pseudo               
   mail: Joi.string().email().max(50).allow(''),
-  password: Joi.string().allow('').pattern(new RegExp("^[a-zA-Z0-9]{3,255}$")),
   favoriteGame : Joi.string().trim().allow('').max(255),
   youtube_url : Joi.string().uri().trim().allow('').max(255),
   twitch_url : Joi.string().uri().trim().allow('').max(255),
   discord_url : Joi.string().uri().trim().allow('').max(255),
 
-}).or('username', 'mail', 'password', 'favoriteGame');
+}).or('username', 'mail', 'favoriteGame');
 
