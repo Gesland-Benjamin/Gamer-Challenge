@@ -8,63 +8,73 @@ class ChallengeController extends CoreController {
 
     // Méthode pour afficher la liste paginée des challenges
     challengesListPage = async (req, res) => {
-        try {
-            // Récupère le numéro de page depuis la requête, ou 1 par défaut
-            const page = parseInt(req.query.page) || 1;
+    try {
+        const page = parseInt(req.query.page) || 1;
+        const limit = 9;
+        const offset = (page - 1) * limit;
 
-            // Définit le nombre de challenges à afficher par page
-            const limit = 9;
+        const { count, rows: listChallenges } = await Challenge.findAndCountAll({
+            limit,
+            offset,
+            order: [["release_date", "DESC"]],
+            include: [
+                {
+                    model: Game,
+                    as: "game", // 👈 correspond à l'alias dans ton association
+                    attributes: ["id", "name", "picture"]
+                }
+            ]
+        });
 
-            // Calcule l'offset pour la requête SQL (combien d'éléments ignorer)
-            const offset = (page - 1) * limit;
+        const totalPages = Math.ceil(count / limit);
 
-            // Récupère les challenges paginés et le nombre total d'éléments
-            const { count, rows: listChallenges } = await Challenge.findAndCountAll({
-                limit, // nombre d'éléments à récupérer
-                offset, // nombre d'éléments à ignorer
-                order: [["release_date", "DESC"]], // tri par date de sortie décroissante
-            });
-
-            // Calcule le nombre total de pages
-            const totalPages = Math.ceil(count / limit);
-
-            // Rend la vue "challenges" en passant les challenges, la page courante et le nombre total de pages
-            res.status(200).render("challenges", { listChallenges, page, totalPages });
-        } catch (error) {
-            // En cas d'erreur, affiche la page d'erreur
-            console.error(error);
-            res.status(404).render("error", { error });
-        }
-    };
+        res.status(200).render("challenges", { 
+            listChallenges, 
+            page, 
+            totalPages,
+            user: req.session.user // utile si tu veux conditionner des boutons dans la vue
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(404).render("error", { error });
+    }
+};
 
     challengeDetailsPage = async (req, res, next) => {
-        try {
+    try {
+        const { id } = req.params;
 
-            const { id } = req.params;
-
-            const challenge = await Challenge.findByPk(id, {
-                include: [{
+        const challenge = await Challenge.findByPk(id, {
+            include: [
+                {
+                    model: Game,
+                    as: 'game', 
+                    attributes: ['id', 'name', 'picture']
+                },
+                {
                     model: VideoSubmit,
-                    as: 'videos', // Assurez-vous que l'alias correspond à votre association
-                    include: [{
-                        model: User,
-                        as: 'user',
-                        attributes: ['username'],
-                    }]
-                }]
-            });
+                    as: 'videos',
+                    include: [
+                        {
+                            model: User,
+                            as: 'user',
+                            attributes: ['username']
+                        }
+                    ]
+                }
+            ]
+        });
 
-            if (!challenge) {
-                return this.render404(req, res);
-            }
+        if (!challenge) {
+            return this.render404(req, res);
+        }
 
-            res.render("challenge", { challenge, user: req.session.user, page: 1, totalPages: 1 });
-        }
-        catch (error) {
-            console.error(error);
-            res.status(404).render("error", { error });
-        }
-    };
+        res.render("challenge", { challenge, user: req.session.user, page: 1, totalPages: 1 });
+    } catch (error) {
+        console.error(error);
+        res.status(404).render("error", { error });
+    }
+};
 
     formNewChallenge = async (req, res) => {
         const gameId = req.params.id
