@@ -76,11 +76,13 @@ class ChallengeController extends CoreController {
     }
 
     addNewChallenge = async (req, res) => {
+        console.log(req.body);
         try {
             const data = Joi.attempt(req.body, createChallengeSchema);
             const newChallenge = await Challenge.create(data);
             newChallenge.user_id = req.session.user.id;
             newChallenge.game_id = req.params.id;
+            newChallenge.release_date = new Date();
             await newChallenge.save();
 
             res.status(201).redirect(`/challenges/${newChallenge.id}`);
