@@ -2,30 +2,22 @@
 /* TITRES & MASCOTTES */
 .main__logos-row {
   display: flex;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 3vw; /* espace entre les logos */
-  width: 100%;
-  margin-bottom: 2rem;
+  gap: 3rem; /* espace entre les logos */
 }
 
 .main-logo{
-  max-width: 1000px;   /* taille identique pour les deux logos */
-  width: 100%;
-  height: auto;
-  display: block;
+  width: 55%;
+  height: auto;;
 }
 
 .main-logo-right {
-  display: block;
   margin-left: auto;
-  margin-right: 0;
-  margin-bottom: -10px; 
-  width: 120px;         
+  margin-right: 0; 
+  width: 45%;         
   height: auto;
 }
-
 
 
 /* WRAPPER */
@@ -53,4 +45,20 @@
   background: linear-gradient(to right, transparent, #32ff0a, transparent);
   box-shadow: 0 0 10px rgba(50, 255, 10, 0.6);
   margin-top: 8px;    /* espace sous le titre */
+}
+
+/* Media queries : 481px à 768px  */
+
+@media ( width <= 768px) {
+
+  .main-logo{
+  width: 90%;
+  height: auto;
+}
+
+  .main-logo-right {
+  display: none;
+}
+
+  
 }

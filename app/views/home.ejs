@@ -1,44 +1,41 @@
 <%- include('partials/header.ejs') %>
+  <%- include('partials/aside_nav') %>
 
-<main class="home__main">
-  <!-- TITRES & MASCOTTES -->
-  <div>
-    <div class="main__logos-row">
-      <img
-        class="main-logo"
-        src="/logos/title-logo.png"
-        alt="LOGO GAMER CHALLENGES"
-      />
-      <img class="main-logo" src="/logos/equipe.png" alt="Image equipe" />
-    </div>
+    <main class="home__main">
+      <!-- TITRES & MASCOTTES -->
 
-    <%- include('partials/aside_nav') %>
-  </div>
+      <div class="main__logos-row">
+        <img class="main-logo" src="/logos/title-logo.png" alt="LOGO GAMER CHALLENGES" />
+        <img class="main-logo-right" src="/logos/equipe.png" alt="Image equipe" />
+      </div>
 
-  <!-- TOP 3 CHALLENGES -->
-  <section class="top-challenges-section">
-    
-    <div class="home__top-title-wrapper">
-      <span class="home__top-title">Top 3 Challenges</span>
-      <div class="home__top-bar"></div>
-    </div>
+      <!-- TOP 3 CHALLENGES -->
+      <section class="top-challenges-section">
 
-    <div class="challenges-list">
-      <% challenges.forEach(function(challenge) { %>
-        <a href="/challenges/<%= challenge.id %>">
-        <div class="challenge">
-          <% if(challenge.game && challenge.game.picture) { %>
-          <img src="<%= challenge.game.picture %>" alt="Image du jeu">
-        <% } %>
-          <h2><%= challenge.name %></h2>
-          <p>Votes: <%= challenge.dataValues.voteCount %></p>
+        <div class="home__top-title-wrapper">
+          <span class="home__top-title">Top 3 Challenges</span>
+          <div class="home__top-bar"></div>
         </div>
-        </a>
-      <% }); %>
 
-    </div>
-    <a href="/challenges" class="button">VOIR PLUS</a>
-  </section>
-</main>
+        <div class="challenges-list">
+          <% challenges.forEach(function(challenge) { %>
+            <a href="/challenges/<%= challenge.id %>">
+              <div class="challenge">
+                <% if(challenge.game && challenge.game.picture) { %>
+                  <img src="<%= challenge.game.picture %>" alt="Image du jeu">
+                  <% } %>
+                    <h2>
+                      <%= challenge.name %>
+                    </h2>
+                    <p>Votes: <%= challenge.dataValues.voteCount %>
+                    </p>
+              </div>
+            </a>
+            <% }); %>
 
-<%- include('partials/footer.ejs') %>
+        </div>
+        <a href="/challenges" class="button">VOIR PLUS</a>
+      </section>
+    </main>
+
+    <%- include('partials/footer.ejs') %>
