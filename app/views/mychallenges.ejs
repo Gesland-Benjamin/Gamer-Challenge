@@ -1,42 +1,41 @@
 <%- include('partials/header.ejs') %>
-  <%- include('partials/aside_nav.ejs') %>
+<%- include('partials/aside_nav.ejs') %>
 
-    <h1>
-      <%= user.username %>
-    </h1>
-    <img src="<%= session.user.picture %>" alt="avatar" width="50" height="50"  />
+<main class="mychallenges-main">
+  <div>
+    <section class="profile-section">
+      <h1><%= user.username %></h1>
+      <img src="<%= session.user.picture %>" alt="avatar" />
 
-    <h2>Réseaux sociaux</h2>
-    <div class="socials">
-      <% const socials=[ { url: user.twitch_url, icon: 'fa-twitch' }, { url: user.youtube_url, icon: 'fa-youtube' }, {
-        url: user.discord_url, icon: 'fa-discord' } ]; socials.forEach(social=> {
-        if (social.url) { %>
-        <a href="<%= social.url %>" target="_blank">
-          <i class="fa-brands <%= social.icon %>"></i>
-        </a>
+      <h2>Réseaux sociaux</h2>
+      <div class="socials">
+        <% const socials=[ { url: user.twitch_url, icon: 'fa-twitch' }, { url: user.youtube_url, icon: 'fa-youtube' }, { url: user.discord_url, icon: 'fa-discord' } ]; socials.forEach(social=> { if (social.url) { %>
+          <a href="<%= social.url %>" target="_blank">
+            <i class="fa-brands <%= social.icon %>"></i>
+          </a>
         <% } }); %>
-    </div>
+      </div>
+    </section>
 
-    <h2>Mes challenges</h2>
-
-    <ul>
-      <% if (listChallenges && listChallenges.length> 0) { %>
-        <% listChallenges.forEach(challenge=> { %>
-          <li>
-            <article>
-              <h3>
-                <%= challenge.name %>
-              </h3>
-              <p>Jeu : <%= challenge.game.name %>
-              </p>
-              <a href="/challenges/<%= challenge.id %>" target="_blank">Voir le challenge</a>
-            </article>
-          </li>
+    <section class="challenges-section">
+      <h2>Mes challenges</h2>
+      <ul class="mychallenges-list">
+        <% if (listChallenges && listChallenges.length > 0) { %>
+          <% listChallenges.forEach(challenge => { %>
+            <li>
+              <article class="mychallenges-card">
+                <h3><%= challenge.name %></h3>
+                <p>Jeu : <%= challenge.game.name %></p>
+                <a href="/challenges/<%= challenge.id %>" target="_blank" class="myButton-form">Voir le challenge</a>
+              </article>
+            </li>
           <% }) %>
-            <% } else { %>
-              <p>Aucun challenge pour le moment 😢</p>
-              <% } %>
-    </ul>
+        <% } else { %>
+          <p style="text-align:center; margin-top:2rem;">Aucun challenge pour le moment 😢</p>
+        <% } %>
+      </ul>
+    </section>
+  </div>
+</main>
 
-
-    <%- include('partials/footer.ejs') %>
+<%- include('partials/footer.ejs') %>
