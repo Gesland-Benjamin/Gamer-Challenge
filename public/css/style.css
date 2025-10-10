@@ -100,3 +100,11 @@ main {
   border: none;
   transition: transform 0.2s ease, background-color 0.2s ease;
 }
+
+a {
+  text-decoration: none;
+}
+
+p {
+  line-height: 1.6;
+}

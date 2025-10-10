@@ -53,9 +53,9 @@
         <% if (totalPages > 1) { %>
           <% for (let i = 1; i <= totalPages; i++) { %>
             <% if (i === page) { %>
-              <span><%= i %></span>
+              <span class="pagination__span"><%= i %></span>
             <% } else { %>
-              <a href="/challenge-pagination?page=<%= i %>"><%= i %></a>
+              <a class="pagination__a" href="/challenge-pagination?page=<%= i %>"><%= i %></a>
             <% } %>
           <% } %>
         <% } %>
