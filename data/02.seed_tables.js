@@ -37,84 +37,84 @@ const game1 = await Game.create({
     description: "Cyberpunk 2077 est un jeu vidéo de rôle et d’action en monde ouvert développé par CD Projekt Red, situé dans la mégalopole futuriste de Night City, le joueur incarne V, un mercenaire à la recherche d’un implant unique qui pourrait offrir l’immortalité, le jeu propose des quêtes principales et secondaires, un système de personnalisation avancé du personnage, des choix moraux impactant l’histoire, et des combats mêlant armes à feu, piratage et capacités cybernétiques.",
     genre: "Action-RPG, monde ouvert",
     release_year: new Date('2020'),
-    picture: "https://upload.wikimedia.org/wikipedia/en/9/9f/Cyberpunk_2077_box_art.jpg"
+    picture: "https://images.igdb.com/igdb/image/upload/t_cover_big/coaam3.webp"
 });
 const game2 = await Game.create({
     name: "GTA VI",
     description: "Plongez dans l'univers de Grand Theft Auto VI, la dernière itération de la saga emblématique de Rockstar Games. Situé dans l'État fictif de Leonida, inspiré de la Floride, le jeu vous invite à explorer des environnements variés, allant des plages animées de Vice City aux marais mystérieux des Leonida Key",
     genre: "Action-aventure",
     release_year: new Date('2026'),
-    picture: "https://upload.wikimedia.org/wikipedia/en/thumb/4/46/Grand_Theft_Auto_VI.png/250px-Grand_Theft_Auto_VI.png"
+    picture: "https://images.igdb.com/igdb/image/upload/t_cover_big/co9rwo.webp"
 });
 const game3 = await Game.create({
     name: "ANIMAL CROSSING: NEW HORIZONS",
     description: "Dans Animal Crossing: New Horizons, le joueur incarne un personnage qui emménage sur une île déserte, avec pour objectif de créer et personnaliser son village idéal. Le jeu propose un cycle jour/nuit et saisons dynamiques, des interactions avec des villageois animaux, la pêche, la chasse aux insectes, la décoration et la gestion des ressources. Grâce à son rythme relaxant et sa liberté totale, le jeu offre une expérience immersive et créative, idéale pour les joueurs de tous âges.",
     genre: "Simulation de vie",
     release_year: new Date('2020'),
-    picture: "https://upload.wikimedia.org/wikipedia/en/1/1f/Animal_Crossing_New_Horizons.jpg"
+    picture: "https://images.igdb.com/igdb/image/upload/t_cover_big/co3wls.webp"
 });
 const game4 = await Game.create({
     name: "MARIO KART 8",
     description: "Mario Kart est un jeu de course emblématique où les personnages de l’univers Nintendo s’affrontent sur des circuits hauts en couleur. Les joueurs peuvent utiliser des objets spéciaux pour ralentir leurs adversaires ou se propulser en tête de course, rendant chaque partie imprévisible et dynamique. Avec de nombreux circuits, modes de jeu variés et un mode multijoueur en ligne ou local, Mario Kart offre une expérience accessible, compétitive et divertissante pour tous les âges.",
     genre: "Course, multijoueur",
     release_year: new Date('2023'),
-    picture: "https://upload.wikimedia.org/wikipedia/en/b/b5/MarioKart8Boxart.jpg"
+    picture: "https://images.igdb.com/igdb/image/upload/t_cover_big/co213q.webp"
 });
 const game5 = await Game.create({
     name: "RED DEAD REDEMPTION 2",
     description: "Red Dead Redemption 2 plonge le joueur dans l’Ouest américain à la fin du XIXᵉ siècle. Vous incarnez Arthur Morgan, membre du gang de Dutch van der Linde, naviguant entre loyauté et survie dans un monde ouvert vivant et immersif. Le jeu propose des quêtes principales et secondaires, des interactions riches avec les personnages, des activités variées (chasse, pêche, équitation) et un scénario profond mêlant action, drame et exploration. L’expérience combine liberté, réalisme et narration cinématographique, offrant une immersion totale dans l’univers du Far West.",
     genre: "Action-aventure",
     release_year: new Date('2018'),
-    picture: "https://upload.wikimedia.org/wikipedia/en/thumb/4/44/Red_Dead_Redemption_II.jpg/250px-Red_Dead_Redemption_II.jpg"
+    picture: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1q1f.webp"
 });
 const game6 = await Game.create({
     name: "DAYS GONE",
     description: "Dans Days Gone, vous incarnez Deacon St. John, un ancien membre d’un gang de motards, qui tente de survivre dans un monde post-apocalyptique ravagé par une pandémie transformant les humains en créatures appelées “Freakers”. Le jeu propose un vaste monde ouvert à explorer, des combats contre les Freakers et d’autres survivants, ainsi que la gestion de ressources et de véhicules. Avec son atmosphère immersive, son scénario centré sur la survie et ses choix moraux, Days Gone offre une expérience intense et cinématographique dans un environnement hostile et impitoyable.",
     genre: "Action-aventure, survie",
     release_year: new Date('2019'),
-    picture: "https://upload.wikimedia.org/wikipedia/en/thumb/1/16/Days_Gone_cover_art.jpg/250px-Days_Gone_cover_art.jpg"
+    picture: "https://images.igdb.com/igdb/image/upload/t_cover_big/co94bn.webp"
 });
 const game7 = await Game.create({
     name: "NARUTO SHIPPUDEN: ULTIMATE NINJA STORM",
     description: "Naruto Shippuden: Ultimate Ninja Storm est un jeu de combat qui plonge le joueur dans l’univers du célèbre manga Naruto. Incarnez Naruto, Sasuke et d’autres personnages emblématiques et participez à des combats dynamiques en 3D, fidèles aux techniques et jutsus de la série. Le jeu propose des modes solo et multijoueur, des cinématiques immersives racontant les arcs principaux du manga, et un gameplay mêlant stratégie, vitesse et combos spectaculaires. Grâce à ses graphismes colorés et son ambiance fidèle à l’anime, Naruto Storm offre une expérience divertissante pour les fans de la saga et les amateurs de jeux de combat.",
     genre: "Combat, action",
     release_year: new Date('2008'),
-    picture: "https://m.media-amazon.com/images/M/MV5BNzg5OTZhZjUtMmEwOC00ZGI1LTljOTgtNDMzMTA1YjlhNDA2XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+    picture: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1u9d.webp"
 });
 const game8 = await Game.create({
     name: "TEKKEN 8",
     description: "Tekken 8 marque le retour triomphal de la saga emblématique de jeux de combat en 3D. Développé sur Unreal Engine 5, le jeu offre des graphismes époustouflants et des animations fluides, mettant en valeur les combats intenses et les personnages détaillés. L'histoire poursuit la tragique saga des Mishima, centrée sur le face-à-face entre Jin Kazama et Kazuya Mishima, avec des rebondissements inattendus et des révélations familiales. Le gameplay introduit le système Heat, amplifiant l'agressivité et la stratégie en combat, tout en conservant les mécaniques classiques qui ont fait le succès de la série. Avec plus de 32 personnages jouables, dont des retours iconiques et de nouveaux venus, Tekken 8 promet une expérience de jeu riche et dynamique, que ce soit en solo ou en ligne.",
     genre: "Combat",
     release_year: new Date('2024'),
-    picture: "https://upload.wikimedia.org/wikipedia/en/thumb/b/b4/Tekken_8_cover_art.jpg/250px-Tekken_8_cover_art.jpg"
+    picture: "https://images.igdb.com/igdb/image/upload/t_cover_big/co7lbb.webp"
 });
 const game9 = await Game.create({
     name: "Dofus",
     description: "Dofus est un jeu de rôle massivement multijoueur en ligne (MMORPG) se déroulant dans le monde fantastique du Krosmoz. Les joueurs incarnent des personnages de différentes classes et races, chacun avec ses compétences uniques, et partent à l’aventure pour retrouver les légendaires œufs de dragon appelés Dofus. Le jeu combine exploration, quêtes, combats tactiques au tour par tour et interactions sociales avec d’autres joueurs. Avec ses graphismes en 2D colorés et son univers riche, Dofus offre une expérience immersive, stratégique et communautaire, adaptée aux fans de jeux de rôle et d’aventure.",
     genre: "MMORPG, stratégie, aventure",
     release_year: new Date('2004'),
-    picture: "https://static.actugaming.net/media/2016/03/dofus-cover.jpg"
+    picture: "https://images.igdb.com/igdb/image/upload/t_cover_big/co93i0.webp"
 });
 const game10 = await Game.create({
     name: "DISNEY DREAMLIGHT VALLEY",
     description: "Disney Dreamlight Valley est un jeu hybride mêlant simulation de vie et aventure, où les joueurs sont invités à restaurer un vallon magique envahi par des ronces malveillantes. Incarnez un personnage personnalisable et explorez des royaumes inspirés des univers Disney et Pixar, tels que La Belle et la Bête, Inside Out, Peter Pan et Aladdin. Au fil de l'aventure, vous rencontrerez des personnages emblématiques, résoudrez des énigmes et participerez à des quêtes captivantes pour redonner vie à la vallée.",
     genre: "Simulation de vie, aventure",
     release_year: new Date('2023'),
-    picture: "https://upload.wikimedia.org/wikipedia/en/thumb/5/58/Disney_Dreamlight_Valley.jpg/250px-Disney_Dreamlight_Valley.jpg"
+    picture: "https://images.igdb.com/igdb/image/upload/t_cover_big/co4p0c.webp"
 });
 const game11 = await Game.create({
     name: "FAR CRY 6",
     description: "Far Cry 6 transporte les joueurs dans le pays fictif de Yara, inspiré de Cuba, où ils incarnent Dani Rojas, un guérillero luttant contre le régime oppressif du dictateur Antón Castillo, interprété par Giancarlo Esposito. Le jeu propose un vaste monde ouvert à explorer, avec des environnements variés allant des plages tropicales aux jungles denses et aux villes animées. Les joueurs peuvent utiliser une variété d'armes, de véhicules et de compétences pour mener des missions, recruter des alliés et participer à des combats intenses contre les forces gouvernementales. Avec son scénario captivant, ses personnages mémorables et son gameplay dynamique, Far Cry 6 offre une expérience immersive et palpitante dans un cadre exotique.",
     genre: "FPS, action-aventure",
     release_year: new Date('2021'),
-    picture: "https://upload.wikimedia.org/wikipedia/en/3/35/Far_cry_6_cover.jpg"
+    picture: "https://images.igdb.com/igdb/image/upload/t_cover_big/co2npg.webp"
 });
 const game12 = await Game.create({
     name: "THE LEGEND OF ZELDA: TEARS OF THE KINGDOM",
     description: "The Legend of Zelda: Tears of the Kingdom est un jeu d'action-aventure en monde ouvert développé par Nintendo, suite directe de Breath of the Wild. Le jeu se déroule à Hyrule, où Link doit explorer des environnements variés, résoudre des énigmes complexes et combattre des ennemis redoutables pour sauver la princesse Zelda et restaurer la paix dans le royaume. Avec des graphismes époustouflants, une bande-son immersive et un gameplay innovant, Tears of the Kingdom offre une expérience riche en exploration, en aventure et en découverte.",
     genre: "Action-aventure, monde ouvert",
     release_year: new Date('2023'),
-    picture: "https://upload.wikimedia.org/wikipedia/en/thumb/f/fb/The_Legend_of_Zelda_Tears_of_the_Kingdom_cover.jpg/250px-The_Legend_of_Zelda_Tears_of_the_Kingdom_cover.jpg"
+    picture: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5vmg.webp"
 });
 
 
