@@ -19,7 +19,7 @@
   margin: 0 2rem;
 }
 
-a {
+.pagination__a {
   font-family: var(--main-font);
   font-weight: bolder;
   text-decoration: none;
