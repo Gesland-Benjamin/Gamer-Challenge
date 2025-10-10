@@ -4,16 +4,15 @@
         <section>
             <h2>Bienvenue sur votre page d'Admin </h2>
             <form action="/admin" method="post">
-                    <div>
+                    <div class="buttons-container">
                         <a class="button"  href="/games">Modifier des jeux</a>
                         <a class="button"  href="/admin/addgame">Ajouter un jeu</a>
                         <a class="button"  href="/challenges">Ajouter, modifier ou supprimer des challenges</a>
                         <a class="button-delete"  href="/admin/userslist">Bannir un utilisateur</a>
                         <a class="button"   href="/me">Modifier mes informations</a>
+                        <a class="button" href="/"> Retour à l'accueil</a>
                     </div>
-
             </form>
-            <a class="button" href="/"> Retour à l'accueil</a>
         </section>
 
         <%- include('partials/footer') %>
