@@ -106,8 +106,8 @@ const game10 = await Game.create({
 
 // Création des défis (Challenge) : on utilise username et pas user_id
 const challenge1 = await Challenge.create({
-    name: "Défi 1",
-    description: "Description du Défi 1",
+    name: "Survivant des 10 minutes",
+    description: "Tiens-toi en vie pendant au moins 10 minutes sans mourir.",
     picture: game1.picture,
     release_date: new Date(),
     game_id: game1.id,
@@ -115,8 +115,8 @@ const challenge1 = await Challenge.create({
     username: user1.username
 });
 const challenge2 = await Challenge.create({
-    name: "Défi 2",
-    description: "Description du Défi 2",
+    name: "Tir parfait",
+    description: "Réussis 10 tirs à la tête consécutifs sans rater.",
     picture: game2.picture,
     release_date: new Date(),
     game_id: game2.id,
@@ -124,8 +124,8 @@ const challenge2 = await Challenge.create({
     username: user2.username
 });
 const challenge3 = await Challenge.create({
-    name: "Défi 3",
-    description: "Description du Défi 3",
+    name: "Sans utiliser de soins",
+    description: "Finis un niveau entier sans utiliser de soins ni boucliers.",
     picture: game3.picture,
     release_date: new Date(),
     game_id: game3.id,
@@ -133,8 +133,8 @@ const challenge3 = await Challenge.create({
     username: user3.username
 });
 const challenge4 = await Challenge.create({
-    name: "Défi 4",
-    description: "Description du Défi 4",
+    name: "Vitesse éclair",
+    description: "Termine une mission en moins de 5 minutes.",
     picture: game1.picture,
     release_date: new Date(),
     game_id: game1.id,
@@ -142,8 +142,8 @@ const challenge4 = await Challenge.create({
     username: user4.username
 });
 const challenge5 = await Challenge.create({
-    name: "Défi 5",
-    description: "Description du Défi 5",
+    name: "Pacifiste",
+    description: "Complète un niveau sans éliminer un seul ennemi.",
     picture: game2.picture,
     release_date: new Date(2025, 0, 10),
     game_id: game2.id,
@@ -151,8 +151,8 @@ const challenge5 = await Challenge.create({
     username: user1.username
 });
 const challenge6 = await Challenge.create({
-    name: "Défi 6",
-    description: "Description du Défi 6",
+    name: "Tireur d'élite",
+    description: "N'utilise que des armes à longue portée pour finir une mission.",
     picture: game3.picture,
     release_date: new Date(),
     game_id: game3.id,
@@ -160,8 +160,8 @@ const challenge6 = await Challenge.create({
     username: user2.username
 });
 const challenge7 = await Challenge.create({
-    name: "Défi 7",
-    description: "Description du Défi 7",
+    name: "Mode furtif",
+    description: "Infiltre une zone sans te faire repérer une seule fois.",
     picture: game1.picture,
     release_date: new Date(),
     game_id: game1.id,
@@ -169,8 +169,8 @@ const challenge7 = await Challenge.create({
     username: user3.username
 });
 const challenge8 = await Challenge.create({
-    name: "Défi 8",
-    description: "Description du Défi 8",
+    name: "Combat au corps-à-corps",
+    description: "Termine une mission uniquement avec des attaques de mêlée.",
     picture: game2.picture,
     release_date: new Date(),
     game_id: game2.id,
@@ -178,8 +178,8 @@ const challenge8 = await Challenge.create({
     username: user4.username
 });
 const challenge9 = await Challenge.create({
-    name: "Défi 9",
-    description: "Description du Défi 9",
+    name: "Zéro dégât",
+    description: "Finis un niveau sans subir le moindre dégât.",
     picture: game3.picture,
     release_date: new Date(),
     game_id: game3.id,
@@ -187,8 +187,8 @@ const challenge9 = await Challenge.create({
     username: user1.username
 });
 const challenge10 = await Challenge.create({
-    name: "Défi 10",
-    description: "Description du Défi 10",
+    name: "Récolteur expert",
+    description: "Collecte 100 ressources dans une seule session de jeu.",
     picture: game1.picture,
     release_date: new Date(),
     game_id: game1.id,
@@ -196,8 +196,8 @@ const challenge10 = await Challenge.create({
     username: user2.username
 });
 const challenge11 = await Challenge.create({
-    name: "Défi 11",
-    description: "Description du Défi 11",
+    name: "Maître des combos",
+    description: "Réalise une série de 20 coups sans interruption.",
     picture: game2.picture,
     release_date: new Date(),
     game_id: game2.id,
@@ -205,8 +205,8 @@ const challenge11 = await Challenge.create({
     username: user3.username
 });
 const challenge12 = await Challenge.create({
-    name: "Défi 12",
-    description: "Description du Défi 12",
+    name: "Explorateur complet",
+    description: "Découvre 100% de la carte dans un niveau.",
     picture: game3.picture,
     release_date: new Date(),
     game_id: game3.id,
@@ -214,8 +214,8 @@ const challenge12 = await Challenge.create({
     username: user4.username
 });
 const challenge13 = await Challenge.create({
-    name: "Défi 13",
-    description: "Description du Défi 13",
+    name: "Course contre la montre",
+    description: "Bats un boss en moins de 2 minutes.",
     picture: game1.picture,
     release_date: new Date(),
     game_id: game1.id,
@@ -223,8 +223,8 @@ const challenge13 = await Challenge.create({
     username: user1.username
 });
 const challenge14 = await Challenge.create({
-    name: "Défi 14",
-    description: "Description du Défi 14",
+    name: "Aucun objet",
+    description: "Termine une mission sans utiliser un seul objet ou compétence.",
     picture: game2.picture,
     release_date: new Date(),
     game_id: game2.id,
@@ -232,8 +232,8 @@ const challenge14 = await Challenge.create({
     username: user2.username
 });
 const challenge15 = await Challenge.create({
-    name: "Défi 15",
-    description: "Description du Défi 15",
+    name: "Champion des défis",
+    description: "Complète 5 défis secondaires en une seule partie.",
     picture: game3.picture,
     release_date: new Date(),
     game_id: game3.id,
@@ -241,8 +241,8 @@ const challenge15 = await Challenge.create({
     username: user3.username
 });
 const challenge16 = await Challenge.create({
-    name: "Défi 16",
-    description: "Description du Défi 16",
+    name: "Zigzag infernal",
+    description: "Esquive 50 attaques ennemies sans te faire toucher.",
     picture: game1.picture,
     release_date: new Date(),
     game_id: game1.id,
