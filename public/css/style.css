@@ -1,5 +1,5 @@
 @import url("../css/pages/games.css");
-@import url("../css/pages/classement.css");
+@import url("../css/pages/ladder.css");
 @import url("../css/pages/addChallenge.css");
 @import url("../css/pages/game.css");
 @import url("../css/pages/challenge.css");
@@ -11,6 +11,7 @@
 @import url("../css/pages/section-user.css");
 @import url("../css/pages/header.css");
 @import url("../css/pages/home.css");
+
 
 
 :root {
@@ -54,6 +55,7 @@ main {
   flex-direction: column;
   align-items: center;
   padding: 1rem;
+  text-align: center;
 }
 
 .container {
