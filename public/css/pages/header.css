@@ -16,7 +16,6 @@ header {
   height: auto;
   width: 10%;
   margin-right: auto;
-  padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -40,13 +39,14 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 40px;
+  gap: 12px;
+
   font-family: "Poppins", Arial, sans-serif;
-  font-weight: 600;
+  font-weight: 2rem;
   text-transform: uppercase;
   font-size: 16px;
   white-space: nowrap;
-  color: white;
+  color: rgb(255, 255, 255);
 }
 
 .header-logo-left {
@@ -86,7 +86,7 @@ header {
 }
 
 .search-form__input {
-  width: 50%;
+  min-width: 120px;
   border: none;
   border-radius: 25px;
   padding: 1rem;
@@ -97,7 +97,7 @@ header {
 }
 
 .search-form__select {
-  width: 50%;
+  min-width: 120px  ;
   border: none;
   border-radius: 25px;
   padding: 1rem;

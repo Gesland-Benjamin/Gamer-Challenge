@@ -28,7 +28,7 @@
         <% if (i === page) { %>
           <span class="pagination__span"><%= i %></span>
         <% } else { %>
-          <a href="/challenges?page=<%= i %>"><%= i %></a>
+          <a href="/challenges?page=<%= i %>" class="pagination__a"><%= i %></a>
         <% } %>
       <% } %>
     <% } %>
