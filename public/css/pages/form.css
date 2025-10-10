@@ -97,5 +97,23 @@
   pointer-events: none; /* l'icône ne bloque pas l'input */
 }
 
+/* Centrer le formulaire de la page contact */
+#contact-page {
+  display: flex;              /* flex sur le main */
+  justify-content: center;    /* centre horizontalement */
+  align-items: flex-start; /* plutôt que center */
+  min-height: calc(100vh - 150px); /* diminue la hauteur totale pour compenser header/footer */
+  flex-direction: column;     /* empile verticalement les enfants si besoin */
+}
+
+#contact-page .forms-container {
+  display: flex !important;   /* forcer flex */
+  flex-direction: column;     /* empile verticalement */
+  justify-content: center !important; 
+  align-items: center !important;
+  margin: 0 !important;       /* supprime les marges globales */
+  gap: 0 !important;
+  width: 100%;                /* optionnel : prend toute la largeur */
+}
 
 
