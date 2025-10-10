@@ -35,12 +35,13 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 60px; /* espace entre les éléments */
+  gap: 60px;
   font-family: "Poppins", Arial, sans-serif;
   font-weight: 600;
   text-transform: uppercase;
   font-size: 16px;
   white-space: nowrap;
+  color: white;
 }
 
 .header-logo-left {
@@ -56,6 +57,7 @@ header {
   transition: color 0.3s ease;
 }
 
+
 .header__aria-label a:hover {
   color: #8bff6b;
 }
@@ -70,12 +72,12 @@ header {
 
 .search-form {
   height: 5%;
-  width: 30%;
-  margin-left: auto;
+  width: 35%;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
+  gap : 1rem;
 }
 
 .search-form__input {
@@ -90,7 +92,7 @@ header {
 }
 
 .search-form__select {
-  width: 20%;
+  width: 50%;
   border: none;
   border-radius: 25px;
   padding: 1rem;
@@ -108,7 +110,7 @@ header {
   border-radius: 28px;
   border: 1px solid #18ab29;
   cursor: pointer;
-  padding: 0.3rem 2rem;
+  padding: 0.4rem 0.4rem;
   text-decoration: none;
   text-shadow: 0px 1px 0px #2f6627;
   background-color: var(--green-color);
@@ -123,5 +125,68 @@ header {
   transform: scale(1.05);
 }
 
+.icon-login {
+  display: none;
+}
 
+/* Media queries 885px à 1279px */
 
+@media (885px <= width <= 1279px) {
+  .icon-login {
+  border: none;
+  border-radius: 25px;
+  padding: 1rem;
+  box-sizing: border-box;
+  font-family: var(--main-font);
+  color: white;
+  }
+
+  .highlight {
+    display: none;
+  }
+
+  .search-form {
+    width: 20%;
+    gap : 0.5rem;
+  }
+
+  .search-form__select {
+    display: none;
+  }
+  .search-form__input, .search-form__select {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .search-form__input {
+    min-width: 120px;
+  }
+
+  .search-form__btn {
+    width: 15%;
+    font-size: 0.9rem;
+    padding: 0.3rem 0.3rem;
+  }
+} 
+
+/* Media queries 769px à 885px */
+
+@media (769px <= width <= 884px) {
+  .header__logo {
+    display: none;
+  }
+  .highlight {
+    display: none;
+  }
+  .search-form {
+    display: none;
+  }
+}
+
+/* Media queries >768px */
+
+@media (width < 768px) {
+  header {
+    display : none;
+  }
+}
