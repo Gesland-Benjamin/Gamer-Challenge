@@ -1,55 +1,54 @@
 :root {
-  --primary-color: #2c3e50;
-  --secondary-color: #3498db;
-  --background-color: #ecf0f1;
-  --text-color: #333;
-  --hover-color: #2980b9;
-  --main-font : "Poppins", sans-serif
+  --green-color: #449f05;
+  --lightgreen-color: #55cb04;
+  --fluogreen-color: #6bff05;
+  --deepblue-color: #043640;
+  --blue-color: #034b57;
+  --main-font: "Poppins", sans-serif;
 }
 
+/* RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: all 0.3s ease;
 }
-
 
 body {
-  font-family: "Inter", sans-serif;
-  height: 25%;
   font-family: var(--main-font);
-  background-color: var(--background-color);
-  color: var(--text-color);
+  background-color: var(--deepblue-color);
+  color: #fff;
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
-/* Burger Icon */
+/* --- BURGER ICON --- */
 .burger-container {
   position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 1001;
+  top: 180px;
+  right: 40px;
+  z-index: 1600;
   cursor: pointer;
   width: 50px;
-  height: 40px;
+  height: 50px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 8px;
-  border-radius: 25px;
-  background: rgba(46, 204, 113, 0.9);
+  border-radius: 12px;
+  background: linear-gradient(145deg, var(--green-color), var(--lightgreen-color));
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(10px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .burger-line {
-  width: 24px;
-  height: 2.5px;
-  background-color: white;
-  border-radius: 2px;
-  margin: 3px 0;
+  width: 28px;      /* largeur légèrement plus grande */
+  height: 5px;      /* plus épais */
+  background-color: #fff;
+  border-radius: 3px;
+  margin: 3px 0;    /* espacement adapté */
   transform-origin: center;
   transition: all 0.4s ease-in-out;
 }
@@ -58,36 +57,50 @@ body {
   display: none;
 }
 
-/* Menu Navigation */
+/* --- MENU NAVIGATION --- */
 .nav-menu {
   position: fixed;
-  top: 0;
-  right: -300px;
-  width: 300px;
-  height: 100%;
-  background: linear-gradient(135deg, var(--primary-color) 0%, #273849 100%);
-  transition: right 0.4s cubic-bezier(0.77, 0.2, 0.05, 1);
-  box-shadow: -4px 0 15px #00000033;
-  overflow-y: auto;
-  padding-top: 100px;
-  z-index: 1000;
+  top: 50%;
+  right: -400px;
+  transform: translateY(-50%);
+  width: 320px;
+  height: 65vh;
+  background: rgba(1, 22, 6, 0.85); /* bleu foncé semi-transparent */
+  border-radius: 20px;
+  box-shadow: 0 0 25px var(--fluogreen-color);
+  backdrop-filter: blur(12px);
+  transition: right 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+  z-index: 1500;
+  padding: 40px 30px;
 }
 
+/* Slide In Menu */
+#burger-toggle:checked ~ .nav-menu {
+  right: 30px;
+}
+
+/* --- MENU LINKS --- */
 .nav-menu ul {
   list-style-type: none;
+  padding: 0;
 }
 
 .nav-menu ul li {
-  margin: 0 15px;
-  border-bottom: 1px solid #ffffff1a;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.nav-menu ul li:last-child {
+  border-bottom: none;
 }
 
 .nav-menu ul li a {
-  color: white;
+  color: #fff;
   text-decoration: none;
   display: block;
-  padding: 15px;
+  padding: 12px 0;
   font-weight: 500;
+  font-size: 1.1rem;
   position: relative;
   overflow: hidden;
 }
@@ -98,18 +111,22 @@ body {
   bottom: 0;
   left: -100%;
   width: 100%;
-  height: 2px;
-  background-color: var(--secondary-color);
+  height: 3px; /* un peu plus épais pour correspondre au style fluogreen */
+  background-color: var(--fluogreen-color);
   transition: left 0.3s ease;
+}
+
+.nav-menu ul li a:hover {
+  color: var(--fluogreen-color);
 }
 
 .nav-menu ul li a:hover::after {
   left: 0;
 }
 
-/* Animation du burger */
+/* --- BURGER ANIMATION --- */
 #burger-toggle:checked ~ .burger-container .burger-line:nth-child(1) {
-  transform: rotate(45deg) translate(4px, 4px);
+  transform: rotate(45deg) translate(5px, 5px);
 }
 
 #burger-toggle:checked ~ .burger-container .burger-line:nth-child(2) {
@@ -117,10 +134,31 @@ body {
 }
 
 #burger-toggle:checked ~ .burger-container .burger-line:nth-child(3) {
-  transform: rotate(-45deg) translate(4px, -4px);
+  transform: rotate(-45deg) translate(5px, -5px);
 }
 
-/* Slide In Menu */
-#burger-toggle:checked ~ .nav-menu {
-  right: 0;
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+  .burger-container {
+    top: 15px;
+    right: 15px;
+    width: 45px;
+    height: 45px;
+  }
+
+  .burger-line {
+    width: 24px;
+    height: 5px;  /* ajuste les lignes pour mobile */
+  }
+
+  .nav-menu {
+    width: 80%;
+    height: 60vh;
+    right: -100%;
+    padding: 30px 20px;
+  }
+
+  #burger-toggle:checked ~ .nav-menu {
+    right: 10%;
+  }
 }
