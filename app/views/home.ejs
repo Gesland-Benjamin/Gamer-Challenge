@@ -4,16 +4,20 @@
   <!-- TITRES & MASCOTTES -->
   <div>
     <div class="main__logos-row">
-      <img class="main-logo" src="/logos/title-logo.png" alt="LOGO GAMER CHALLENGES">
-       <img class="main-logo" src="/logos/equipe.png" alt="Image equipe">
+      <img
+        class="main-logo"
+        src="/logos/title-logo.png"
+        alt="LOGO GAMER CHALLENGES"
+      />
+      <img class="main-logo" src="/logos/equipe.png" alt="Image equipe" />
     </div>
-   
-    <%- include('partials/aside_nav') %> 
+
+    <%- include('partials/aside_nav') %>
   </div>
 
   <!-- TOP 3 CHALLENGES -->
   <section class="top-challenges-section">
-
+    
     <div class="home__top-title-wrapper">
       <span class="home__top-title">Top 3 Challenges</span>
       <div class="home__top-bar"></div>
@@ -22,17 +26,17 @@
     <div class="challenges-list">
       <% challenges.forEach(function(challenge) { %>
 
-        <div class="challenge">
-          <h2><%= challenge.name %></h2>
-          <p>Votes: <%= challenge.dataValues.voteCount %></p>
-        </div>
-          
-      <% }); %>
+      <div class="challenge">
+        <h2><%= challenge.name %></h2>
+        <p>Votes: <%= challenge.dataValues.voteCount %></p>
+      </div>
 
+      <% }); %>
+    </div>
+    <div>
       <a href="/challenges" class="button">VOIR PLUS</a>
     </div>
   </section>
 </main>
-
 
 <%- include('partials/footer.ejs') %>
