@@ -25,7 +25,7 @@
 
     <div class="challenges-list">
       <% challenges.forEach(function(challenge) { %>
-
+        <a href="/challenges/<%= challenge.id %>">
         <div class="challenge">
           <% if(challenge.game && challenge.game.picture) { %>
           <img src="<%= challenge.game.picture %>" alt="Image du jeu">
@@ -33,7 +33,7 @@
           <h2><%= challenge.name %></h2>
           <p>Votes: <%= challenge.dataValues.voteCount %></p>
         </div>
-          
+        </a>
       <% }); %>
 
     </div>
