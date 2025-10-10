@@ -17,7 +17,7 @@
 
 .forms-container form {
   background: #11380f;
-  border: 3px solid #44b716; /* ou border: none; */
+  border: 3px solid #44b716; 
   padding: 2rem 1.5rem;
   border-radius: 18px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
@@ -94,7 +94,31 @@
   right: 12px;
   color: #44b716;
   font-size: 1.1em;
-  pointer-events: none; /* l'icône ne bloque pas l'input */
+  pointer-events: none; 
+}
+
+/* Encadrement pour les groupes de boutons sur la page admin */
+.buttons-container {
+  background: #11380f;
+  border: 3px solid #44b716;
+  padding: 2rem 1.5rem;
+  border-radius: 18px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+  color: #fff;
+  width: 350px;
+  max-width: 350px;
+  min-width: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem auto;
+  gap: 1rem;
+}
+
+
+.buttons-container .myButton-form {
+  width: 100%;
+  margin: 0.5rem 0;
 }
 
 /* Centrer le formulaire de la page contact */

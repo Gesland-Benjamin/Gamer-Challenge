@@ -11,15 +11,23 @@
 }
 
 .main-logo{
-  max-width: 800px;   /* taille identique pour les deux logos */
+  max-width: 1000px;   /* taille identique pour les deux logos */
   width: 100%;
   height: auto;
   display: block;
 }
 
-.main__logos-row img:last-child {
-  max-width: 800px; 
+.main-logo-right {
+  display: block;
+  margin-left: auto;
+  margin-right: 0;
+  margin-bottom: -10px; 
+  width: 120px;         
+  height: auto;
 }
+
+
+
 
 
 /* WRAPPER */
