@@ -101,3 +101,30 @@
   font-size: 1.2rem;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08), 0 0 10px rgba(50, 255, 10, 0.6);
 }
+
+/* Media queries 885px à 1279px */
+
+@media (885px <= width <= 1279px) {
+  .podium {
+    gap: 2rem;
+  }
+} 
+
+/* Media queries 769px à 885px */
+
+@media (769px <= width <= 884px) {
+  .podium {
+    gap: 1.5rem;
+  }
+}
+
+/* Media queries >768px */
+
+@media (width < 768px) {
+  .podium {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+ 
+}

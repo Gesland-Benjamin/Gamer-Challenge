@@ -7,7 +7,7 @@
   --main-font: "Poppins", sans-serif;
 }
 
-.addChallenge__main {
+.addGame__main {
   height: 100vh;
   width: 100%;
   display: flex;
@@ -19,7 +19,7 @@
 
 /* FORMULAIRE */
 
-.addChallenge_form {
+.add_form {
   height: 100%;
   width: 100%;
   display: flex;
@@ -100,30 +100,3 @@
   padding-right: 2.2em; /* espace pour l'icône */
 }
   
-.edit-icon {
-  position: absolute;
-  right: 12px;
-  color: #44b716;
-  font-size: 1.1em;
-  pointer-events: none; /* l'icône ne bloque pas l'input */
-}
- 
-@media (1000px <= width <= 1279px) {
-  .addChallenge__main .form__container {
-    width: 40%;         /* Largeur quasi totale de l'écran */
-  }
-}
-
-@media (769px <= width <= 999px) {
-  .addChallenge__main .form__container {
-    width: 50%;         /* Largeur quasi totale de l'écran */
-  }
-}
-
-/* Media queries >768px */
-
-@media (width < 768px) {
-  .addChallenge__main .form__container {
-    width: 50%;         /* Largeur quasi totale de l'écran */
-  }
-}
