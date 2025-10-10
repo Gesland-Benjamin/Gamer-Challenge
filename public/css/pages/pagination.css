@@ -19,7 +19,6 @@
   margin: 0 2rem;
 }
 
-
 a {
   font-family: var(--main-font);
   font-weight: bolder;
@@ -50,6 +49,6 @@ a {
 @media (width < 768px) {
   .pagination {
     width: 50%;
-    margin: 2rem 0;
+    margin: 4rem 0;
   }
 }

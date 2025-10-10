@@ -130,3 +130,32 @@ body {
 }
 
 
+/* Media queries 885px à 1279px */
+
+@media (885px <= width <= 1279px) {
+  .list {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 2rem;
+  }
+} 
+
+/* Media queries 769px à 885px */
+
+@media (769px <= width <= 884px) {
+  .list {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 2rem;
+  }
+}
+
+/* Media queries >768px */
+
+@media (width < 768px) {
+  .list {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(6, 1fr);
+    gap: 2rem;
+  }
+}
