@@ -1,4 +1,4 @@
-import { Challenge, User } from "../models/index.js";
+import { Challenge, Game, User } from "../models/index.js";
 import { CoreController } from "./core.controller.js";
 import { sequelize } from "../models/index.js";
 import Joi from "joi";
@@ -12,7 +12,13 @@ class LadderController extends CoreController {
                 as: 'challenge_voters',
                 attributes: [], // On ne veut pas les attributs des users, juste le compte
                 through: { attributes: [] } // On ne veut pas les attributs de la table de jointure
-            }],
+            },
+            { 
+                model: Game,
+                as: 'game',
+                attributes: ['id', 'picture']
+            }
+        ],
             attributes: [
                 'id',
                 'name',
@@ -20,7 +26,7 @@ class LadderController extends CoreController {
                 // ⚠️ mets bien "challenge_voters.id" (clé primaire du user),
                 // et pas "challenge_voters.user_id", car Sequelize gère l'alias différemment
             ],
-            group: ['Challenge.id'],
+            group: ['Challenge.id', 'game.id'],
             order: [[sequelize.col('voteCount'), 'DESC']],
             limit: 3,
             subQuery: false

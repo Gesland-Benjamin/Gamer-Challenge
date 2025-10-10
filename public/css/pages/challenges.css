@@ -44,45 +44,65 @@ body {
 }
 
 
-/* CHALLENGES */
-
+/* TOP 3 CHALLENGES */
 .top-challenges-section {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.top-challenges-section .challenge {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 220px;
-  height: 160px;
-  background: #043640;
-  border-radius: 20px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
-  color: #fff;
-  margin: 0 16px;
-  margin-bottom: 24px;
-}
-
+/* Container des challenges */
 .top-challenges-section .challenges-list {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  gap: 13rem;
+  gap: 3rem; /* réduit l'espacement entre les cartes */
   margin-top: 24px;
   flex-wrap: wrap;
   padding: 1rem;
 }
 
-.challenge {
-  width: 500px;
-  padding: 0;
-  border: 1px var(--fluogreen-color);
+/* Chaque carte de challenge */
+.top-challenges-section .challenge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 280px;        /* un peu plus large */
+  background: #043640;
+  border-radius: 20px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+  color: #fff;
+  padding: 0.5rem;
+  margin-bottom: 24px;
 }
+
+/* Image du jeu */
+.top-challenges-section .challenge img {
+  width: 100%;
+  height: 230px;       /* plus haute pour mieux voir l'image */
+  object-fit: cover;    /* couvre toute la zone sans déformation */
+  object-position: top; /* affiche le haut de l'image en priorité */
+  border-radius: 16px 16px 0 0;
+  margin-bottom: 0.5rem;
+}
+
+/* Nom et votes */
+.top-challenges-section .challenge h2,
+.top-challenges-section .challenge p {
+  margin: 6px 0;       /* un peu plus d’espace */
+  text-align: center;
+  width: 100%;
+  font-size: 1rem;     /* ajuste la taille du texte si besoin */
+}
+
+
+/* Bouton "Voir plus" */
+.top-challenges-section .button {
+  margin-top: 1rem;
+}
+
 
 .back-link{
   height: 8%;

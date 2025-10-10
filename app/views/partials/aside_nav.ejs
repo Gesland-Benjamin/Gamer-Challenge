@@ -16,8 +16,12 @@
   <aside class="nav-menu">
     <nav class="main__navside">
       <ul>
+        <% if (session && session.user) { %>
         <li><a href="/me">MES INFORMATIONS</a></li>
         <li><a href="/mychallenges">MON PROFIL</a></li>
+      <% } else { %>
+        <li><a href="/register">INSCRIPTION / CONNEXION</a></li>
+      <% } %>
         <li><a href="/about">A PROPOS</a></li>
         <li><a href="/contact">NOUS CONTACTER</a></li>
       </ul>
