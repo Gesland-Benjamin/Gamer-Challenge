@@ -15,11 +15,14 @@ body {
 }
 
 .game-page-main {
-  margin: 0 auto;
-  padding: 1.5rem;
-  max-width: 1200px; /* ✅ largeur max maîtrisée */
+  margin: 1rem auto;
+  padding: 2rem;
+  max-width: 1200px;
   width: 100%;
   box-sizing: border-box;
+  border-radius: 2rem;
+  box-shadow: 0 0 30px rgba(107, 255, 5, 0.5);
+  background-color: rgba(0, 20, 0, 0.7);
 }
 
 /* ----- EN-TÊTE DU JEU ----- */
