@@ -1,7 +1,7 @@
 <%- include('./partials/header') %> 
 <%- include('./partials/aside_nav') %>
 
-<main class="addChallenge__main">
+<main>
 
   <div class="games__top-title-wrapper">
     <span class="games__top-title">AJOUTER UN CHALLENGE</span>
@@ -9,7 +9,7 @@
   </div>
 
   <!-- FORM -->
-  <section class="addChallenge_form">
+  <section class="addChallenge_form"> 
 
     <div class="form__container">
       <form method="POST" class="form_register" action="/challenges/<%= game.id %>/addChallenge">
@@ -29,8 +29,9 @@
       </form>
     </div>
 
-    <a href="/" class="button>Retour à l'accueil</a>
+    <a href="/" class="button">Retour à l'accueil</a>
   </section>
+
 </main>
 
 <%- include('./partials/footer') %>

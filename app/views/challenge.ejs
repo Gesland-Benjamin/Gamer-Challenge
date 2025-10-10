@@ -2,7 +2,7 @@
 <%- include('partials/aside_nav.ejs') %>
 
 <body>
-  <div class="challenge-container">
+  <main>
       <!-- Image du challenge -->
       <div class="challenge-image">
         <img src="<%= challenge.game.picture %>" alt="<%= challenge.name %>" width="250">
@@ -59,10 +59,10 @@
             <% } %>
           <% } %>
         <% } %>
-      </div>
-
+  </main>
 </body>
 
 <%- include('partials/footer.ejs') %>
+
 <!-- Script pour gérer le Like -->
 <script src="/js/like.js"></script>

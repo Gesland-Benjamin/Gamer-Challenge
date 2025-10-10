@@ -1,12 +1,13 @@
 <main>
-      <section style="text-align:center; margin: 8rem 0; color: blue;">
-        <h1>Oups, une erreur est survenue !</h1>
+  <section style="text-align:center; margin: 8rem 0; color: blue;">
 
-        <% if (typeof message !== "undefined") { %>
-          <p><strong>Erreur <%= errorCode %></strong></p>
-          <p><%= message %></p>
-        <% } %>
+    <h1>Oups, une erreur est survenue !</h1>
 
-        <a class="button" href="/">Retour à l'accueil</a>
-      </section>
-    </main>
+    <% if (typeof message !== "undefined") { %>
+      <p><strong>Erreur <%= errorCode %></strong></p>
+      <p><%= message %></p>
+    <% } %>
+
+    <a class="button" href="/">Retour à l'accueil</a>
+  </section>
+</main>

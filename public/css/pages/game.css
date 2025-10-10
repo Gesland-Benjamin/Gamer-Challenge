@@ -105,6 +105,12 @@ section h2 {
   box-shadow: 0 0 10px rgba(77, 255, 77, 0.3);
 }
 
+.challenge__likes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /* ✅ Fond vert foncé uniquement pour les noms */
 .challenge h3 {
   margin: 0;
@@ -139,8 +145,8 @@ section h2 {
 
 .like-btn {
   background-color: var(--green);
-  color: #000;
   border: none;
+  margin: 1rem;
   padding: 0.3rem 0.8rem;
   border-radius: 8px;
   cursor: pointer;

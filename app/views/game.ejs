@@ -1,8 +1,10 @@
 <%- include('partials/header') %>
-<%- include('partials/aside_nav') %>
 
-<main class="game-page-main" role="main">
-  
+
+<main>
+
+  <%- include('partials/aside_nav') %>
+
   <!-- SECTION HEADER DU JEU -->
   <section class="game-header" aria-label="Présentation du jeu">
   <div class="game-cover-wrapper">
@@ -28,7 +30,7 @@
         <% game.challenges.forEach(function(challenge) { %>
           <div class="challenge">
             <a href="/challenges/<%= challenge.id %>"><%= challenge.name %></a>
-            <div class="challenge-likes">
+            <div class="challenge__likes">
               <span id="votes-<%= challenge.id %>" class="vote-count">
                 <%= challenge.dataValues.voteCount %>
               </span>
