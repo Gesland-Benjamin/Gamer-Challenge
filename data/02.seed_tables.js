@@ -102,6 +102,20 @@ const game10 = await Game.create({
     release_year: new Date('2023'),
     picture: "https://upload.wikimedia.org/wikipedia/en/thumb/5/58/Disney_Dreamlight_Valley.jpg/250px-Disney_Dreamlight_Valley.jpg"
 });
+const game11 = await Game.create({
+    name: "FAR CRY 6",
+    description: "Far Cry 6 transporte les joueurs dans le pays fictif de Yara, inspiré de Cuba, où ils incarnent Dani Rojas, un guérillero luttant contre le régime oppressif du dictateur Antón Castillo, interprété par Giancarlo Esposito. Le jeu propose un vaste monde ouvert à explorer, avec des environnements variés allant des plages tropicales aux jungles denses et aux villes animées. Les joueurs peuvent utiliser une variété d'armes, de véhicules et de compétences pour mener des missions, recruter des alliés et participer à des combats intenses contre les forces gouvernementales. Avec son scénario captivant, ses personnages mémorables et son gameplay dynamique, Far Cry 6 offre une expérience immersive et palpitante dans un cadre exotique.",
+    genre: "FPS, action-aventure",
+    release_year: new Date('2021'),
+    picture: "https://upload.wikimedia.org/wikipedia/en/3/35/Far_cry_6_cover.jpg"
+});
+const game12 = await Game.create({
+    name: "THE LEGEND OF ZELDA: TEARS OF THE KINGDOM",
+    description: "The Legend of Zelda: Tears of the Kingdom est un jeu d'action-aventure en monde ouvert développé par Nintendo, suite directe de Breath of the Wild. Le jeu se déroule à Hyrule, où Link doit explorer des environnements variés, résoudre des énigmes complexes et combattre des ennemis redoutables pour sauver la princesse Zelda et restaurer la paix dans le royaume. Avec des graphismes époustouflants, une bande-son immersive et un gameplay innovant, Tears of the Kingdom offre une expérience riche en exploration, en aventure et en découverte.",
+    genre: "Action-aventure, monde ouvert",
+    release_year: new Date('2023'),
+    picture: "https://upload.wikimedia.org/wikipedia/en/thumb/f/fb/The_Legend_of_Zelda_Tears_of_the_Kingdom_cover.jpg/250px-The_Legend_of_Zelda_Tears_of_the_Kingdom_cover.jpg"
+});
 
 
 // Création des défis (Challenge) : on utilise username et pas user_id
