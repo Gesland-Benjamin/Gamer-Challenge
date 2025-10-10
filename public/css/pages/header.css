@@ -133,6 +133,7 @@ header {
 
 @media (885px <= width <= 1279px) {
   .icon-login {
+    display: block;
   border: none;
   border-radius: 25px;
   padding: 1rem;
