@@ -32,9 +32,6 @@ challengeRouter.post('/challenges/:id/edit', checkId, onlyAuthenticated, Challen
 // Route pour afficher le ladder des top users
 challengeRouter.get('/ladder', LadderController.getTopUsers);
 
-// Route pour afficher les challenges de l'utilisateur sur son compte 
-challengeRouter.get('/mychallenges', onlyAuthenticated, ChallengeController.getUserVideos)
-
 // Routes
 challengeRouter.get('/challenges/:id/upload/video', onlyAuthenticated, VideoController.formAddVideo);
 

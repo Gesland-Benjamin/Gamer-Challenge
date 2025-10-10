@@ -1,39 +1,40 @@
 <%- include('partials/header.ejs') %>
-    <%- include('partials/aside_nav.ejs') %>
+<%- include('partials/aside_nav.ejs') %>
 
-        <h1> Salle de controle des Bans </h1>
+<main>
+  <h1> Salle de controle des Bans </h1>
+  <h2>Liste des utilisateurs</h2>
 
-        <h2>Liste des utilisateurs</h2>
+  <div class="user-list">
+    <% if (users && users.length> 0) { %>
+      <% users.forEach(user=> { %>
 
-        <div class="user-list">
-            <% if (users && users.length> 0) { %>
-                <% users.forEach(user=> { %>
-                    <div class="user-card">
-                        <h3>
-                            <%= user.username %>
-                        </h3>
-                        <p>Status :
-                            <% if (user.isBanned) { %>
-                                <span class="banned">Banni</span>
-                                <% } else { %>
-                                    <span class="active">Actif</span>
-                                    <% } %>
-                        </p>
+      <div class="user-card">
+        <h3><%= user.username %></h3>
+               
+        <p>Status :
+          <% if (user.isBanned) { %>
+            <span class="banned">Banni</span>
+            <% } else { %><span class="active">Actif</span><% } %>
+        </p>
 
-                        <% if (!user.isBanned) { %>
-                            <form action="/admin/ban/<%= user.id %>" method="POST">
-                                <button type="submit" class="ban-button">Bannir</button>
-                            </form>
-                            <% } else { %>
-                                <form action="/admin/unban/<%= user.id %>" method="POST">
-                                    <button type="submit" class="unban-button">Débannir</button>
-                                </form>
-                                <% } %>
-                    </div>
-                    <% }); %>
-                        <% } else { %>
-                            <p>Aucun utilisateur trouvé.</p>
-                            <% } %>
-        </div>
+        <% if (!user.isBanned) { %>
+          <form action="/admin/ban/<%= user.id %>" method="POST">
+            <button type="submit" class="ban-button">Bannir</button>
+          </form>
 
-        <%- include('./partials/footer') %>
+        <% } else { %>
+          <form action="/admin/unban/<%= user.id %>" method="POST">
+            <button type="submit" class="unban-button">Débannir</button>
+          </form>
+        <% } %>
+    </div>
+    <% }); %>
+
+    <% } else { %>
+      <p>Aucun utilisateur trouvé.</p>
+    <% } %>
+  </div>
+</main>
+
+<%- include('./partials/footer') %>

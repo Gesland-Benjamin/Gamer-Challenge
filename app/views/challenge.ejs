@@ -40,6 +40,14 @@
         <% } %>
       </div>
 
+      <% if (user && (user.id === challenge.user_id || user.role === 'admin')) { %>
+        <form action="/challenges/<%= challenge.id %>/delete" method="POST">
+          <button class="button-delete" type="submit">Supprimer</button>
+        </form>
+        <a class="button" href="/challenges/<%= challenge.id %>/edit">Modifier</a>
+      <% } %>
+      <a class = "button" href="/games/<%=challenge.game.id%>">Retour au jeu</a>
+
       <!-- Pagination -->
       <div class="pagination">
         <% if (totalPages > 1) { %>
@@ -52,13 +60,7 @@
           <% } %>
         <% } %>
       </div>
-      <% if (user && (user.id === challenge.user_id || user.role === 'admin')) { %>
-        <form action="/challenges/<%= challenge.id %>/delete" method="POST">
-          <button type="submit">Supprimer</button>
-        </form>
-        <a href="/challenges/<%= challenge.id %>/edit">Modifier</a>
-      <% } %>
-  </div>
+
 </body>
 
 <%- include('partials/footer.ejs') %>
