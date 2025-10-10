@@ -1,57 +1,120 @@
-<%- include('partials/header') %>
-<%- include('partials/aside_nav') %>
+<%- include('partials/header') %> <%- include('partials/aside_nav') %>
 
-<section >
-    <h1>Mon compte</h1>
-    <p> 
-        Bienvenue sur votre page de profil, <%= user.username %> !
-        Ici, vous pouvez gérer vos informations personnelles, consulter vos participations aux défis et suivre
-        vos progrès dans la communauté GamerChallenges.
-    </p>
-    <form action="/me" method="post">
-        <legend>Mon compte</legend>
-        <fieldset>
-            <div >
-                <label for="username">Pseudo</label>
-                <input type="text" name="username" value="<%= user.username%>" >
-                <i ></i>
-            </div>
-            <div >
-                <label for="mail">Adresse mail</label>
-                <input type="email" name="mail" value="<%= user.mail%>">
-                <i ></i>
-            </div>
-            <div >
-                <a href="/me/password">Modifier le mot de passe</a>
-            </div>
-            <div class="field_form_container">
-                <label for="favoriteGame">Jeu préféré</label>
-                <input type="text" name="favoriteGame" value="<%= user.favoriteGame%>" >
-                <i ></i>
-            </div>
-            <div class="socials">
-                <label for="">Réseaux sociaux</label>
-                <div class="socials_form_container">
-                    <div class="field_form_container">
-                        <input type="url" name="twitch_url"placeholder="https://www.twitch.tv/votrepseudo" value="<%= user.twitch_url%>">
-                        <i class="fa-brands fa-twitch"></i>
-                        <input type="url" name="youtube_url"placeholder="https://www.youtube.com/votrepseudo" value="<%= user.youtube_url%>">
-                        <i class="fa-brands fa-youtube"></i>
-                        <input type="url" name="discord_url"  placeholder="discord.gg/votrepseudo" value="<%= user.discord_url%>">
-                        <i class="fa-brands fa-discord"></i>
-                    </div>
-                </div>
-                <button class="myButton-form" type="submit">Modifier mes informations</button>
-                <a href="/" class="myButton-form" style="background:#333; border:none;">Retour à l'accueil</a>
-            </form>
+<main>
+  <section class="forms-container">
+    <div>
+      <form action="/me" method="post">
+        <legend class="form-legend">Mon compte</legend>
+
+        <div class="input-with-icon">
+          <label for="username" hidden>Pseudo</label>
+          <input
+            id="username"
+            class="input"
+            type="text"
+            name="username"
+            value="<%= user.username %>"
+            placeholder="Pseudo"
+          />
+          <i class="fa-solid fa-user edit-icon"></i>
         </div>
+
+        <div class="input-with-icon">
+          <label for="mail" hidden>Adresse mail</label>
+          <input
+            id="mail"
+            class="input"
+            type="email"
+            name="mail"
+            value="<%= user.mail %>"
+            placeholder="Adresse mail"
+          />
+          <i class="fa-solid fa-envelope edit-icon"></i>
+        </div>
+
+        <div class="input-with-icon">
+          <a
+            href="/me/password"
+            class="myButton-form"
+            style="width: 100%; text-align: center"
+            >Modifier le mot de passe</a
+          >
+        </div>
+
+        <div class="input-with-icon">
+          <label for="favoriteGame" hidden>Jeu préféré</label>
+          <input
+            id="favoriteGame"
+            class="input"
+            type="text"
+            name="favoriteGame"
+            value="<%= user.favoriteGame %>"
+            placeholder="Jeu préféré"
+          />
+          <i class="fa-solid fa-gamepad edit-icon"></i>
+        </div>
+
+        <div class="field_form_container">
+          <label
+            for="socials"
+            style="display: block; text-align: center; margin-top: 1rem"
+            >Réseaux sociaux</label
+          >
+
+          <div class="input-with-icon">
+            <input
+              class="input"
+              type="url"
+              name="twitch_url"
+              placeholder="https://www.twitch.tv/votrepseudo"
+              value="<%= user.twitch_url %>"
+            />
+            <i class="fa-brands fa-twitch edit-icon"></i>
+          </div>
+
+          <div class="input-with-icon">
+            <input
+              class="input"
+              type="url"
+              name="youtube_url"
+              placeholder="https://www.youtube.com/votrepseudo"
+              value="<%= user.youtube_url %>"
+            />
+            <i class="fa-brands fa-youtube edit-icon"></i>
+          </div>
+
+          <div class="input-with-icon">
+            <input
+              class="input"
+              type="url"
+              name="discord_url"
+              placeholder="discord.gg/votrepseudo"
+              value="<%= user.discord_url %>"
+            />
+            <i class="fa-brands fa-discord edit-icon"></i>
+          </div>
+        </div>
+
+        <button class="myButton-form" type="submit">
+          Modifier mes informations
+        </button>
+        <a href="/" class="myButton-form" style="background: #333; border: none"
+          >Retour à l'accueil</a
+        >
+
+        <button
+          formaction="/me/delete"
+          formmethod="post"
+          class="myButton-form"
+          type="submit"
+          style="background: #c00; border-color: #a00; margin-top: 1rem"
+          onclick="return confirm('Êtes-vous sûr de vouloir supprimer votre compte ? Cette action est irréversible.')"
+        >
+          Supprimer mon compte
+        </button>
+      </form>
     </div>
   </section>
 </main>
 
-<form action="/me/delete" method="post" class="center-btn">
-    <button class="myButton-form" type="submit" style="background:#c00; border-color:#a00;" onclick="return confirm('Êtes-vous sûr de vouloir supprimer votre compte ? Cette action est irréversible.')">Supprimer mon compte</button>
-</form>
-
 <%- include('partials/footer') %>
-
