@@ -22,7 +22,12 @@ header {
   justify-content: center;
 }
 
-.logo__xbox {
+.header__user-info {
+  display: flex;
+  gap: 0.9rem;
+}
+
+.logo__gc {
   height: 100%;
   width: 100%;
   object-fit: cover;
@@ -35,7 +40,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 60px;
+  gap: 40px;
   font-family: "Poppins", Arial, sans-serif;
   font-weight: 600;
   text-transform: uppercase;
@@ -129,9 +134,15 @@ header {
   display: none;
 }
 
-/* Media queries 885px à 1279px */
+@media (width < 1075px) {
+  .logo__gc {
+    display: none;
+  }
+}
 
-@media (885px <= width <= 1279px) {
+/* Media queries 1000px à 1279px */
+
+@media (1000px <= width <= 1279px) {
   .icon-login {
     display: block;
   border: none;
@@ -172,7 +183,7 @@ header {
 
 /* Media queries 769px à 885px */
 
-@media (769px <= width <= 884px) {
+@media (769px <= width <= 999px) {
   .header__logo {
     display: none;
   }
