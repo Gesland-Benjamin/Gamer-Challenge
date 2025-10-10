@@ -19,8 +19,12 @@
 
       <ul class="desktop__navside">
         <li><a href="/">ACCUEIL</a></li>
+        <% if (session && session.user) { %>
         <li><a href="/me">MES INFORMATIONS</a></li>
         <li><a href="/mychallenges">MON PROFIL</a></li>
+      <% } else { %>
+        <li><a href="/register">INSCRIPTION / CONNEXION</a></li>
+      <% } %>
         <li><a href="/about">A PROPOS</a></li>
         <li><a href="/contact">NOUS CONTACTER</a></li>
          <form action="/search" method="GET" class="search-form">

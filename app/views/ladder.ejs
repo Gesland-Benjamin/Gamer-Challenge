@@ -15,7 +15,8 @@
     <h2 class="classement-subtitle">TOP 3 DES MEILLEURS GAMERS</h2>
 
     <div class="podium">
-      <% users.slice(0,3).forEach((user, index) => { %>
+  <% users.slice(0, 3).forEach((user, index) => { %>
+    <a href="/profile/<%= user.id %>" class="podium-link">
       <article class="podium-card <% if(index === 0){ %>first<% } %>">
         <div class="podium-img-wrapper">
           <img src="<%= user.picture %>" alt="Profil de <%= user.username %>" />
@@ -25,8 +26,10 @@
           <%= user.voteCount %> <span class="heart">❤️</span>
         </p>
       </article>
-      <% }) %>
-    </div>
+    </a>
+  <% }) %>
+</div>
+
 
     <p class="podium-congrats">
       BRAVO ! <% users.slice(0,3).forEach((user, index) => { %> <%=
