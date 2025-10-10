@@ -1,7 +1,6 @@
 
 
 .games__main {
-  height: 100vh;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -63,11 +62,15 @@
 }
 
 .list__game {
+  height: 100%;
+  width: 100%;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-top: 4rem;
+  text-align: center;
 }
 
 .game-cover {
@@ -81,6 +84,7 @@
   font-family: var(--main-font);
   color: white;
   text-decoration: none;
+  margin-top: 1.5rem;
 }
 
 .game__a {
