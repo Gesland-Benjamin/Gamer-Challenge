@@ -20,6 +20,7 @@
   --deepblue-color: #043640;
   --blue-color: #034b57;
   --main-font: "Poppins", sans-serif;
+  --default-spacing: 1rem;
   
 }
 
@@ -69,7 +70,6 @@ main {
   background-color: var(--green-color);
   color: white;
   cursor: pointer;
-  padding: 0.4rem 1.5rem;
   margin: 0.4rem;
   text-decoration: none;
   border-radius: 25px;

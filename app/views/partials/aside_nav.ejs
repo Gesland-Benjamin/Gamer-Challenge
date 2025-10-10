@@ -1,5 +1,5 @@
 <body>
-<link rel="stylesheet" href="/css/navside.css">
+  <link rel="stylesheet" href="/css/navside.css">
 
 
   <!-- Burger Checkbox -->
@@ -14,14 +14,52 @@
 
   <!-- Navigation Menu -->
   <aside class="nav-menu">
+   
     <nav class="main__navside">
-      <ul>
+
+      <ul class="desktop__navside">
+        <li><a href="/">ACCUEIL</a></li>
         <li><a href="/me">MES INFORMATIONS</a></li>
         <li><a href="/mychallenges">MON PROFIL</a></li>
         <li><a href="/about">A PROPOS</a></li>
         <li><a href="/contact">NOUS CONTACTER</a></li>
+         <form action="/search" method="GET" class="search-form">
+            <input type="text" name="q" placeholder="Rechercher..." class="search-form__input" required />
+            <!-- <select name="type" class="search-form__select">
+              <option value="games">Jeux</option>
+              <option value="challenges">Challenges</option>
+              <option value="users">Joueurs</option>
+            </select> -->
+            <button type="submit" class="search-form__btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+          </form>
+        </li>
       </ul>
+
+
+      <ul class="mobile__navside">
+        <li><a href="/">ACCUEIL</a></li>
+        <li><a href="/me">MES INFORMATIONS</a></li>
+        <li><a href="/mychallenges">MON PROFIL</a></li>
+        <li><a href="/games">JEUX</a></li>
+        <li><a href="/challenges">CHALLENGES</a></li>
+        <li><a href="/ladder">CLASSEMENT</a></li>
+        <li>
+          <form action="/search" method="GET" class="search-form">
+            <input type="text" name="q" placeholder="Rechercher..." class="search-form__input" required />
+            <select name="type" class="search-form__select">
+              <option value="games">Jeux</option>
+              <option value="challenges">Challenges</option>
+              <option value="users">Joueurs</option>
+            </select>
+            <button type="submit" class="search-form__btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+          </form>
+        </li>
+        <li><a href="/about">A PROPOS</a></li>
+        <li><a href="/contact">NOUS CONTACTER</a></li>
+      </ul>
+      
     </nav>
+
   </aside>
 
 </body>
