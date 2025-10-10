@@ -72,6 +72,7 @@ main {
   color: white;
   cursor: pointer;
   margin: 0.4rem;
+  padding: 0.7em;;
   text-decoration: none;
   border-radius: 25px;
   font-weight: bold;
