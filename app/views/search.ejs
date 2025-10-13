@@ -1,36 +1,35 @@
- <%- include('partials/header') %>
- <%- include('partials/aside_nav') %>
- 
-<main>
- <h1>Résultats pour "<%= query %>"</h1>
+<%- include('partials/header') %>
+<%- include('partials/aside_nav') %>
+
+<main class="search-page">
+  <h1 class="search-title">Résultats pour "<%= query %>"</h1>
 
   <% if (!results || (Array.isArray(results) && results.length === 0) || (typeof results === 'object' && Object.keys(results).length === 0)) { %>
-    <p>Aucun résultat trouvé.</p>
+    <p class="no-results">Aucun résultat trouvé.</p>
   <% } else { %>
     <% if (type === 'games') { %>
-      <h2>Jeux</h2>
-      <ul>
+      <h2 class="search-section-title">Jeux</h2>
+      <ul class="search-card">
         <% results.forEach(game => { %>
-          <li><a href="/games/<%= game.id %>"><%= game.name %></a></li>
+          <li class="search-item"><a href="/games/<%= game.id %>"><%= game.name %></a></li>
         <% }) %>
       </ul>
     <% } else if (type === 'challenges') { %>
-      <h2>Challenges</h2>
-      <ul>
+      <h2 class="search-section-title">Challenges</h2>
+      <ul class="search-card">
         <% results.forEach(challenge => { %>
-          <li><a href="/challenges/<%= challenge.id %>"><%= challenge.name %></a></li>
+          <li class="search-item"><a href="/challenges/<%= challenge.id %>"><%= challenge.name %></a></li>
         <% }) %>
       </ul>
-      <% } else if (type === 'users') { %>
-      <h2>Joueurs</h2>
-      <ul>
+    <% } else if (type === 'users') { %>
+      <h2 class="search-section-title">Joueurs</h2>
+      <ul class="search-card">
         <% results.forEach(user => { %>
-          <li><a href="/profile/<%= user.id %>"><%= user.username %></a></li>
+          <li class="search-item"><a href="/profile/<%= user.id %>"><%= user.username %></a></li>
         <% }) %>
       </ul>
-      <% } %>
+    <% } %>
   <% } %>
-</body>
 </main>
 
 <%- include('./partials/footer') %>
