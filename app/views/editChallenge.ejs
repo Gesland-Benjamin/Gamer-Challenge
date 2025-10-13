@@ -17,11 +17,6 @@
           <textarea id="description" placeholder="Description" name="description" class="input" required><%= challenge.description %></textarea>
         </div>
 
-        <div class="form_content_container">
-          <label for="release_date" class="form_label">Date de sortie</label>
-          <input type="date" id="release_date" placeholder="Date de sortie" name="release_date" class="input" value="<%= challenge.release_date ? challenge.release_date.toISOString().split('T')[0] : '' %>" required>
-        </div>
-
         <button type="submit" class="myButton-form">Valider</button>
       </form>
       <a href="/" class="button">Retour à l'accueil</a>
