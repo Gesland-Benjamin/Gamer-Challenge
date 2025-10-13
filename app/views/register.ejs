@@ -4,48 +4,48 @@
 
     <main>
       <section>
-        <div class="forms-container">
+        <div class="forms-container" aria-label="formulaire d'Inscription et de Connexion">
 
           <div>
-            <h2 class="form-legend">Inscription</h2>
+            <h2 class="form-legend" aria-label="formulaire d'Inscription">Inscription</h2>
             <form action="/register" method="post">
               <div>
-                <input class="input" type="text" placeholder="PSEUDO" name="username" />
+                <input class="input" type="text" aria-label="Votre nom d'utilisateur" placeholder="PSEUDO" name="username" />
               </div>
 
               <div>
-                <input class="input" type="mail" placeholder="MAIL@MAIL.COM" name="mail" />
+                <input class="input" type="mail" aria-label="Votre adresse mail" placeholder="MAIL@MAIL.COM" name="mail" />
               </div>
 
               <div>
-                <input class="input" type="password" placeholder="MOT DE PASSE" name="password" />
+                <input class="input" type="password" aria-label="Votre mot de passe" placeholder="MOT DE PASSE" name="password" />
               </div>
 
               <div>
-                <input class="input" type="checkbox" name="privacy" value="true" required />J'ai pris connaissance et
+                <input class="input" type="checkbox" aria-label="j'accepte la politique de confidentialité" name="privacy" value="true" required />J'ai pris connaissance et
                 j'accepte la politique de confidentialité
               </div>
 
-              <button class="myButton-form" type="submit">Valider</button>
+              <button class="myButton-form" aria-label="valider le formulaire d'inscription" type="submit">Valider</button>
             </form>
           </div>
 
           <div>
-            <h2 class="form-legend">Connexion</h2>
+            <h2 class="form-legend" aria-label="formulaire d'Inscription">Connexion</h2>
             <form action="/login" method="post">
               <div>
-                <input class="input" value="bob" type="text" placeholder="PSEUDO OU MAIL@MAIL.COM" name="login" />
+                <input class="input" value="bob"  aria-label="Votre nom d'utilisateur ou adresse mail" type="text" placeholder="PSEUDO OU MAIL@MAIL.COM" name="login" />
               </div>
 
               <div class="form_content_container">
-                <input class="input" value="password2" type="password" placeholder="MOT DE PASSE" name="password" />
+                <input class="input" value="password2" type="password" aria-label="Votre mot de passe" placeholder="MOT DE PASSE" name="password" />
               </div>
-              <button class="myButton-form" type="submit">Valider</button>
+              <button class="myButton-form" aria-label="valider le formulaire de connexion" type="submit">Valider</button>
             </form>
           </div>
         </div>
         <div class="center-btn">
-          <a class="button" href="/">Retour à l'accueil</a>
+          <a class="button" aria-label="lien vers l'accueil" href="/">Retour à l'accueil</a>
         </div>
       </section>
 
