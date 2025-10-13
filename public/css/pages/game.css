@@ -92,6 +92,10 @@ section h2 {
   text-shadow: 0 0 5px rgba(107, 255, 5, 0.7);
 }
 
+.challenges-section {
+  width: 100%;
+}
+
 .challenges-list {
   display: flex;
   flex-direction: column;
@@ -152,7 +156,6 @@ section h2 {
   background-color: var(--green);
   color: #000;
   border: none;
-  padding: 0.3rem 0.8rem;
   border-radius: 8px;
   cursor: pointer;
   font-weight: bold;
@@ -163,6 +166,21 @@ section h2 {
 .like-btn:hover {
   background-color: #33cc33;
   transform: scale(1.05);
+}
+
+.challenge-likes {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+
+.vote-count {
+  display: flex;            /* pour centrer la hauteur de la ligne */
+  align-items: center;
+  line-height: 1;
+  font-weight: bold;        /* tu l’avais sur .challenge-votes span */
+  color: var(--green);
 }
 
 /* ----- ACTIONS ----- */

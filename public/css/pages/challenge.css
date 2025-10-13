@@ -60,13 +60,11 @@
 
 .like-btn {
   background-color: var(--fluogreen-color);
-  color: #000;
   border: none;
   padding: 0.7rem 1.5rem;
   border-radius: 5px;
   font-weight: bold;
   cursor: pointer;
-  margin-bottom: 2rem;
   transition: background-color 0.3s;
 }
 
