@@ -3,15 +3,16 @@ import { CoreController } from "./core.controller.js";
 import { sequelize } from "../models/index.js";
 import Joi from "joi";
 
+// LadderController handles leaderboard logic for top challenges and top users
 class LadderController extends CoreController {
-    // On récupère les votes pour les Challenges
+    // Get the top 3 challenges with the most votes and render them on the home page
     async getTopChallenges(req, res) {
         const topChallenges = await Challenge.findAll({
             include: [{
                 model: User,
                 as: 'challenge_voters',
-                attributes: [], // On ne veut pas les attributs des users, juste le compte
-                through: { attributes: [] } // On ne veut pas les attributs de la table de jointure
+                attributes: [], // Only count, no user attributes
+                through: { attributes: [] }
             },
             { 
                 model: Game,
@@ -23,8 +24,6 @@ class LadderController extends CoreController {
                 'id',
                 'name',
                 [sequelize.fn('COUNT', sequelize.col('challenge_voters.id')), 'voteCount']
-                // ⚠️ mets bien "challenge_voters.id" (clé primaire du user),
-                // et pas "challenge_voters.user_id", car Sequelize gère l'alias différemment
             ],
             group: ['Challenge.id', 'game.id'],
             order: [[sequelize.col('voteCount'), 'DESC']],
@@ -35,22 +34,20 @@ class LadderController extends CoreController {
         res.render('home', { challenges: topChallenges });
     }
 
-    // On récupère les votes pour les Users
+    // Get the top users with the most votes and render them on the ladder page
     async getTopUsers(req, res) {
         const topUsers = await User.findAll({
             include: [{
                 model: Challenge,
                 as: 'voted_challenges',
-                attributes: [], // On ne veut pas les attributs des users, juste le compte
-                through: { attributes: [] } // On ne veut pas les attributs de la table de jointure
+                attributes: [],
+                through: { attributes: [] }
             }],
             attributes: [
                 'id',
                 'username',
                 'picture',
                 [sequelize.fn('COUNT', sequelize.col('voted_challenges.id')), 'voteCount']
-                // ⚠️ mets bien "challenge_voters.id" (clé primaire du user),
-                // et pas "challenge_voters.user_id", car Sequelize gère l'alias différemment
             ],
             group: ['User.id'],
             order: [[sequelize.col('voteCount'), 'DESC']],
@@ -62,4 +59,4 @@ class LadderController extends CoreController {
     }
 }
 
-export default new LadderController(); 
+export default new LadderController();

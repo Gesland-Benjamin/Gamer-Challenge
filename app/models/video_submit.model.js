@@ -1,28 +1,28 @@
-import { DataTypes, Model } from "sequelize"; // nécessaires pour créer les models
-import { sequelize } from "./sequelize.client.js"; // correspond à la BDDexport class Game extends Model {}
+// This file defines the VideoSubmit model using the Sequelize ORM.
 
+import { DataTypes, Model } from "sequelize"; // Required to create models
+import { sequelize } from "./sequelize.client.js"; // Database connection
 
 export class VideoSubmit extends Model {}
 
 VideoSubmit.init(
-
-    //Définition des attributs du model 
-    // Ils correspondront au champ des tables
+    // Definition of model attributes
+    // These correspond to the table fields
     {  
         title: {
-            type: DataTypes.STRING(100),
-            allowNull: false,
+            type: DataTypes.STRING(100), // Title of the video, max 100 characters
+            allowNull: false, // Cannot be null
         },
 
         url: {
-            type: DataTypes.STRING(255),
-            allowNull: false,
+            type: DataTypes.STRING(255), // URL of the video, max 255 characters
+            allowNull: false, // Cannot be null
         }
     },
 
     {
-        sequelize, // On indique que les informations de connexion
-        modelName: "VideoSubmit", // On indique le nom du model
-        tableName: "videosubmit" // On indique le nom de la table dans la BDD.
+        sequelize, // Database connection information
+        modelName: "VideoSubmit", // Name of the model
+        tableName: "videosubmit" // Name of the table in the database
     }
 );

@@ -1,32 +1,33 @@
-import { DataTypes, Model } from "sequelize"; // nécessaires pour créer les models
-import { sequelize } from "./sequelize.client.js"; // correspond à la BDD
+
+
+import { DataTypes, Model } from "sequelize"; // Required to create models
+import { sequelize } from "./sequelize.client.js"; // Corresponds to the database connection
 
 export class Challenge extends Model {}
 
 Challenge.init(
-
-    //Définition des attributs du model 
-    // Ils correspondront au champ des tables
+    // Definition of model attributes
+    // These correspond to the table fields
     {
         name: {
-            type : DataTypes.STRING(100), // On limite le nom du challenge à 50 caractères maximals
-            allowNull: false,   // On le définit comme non nullable
+            type : DataTypes.STRING(100), // Limit the challenge name to 100 characters maximum
+            allowNull: false,   // Set as not nullable
         },
 
         description: {
-            type: DataTypes.TEXT,
+            type: DataTypes.TEXT, // Challenge description
             allowNull: false,
         },
 
         release_date: {
-            type: DataTypes.DATE,
+            type: DataTypes.DATE, // Release date of the challenge
             allowNull: false,
         }
     },
     
     {
-        sequelize, // On indique que les informations de connexion
-        modelName: "Challenge", // On indique le nom du model
-        tableName: "challenge" // On indique le nom de la table dans la BDD.
+        sequelize, // Database connection information
+        modelName: "Challenge", // Name of the model
+        tableName: "challenge" // Name of the table in the database
     }
 );

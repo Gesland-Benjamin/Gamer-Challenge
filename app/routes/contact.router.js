@@ -1,11 +1,12 @@
-// Importe Router depuis express pour créer un routeur
+// This file defines the contact routes for the application using Express Router.
+// It handles displaying the contact form page via the ContactController.
+
 import { Router } from "express";
-// Importe le contrôleur des jeux
 import { ContactController } from "../controllers/index.js";
 
-// Crée une instance de routeur pour les contacts
+// Create a router instance for contact routes
 export const contactRouter = Router();
 
-// Définit une route GET pour /contact qui utilise la méthode contactFormPage du contrôleur
+// Route to display the contact form page (GET /contact)
 contactRouter.get('/contact', ContactController.contactFormPage);
 

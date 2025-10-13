@@ -1,16 +1,17 @@
+
 import { DataTypes, Model } from "sequelize"; // nécessaires pour créer les models
 import { sequelize } from "./sequelize.client.js"; // correspond à la BDD
 
 export class User extends Model { }
 
 User.init(
-  //Définition des attributs du model
-  // Ils correspondront au champ des tables
+  // Definition of model attributes
+  // These correspond to the table fields
   {
     username: {
-      type: DataTypes.STRING(25), // On limite le nom d'utilisateur à 50 caractères maximals
-      allowNull: false, // On le définit comme non nullable
-      unique: true, // On empêche la création d'utilisateur ayant le même nom.
+      type: DataTypes.STRING(25), // Limit the username to 25 characters maximum
+      allowNull: false, // Set as not nullable
+      unique: true, // Prevent the creation of users with the same name.
     },
 
     password: {
@@ -21,9 +22,9 @@ User.init(
     mail: {
       type: DataTypes.STRING(50),
       allowNull: false,
-      unique: true, // On empêche la création d'utilisateur ayant le même mail.
+      unique: true, // Prevent the creation of users with the same email.
       validate: {
-        isEmail: true, // On vérifie que le format de l'email est correct
+        isEmail: true, // Validate that the email format is correct
       },
     },
 
@@ -34,13 +35,13 @@ User.init(
     },
 
     role: {
-      type: DataTypes.ENUM(["user", "admin"]), // seules les valeurs "user" et "admin" seront acceptées ici
+      type: DataTypes.ENUM(["user", "admin"]), // Only "user" and "admin" values will be accepted here
       allowNull: false,
       defaultValue: "user",
     },
 
     picture: {
-      type: DataTypes.STRING(255), // URL ou chemin de l'avatar de l'utilisateur
+      type: DataTypes.STRING(255), // URL or path of the user's avatar
       allowNull: true,
 
     },
@@ -72,8 +73,8 @@ User.init(
     },
   },
   {
-    sequelize, // On indique que les informations de connexion
-    modelName: "User", // On indique le nom du model
-    tableName: "user", // On indique le nom de la table dans la BDD.
+    sequelize, // Database connection information
+    modelName: "User", // Name of the model
+    tableName: "user", // Name of the table in the database
   }
 );
