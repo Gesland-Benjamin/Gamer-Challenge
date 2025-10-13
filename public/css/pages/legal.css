@@ -1,0 +1,112 @@
+
+/* --- Structure générale --- */
+.legal-main {
+  padding: calc(var(--default-spacing) * 3) var(--default-spacing);
+  font-family: var(--main-font);
+  color: #fff;
+}
+
+.legal-container {
+  max-width: 900px;
+  margin: 0 auto;
+  background: #000000a9;
+  color: var(--deepblue-color);
+  border-radius: 1.2rem;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
+  padding: calc(var(--default-spacing) * 2.5)
+           calc(var(--default-spacing) * 3);
+  line-height: 1.7;
+}
+
+/* --- Titre principal --- */
+.legal-title {
+  text-align: center;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* --- Sections principales --- */
+.legal-section {
+  margin-bottom: 2.5rem;
+  border-left: 4px solid var(--lightgreen-color);
+  padding-left: 1rem;
+}
+
+.legal-heading {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+/* --- Sous-sections --- */
+.legal-subsection {
+  margin-bottom: 1.5rem;
+}
+
+.legal-subheading {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+/* --- Texte et contenu --- */
+.legal-text {
+  margin-bottom: 0.8rem;
+  color: #ffffff;
+  font-size: 1rem;
+}
+
+.legal-list {
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.legal-list li {
+  margin-bottom: 0.4rem;
+}
+
+/* --- Liens --- */
+.legal-link {
+  color: var(--green-color);
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+.legal-link:hover {
+  color: var(--fluogreen-color);
+  text-decoration: underline;
+}
+
+/* --- Encadré subtil pour la lisibilité --- */
+.legal-section:nth-child(even) {
+  background-color: rgba(85, 203, 4, 0.05);
+  border-radius: 0.8rem;
+  padding: 1.2rem;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .legal-container {
+    padding: 2rem 1.5rem;
+  }
+
+  .legal-title {
+    font-size: 1.8rem;
+  }
+
+  .legal-heading {
+    font-size: 1.3rem;
+  }
+
+  .legal-subheading {
+    font-size: 1rem;
+  }
+}
