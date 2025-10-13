@@ -8,7 +8,7 @@
       <img src="<%= session.user.picture %>" alt="avatar" />
 
       <h2>Réseaux sociaux</h2>
-      <div class="socials">
+      <div class="profile-section__socials">
         <% const socials=[ { url: user.twitch_url, icon: 'fa-twitch' }, { url: user.youtube_url, icon: 'fa-youtube' }, { url: user.discord_url, icon: 'fa-discord' } ]; socials.forEach(social=> { if (social.url) { %>
           <a href="<%= social.url %>" target="_blank">
             <i class="fa-brands <%= social.icon %>"></i>
@@ -19,11 +19,11 @@
 
     <section class="challenges-section">
       <h2>Mes challenges</h2>
-      <ul class="mychallenges-list">
+      <ul class="challenges-section__mychallenges-list">
         <% if (listChallenges && listChallenges.length > 0) { %>
           <% listChallenges.forEach(challenge => { %>
             <li>
-              <article class="mychallenges-card">
+              <article class="challenges-section__mychallenges-card">
                 <h3><%= challenge.name %></h3>
                 <p>Jeu : <%= challenge.game.name %></p>
                 <a href="/challenges/<%= challenge.id %>" target="_blank" class="myButton-form">Voir le challenge</a>

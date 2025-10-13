@@ -17,20 +17,20 @@
   margin-bottom: 1rem;
 }
 
-.socials {
+.profile-section__socials {
   display: flex;
   justify-content: center;
   gap: 1.5rem;
   margin-bottom: 2rem;
 }
 
-.socials a {
+.profile-section__socials a {
   font-size: 2rem;
   color: var(--fluogreen-color);
   transition: color 0.2s;
 }
 
-.socials a:hover {
+.profile-section__socials a:hover {
   color: #fff;
 }
 
@@ -38,16 +38,16 @@
   text-align: center;
 }
 
-.mychallenges-list {
+.challenges-section__mychallenges-list {
   list-style: none;
   padding: 0;
 }
 
-.mychallenges-list li {
+.challenges-section__mychallenges-list li {
   margin-bottom: 1.5rem;
 }
 
-.mychallenges-card {
+.challenges-section__mychallenges-card {
   background: #11380f;
   border: 2px solid #44b716;
   border-radius: 16px;
@@ -56,14 +56,14 @@
   color: #fff;
 }
 
-.mychallenges-card h3 {
+.challenges-section__mychallenges-card h3 {
   margin-bottom: 0.5rem;
 }
 
-.mychallenges-card p {
+.challenges-section__mychallenges-card p {
   margin-bottom: 0.7rem;
 }
 
-.mychallenges-card a {
+.challenges-section__mychallenges-card a {
   margin: 0;
 }
