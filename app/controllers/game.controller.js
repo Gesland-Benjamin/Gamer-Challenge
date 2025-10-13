@@ -5,13 +5,16 @@ import { createGameSchema, editGameSchema } from "../schemas/index.js";
 import { sequelize } from "../models/index.js";
 import Joi from "joi";
 
+// GameController handles all game-related actions: listing, details, and associated challenges
 class GameController extends CoreController {
+  // Display the paginated list of games
   gamesListPage = async (req, res) => {
     try {
       const page = parseInt(req.query.page) || 1;
       const limit = 6;
       const offset = (page - 1) * limit;
 
+      // Fetch games with pagination
       const { count, rows: listGames } = await Game.findAndCountAll({
         limit,
         offset,
@@ -27,6 +30,7 @@ class GameController extends CoreController {
     }
   };
 
+  // Display the details of a specific game and its challenges
   gameDetailsPage = async (req, res) => {
     try {
       const { id } = req.params;
@@ -34,11 +38,11 @@ class GameController extends CoreController {
       const limit = 5;
       const offset = (page - 1) * limit;
 
-      // 1️⃣ Récupération du jeu
+      // 1️⃣ Fetch the game by its ID
       const game = await Game.findByPk(id);
       if (!game) return this.render404(req, res);
 
-      // 2️⃣ Récupération paginée des challenges avec votes
+      // 2️⃣ Fetch paginated challenges for the game, including vote counts
       const challenges = await Challenge.findAll({
         where: { game_id: id },
         limit,
@@ -66,11 +70,11 @@ class GameController extends CoreController {
         },
       });
 
-      // 3️⃣ Nombre total pour la pagination
+      // 3️⃣ Get total number of challenges for pagination
       const totalChallenges = await Challenge.count({ where: { game_id: id } });
       const totalPages = Math.ceil(totalChallenges / limit);
 
-      // 4️⃣ Ajouter les challenges paginés à l'objet game
+      // 4️⃣ Attach challenges to the game object
       game.challenges = challenges;
 
       res.render("game", { game, page, user: req.session.user, totalPages });
@@ -79,9 +83,6 @@ class GameController extends CoreController {
       return this.render404(req, res);
     }
   };
-
-
 }
-
 
 export default new GameController();

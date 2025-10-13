@@ -1,27 +1,29 @@
+// This file initializes and exports the Sequelize database connection.
+// It loads environment variables, configures Sequelize options, and authenticates the connection.
+// The configuration includes logging, timestamps, and naming conventions for the database tables.
+
 import 'dotenv/config';
 import { Sequelize } from "sequelize";
 
-// Connexion de la base de données à l'ORM
-// On définit l'architecture de la base de données
+// Connect the database to the ORM
+// Define the database architecture and options
 export const sequelize = new Sequelize(
-    process.env.DB_URL,
+    process.env.DB_URL, // Database URL from environment variables
     {
-        logging: false, // On enlève les opérations faites en console log par Sequalize
+        logging: false, // Disable Sequelize console logging
         define: {
-            createdAt: "created_at", //Permettra de voir le moment de la création d'une donnée dans la DB
-            updatedAt: "updated_at", // idem mais avec la mise à jour d'une donnée.
-            underscored: true, // Les nommages seront en snake_case
+            createdAt: "created_at", // Use 'created_at' for creation timestamp
+            updatedAt: "updated_at", // Use 'updated_at' for update timestamp
+            underscored: true, // Use snake_case for table and column names
         }
     }
 );
 
 try {
-
+    // Test the database connection
     await sequelize.authenticate();
     console.log("Connection to the database has been established successfully. ✅");
-
 } catch (error) {
-
+    // Handle connection errors
     console.error("Unable to connect to the database.❌")
-
 };

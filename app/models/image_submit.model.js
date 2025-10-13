@@ -1,3 +1,5 @@
+// This file defines the ImageSubmit model using Sequelize ORM.
+
 import { DataTypes } from "sequelize";
 import { sequelize } from "./sequelize.client.js";
 

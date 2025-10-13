@@ -1,3 +1,5 @@
+
+
 import { DataTypes, Model } from "sequelize"; // nécessaires pour créer les models
 import { sequelize } from "./sequelize.client.js"; // correspond à la BDD
 
@@ -5,13 +7,13 @@ export class Game extends Model {}
 
 Game.init(
 
-    //Définition des attributs du model 
-    // Ils correspondront au champ des tables
+    // Definition of model attributes
+    // These correspond to the table fields
     {
         name: {
             type: DataTypes.STRING(100),
             allowNull: false,
-            unique: true, // On empêche la création de jeux ayant le même nom.
+            unique: true, // Prevent the creation of games with the same name.
         },
 
         description: {
@@ -35,8 +37,8 @@ Game.init(
         },
     },
     {
-        sequelize, // On indique que les informations de connexion
-        modelName: "Game", // On indique le nom du model
-        tableName: "game" // On indique le nom de la table dans la BDD.
+        sequelize, // Database connection information
+        modelName: "Game", // Name of the model
+        tableName: "game" // Name of the table in the database
     }
 );

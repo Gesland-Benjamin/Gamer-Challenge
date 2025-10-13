@@ -1,30 +1,33 @@
-// Importe Router depuis express pour créer un routeur
+// This file defines the game-related routes for the application using Express Router.
+// It handles game listing, details, creation, editing, and deletion.
+// Access to certain routes is restricted using admin and ID-checking middlewares.
+
 import { Router } from "express";
-// Importe le contrôleur des jeux
 import { AdminController, GameController } from "../controllers/index.js";
-// Importe le middleware pour vérifier l'id
 import { checkId } from "../middlewares/checkId.middleware.js";
 import { onlyAdmin } from "../middlewares/auth.middleware.js";
 
-// Crée une instance de routeur pour les routes de jeux
+// Create a router instance for game routes
 export const gameRouter = Router();
 
-// Route pour récupérer tous les jeux
+// Route to get all games (GET /games)
 gameRouter.get('/games', GameController.gamesListPage);
 
-// Route pour récupérer un jeu par son id, avec vérification de l'id
+// Route to get a game by its ID, with ID validation (GET /games/:id)
 gameRouter.get('/games/:id', checkId, GameController.gameDetailsPage);
 
+// Route to show the form to add a new game (GET /admin/addgame) - only for admins
 gameRouter.get('/admin/addgame', onlyAdmin, AdminController.formNewGame);
 
-// Route pour ajouter un nouveau jeu
+// Route to handle new game submission (POST /admin/addgame) - only for admins
 gameRouter.post('/admin/addgame', onlyAdmin, AdminController.addNewGame);
 
-//Route pour supprimer un jeu par son id, avec vérification de l'id
+// Route to delete a game by its ID (POST /games/:id/delete) - only for admins, with ID validation
 gameRouter.post('/games/:id/delete', checkId, onlyAdmin, AdminController.deleteGame);
 
+// Route to show the form to edit a game (GET /games/:id/edit) - only for admins
 gameRouter.get('/games/:id/edit', onlyAdmin, AdminController.formEditGame);
 
-// Route pour mettre à jour un jeu par son id, avec vérification de l'id
+// Route to update a game by its ID (POST /games/:id/edit) - only for admins, with ID validation
 gameRouter.post('/games/:id/edit', checkId, onlyAdmin, AdminController.editGame);
 

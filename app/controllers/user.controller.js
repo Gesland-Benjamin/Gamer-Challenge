@@ -4,7 +4,9 @@ import { CoreController } from "./core.controller.js";
 import { editUserSchema } from "../schemas/index.js";
 import Joi from "joi";
 
+// UserController handles user account editing and deletion
 class UserController extends CoreController {
+    // Delete the current user's account
     deleteAccount = async (req, res) => {
         try {
             const id = req.user.id;
@@ -27,6 +29,7 @@ class UserController extends CoreController {
             res.redirect("/");
         };
 
+    // Edit the current user's account information
     editAccount = async (req, res) => {
         try {
             const id = req.user.id;

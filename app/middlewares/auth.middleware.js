@@ -1,32 +1,26 @@
+// Middleware to restrict access to guest-only pages (e.g. login/register)
 export function onlyGuest (req, res, next) {
-
-    //En cas de session active 
-    // on empêche l'utilisateur de se connecter aux views qui lui permettent de se logger. 
+    // If a user session exists, redirect to home (prevent access to login/register)
     if(req.session.user) {
         return res.redirect('/')
     }
-    
-    next(); // on passe au middleware suivant
+    next(); // Continue to the next middleware
 }
 
+// Middleware to restrict access to authenticated users only
 export function onlyAuthenticated (req, res, next) {
-
-    // Si l'utilisateur n'est pas connecté
-    // on l'empêche d'accéder au dashboard
+    // If no user session, redirect to register/login page
     if(!req.session.user) {
         return res.redirect('/register')
     }
-
-    next(); // on passe au middleware suivant
+    next(); // Continue to the next middleware
 }
 
+// Middleware to restrict access to admin-only routes
 export function onlyAdmin (req, res, next) {
-
-    // Si l'utilisateur n'est pas admin
-    // on l'empêche d'accéder aux routes admin
+    // If not logged in or not admin, render 403 error page
     if(!req.session.user || req.session.user.role !== 'admin') {
-        return res.status(403).render('403'); // page d'erreur 403
+        return res.status(403).render('403');
     }
-
-    next(); // on passe au middleware suivant
+    next(); // Continue to the next middleware
 }
