@@ -1,59 +1,69 @@
 <%- include('partials/header') %>
-<%- include('partials/aside_nav') %>
+  <%- include('partials/aside_nav') %>
 
-<main class="game-page-main" role="main">
-  
-  <!-- SECTION HEADER DU JEU -->
-  <section class="game-header" aria-label="Présentation du jeu">
-  <div class="game-cover-wrapper">
-    <img src="<%= game.picture %>" alt="<%= game.name %>" class="game-cover" />
-  </div>
+    <main class="game-page-main" role="main">
 
-  <div class="game-info">
-    <h2 id="game-name" class="game-name"><%= game.name %></h2>
-    <p class="game-description"><%= game.description %></p>
-    <p class="game-date"><%= game.release_year.getFullYear() %></p>
-    <p class="game-meta"><%= game.genre %></p>
-  </div>
-</section>
+      <!-- SECTION HEADER DU JEU -->
+      <section class="game-header" aria-label="Présentation du jeu">
+        <div class="game-header__cover-wrapper">
+          <img src="<%= game.picture %>" alt="<%= game.name %>" class="game-header__cover" />
+        </div>
 
-  <div class="challenges__game-bar"></div>
-  <!-- SECTION DES CHALLENGES -->
-  <section class="challenges-section">
-    <h2 class="challenges-title">CHALLENGES</h2>
-    <% if (game.challenges && game.challenges.length) { %>
-      <div class="challenges-list">
-        <% game.challenges.forEach(function(challenge) { %>
-          <div class="challenge">
-            <a href="/challenges/<%= challenge.id %>"><%= challenge.name %></a>
-            <div class="challenge-likes">
-              <span id="votes-<%= challenge.id %>" class="vote-count">
-                <%= challenge.dataValues.voteCount %>
-              </span>
-              <button class="like-btn" data-id="<%= challenge.id %>">
-                ❤️
-              </button>
-            </div>
+        <div class="game-header__game-info">
+          <h2 id="game-name" class="game-header__game-info__name">
+            <%= game.name %>
+          </h2>
+          <p class="game-header__game-info__game-description">
+            <%= game.description %>
+          </p>
+          <p class="game-header__game-info__game-date">
+            <%= game.release_year.getFullYear() %>
+          </p>
+          <p class="game-header__game-info__game-meta">
+            <%= game.genre %>
+          </p>
+        </div>
+      </section>
+
+      <div class="game-header__challenges-game-bar"></div>
+      <!-- SECTION DES CHALLENGES -->
+      <section class="challenges-section">
+        <h2 class="challenges-section__h2">CHALLENGES</h2>
+        <% if (game.challenges && game.challenges.length) { %>
+          <div class="challenges-section__challenges-list">
+            <% game.challenges.forEach(function(challenge) { %>
+              <div class="challenges-section__challenge">
+                <a href="/challenges/<%= challenge.id %>">
+                  <%= challenge.name %>
+                </a>
+                <div class="challenges-section__challenge-likes">
+                  <span id="votes-<%= challenge.id %>" class="challenges-section__vote-count">
+                    <%= challenge.dataValues.voteCount %>
+                  </span>
+                  <button class="challenges-section__like-btn" data-id="<%= challenge.id %>">
+                    ❤️
+                  </button>
+                </div>
+              </div>
+              <% }); %>
           </div>
-        <% }); %>
+          <% } else { %>
+            <p class="challenges-section__no-challenges">Aucun challenge disponible.</p>
+            <% } %>
+      </section>
+
+      <!-- SECTION ACTIONS -->
+      <div class="game-actions">
+        <% if (user && user.role==='admin' ) { %>
+          <a href="/games/<%= game.id %>/edit" class="button">Modifier</a>
+          <form action="/games/<%= game.id %>/delete" method="POST" style="display:inline;">
+            <button type="submit" class="button">Supprimer</button>
+          </form>
+          <% } %>
+            <a href='/challenges/<%= game.id %>/addChallenge' class="button">Ajouter un challenge</a>
+            <a href='/' class="button">Accueil</a>
       </div>
-    <% } else { %>
-      <p class="no-challenges">Aucun challenge disponible.</p>
-    <% } %>
-  </section>
+    </main>
 
-  <!-- SECTION ACTIONS -->
-  <div class="game-actions">
-    <% if (user && user.role === 'admin') { %>
-      <a href="/games/<%= game.id %>/edit" class="button">Modifier</a>
-      <form action="/games/<%= game.id %>/delete" method="POST" style="display:inline;">
-        <button type="submit" class="button">Supprimer</button>
-      </form>
-    <% } %>
-    <a href='/challenges/<%= game.id %>/addChallenge' class="button">Ajouter un challenge</a>
-    <a href='/' class="button">Accueil</a>
-  </div>
-</main>
-
-<%- include('partials/footer') %>
-<script src="/js/like.js"></script>
+    <%- include('partials/footer') %>
+      <script src="/js/like.js"></script>
