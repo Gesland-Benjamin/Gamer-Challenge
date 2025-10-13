@@ -71,7 +71,7 @@ main {
   background-color: var(--green-color);
   color: white;
   cursor: pointer;
-  margin: 0.4rem;
+  margin: 1rem;
   padding: 0.7em;;
   text-decoration: none;
   border-radius: 25px;

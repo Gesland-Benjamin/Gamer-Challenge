@@ -1,18 +1,134 @@
-/*ABOUT*/
 
-.about-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 2rem;
-  max-width: 800px;
-  margin: 2rem auto;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-family: "Poppins", Arial, sans-serif;
-  font-weight: 600;
-  color: white;
+/* ==============================
+   ABOUT PAGE
+   ============================== */
+.about-page {
+  padding: 50px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
+/* --- About Section --- */
+.about-section {
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+.about-section__title {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: white ;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.about-section__content {
+  max-width: 1000px;
+}
+
+.about-section__paragraph {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+/* ==============================
+   TEAM SECTION
+   ============================== */
+.team-section {
+  text-align: center;
+}
+
+.team-section__title {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.team-section__list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.team-section__member {
+  background-color: #00000067;
+  border: 2px solid #6bff05;
+  border-radius: 12px;
+  padding: 15px 25px;
+  width: 220px;
+  transition: all 0.3s ease;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.team-section__member:hover {
+  transform: translateY(-5px);
+  border-color: #6bff05;
+  box-shadow: 0 4px 15px #6bff05
+}
+
+.team-section__member-name {
+  display: block;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #ffffff;
+  margin-bottom: 5px;
+}
+
+
+.team-section__member-name:hover {
+  display: block;
+  font-weight: bold;
+  font-size: 2rem;
+  color: #6bff05;
+  margin-bottom: 5px;
+}
+
+.team-section__member-role {
+  display: block;
+  font-size: 1rem;
+  color: #ffffff;
+}
+
+/* ==============================
+   RESPONSIVE
+   ============================== */
+@media (max-width: 768px) {
+  .about-section__title {
+    font-size: 2.2rem;
+  }
+
+  .team-section__title {
+    font-size: 2rem;
+  }
+
+  .team-section__list {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .team-section__member {
+    width: 80%;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-section__title {
+    font-size: 1.8rem;
+  }
+
+  .team-section__title {
+    font-size: 1.6rem;
+  }
+
+  .about-section__paragraph {
+    font-size: 1rem;
+  }
+}

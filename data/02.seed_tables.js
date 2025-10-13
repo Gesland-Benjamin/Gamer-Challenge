@@ -9,26 +9,31 @@ const user1 = await User.create({
     mail: "alice@example.com",
     password: await argon2.hash("password1"),
     role: "admin",
-    picture : "https://upload.wikimedia.org/wikipedia/en/b/b5/MarioKart8Boxart.jpg"
+    picture : "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Flepassetempsderose.l.e.pic.centerblog.net%2Fo%2Faed26788.jpg&f=1&nofb=1&ipt=dcdddae0fc7ca8ba1ecbab1ddb781f74146d86320a8c3c9d0f322f168c2ef69e"
 });
 const user2 = await User.create({
     username: "bob",
     mail: "bob@example.com",
     password: await argon2.hash("password2"),
-    picture : "https://upload.wikimedia.org/wikipedia/en/9/9f/Cyberpunk_2077_box_art.jpg"
+    picture: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi2.wp.com%2Fdropthespotlight.com%2Fwp-content%2Fuploads%2F2020%2F05%2Fundertaker.jpg%3Ffit%3D960%2C960%26ssl%3D1&f=1&nofb=1&ipt=45e1f3a51c6b2de757328c1a113837158609da227d68b8ad53e2d664c3c671c3",
+    youtube_url: "https://www.youtube.com/",
+    twitch_url: "https://www.twitch.tv/",
+    discord_url: "https://discord.com/"
+
 });
 const user3 = await User.create({
     username: "charlie",
     mail: "charlie@example.com",
     password: await argon2.hash("password3"),
     isBanned: true,
-    picture : "https://upload.wikimedia.org/wikipedia/en/1/1f/Animal_Crossing_New_Horizons.jpg"
+    picture : "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstaticg.sportskeeda.com%2Feditor%2F2023%2F04%2F5a0bc-16823053913430-1920.jpg&f=1&nofb=1&ipt=cf54f2619dae66f5d9df9d4863327807f248782c2307ec1e1c8a8a701b750cdd"
 });
 const user4 = await User.create({
     username: "david",
     mail: "david@example.com",
     password: await argon2.hash("password4"),
-    picture: "https://upload.wikimedia.org/wikipedia/en/thumb/4/46/Grand_Theft_Auto_VI.png/250px-Grand_Theft_Auto_VI.png"
+    picture : "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmario.wiki.gallery%2Fimages%2F1%2F15%2FPlay_Nintendo_Mario_Profile.png&f=1&nofb=1&ipt=23e580afb4f05a902b75840aae4373eae24833972e1e8688515452c854b1ae8b",
+    
 });
 
 // Création des jeux
@@ -128,141 +133,201 @@ const challenge1 = await Challenge.create({
     user_id: user1.id,
     username: user1.username
 });
+// --- CHALLENGES EXISTANTS AMÉLIORÉS ---
+
 const challenge2 = await Challenge.create({
     name: "Tir parfait",
-    description: "Réussis 10 tirs à la tête consécutifs sans rater.",
+    description: "Montre ta précision ultime : réussis 10 tirs à la tête consécutifs sans en manquer un seul. La moindre erreur te ramènera à zéro — calme, précision et timing seront essentiels.",
     picture: game2.picture,
     release_date: new Date(),
     game_id: game2.id,
     user_id: user2.id,
     username: user2.username
 });
+
 const challenge3 = await Challenge.create({
     name: "Sans utiliser de soins",
-    description: "Finis un niveau entier sans utiliser de soins ni boucliers.",
+    description: "Termine un niveau complet sans utiliser de soins ni de boucliers. Chaque erreur pourrait être fatale, donc anticipe, esquive et économise tes ressources pour survivre jusqu’à la fin.",
     picture: game3.picture,
     release_date: new Date(),
     game_id: game3.id,
     user_id: user3.id,
     username: user3.username
 });
+
 const challenge4 = await Challenge.create({
     name: "Vitesse éclair",
-    description: "Termine une mission en moins de 5 minutes.",
+    description: "Termine une mission en moins de 5 minutes. Optimise ton itinéraire, ne perds pas de temps à combattre inutilement et prouve que la rapidité est ton meilleur atout.",
     picture: game1.picture,
     release_date: new Date(),
     game_id: game1.id,
     user_id: user4.id,
     username: user4.username
 });
+
 const challenge5 = await Challenge.create({
     name: "Pacifiste",
-    description: "Complète un niveau sans éliminer un seul ennemi.",
+    description: "Complète un niveau sans éliminer le moindre ennemi. Utilise la furtivité, la diversion et l’intelligence pour progresser sans jamais déclencher le combat.",
     picture: game2.picture,
     release_date: new Date(2025, 0, 10),
     game_id: game2.id,
     user_id: user1.id,
     username: user1.username
 });
+
 const challenge6 = await Challenge.create({
     name: "Tireur d'élite",
-    description: "N'utilise que des armes à longue portée pour finir une mission.",
+    description: "Termine une mission en utilisant uniquement des armes à longue portée. Chaque tir doit être réfléchi et précis : pas de fusils d’assaut, pas de grenades, juste ton œil et ton fusil.",
     picture: game3.picture,
     release_date: new Date(),
     game_id: game3.id,
     user_id: user2.id,
     username: user2.username
 });
+
 const challenge7 = await Challenge.create({
     name: "Mode furtif",
-    description: "Infiltre une zone sans te faire repérer une seule fois.",
+    description: "Infiltre une zone entière sans te faire repérer une seule fois. Reste dans l’ombre, neutralise discrètement, et atteins ton objectif sans déclencher d’alarme.",
     picture: game1.picture,
     release_date: new Date(),
     game_id: game1.id,
     user_id: user3.id,
     username: user3.username
 });
+
 const challenge8 = await Challenge.create({
     name: "Combat au corps-à-corps",
-    description: "Termine une mission uniquement avec des attaques de mêlée.",
+    description: "Termine une mission uniquement avec des attaques de mêlée. Pas d’armes à feu, pas de projectiles : montre ta maîtrise du combat rapproché et ton sang-froid.",
     picture: game2.picture,
     release_date: new Date(),
     game_id: game2.id,
     user_id: user4.id,
     username: user4.username
 });
+
 const challenge9 = await Challenge.create({
     name: "Zéro dégât",
-    description: "Finis un niveau sans subir le moindre dégât.",
+    description: "Finis un niveau sans subir le moindre dégât. Tu devras esquiver, anticiper et jouer à la perfection : une seule erreur, et tout est à recommencer.",
     picture: game3.picture,
     release_date: new Date(),
     game_id: game3.id,
     user_id: user1.id,
     username: user1.username
 });
+
 const challenge10 = await Challenge.create({
     name: "Récolteur expert",
-    description: "Collecte 100 ressources dans une seule session de jeu.",
+    description: "Collecte 100 ressources dans une seule session de jeu. Explore chaque recoin, fouille les coffres et surveille ton inventaire pour atteindre ce score impressionnant.",
     picture: game1.picture,
     release_date: new Date(),
     game_id: game1.id,
     user_id: user2.id,
     username: user2.username
 });
+
 const challenge11 = await Challenge.create({
     name: "Maître des combos",
-    description: "Réalise une série de 20 coups sans interruption.",
+    description: "Réalise une série de 20 coups sans interruption. Le timing et la maîtrise des enchaînements seront la clé pour maintenir ta série intacte.",
     picture: game2.picture,
     release_date: new Date(),
     game_id: game2.id,
     user_id: user3.id,
     username: user3.username
 });
+
 const challenge12 = await Challenge.create({
     name: "Explorateur complet",
-    description: "Découvre 100% de la carte dans un niveau.",
+    description: "Découvre 100% de la carte dans un niveau. Laisse aucun endroit inexploré et révèle tous les secrets cachés de la zone.",
     picture: game3.picture,
     release_date: new Date(),
     game_id: game3.id,
     user_id: user4.id,
     username: user4.username
 });
+
 const challenge13 = await Challenge.create({
     name: "Course contre la montre",
-    description: "Bats un boss en moins de 2 minutes.",
+    description: "Bats un boss en moins de 2 minutes. Utilise tes meilleures compétences et inflige un maximum de dégâts sans relâche pour vaincre avant la fin du chrono.",
     picture: game1.picture,
     release_date: new Date(),
     game_id: game1.id,
     user_id: user1.id,
     username: user1.username
 });
+
 const challenge14 = await Challenge.create({
     name: "Aucun objet",
-    description: "Termine une mission sans utiliser un seul objet ou compétence.",
+    description: "Termine une mission sans utiliser le moindre objet ou compétence spéciale. Seules tes capacités de base feront la différence entre la victoire et la défaite.",
     picture: game2.picture,
     release_date: new Date(),
     game_id: game2.id,
     user_id: user2.id,
     username: user2.username
 });
+
 const challenge15 = await Challenge.create({
     name: "Champion des défis",
-    description: "Complète 5 défis secondaires en une seule partie.",
+    description: "Accomplis 5 défis secondaires en une seule partie. Planifie ton itinéraire, optimise ton temps et montre que rien ne t’arrête.",
     picture: game3.picture,
     release_date: new Date(),
     game_id: game3.id,
     user_id: user3.id,
     username: user3.username
 });
+
 const challenge16 = await Challenge.create({
     name: "Zigzag infernal",
-    description: "Esquive 50 attaques ennemies sans te faire toucher.",
+    description: "Esquive 50 attaques ennemies sans te faire toucher. Tes réflexes et ton anticipation seront mis à rude épreuve — reste mobile et imprévisible.",
     picture: game1.picture,
     release_date: new Date(),
     game_id: game1.id,
     user_id: user4.id,
     username: user4.username
 });
+
+
+// --- NOUVEAUX CHALLENGES AJOUTÉS ---
+
+const challenge17 = await Challenge.create({
+    name: "Survivant ultime",
+    description: "Survis à 10 vagues d’ennemis sans mourir ni te cacher. C’est un test d’endurance, de gestion des ressources et de concentration absolue.",
+    picture: game2.picture,
+    release_date: new Date(),
+    game_id: game2.id,
+    user_id: user1.id,
+    username: user1.username
+});
+
+const challenge18 = await Challenge.create({
+    name: "Sans alarme",
+    description: "Termine une mission d’infiltration sans déclencher une seule alarme. La moindre erreur sera fatale : planifie chaque pas et observe tes adversaires.",
+    picture: game3.picture,
+    release_date: new Date(),
+    game_id: game3.id,
+    user_id: user2.id,
+    username: user2.username
+});
+
+const challenge19 = await Challenge.create({
+    name: "Coureur infatigable",
+    description: "Parcours une distance totale de 10 km dans le jeu sans utiliser de véhicule ni repos. Montre ton endurance et ta détermination.",
+    picture: game1.picture,
+    release_date: new Date(),
+    game_id: game1.id,
+    user_id: user3.id,
+    username: user3.username
+});
+
+const challenge20 = await Challenge.create({
+    name: "Maître stratège",
+    description: "Remporte une mission difficile en mode solo sans subir de pertes ni gaspiller de munitions. Chaque balle compte, chaque décision aussi.",
+    picture: game2.picture,
+    release_date: new Date(),
+    game_id: game2.id,
+    user_id: user4.id,
+    username: user4.username
+});
+
 
 
 // Création des participations

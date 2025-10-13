@@ -69,8 +69,14 @@
 .podium-username {
   font-size: 1.2rem;
   margin: 0.5rem 0;
+  color: rgb(255, 255, 255);
 }
 
+.podium-username:hover {
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+  color: var(--fluogreen-color);
+}
 .podium-score {
   font-size: 1rem;
   font-weight: 600;
@@ -82,7 +88,7 @@
 }
 
 .podium-congrats {
-  margin-top: 2rem;
+  margin-top: 5rem;
   font-size: 1rem;
   color: white;
   font-weight: 600;

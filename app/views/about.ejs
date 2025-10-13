@@ -1,35 +1,61 @@
 <%- include('partials/header') %>
 <%- include('partials/aside_nav') %>
 
-<main>
-    <div class="about-container">
-        <h1>A PROPOS DE NOUS</h1>
+<main class="about-page">
+  <!-- Section À propos -->
+  <section class="about-section">
+    <h1 class="about-section__title">À PROPOS DE NOUS</h1>
 
-    <p>Bienvenue sur GamerChallenges, la plateforme ultime pour les passionnés de jeux vidéo ! 
+    <div class="about-section__content">
+      <p class="about-section__paragraph">
+        Bienvenue sur <strong class="highlight">GamerChallenges</strong>, la plateforme ultime pour les passionnés de jeux vidéo ! 
         Nous sommes dédiés à offrir une expérience unique où les joueurs peuvent relever des défis excitants, 
-        partager leurs exploits et se connecter avec une communauté dynamique.</p>
+        partager leurs exploits et se connecter avec une communauté dynamique.
+      </p>
 
-    <p>Chez GamerChallenges, nous croyons que le jeu est plus qu'un simple passe-temps - c'est une aventure, 
-        une compétition et une source de plaisir. Notre mission est de créer un espace où les joueurs 
-        peuvent s'amuser, se dépasser et célébrer leurs réussites ensemble.</p> 
+      <p class="about-section__paragraph">
+        Chez <strong class="highlight">GamerChallenges</strong>, nous croyons que le jeu est plus qu'un simple passe-temps — 
+        c'est une aventure, une compétition et une source de plaisir. Notre mission est de créer un espace où 
+        les joueurs peuvent s'amuser, se dépasser et célébrer leurs réussites ensemble.
+      </p>
 
-    <p>Rejoignez-nous dès aujourd'hui et plongez dans un monde de défis palpitants,
+      <p class="about-section__paragraph">
+        Rejoignez-nous dès aujourd'hui et plongez dans un monde de défis palpitants,
         de classements compétitifs et de camaraderie entre gamers. Que vous soyez un joueur
-        occasionnel ou un compétiteur chevronné, GamerChallenges est l'endroit idéal pour
-        vivre votre passion du jeu vidéo à son apogée !</p> 
-    <h2>NOTRE EQUIPE</h2>
-
-
-
-
-    <ul>
-    <li>ORHUN-GIT MASTER</li>
-    <li>MATHIEU-LEAD DEV</li>
-    <li>BENJAMIN-LEAD DEV</li>
-    <li>BILAL-SCRUM MASTER</li>
-    <li>MICKAEL-PRODUCT OWNER</li>
-    </ul>
+        occasionnel ou un compétiteur chevronné, <strong class="highlight">GamerChallenges</strong> est l'endroit idéal pour
+        vivre votre passion du jeu vidéo à son apogée !
+      </p>
     </div>
+  </section>
+
+  <!-- Section Équipe -->
+  <section class="team-section">
+    <h2 class="team-section__title">NOTRE ÉQUIPE</h2>
+
+    <ul class="team-section__list">
+      <li class="team-section__member">
+        <span class="team-section__member-name">Orhun</span> — 
+        <span class="team-section__member-role">Git Master</span>
+      </li>
+      <li class="team-section__member">
+        <span class="team-section__member-name">Mathieu</span> — 
+        <span class="team-section__member-role">Lead Dev</span>
+      </li>
+      <li class="team-section__member">
+        <span class="team-section__member-name">Benjamin</span> — 
+        <span class="team-section__member-role">Lead Dev</span>
+      </li>
+      <li class="team-section__member">
+        <span class="team-section__member-name">Bilal</span> — 
+        <span class="team-section__member-role">Scrum Master</span>
+      </li>
+      <li class="team-section__member">
+        <span class="team-section__member-name">Mickael</span> — 
+        <span class="team-section__member-role">Product Owner</span>
+      </li>
+    </ul>
+  </section>
 </main>
+
 
 <%- include('partials/footer') %>
