@@ -27,11 +27,7 @@ npm install
 Créez un fichier `.env` à la racine du projet et renseignez les variables nécessaires (exemple) :
 
 ```
-DB_HOST=localhost
-DB_PORT=5432
-DB_NAME=gamerchallenges
-DB_USER=postgres
-DB_PASSWORD=motdepasse
+DB_URL=postgres://user:password@localhost:5432/dbname
 SESSION_SECRET=une_chaine_secrete
 PORT=3000
 ```

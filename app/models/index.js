@@ -1,3 +1,7 @@
+// This file sets up and exports all models and their relationships using Sequelize ORM.
+// It imports all model definitions and establishes associations (one-to-many, many-to-many, etc.) between them.
+// This centralizes model imports and relationship logic for the application.
+
 import { User } from "./user.model.js";
 import { Game } from "./game.model.js";
 import { Challenge } from "./challenge.model.js";
@@ -5,43 +9,42 @@ import { VideoSubmit } from "./video_submit.model.js";
 import { ImageSubmit } from "./image_submit.model.js";
 import { sequelize } from "./sequelize.client.js";
 
-// Définition des relations entre les modèles
+// Define relationships between models
 
-// Déclare qu'un utilisateur (User) peut avoir plusieurs défis (Challenge).
-// La clé étrangère "user_id" sera utilisée pour lier les défis à l'utilisateur.
-// L'alias "challenges" permet d'accéder facilement à la liste des défis d'un utilisateur.
+// A User can have many Challenges (one-to-many)
+// The foreign key 'user_id' links challenges to the user
+// The alias 'challenges' allows easy access to a user's challenges
 User.hasMany(Challenge, {
     foreignKey: "user_id",
     as : "challenges"
 });
 
-
-// Déclare qu'un défi (Challenge) appartient à un utilisateur (User).
-// Utilise également la clé étrangère "user_id" pour faire le lien.
-// L'alias "user" permet d'accéder à l'utilisateur associé à un défi.
+// A Challenge belongs to a User (many-to-one)
+// Uses the foreign key 'user_id' to link
+// The alias 'user' allows access to the user associated with a challenge
 Challenge.belongsTo(User, {
     foreignKey: "user_id",
     as : "user"
 });
 
-// Déclare qu'un jeu (Game) peut avoir plusieurs défis (Challenge).
-// La clé étrangère "game_id" sera utilisée pour lier les défis au jeu.
-// L'alias "challenges" permet d'accéder facilement à la liste des défis d'un jeu.
+// A Game can have many Challenges (one-to-many)
+// The foreign key 'game_id' links challenges to the game
+// The alias 'challenges' allows easy access to a game's challenges
 Game.hasMany(Challenge, {
     foreignKey: "game_id",
     as: "challenges"
 });
 
-// Déclare qu'un défi (Challenge) appartient à un jeu (Game).
-// Utilise également la clé étrangère "game_id" pour faire le lien.
-// L'alias "game" permet d'accéder au jeu associé à un défi.
+// A Challenge belongs to a Game (many-to-one)
+// Uses the foreign key 'game_id' to link
+// The alias 'game' allows access to the game associated with a challenge
 Challenge.belongsTo(Game, {
     foreignKey: "game_id",
     as: "game"
 });
 
-// Déclare une relation Many-to-Many entre User et Challenge via la table de jointure "vote_challenge".
-// Cela permet de savoir quels utilisateurs ont voté pour quels défis.
+// Many-to-Many relationship between User and Challenge via 'vote_challenge' join table
+// Allows tracking which users voted for which challenges
 User.belongsToMany(Challenge, {
     through: "vote_challenge",
     foreignKey: "user_id",
@@ -49,10 +52,9 @@ User.belongsToMany(Challenge, {
     as: "voted_challenges"
 });
 
-// Déclare une relation Many-to-Many entre Challenge et User via la table de jointure "vote_challenge".
-// Cela permet de savoir quels utilisateurs ont voté pour un défi donné.
-// La clé étrangère "challenge_id" relie le défi à la table de jointure.
-// L'alias "challenge_voters" permet d'accéder à la liste des utilisateurs ayant voté pour un défi.
+// Many-to-Many relationship between Challenge and User via 'vote_challenge' join table
+// Allows tracking which users voted for a given challenge
+// The alias 'challenge_voters' gives access to users who voted for a challenge
 Challenge.belongsToMany(User, {
     through: "vote_challenge",
     foreignKey: "challenge_id",
@@ -60,12 +62,9 @@ Challenge.belongsToMany(User, {
     as: "challenge_voters"
 });
 
-// Relation Many-to-Many entre VideoSubmit et User via la table de jointure "vote_video".
-// -> Un utilisateur peut voter pour plusieurs vidéos.
-// -> Une vidéo peut recevoir des votes de plusieurs utilisateurs.
-// "foreignKey: video_id" : clé qui relie une vidéo à la table de jointure.
-// "otherKey: user_id" : clé qui relie un utilisateur à la table de jointure.
-// "as: video_voters" : permet d’accéder à la liste des utilisateurs ayant voté pour une vidéo.
+// Many-to-Many relationship between VideoSubmit and User via 'vote_video' join table
+// A user can vote for many videos, and a video can receive votes from many users
+// The alias 'video_voters' gives access to users who voted for a video
 VideoSubmit.belongsToMany(User, {
     through: "vote_video",
     foreignKey: "video_id",
@@ -73,11 +72,9 @@ VideoSubmit.belongsToMany(User, {
     as: "video_voters"
 });
 
-// Relation Many-to-Many entre User et VideoSubmit via la table de jointure "vote_video".
-// -> Permet de savoir pour quelles vidéos un utilisateur a voté.
-// "foreignKey: user_id" : clé qui relie un utilisateur à la table de jointure.
-// "otherKey: video_id" : clé qui relie une vidéo à la table de jointure.
-// "as: voted_videos" : permet d’accéder à la liste des vidéos votées par un utilisateur.
+// Many-to-Many relationship between User and VideoSubmit via 'vote_video' join table
+// Allows tracking which videos a user has voted for
+// The alias 'voted_videos' gives access to videos voted by a user
 User.belongsToMany(VideoSubmit, {
     through: "vote_video",
     foreignKey: "user_id",
@@ -85,44 +82,47 @@ User.belongsToMany(VideoSubmit, {
     as: "voted_videos"
 });
 
-// Déclare qu'un défi (Challenge) peut avoir plusieurs vidéos (VideoSubmit).
+// A Challenge can have many VideoSubmits (one-to-many)
+// The alias 'videos' allows access to all videos for a challenge
 Challenge.hasMany(VideoSubmit, {
     foreignKey: "challenge_id",
     as: "videos"
 });
 
-// Déclare qu'une vidéo (VideoSubmit) appartient à un défi (Challenge).
+// A VideoSubmit belongs to a Challenge (many-to-one)
+// The alias 'challenge' allows access to the challenge for a video
 VideoSubmit.belongsTo(Challenge, {
     foreignKey: "challenge_id",
     as: "challenge"
 });
 
-// Déclare qu'un utilisateur (User) peut avoir plusieurs vidéos (VideoSubmit).
+// A User can have many VideoSubmits (one-to-many)
+// The alias 'videos' allows access to all videos submitted by a user
 User.hasMany(VideoSubmit, {
     foreignKey: "user_id",
     as: "videos"
 });
 
-// Déclare qu'une vidéo (VideoSubmit) appartient à un utilisateur (User).
+// A VideoSubmit belongs to a User (many-to-one)
+// The alias 'user' allows access to the user who submitted the video
 VideoSubmit.belongsTo(User, {
     foreignKey: "user_id",
     as: "user"
 }); 
 
-//declare la relation entre imagesubmit et un game.
-// Un jeu a UNE image
+// A Game has one ImageSubmit (one-to-one)
+// The alias 'image' allows access to the image for a game
 Game.hasOne(ImageSubmit, {
   foreignKey: "game_id",
-  as: "image", // au singulier
+  as: "image", // singular
 });
 
-// Une image appartient à UN jeu
+// An ImageSubmit belongs to a Game (one-to-one)
+// The alias 'game' allows access to the game for an image
 ImageSubmit.belongsTo(Game, {
   foreignKey: "game_id",
   as: "game",
 });
-
-
 
 export {
     User,

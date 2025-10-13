@@ -2,11 +2,12 @@ import { Op } from 'sequelize';
 import { Game, Challenge, User } from '../models/index.js';
 import { CoreController } from './index.js';
 
+// SearchController handles search logic for games, challenges, and users
 class SearchController extends CoreController {
-  // Méthode pour gérer la recherche
+  // Handle search requests and render results based on type (games, challenges, users, or all)
   search = async (req, res) => {
   try {
-    const { q, type } = req.query; // récupération de la query et du filtre
+    const { q, type } = req.query; // Get query and filter type
     let results = [];
 
     if (!q || q.trim() === '') {
@@ -23,9 +24,7 @@ class SearchController extends CoreController {
       case 'challenges':
         results = await Challenge.findAll({
           where: { name: { [Op.iLike]: `%${q}%` } }
-          //rajouter picture plus tard
         });
-        
         break;
 
         case 'users':
@@ -38,7 +37,7 @@ class SearchController extends CoreController {
           break;
 
       default:
-        // Si aucun type ou type invalide → chercher partout
+        // If no type or invalid type, search everywhere
         const games = await Game.findAll({ where: { name: { [Op.iLike]: `%${q}%` } } });
         const challenges = await Challenge.findAll({ where: { name: { [Op.iLike]: `%${q}%` } } });
         const users = await User.findAll({ where: { username: { [Op.iLike]: `%${q}%` } } });

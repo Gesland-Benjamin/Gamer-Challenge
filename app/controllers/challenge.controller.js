@@ -4,15 +4,17 @@ import { CoreController } from "./core.controller.js";
 import { createChallengeSchema, editChallengeSchema } from "../schemas/index.js";
 import Joi from "joi";
 
+// ChallengeController handles all challenge-related actions: listing, details, creation, editing, deletion, and user videos
 class ChallengeController extends CoreController {
 
-    // Méthode pour afficher la liste paginée des challenges
+    // Display the paginated list of challenges
     challengesListPage = async (req, res) => {
     try {
         const page = parseInt(req.query.page) || 1;
         const limit = 9;
         const offset = (page - 1) * limit;
 
+        // Fetch challenges with pagination and associated game
         const { count, rows: listChallenges } = await Challenge.findAndCountAll({
             limit,
             offset,
@@ -20,7 +22,7 @@ class ChallengeController extends CoreController {
             include: [
                 {
                     model: Game,
-                    as: "game", // 👈 correspond à l'alias dans ton association
+                    as: "game",
                     attributes: ["id", "name", "picture"]
                 }
             ]
@@ -32,7 +34,7 @@ class ChallengeController extends CoreController {
             listChallenges, 
             page, 
             totalPages,
-            user: req.session.user // utile si tu veux conditionner des boutons dans la vue
+            user: req.session.user // Useful for conditional buttons in the view
         });
     } catch (error) {
         console.error(error);
@@ -40,10 +42,12 @@ class ChallengeController extends CoreController {
     }
 };
 
+    // Display the details of a specific challenge
     challengeDetailsPage = async (req, res, next) => {
     try {
         const { id } = req.params;
 
+        // Fetch challenge with associated game and videos
         const challenge = await Challenge.findByPk(id, {
             include: [
                 {
@@ -76,6 +80,7 @@ class ChallengeController extends CoreController {
     }
 };
 
+    // Render the form to create a new challenge for a game
     formNewChallenge = async (req, res) => {
         const gameId = req.params.id
         const game = await Game.findByPk(gameId);
@@ -85,9 +90,12 @@ class ChallengeController extends CoreController {
         res.render('addChallenge', { game });
     }
 
+    // Handle the creation of a new challenge
     addNewChallenge = async (req, res) => {
         try {
+            // Validate challenge data
             const data = Joi.attempt(req.body, createChallengeSchema);
+            // Create the challenge
             const newChallenge = await Challenge.create({
                 ...data,
                 release_date: new Date()
@@ -103,6 +111,7 @@ class ChallengeController extends CoreController {
         }
     };
 
+    // Handle the deletion of a challenge
     deleteChallenge = async (req, res) => {
         try {
             const challengeId = req.params.id;
@@ -112,6 +121,7 @@ class ChallengeController extends CoreController {
             if (!challenge) {
                 return this.render404(req, res);
             }
+            // Only the challenge owner or an admin can delete
             if (challenge.user_id !== req.session.user.id && req.session.user.role !== "admin") {
                 return this.render403(req, res);
             }
@@ -125,6 +135,7 @@ class ChallengeController extends CoreController {
         }
     };
 
+    // Render the form to edit a challenge
     formEditChallenge = async (req, res) => {
         try {
             const { id } = req.params;
@@ -135,7 +146,7 @@ class ChallengeController extends CoreController {
                 return this.render404(req, res);
             }
 
-            // Vérification de l'id de l'utilisateur dans req.session
+            // Only the challenge owner or an admin can edit
             if (challenge.user_id !== req.session.user.id && req.session.user.role !== "admin") {
                 return this.render403(req, res);
             }
@@ -148,6 +159,7 @@ class ChallengeController extends CoreController {
         }
     };
 
+    // Handle the update of a challenge
     editChallenge = async (req, res) => {
         try {
             const { id } = req.params;
@@ -158,8 +170,7 @@ class ChallengeController extends CoreController {
                 return this.render404(req, res);
             }
 
-            // Vérification de l'id de l'utilisateur dans req.session
-
+            // Validate and update challenge data
             const data = Joi.attempt(req.body, editChallengeSchema);
 
             await challenge.update(data);
@@ -172,37 +183,29 @@ class ChallengeController extends CoreController {
         }
     };
 
+    // Get all videos submitted by the current user
     getUserVideos = async (req, res) => {
         try {
-
-            // On récupère l'id de l'utilisateur connecté
+            // Get the logged-in user's id
             const { id } = req.session.user;
-
-            // On récupère les vidéos de cet utilisateur avec l'id récupéré
+            // Fetch the user's videos
             const user = await User.findByPk(id, {
                 include: [{
                     model: VideoSubmit,
-                    as: "videos", // Utilise l'alias défini dans l'association
+                    as: "videos",
                     attributes: ['title', 'url'],
                 }],
             });
-
-            // Si l'utilisateur recherché n'existe pas, on renvoie un message d'erreur
             if (!user) {
                 return this.render404(req, res);
             }
-
-            // On renvoie dans la view les vidéos et le username
+            // Render the user's videos page
             res.status(200).render('mychallenges', { videos: user.videos, username: user.username });
-
         } catch (error) {
             console.error(error);
             res.status(400).render("error", { error: "Une erreur est survenue lors de la récupération des vidéos." });
         }
     };
-
-    
-
 }
 
 export default new ChallengeController();

@@ -1,14 +1,17 @@
+// This file stores all validation schemas for challenges using Joi.
+// It includes schemas for creating and editing challenges.
+
 import Joi from "joi";
 
-// ici on stocke tous les schemas de validation pour les challenges
-
+// Validation schema for creating a challenge
 export const createChallengeSchema = Joi.object({
-    name: Joi.string().trim().min(1).max(100).required(), // nom du challenge, obligatoire, max 100 caractères
-    description: Joi.string().trim().min(1).required(), // description du challenge, obligatoire
+    name: Joi.string().trim().min(1).max(100).required(), // Challenge name, required, max 100 characters
+    description: Joi.string().trim().min(1).required(), // Challenge description, required
 });
 
+// Validation schema for editing a challenge
 export const editChallengeSchema = Joi.object({
-    name: Joi.string().trim().min(1).max(100), // nom du challenge, max 100 caractères
-    description: Joi.string().trim().min(1), // description du challenge
+    name: Joi.string().trim().min(1).max(100), // Challenge name, max 100 characters
+    description: Joi.string().trim().min(1), // Challenge description
 });
 
