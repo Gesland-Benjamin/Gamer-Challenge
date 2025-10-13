@@ -7,7 +7,8 @@
   --main-font: "Poppins", sans-serif;
 }
 
-.addChallenge__main {
+/* ========== BLOC PRINCIPAL ========== */
+.add-challenge {
   height: 100vh;
   width: 100%;
   display: flex;
@@ -15,11 +16,32 @@
   justify-content: center;
   align-items: center;
 }
-  
 
-/* FORMULAIRE */
+/* ========== HEADER DU FORMULAIRE ========== */
+.add-challenge__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+}
 
-.addChallenge_form {
+.add-challenge__title {
+  font-family: var(--main-font);
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+.add-challenge__title-bar {
+  width: 60%;
+  height: 4px;
+  background-color: var(--fluogreen-color);
+  margin-top: 0.5rem;
+  border-radius: 4px;
+}
+
+/* ========== FORMULAIRE ========== */
+.add-challenge__form-section {
   height: 100%;
   width: 100%;
   display: flex;
@@ -28,7 +50,7 @@
   align-items: center;
 }
 
-.form__container {
+.add-challenge__form-container {
   height: 75%;
   width: 25%;
   margin: 1rem;
@@ -36,21 +58,33 @@
   gap: 10rem;
   box-sizing: border-box;
   display: flex;
+  flex-direction: column;
   align-items: flex-start;
   justify-content: center;
   border-radius: 20px;
   border: 3px solid var(--fluogreen-color);
+  background-color: rgba(4, 54, 64, 0.3);
 }
 
+.add-challenge__form {
+  width: 100%;
+}
 
-.form__legend {
+.add-challenge__legend {
   font-family: var(--main-font);
   font-weight: bolder;
   text-decoration: none;
   color: white;
 }
-  
-.form__input {
+
+/* GROUPE INPUT */
+.add-challenge__input-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.add-challenge__input {
   background-color: #081c08;
   color: white;
   border: none;
@@ -62,18 +96,10 @@
   font-family: var(--main-font);
 }
 
-.div__btn {
-  width: 100%;
-  margin-top: 8rem;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: center;
-}
-
-.btn__submit {
+/* BOUTON VALIDER */
+.add-challenge__submit-btn {
   width: 45%;
   display: block;
-  margin-top : auto;
   background-color: var(--green-color);
   border-radius: 28px;
   border: 1px solid #18ab29;
@@ -83,47 +109,36 @@
   font-size: 1rem;
   font-weight: bold;
   padding: 0.3rem 2rem;
-  margin-top: auto;
   text-decoration: none;
   text-shadow: 0px 1px 0px #2f6627;
+  margin-top: 2rem;
 }
-  
-.input-with-icon {
-  position: relative;
-  width: 100%;
-  display: flex;
-  align-items: center;
+
+/* BOUTON RETOUR */
+.add-challenge__return-btn {
+  display: inline-block;
+  margin-top: 2rem;
+  text-decoration: none;
+  color: var(--fluogreen-color);
+  font-family: var(--main-font);
+  font-weight: bold;
 }
-  
-.input-with-icon .input {
-  flex: 1;
-  padding-right: 2.2em; /* espace pour l'icône */
-}
-  
-.edit-icon {
-  position: absolute;
-  right: 12px;
-  color: #44b716;
-  font-size: 1.1em;
-  pointer-events: none; /* l'icône ne bloque pas l'input */
-}
- 
+
+/* ========== RESPONSIVE ========== */
 @media (1000px <= width <= 1279px) {
-  .addChallenge__main .form__container {
-    width: 40%;         /* Largeur quasi totale de l'écran */
+  .add-challenge__form-container {
+    width: 40%;
   }
 }
 
 @media (769px <= width <= 999px) {
-  .addChallenge__main .form__container {
-    width: 50%;         /* Largeur quasi totale de l'écran */
+  .add-challenge__form-container {
+    width: 50%;
   }
 }
 
-/* Media queries >768px */
-
 @media (width < 768px) {
-  .addChallenge__main .form__container {
-    width: 50%;         /* Largeur quasi totale de l'écran */
+  .add-challenge__form-container {
+    width: 50%;
   }
 }

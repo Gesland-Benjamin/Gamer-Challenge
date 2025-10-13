@@ -1,36 +1,33 @@
 <body>
   <link rel="stylesheet" href="/css/navside.css">
 
-
   <!-- Burger Checkbox -->
-  <input type="checkbox" id="burger-toggle">
+  <input type="checkbox" id="navside-toggle">
 
   <!-- Burger Icon -->
-  <label for="burger-toggle" class="burger-container">
-    <div class="burger-line"></div>
-    <div class="burger-line"></div>
-    <div class="burger-line"></div>
+  <label for="navside-toggle" class="navside__burger">
+    <div class="navside__burger-line"></div>
+    <div class="navside__burger-line"></div>
+    <div class="navside__burger-line"></div>
   </label>
 
   <!-- Navigation Menu -->
-  <aside class="nav-menu">
-   
-    <nav class="main__navside">
+  <aside class="navside__menu">
+    <nav class="navside__main">
 
-      <ul class="desktop__navside">
+      <ul class="navside__list navside__list--desktop">
         <li><a href="/">ACCUEIL</a></li>
         <% if (session && session.user) { %>
-        <li><a href="/me">MES INFORMATIONS</a></li>
-        <li><a href="/mychallenges">MON PROFIL</a></li>
-      <% } else { %>
-        <li><a href="/register">INSCRIPTION / CONNEXION</a></li>
-      <% } %>
+          <li><a href="/me">MES INFORMATIONS</a></li>
+          <li><a href="/mychallenges">MON PROFIL</a></li>
+        <% } else { %>
+          <li><a href="/register">INSCRIPTION / CONNEXION</a></li>
+        <% } %>
         <li><a href="/about">A PROPOS</a></li>
         <li><a href="/contact">NOUS CONTACTER</a></li>
       </ul>
 
-
-      <ul class="mobile__navside">
+      <ul class="navside__list navside__list--mobile">
         <li><a href="/">ACCUEIL</a></li>
         <li><a href="/me">MES INFORMATIONS</a></li>
         <li><a href="/mychallenges">MON PROFIL</a></li>
@@ -38,22 +35,22 @@
         <li><a href="/challenges">CHALLENGES</a></li>
         <li><a href="/ladder">CLASSEMENT</a></li>
         <li>
-          <form action="/search" method="GET" class="search-form">
-            <input type="text" name="q" placeholder="Rechercher..." class="search-form__input" required />
-            <select name="type" class="search-form__select">
+          <form action="/search" method="GET" class="navside__search-form">
+            <input type="text" name="q" placeholder="Rechercher..." class="navside__search-input" required />
+            <select name="type" class="navside__search-select">
               <option value="games">Jeux</option>
               <option value="challenges">Challenges</option>
               <option value="users">Joueurs</option>
             </select>
-            <button type="submit" class="search-form__btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <button type="submit" class="navside__search-btn">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
           </form>
         </li>
         <li><a href="/about">A PROPOS</a></li>
         <li><a href="/contact">NOUS CONTACTER</a></li>
       </ul>
-      
+
     </nav>
-
   </aside>
-
 </body>
