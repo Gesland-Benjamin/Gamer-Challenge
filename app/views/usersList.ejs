@@ -9,23 +9,23 @@
     <% if (users && users.length> 0) { %>
       <% users.forEach(user=> { %>
 
-      <div class="user-card">
+      <div class="user-list__card">
         <h3><%= user.username %></h3>
                
         <p>Status :
           <% if (user.isBanned) { %>
-            <span class="banned">Banni</span>
-            <% } else { %><span class="active">Actif</span><% } %>
+            <span class="user-list__banned">Banni</span>
+            <% } else { %><span class="user-list__active">Actif</span><% } %>
         </p>
 
         <% if (!user.isBanned) { %>
           <form action="/admin/ban/<%= user.id %>" method="POST">
-            <button type="submit" class="ban-button">Bannir</button>
+            <button type="submit" class="user-list__ban-button">Bannir</button>
           </form>
 
         <% } else { %>
           <form action="/admin/unban/<%= user.id %>" method="POST">
-            <button type="submit" class="unban-button">Débannir</button>
+            <button type="submit" class="user-list__unban-button">Débannir</button>
           </form>
         <% } %>
     </div>
