@@ -77,7 +77,6 @@ Le serveur sera accessible sur `http://localhost:3000` (ou le port défini dans 
 - **express** : Framework web principal pour la gestion des routes, middlewares et serveur HTTP.
 - **express-session** : Pour la gestion des sessions utilisateurs (authentification, etc.).
 - **joi** : Pour la validation des schémas de données côté serveur (ex : validation des formulaires).
-- **multer** : Pour la gestion de l'upload de fichiers (ex : images de profil, etc.).
 - **pg** : Client PostgreSQL pour Node.js, utilisé par Sequelize pour interagir avec la base de données.
 - **sequelize** : ORM (Object-Relational Mapping) pour faciliter les requêtes SQL et la gestion des modèles.
 - **xss** : Pour protéger l'application contre les attaques XSS (Cross-Site Scripting).
