@@ -1,42 +1,101 @@
-<%- include('partials/header') %> <%- include('partials/aside_nav') %>
+<%- include('partials/header') %>
+<%- include('partials/aside_nav') %>
 
-<main>
-  <div class="about-container">
-    <h1>Mentions Légales</h1>
-    <p>
-      Mentions légales Éditeur du site GamerChallenges 5 rue du Jeux, France SIRET
-      : 123 456 789 00012 Représentant légal : Team GamerChallenges Cambridge
-      Email : contact@gamerchallenges.fr Hébergement Tél. : 1007 Politique de
-      confidentialité (RGPD) 1. Responsable du traitement Les données personnelles
-      collectées sur ce site sont traitées par : GamerChallenges Email :
-      dpo@gamerchallenges.fr 2. Données collectées Nous collectons uniquement les
-      données nécessaires au bon fonctionnement du service, telles que : Nom
-      d’utilisateur, adresse e-mail, avatar, mot de passe (chiffré) lors de
-      l’inscription. Données de navigation (adresse IP, logs de connexion,
-      cookies) pour la sécurité et l’amélioration du service. 3. Finalité de la
-      collecte Les données collectées sont utilisées pour : La création et la
-      gestion de votre compte utilisateur. La participation aux challenges,
-      classement et fonctionnalités du site. L’envoi de communications (emails
-      liés à votre compte, notifications). L’amélioration de l’expérience
-      utilisateur. 4. Base légale Le traitement repose sur : L’exécution d’un
-      contrat (ex. création de compte, accès aux services). Le consentement (par
-      ex. newsletter, cookies marketing). L’intérêt légitime (sécurité du site,
-      statistiques anonymisées). 5. Durée de conservation Vos données sont
-      conservées pendant la durée de l’utilisation du compte, et supprimées dans
-      un délai de 3 ans après la dernière activité. 6. Partage des données Les
-      données ne sont en aucun cas revendues. Elles peuvent être transmises
-      uniquement à : L’hébergeur du site pour des raisons techniques. Les
-      prestataires strictement nécessaires au service (paiement, envoi d’e-mails).
-      7. Droits des utilisateurs Conformément au RGPD, vous disposez des droits
-      suivants : Accès à vos données. Rectification ou suppression. Limitation du
-      traitement. Opposition. Portabilité. Pour exercer ces droits, contactez :
-      dpo@gamerchallenges.fr . 8. Sécurité Vos données personnelles sont protégées
-      par des mesures techniques (chiffrement, HTTPS, mots de passe hashés). 9.
-      Cookies Nous utilisons des cookies pour améliorer votre expérience. Cookies
-      de session (indispensables). Cookies analytiques (Google Analytics ou
-      équivalent). Cookies publicitaires (uniquement si vous utilisez la pub).
-      Vous pouvez désactiver les cookies via les paramètres de votre navigateur.
-    </p>
+<main class="legal-main">
+  <div class="legal-container">
+    <h1 class="legal-title">Mentions Légales</h1>
+
+    <section class="legal-section legal-editor">
+      <h2 class="legal-heading">Éditeur du site</h2>
+      <p class="legal-text">
+        <strong>GamerChallenges</strong><br>
+        Rue du challenge, Jeuville, France<br>
+        SIRET : 123 456 789 <br>
+        Représentant légal : Team GamerChallenges Cambridge<br>
+        Email : <a href="mailto:contact@gamerchallenges.fr" class="legal-link">contact@gamerchallenges.fr</a><br>
+        Hébergeur : Tél. 1007
+      </p>
+    </section>
+
+    <section class="legal-section legal-privacy">
+      <h2 class="legal-heading">Politique de confidentialité (RGPD)</h2>
+
+      <div class="legal-subsection">
+        <h3 class="legal-subheading">1. Responsable du traitement</h3>
+        <p class="legal-text">
+          Les données personnelles collectées sur ce site sont traitées par : <strong>GamerChallenges</strong><br>
+        </p>
+      </div>
+
+      <div class="legal-subsection">
+        <h3 class="legal-subheading">2. Données collectées</h3>
+        <p class="legal-text">
+          Nous collectons uniquement les données nécessaires au bon fonctionnement du service, telles que :
+          nom d’utilisateur, adresse e-mail, avatar, mot de passe (chiffré).
+        </p>
+      </div>
+
+      <div class="legal-subsection">
+        <h3 class="legal-subheading">3. Finalité de la collecte</h3>
+        <ul class="legal-list">
+          <li>Création et gestion du compte utilisateur</li>
+          <li>Participation aux challenges et classement</li>
+          <li>Envoi de communications (emails, notifications)</li>
+          <li>Amélioration de l’expérience utilisateur</li>
+        </ul>
+      </div>
+
+      <div class="legal-subsection">
+        <h3 class="legal-subheading">4. Base légale</h3>
+        <p class="legal-text">
+          Le traitement repose sur le contrat, le consentement et l’intérêt légitime (sécurité, statistiques).
+        </p>
+      </div>
+
+      <div class="legal-subsection">
+        <h3 class="legal-subheading">5. Durée de conservation</h3>
+        <p class="legal-text">
+          Les données sont conservées pendant la durée d’utilisation du compte, puis supprimées 3 ans après la dernière activité.
+        </p>
+      </div>
+
+      <div class="legal-subsection">
+        <h3 class="legal-subheading">6. Partage des données</h3>
+        <p class="legal-text">
+          Les données ne sont jamais revendues. Elles peuvent être transmises uniquement à l’hébergeur et aux prestataires nécessaires au service.
+        </p>
+      </div>
+
+      <div class="legal-subsection">
+        <h3 class="legal-subheading">7. Droits des utilisateurs</h3>
+        <p class="legal-text">
+          Conformément au RGPD, vous disposez des droits d’accès, de rectification, de suppression, de limitation, d’opposition et de portabilité.<br>
+          Contact : <a href="mailto:dpo@gamerchallenges.fr" class="legal-link">dpo@gamerchallenges.fr</a>
+        </p>
+      </div>
+
+      <div class="legal-subsection">
+        <h3 class="legal-subheading">8. Sécurité</h3>
+        <p class="legal-text">
+          Les données sont protégées par chiffrement, HTTPS et mots de passe hashés.
+        </p>
+      </div>
+
+      <div class="legal-subsection">
+        <h3 class="legal-subheading">9. Cookies</h3>
+        <p class="legal-text">
+          Des cookies sont utilisés pour :
+        </p>
+        <ul class="legal-list">
+          <li>La session (indispensables)</li>
+          <li>L’analyse (Google Analytics ou équivalent)</li>
+          <li>La publicité (si activée)</li>
+        </ul>
+        <p class="legal-text">
+          Vous pouvez les désactiver via les paramètres de votre navigateur.
+        </p>
+      </div>
+    </section>
   </div>
 </main>
 
