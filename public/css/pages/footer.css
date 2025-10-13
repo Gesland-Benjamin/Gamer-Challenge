@@ -21,7 +21,9 @@ footer {
   justify-content: space-evenly;
 }
 
-.footer a {
+.footer_link-contact,
+.footer_link-about,
+.footer_link-legal {
   color: white;
   font-weight: bold;
   text-decoration: none;
@@ -31,7 +33,7 @@ footer {
   color: var(--green-color);
 }
 
-.gamerchallenges__tag {
+.footer-gamerchallenges__tag {
   font-size: x-small;
   color: #ffffff;
   margin: 0 auto;
