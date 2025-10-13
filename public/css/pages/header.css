@@ -21,7 +21,7 @@ header {
   justify-content: center;
 }
 
-.header__user-info {
+.header-nav__user-info {
   display: flex;
   gap: 0.9rem;
 }
@@ -32,7 +32,7 @@ header {
   object-fit: cover;
 }
 
-.header__aria-label {
+.header-nav {
   width: 100%;
   margin: 0 auto;
   padding: 0rem 1rem;
@@ -40,7 +40,6 @@ header {
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-
   font-family: "Poppins", Arial, sans-serif;
   font-weight: 2rem;
   text-transform: uppercase;
@@ -49,27 +48,40 @@ header {
   color: rgb(255, 255, 255);
 }
 
-.header-logo-left {
-  height: 40px;        
-  margin-right: 24px;  
-  margin-left: 0;
-  align-self: center;
-}
-
-.header__aria-label a {
+.header-nav a {
   color: #ffffff;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 
-.header__aria-label a:hover {
+.header-nav a:hover {
   color: #8bff6b;
 }
 
-.header__aria-label .highlight {
+.header-nav__hightlight {
   font-weight: 700;
   text-shadow: 0 0 6px rgba(255, 255, 255, 0.4);
+}
+
+.header-nav__logout-btn {
+  display: inline-block;
+  background-color: var(--green-color);
+  color: white;
+  cursor: pointer;
+  margin: 1rem;
+  padding: 0.7em;;
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  border: none;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.header-nav__logout-btn:hover {
+  background-color: #33cc33;
+  transform: scale(1.05);
 }
 
 
@@ -130,7 +142,7 @@ header {
   transform: scale(1.05);
 }
 
-.icon-login {
+.header-nav__icon-login {
   display: none;
 }
 
