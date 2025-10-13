@@ -75,6 +75,14 @@ body {
   font-size: 0.9rem;
 }
 
+.challenges__game-bar {
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, var(--green), transparent);
+  margin: 2rem 0;
+  border-radius: 2px;
+}
+
 /* ----- SECTION CHALLENGES ----- */
 section h2 {
   color: white;
@@ -82,6 +90,10 @@ section h2 {
   margin: 1.5rem 0 1rem 0;
   text-align: center;
   text-shadow: 0 0 5px rgba(107, 255, 5, 0.7);
+}
+
+.challenges-section {
+  width: 100%;
 }
 
 .challenges-list {
@@ -144,7 +156,6 @@ section h2 {
   background-color: var(--green);
   color: #000;
   border: none;
-  padding: 0.3rem 0.8rem;
   border-radius: 8px;
   cursor: pointer;
   font-weight: bold;
@@ -155,6 +166,21 @@ section h2 {
 .like-btn:hover {
   background-color: #33cc33;
   transform: scale(1.05);
+}
+
+.challenge-likes {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+
+.vote-count {
+  display: flex;            /* pour centrer la hauteur de la ligne */
+  align-items: center;
+  line-height: 1;
+  font-weight: bold;        /* tu l’avais sur .challenge-votes span */
+  color: var(--green);
 }
 
 /* ----- ACTIONS ----- */
