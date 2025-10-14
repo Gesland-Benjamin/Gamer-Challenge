@@ -1,15 +1,15 @@
-.mychallenges-main {
+.profile {
   display: flex;
   justify-content: center;
   margin-top: 2rem;
 }
 
-.profile-section {
+.profile__user {
   text-align: center;
   margin-bottom: 2rem;
 }
 
-.profile-section img {
+.profile__avatar {
   border-radius: 50%;
   border: 2px solid var(--fluogreen-color);
   width: 80px;
@@ -17,37 +17,37 @@
   margin-bottom: 1rem;
 }
 
-.socials {
+.profile__socials {
   display: flex;
   justify-content: center;
   gap: 1.5rem;
   margin-bottom: 2rem;
 }
 
-.socials a {
+.profile__social-link {
   font-size: 2rem;
   color: var(--fluogreen-color);
   transition: color 0.2s;
 }
 
-.socials a:hover {
+.profile__social-link:hover {
   color: #fff;
 }
 
-.challenges-section h2 {
+.profile__challenges-title {
   text-align: center;
 }
 
-.mychallenges-list {
+.profile__challenges-list {
   list-style: none;
   padding: 0;
 }
 
-.mychallenges-list li {
+.profile__challenges-item {
   margin-bottom: 1.5rem;
 }
 
-.mychallenges-card {
+.profile__challenge-card {
   background: #11380f;
   border: 2px solid #44b716;
   border-radius: 16px;
@@ -56,14 +56,15 @@
   color: #fff;
 }
 
-.mychallenges-card h3 {
+.profile__challenge-title {
   margin-bottom: 0.5rem;
 }
 
-.mychallenges-card p {
+.profile__challenge-game {
   margin-bottom: 0.7rem;
 }
 
-.mychallenges-card a {
-  margin: 0;
+.profile__no-challenge {
+  text-align: center;
+  color: #fff;
 }

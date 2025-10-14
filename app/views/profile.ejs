@@ -1,36 +1,36 @@
 <%- include('partials/header.ejs') %>
 <%- include('partials/aside_nav.ejs') %>
 
-<main class="mychallenges-main">
-  <section class="profile-section">
-    <h1><%= user.username %></h1>
-    <img src="<%= user.picture %>" alt="avatar" />
+<main class="profile">
+  <section class="profile__user">
+    <h1 class="profile__username"><%= user.username %></h1>
+    <img class="profile__avatar" src="<%= user.picture %>" alt="avatar" />
 
-    <h2>Réseaux sociaux</h2>
-    <div class="socials">
+    <h2 class="profile__subtitle">Réseaux sociaux</h2>
+    <div class="profile__socials">
       <% const socials=[ { url: user.twitch_url, icon: 'fa-twitch' }, { url: user.youtube_url, icon: 'fa-youtube' }, { url: user.discord_url, icon: 'fa-discord' } ]; socials.forEach(social=> { if (social.url) { %>
-        <a href="<%= social.url %>" target="_blank">
+        <a class="profile__social-link" href="<%= social.url %>" target="_blank">
           <i class="fa-brands <%= social.icon %>"></i>
         </a>
       <% } }); %>
     </div>
   </section>
 
-  <section class="challenges-section">
-    <h2>Mes challenges</h2>
-    <ul class="mychallenges-list">
+  <section class="profile__challenges">
+    <h2 class="profile__challenges-title">Mes challenges</h2>
+    <ul class="profile__challenges-list">
       <% if (listChallenges && listChallenges.length > 0) { %>
         <% listChallenges.forEach(challenge => { %>
-          <li>
-            <article class="mychallenges-card">
-              <h3><%= challenge.name %></h3>
-              <p>Jeu : <%= challenge.game.name %></p>
-              <a href="/challenges/<%= challenge.id %>" target="_blank" class="button">Voir le challenge</a>
+          <li class="profile__challenges-item">
+            <article class="profile__challenge-card">
+              <h3 class="profile__challenge-title"><%= challenge.name %></h3>
+              <p class="profile__challenge-game">Jeu : <%= challenge.game.name %></p>
+              <a href="/challenges/<%= challenge.id %>" target="_blank" class="myButton-form">Voir le challenge</a>
             </article>
           </li>
         <% }) %>
       <% } else { %>
-        <p>Aucun challenge pour le moment 😢</p>
+        <p class="profile__no-challenge">Aucun challenge pour le moment 😢</p>
       <% } %>
     </ul>
   </section>
