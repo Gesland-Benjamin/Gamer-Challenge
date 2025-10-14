@@ -58,18 +58,20 @@
   color: #a0a0a0;
 }
 
-.like-btn {
-  background-color: var(--fluogreen-color);
+.challenges-section__like-btn {
+  background: none;
+  color: #000;
   border: none;
-  padding: 0.7rem 1.5rem;
-  border-radius: 5px;
-  font-weight: bold;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  font-weight: bold;
+  font-size: 0.9rem;
+  padding: 0.4rem 0.8rem;
 }
 
-.like-btn:hover {
+.challenge {
   background-color: #33cc33;
+  color: white;
 }
 
 .upload-link {

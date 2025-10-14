@@ -21,7 +21,7 @@
       <p>
         Votes: <span id="votes-<%= challenge.id %>"><%= challenge.dataValues.voteCount || 0 %></span>
       </p>
-      <button class="like-btn" data-id="<%= challenge.id %>">J'aime</button>
+      <button class="challenges-section__like-btn challenge" data-id="<%= challenge.id %>">J'aime</button>
 
       <!-- Lien pour uploader une vidéo -->
       <a href="/challenges/<%= challenge.id %>/upload/video" class="upload-link">Uploader une vidéo</a>
