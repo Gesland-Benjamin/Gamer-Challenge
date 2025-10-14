@@ -1,4 +1,4 @@
-  document.querySelectorAll(".like-btn").forEach(button => {
+  document.querySelectorAll(".challenges-section__like-btn").forEach(button => {
     button.addEventListener("click", async () => {
       const challengeId = button.dataset.id;
 
@@ -11,6 +11,7 @@
 
       if (data.success) {
         document.querySelector(`#votes-${challengeId}`).textContent = data.votes;
+        button.classList.toggle("liked");
       } else {
         alert(data.error || "Erreur lors du vote");
       }
