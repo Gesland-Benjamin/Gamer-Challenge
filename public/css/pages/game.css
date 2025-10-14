@@ -10,8 +10,10 @@
 body {
   margin: 0;
   padding: 0;
-  overflow-x: hidden; /* ✅ empêche le scroll horizontal */
-  background-color: #000; /* optionnel, fond neutre */
+  overflow-x: hidden;
+  /* ✅ empêche le scroll horizontal */
+  background-color: #000;
+  /* optionnel, fond neutre */
 }
 
 .game-page-main {
@@ -32,11 +34,13 @@ body {
   justify-content: space-between;
   gap: 2rem;
   margin-bottom: 2rem;
-  flex-wrap: wrap; /* ✅ s’adapte aux petits écrans */
+  flex-wrap: wrap;
+  /* ✅ s’adapte aux petits écrans */
 }
 
 .game-header__cover-wrapper {
-  flex: 0 0 250px; /* ✅ taille réduite */
+  flex: 0 0 250px;
+  /* ✅ taille réduite */
 }
 
 .game-header__cover {
@@ -51,10 +55,11 @@ body {
 .game-header__game-info {
   flex: 1;
   min-width: 300px;
-  max-width: 600px; /* ✅ évite d’occuper trop d’espace */
+  max-width: 600px;
+  /* ✅ évite d’occuper trop d’espace */
 }
 
-.game-header__game-info__name{
+.game-header__game-info__name {
   font-size: 1.8rem;
   color: var(--green);
   text-shadow: 0 0 8px rgba(77, 255, 77, 0.8);
@@ -84,7 +89,7 @@ body {
 }
 
 /* ----- SECTION CHALLENGES ----- */
-.challenges-section__h2 {
+.challenges-section__title {
   color: white;
   font-size: 1.6rem;
   margin: 1.5rem 0 1rem 0;
@@ -131,13 +136,13 @@ body {
   box-shadow: 0 0 6px rgba(77, 255, 77, 0.3);
 }
 
-.challenge a {
+.challenges-section__name {
   color: var(--text-light);
   text-decoration: none;
   font-weight: 500;
 }
 
-.challenge a:hover {
+.challenges-section__name:hover {
   color: var(--green);
 }
 
@@ -152,8 +157,12 @@ body {
   color: var(--green);
 }
 
+.fa-solid {
+  color: var(--text-light)
+}
+
 .challenges-section__like-btn {
-  background-color: var(--green);
+  background: none;
   color: #000;
   border: none;
   border-radius: 8px;
@@ -161,15 +170,14 @@ body {
   font-weight: bold;
   font-size: 0.9rem;
   padding: 0.4rem 0.8rem;
-  transition: all 0.2s ease;
 }
 
-.challenges-section__like-btn:hover {
-  background-color: #33cc33;
-  transform: scale(1.05);
+.challenges-section__like-btn.liked i {
+  color : #33cc33;
 }
 
-.challenges-section__challenge-likes{
+
+.challenges-section__challenge-likes {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -177,10 +185,12 @@ body {
 
 
 .challenges-section__vote-count {
-  display: flex;            /* pour centrer la hauteur de la ligne */
+  display: flex;
+  /* pour centrer la hauteur de la ligne */
   align-items: center;
   line-height: 1;
-  font-weight: bold;        /* tu l’avais sur .challenge-votes span */
+  font-weight: bold;
+  /* tu l’avais sur .challenge-votes span */
   color: var(--green);
 }
 
@@ -190,3 +200,22 @@ body {
   text-align: center;
 }
 
+.game-actions__btn {
+  display: inline-block;
+  background-color: var(--green-color);
+  color: white;
+  cursor: pointer;
+  margin: 1rem;
+  padding: 0.7em;
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  border: none;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.game-actions__btn:hover {
+  background-color: #33cc33;
+  transform: scale(1.05);
+}
