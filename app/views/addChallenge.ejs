@@ -1,33 +1,33 @@
 <%- include('./partials/header') %> 
 <%- include('./partials/aside_nav') %>
 
-<main class="addChallenge__main">
+<main class="add-challenge">
 
-  <div class="games__top-title-wrapper">
-    <span class="games__top-title">AJOUTER UN CHALLENGE</span>
-    <div class="games__top-bar"></div>
+  <div class="add-challenge__header">
+    <span class="add-challenge__title">AJOUTER UN CHALLENGE</span>
+    <div class="add-challenge__title-bar"></div>
   </div>
 
-  <!-- FORM -->
-  <section class="addChallenge_form">
+  <!-- FORMULAIRE -->
+  <section class="add-challenge__form-section">
 
-    <div class="form__container">
-      <form method="POST" class="form_register" action="/challenges/<%= game.id %>/addChallenge">
-      <legend class="form__legend">Ajouter un challenge sur <%= game.name %></legend>
+    <div class="add-challenge__form-container">
+      <form method="POST" class="add-challenge__form" action="/challenges/<%= game.id %>/addChallenge">
+        <legend class="add-challenge__legend">Ajouter un challenge sur <%= game.name %></legend>
 
-        <div class="form_content_container">
-          <input type="text" placeholder="Titre du challenge" name="name" class="form__input">
+        <div class="add-challenge__input-group">
+          <input type="text" placeholder="Titre du challenge" name="name" class="add-challenge__input">
         </div>
 
-        <div class="form_content_container">
-          <textarea placeholder="Description" name="description" class="form__input"></textarea>
+        <div class="add-challenge__input-group">
+          <textarea placeholder="Description" name="description" class="add-challenge__input"></textarea>
         </div>
 
-        <button class="myButton-form" type="submit">Valider</button>
+        <button class="add-challenge__submit-btn" type="submit">Valider</button>
       </form>
     </div>
 
-    <a href="/" class="button">Retour à l'accueil</a>
+    <a href="/" class="add-challenge__return-btn">Retour à l'accueil</a>
   </section>
 </main>
 

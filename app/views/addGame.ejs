@@ -1,38 +1,42 @@
 <%- include('./partials/header') %>
 <%- include('./partials/aside_nav') %>
 
-<main class="addGame__main">
-  <section class="add_form">
-    <div class="forms-container">
-      <div>
-        <form action="/admin/addgame" method="POST">
-          <legend class="form-legend">AJOUTER UN JEU</legend>
+<main class="add-game">
+  <section class="add-game__form-section">
+    <div class="add-game__form-container">
+      <form action="/admin/addgame" method="POST" class="add-game__form">
+
+        <legend class="add-game__form-legend">AJOUTER UN JEU</legend>
          
-            <div class="input-with-icon">
-              <input class="input" type="text" placeholder="Nom du jeu" name="name">
-              <i class="edit-icon"></i>
-            </div>
-            <div class="input-with-icon">
-              <textarea class="input" placeholder="Description" name="description"></textarea>
-              <i class="edit-icon"></i>
-            </div>
-            <div class="input-with-icon">
-              <input class="input" type="date" placeholder="Release Year" name="release_year">
-              <i class="edit-icon"></i>
-            </div>
-            <div class="input-with-icon">
-              <input class="input" type="text" placeholder="Genre" name="genre">
-              <i class="edit-icon"></i>
-            </div>
-            <div class="input-with-icon">
-              <input class="input" type="url" id="picture" name="picture" placeholder="URL de l'image du jeu">
-              <i class="edit-icon"></i>
-            </div>
-            <button class="myButton-form" type="submit">Valider</button>
-          
-        </form>
-        <a href="/" class="button">Retour à l'accueil</a>
-      </div>
+        <div class="add-game__input-group">
+          <input class="add-game__input" type="text" placeholder="Nom du jeu" name="name">
+          <i class="add-game__icon"></i>
+        </div>
+
+        <div class="add-game__input-group">
+          <textarea class="add-game__input" placeholder="Description" name="description"></textarea>
+          <i class="add-game__icon"></i>
+        </div>
+
+        <div class="add-game__input-group">
+          <input class="add-game__input" type="date" placeholder="Release Year" name="release_year">
+          <i class="add-game__icon"></i>
+        </div>
+
+        <div class="add-game__input-group">
+          <input class="add-game__input" type="text" placeholder="Genre" name="genre">
+          <i class="add-game__icon"></i>
+        </div>
+
+        <div class="add-game__input-group">
+          <input class="add-game__input" type="url" id="picture" name="picture" placeholder="URL de l'image du jeu">
+          <i class="add-game__icon"></i>
+        </div>
+
+        <button class="add-game__submit-btn" type="submit">Valider</button>
+      </form>
+
+      <a href="/" class="add-game__return-btn">Retour à l'accueil</a>
     </div>
   </section>
 </main>
