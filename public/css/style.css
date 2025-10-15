@@ -70,6 +70,30 @@ main {
   flex: 1;
 }
 
+
+.myButton-form {
+  display: block;
+  margin: 1.5rem auto 0 auto;
+  background-color: var(--green-color);
+  border-radius: 28px;
+  border: 1px solid #18ab29;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0.3rem 2rem;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #2f6627;
+}
+.myButton-form:hover {
+  background-color: #44b716;
+}
+.myButton-form:active {
+  position: relative;
+  top: 1px;
+}
+
 .button {
   display: inline-block;
   background-color: var(--green-color);

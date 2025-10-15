@@ -74,10 +74,12 @@
 }
 
 .game-cover {
-  height: 25%;
-  width: 45%;
+  width: 100%;
+  max-width: 220px; /* ou la largeur max souhaitée */
+  height: auto;
   border: 2px solid var(--fluogreen-color);
   border-radius: 20px;
+  object-fit: contain; /* ou cover selon le rendu désiré */
 }
 
 .game-name {

@@ -42,11 +42,11 @@
 <div class="button_challenge"> 
     <% if (user && (user.id === challenge.user_id || user.role === 'admin')) { %>
         <form action="/challenges/<%= challenge.id %>/delete" method="POST">
-          <button class="button-delete" type="submit">Supprimer</button>
+          <button class="myButton-form" type="submit">Supprimer</button>
         </form>
-        <a class="button" href="/challenges/<%= challenge.id %>/edit">Modifier</a>
+        <a class="myButton-form" href="/challenges/<%= challenge.id %>/edit">Modifier</a>
       <% } %>
-      <a class = "button" href="/games/<%=challenge.game.id%>">Retour au jeu</a>
+      <a class="myButton-form" href="/games/<%=challenge.game.id%>">Retour au jeu</a>
 </div>
    
       <!-- Pagination -->
