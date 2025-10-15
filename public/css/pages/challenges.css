@@ -1,10 +1,8 @@
-
 body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
-
 
 /* WRAPPER */
 
@@ -43,7 +41,6 @@ body {
   box-shadow: 0 0 10px rgba(50, 255, 10, 0.6);
 }
 
-
 /* TOP 3 CHALLENGES */
 .top-challenges-section {
   display: flex;
@@ -69,7 +66,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  width: 280px;        /* un peu plus large */
+  width: 280px; /* un peu plus large */
   background: #043640;
   border-radius: 20px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
@@ -81,8 +78,8 @@ body {
 /* Image du jeu */
 .top-challenges-section .challenge img {
   width: 100%;
-  height: 230px;       /* plus haute pour mieux voir l'image */
-  object-fit: cover;    /* couvre toute la zone sans déformation */
+  height: 230px; /* plus haute pour mieux voir l'image */
+  object-fit: cover; /* couvre toute la zone sans déformation */
   object-position: top; /* affiche le haut de l'image en priorité */
   border-radius: 16px 16px 0 0;
   margin-bottom: 0.5rem;
@@ -91,20 +88,18 @@ body {
 /* Nom et votes */
 .top-challenges-section .challenge h2,
 .top-challenges-section .challenge p {
-  margin: 6px 0;       /* un peu plus d’espace */
+  margin: 6px 0; /* un peu plus d’espace */
   text-align: center;
   width: 100%;
-  font-size: 1rem;     /* ajuste la taille du texte si besoin */
+  font-size: 1rem; /* ajuste la taille du texte si besoin */
 }
-
 
 /* Bouton "Voir plus" */
 .top-challenges-section .button {
   margin-top: 1rem;
 }
 
-
-.back-link{
+.back-link {
   height: 8%;
   background-color: var(--green-color);
   border-radius: 28px;
@@ -129,7 +124,6 @@ body {
   top: 1px;
 }
 
-
 /* Media queries 885px à 1279px */
 
 @media (885px <= width <= 1279px) {
@@ -138,7 +132,7 @@ body {
     grid-template-rows: repeat(3, 1fr);
     gap: 2rem;
   }
-} 
+}
 
 /* Media queries 769px à 885px */
 

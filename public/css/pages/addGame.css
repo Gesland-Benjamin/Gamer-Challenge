@@ -1,69 +1,30 @@
-:root {
-  --green-color: #449f05;
-  --lightgreen-color: #55cb04;
-  --fluogreen-color: #6bff05;
-  --deepblue-color: #043640;
-  --blue-color: #034b57;
-  --main-font: "Poppins", sans-serif;
-}
-
-
-:root {
-  --green-color: #449f05;
-  --lightgreen-color: #55cb04;
-  --fluogreen-color: #6bff05;
-  --deepblue-color: #043640;
-  --blue-color: #034b57;
-  --main-font: "Poppins", sans-serif;
-}
-
-/* ========== BLOCK PRINCIPAL ========== */
-.add-game {
-  height: 100vh;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-/* SECTION DU FORMULAIRE */
-.add-game__form-section {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
+/* ...existing code... */
 
 /* CONTAINER DU FORMULAIRE */
 .add-game__form-container {
-  height: 75%;
-  width: 25%;
-  margin: 1rem;
-  padding: 1rem;
-  gap: 10rem;
+  min-height: 400px;
+  width: 100%;
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 2rem 2rem 1.5rem 2rem;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
   border-radius: 20px;
   border: 3px solid var(--fluogreen-color);
+
+  box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.2);
+  gap: 1.5rem;
 }
 
 /* FORMULAIRE */
 .add-game__form {
   width: 100%;
-}
-
-/* TITRE / LÉGENDE */
-.add-game__form-legend {
-  font-family: var(--main-font);
-  font-weight: bolder;
-  text-decoration: none;
-  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
 }
 
 /* GROUPE INPUT + ICÔNE */
@@ -80,25 +41,32 @@
   color: white;
   border: none;
   border-radius: 25px;
-  padding: 13px;
-  margin: 20px 0;
+  padding: 13px 2.2em 13px 1em;
+  margin: 0;
   width: 100%;
   box-sizing: border-box;
   font-family: var(--main-font);
-  padding-right: 2.2em; /* espace pour l'icône */
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.2s;
+}
+
+.add-game__input:focus {
+  border: 2px solid var(--fluogreen-color);
 }
 
 /* ICÔNE */
 .add-game__icon {
   position: absolute;
-  right: 1rem;
+  right: 1.2em;
   color: var(--fluogreen-color);
+  pointer-events: none;
+  font-size: 1.2em;
 }
 
 /* BOUTON DE VALIDATION */
 .add-game__submit-btn {
-  width: 45%;
-  display: block;
+  width: 100%;
   background-color: var(--green-color);
   border-radius: 28px;
   border: 1px solid #18ab29;
@@ -107,18 +75,20 @@
   font-family: var(--main-font);
   font-size: 1rem;
   font-weight: bold;
-  padding: 0.3rem 2rem;
+  padding: 0.7rem 0;
   text-decoration: none;
   text-shadow: 0px 1px 0px #2f6627;
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 
-/* BOUTON DE RETOUR */
-.add-game__return-btn {
-  display: inline-block;
-  margin-top: 2rem;
-  text-decoration: none;
-  color: var(--fluogreen-color);
-  font-family: var(--main-font);
-  font-weight: bold;
+.add-game__submit-btn:hover {
+  background-color: var(--lightgreen-color);
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .add-game__form-container {
+    max-width: 95vw;
+    padding: 1rem;
+  }
 }
