@@ -39,6 +39,11 @@
 }
 
 .challenges-section__mychallenges-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
   list-style: none;
   padding: 0;
 }
@@ -51,9 +56,15 @@
   background: #11380f;
   border: 2px solid #44b716;
   border-radius: 16px;
-  padding: 1.2rem;
+  padding: 1.2rem 2rem;
   box-shadow: 0 2px 12px rgba(0,0,0,0.12);
   color: #fff;
+  min-width: 260px;
+  max-width: 320px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .challenges-section__mychallenges-card h3 {

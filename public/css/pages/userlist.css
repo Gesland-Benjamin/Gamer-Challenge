@@ -1,0 +1,71 @@
+.user-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.user-list__card {
+  background: #11380f;
+  border: 2px solid #44b716;
+  border-radius: 16px;
+  padding: 1.2rem 2rem;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+  color: #fff;
+  min-width: 260px;
+  max-width: 320px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-list__card h3 {
+  margin-bottom: 0.7rem;
+  font-size: 1.4rem;
+}
+
+.user-list__card p {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.user-list__banned {
+  color: #ff4d4f;
+  font-weight: bold;
+}
+
+.user-list__active {
+  color: var(--fluogreen-color, #44b716);
+  font-weight: bold;
+}
+
+.user-list__ban-button,
+.user-list__unban-button {
+  background: var(--fluogreen-color, #44b716);
+  color: #11380f;
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  margin-top: 0.5rem;
+}
+
+.user-list__ban-button:hover {
+  background: #ff4d4f;
+  color: #fff;
+}
+
+.user-list__unban-button {
+  background: #ff4d4f;
+  color: #fff;
+}
+
+.user-list__unban-button:hover {
+  background: var(--fluogreen-color, #44b716);
+  color: #11380f;
+}
