@@ -49,6 +49,25 @@ npm start
 
 Le serveur sera accessible sur `http://localhost:3000` (ou le port défini dans `.env`).
 
+## Tests unitaires
+
+Des tests unitaires sont présents pour garantir la fiabilité du code.
+
+1. **Lancer les tests**
+
+```bash
+npm test
+```
+
+2. **Structure des tests**
+
+Les fichiers de tests se trouvent généralement à côté des fichiers à tester avec l’extension `.test.js`.
+
+3. **Conseils**
+
+- Vérifiez que toutes les dépendances de test (`vitest`, `@testing-library/dom`,`jsdom`) sont bien installées.
+- Pour exécuter un test spécifique, référez-vous à la documentation de l’outil de test utilisé.
+
 ## Structure du projet
 
 - `app/` : Contrôleurs, modèles, routes, vues EJS
