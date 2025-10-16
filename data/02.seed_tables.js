@@ -52,11 +52,11 @@ const game2 = await Game.create({
     picture: "https://images.igdb.com/igdb/image/upload/t_cover_big/co9rwo.webp"
 });
 const game3 = await Game.create({
-    name: "ANIMAL CROSSING: NEW HORIZONS",
-    description: "Dans Animal Crossing: New Horizons, le joueur incarne un personnage qui emménage sur une île déserte, avec pour objectif de créer et personnaliser son village idéal. Le jeu propose un cycle jour/nuit et saisons dynamiques, des interactions avec des villageois animaux, la pêche, la chasse aux insectes, la décoration et la gestion des ressources. Grâce à son rythme relaxant et sa liberté totale, le jeu offre une expérience immersive et créative, idéale pour les joueurs de tous âges.",
-    genre: "Simulation de vie",
-    release_year: new Date('2020'),
-    picture: "https://images.igdb.com/igdb/image/upload/t_cover_big/co3wls.webp"
+    name: "ELDEN RING",
+    description: "Elden Ring est un jeu vidéo d'action-RPG développé par FromSoftware, connu pour son monde ouvert vaste et interconnecté. Les joueurs explorent un royaume fantastique rempli de créatures redoutables, de donjons mystérieux et de quêtes épiques. Le système de combat est fluide et exigeant, avec une grande variété d'armes et de compétences à maîtriser. L'histoire, coécrite par George R.R. Martin, plonge les joueurs dans un univers riche en lore et en mythologie.",
+    genre: "Action-RPG, monde ouvert",
+    release_year: new Date('2022'),
+    picture: "https://images.igdb.com/igdb/image/upload/t_cover_big/co4jni.webp"
 });
 const game4 = await Game.create({
     name: "MARIO KART 8",
@@ -66,11 +66,11 @@ const game4 = await Game.create({
     picture: "https://images.igdb.com/igdb/image/upload/t_cover_big/co213q.webp"
 });
 const game5 = await Game.create({
-    name: "RED DEAD REDEMPTION 2",
-    description: "Red Dead Redemption 2 plonge le joueur dans l’Ouest américain à la fin du XIXᵉ siècle. Vous incarnez Arthur Morgan, membre du gang de Dutch van der Linde, naviguant entre loyauté et survie dans un monde ouvert vivant et immersif. Le jeu propose des quêtes principales et secondaires, des interactions riches avec les personnages, des activités variées (chasse, pêche, équitation) et un scénario profond mêlant action, drame et exploration. L’expérience combine liberté, réalisme et narration cinématographique, offrant une immersion totale dans l’univers du Far West.",
+    name: "GHOST OF YOTEI",
+    description: "Ghost of Yotei est un jeu d'action-aventure qui plonge le joueur dans un monde ouvert inspiré de la mythologie japonaise. Incarnez un guerrier solitaire en quête de rédemption, affrontant des créatures surnaturelles et des ennemis redoutables. Le jeu propose un système de combat fluide, des énigmes environnementales et une narration immersive, le tout dans un cadre visuellement époustouflant. Explorez des paysages variés, des forêts luxuriantes aux montagnes enneigées, tout en découvrant les secrets de Yotei.",
     genre: "Action-aventure",
-    release_year: new Date('2018'),
-    picture: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1q1f.webp"
+    release_year: new Date('2025'),
+    picture: "https://images.igdb.com/igdb/image/upload/t_cover_big/co9coo.webp"
 });
 const game6 = await Game.create({
     name: "DAYS GONE",
@@ -80,134 +80,198 @@ const game6 = await Game.create({
     picture: "https://images.igdb.com/igdb/image/upload/t_cover_big/co94bn.webp"
 });
 const game7 = await Game.create({
-    name: "NARUTO SHIPPUDEN: ULTIMATE NINJA STORM",
-    description: "Naruto Shippuden: Ultimate Ninja Storm est un jeu de combat qui plonge le joueur dans l’univers du célèbre manga Naruto. Incarnez Naruto, Sasuke et d’autres personnages emblématiques et participez à des combats dynamiques en 3D, fidèles aux techniques et jutsus de la série. Le jeu propose des modes solo et multijoueur, des cinématiques immersives racontant les arcs principaux du manga, et un gameplay mêlant stratégie, vitesse et combos spectaculaires. Grâce à ses graphismes colorés et son ambiance fidèle à l’anime, Naruto Storm offre une expérience divertissante pour les fans de la saga et les amateurs de jeux de combat.",
-    genre: "Combat, action",
-    release_year: new Date('2008'),
-    picture: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1u9d.webp"
+    name: "FINAL FANTASY 7",
+    description: "Final Fantasy 7 est un jeu de rôle emblématique qui suit l'histoire de Cloud Strife, un mercenaire engagé par un groupe de résistance pour combattre la méga-corporation Shinra. Avec son monde vaste et immersif, ses personnages mémorables et son système de combat innovant, le jeu a redéfini le genre JRPG. Les joueurs explorent des environnements variés, participent à des quêtes épiques et découvrent les secrets de l'univers de Gaia. Grâce à sa narration profonde et à sa bande-son inoubliable, Final Fantasy 7 reste l'un des jeux les plus appréciés de tous les temps.",
+    genre: "RPG, aventure",
+    release_year: new Date('2020'),
+    picture: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1qxr.webp"
 });
 const game8 = await Game.create({
-    name: "TEKKEN 8",
-    description: "Tekken 8 marque le retour triomphal de la saga emblématique de jeux de combat en 3D. Développé sur Unreal Engine 5, le jeu offre des graphismes époustouflants et des animations fluides, mettant en valeur les combats intenses et les personnages détaillés. L'histoire poursuit la tragique saga des Mishima, centrée sur le face-à-face entre Jin Kazama et Kazuya Mishima, avec des rebondissements inattendus et des révélations familiales. Le gameplay introduit le système Heat, amplifiant l'agressivité et la stratégie en combat, tout en conservant les mécaniques classiques qui ont fait le succès de la série. Avec plus de 32 personnages jouables, dont des retours iconiques et de nouveaux venus, Tekken 8 promet une expérience de jeu riche et dynamique, que ce soit en solo ou en ligne.",
-    genre: "Combat",
-    release_year: new Date('2024'),
-    picture: "https://images.igdb.com/igdb/image/upload/t_cover_big/co7lbb.webp"
+    name: "SILENT HILL 2",
+    description: "Silent Hill 2 est un jeu d'horreur psychologique qui suit l'histoire de James Sunderland, un homme à la recherche de sa femme décédée dans la mystérieuse ville de Silent Hill. Le jeu est connu pour son atmosphère oppressante, ses énigmes complexes et ses thèmes profonds liés à la culpabilité et au chagrin. Les joueurs explorent des environnements cauchemardesques, rencontrent des créatures terrifiantes et découvrent des éléments narratifs qui les poussent à remettre en question la réalité. Avec sa bande-son immersive et son esthétique unique, Silent Hill 2 est considéré comme l'un des meilleurs jeux d'horreur de tous les temps.",
+    genre: "Horreur, aventure",
+    release_year: new Date('2025'),
+    picture: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5l7s.webp"
 });
 const game9 = await Game.create({
-    name: "Dofus",
-    description: "Dofus est un jeu de rôle massivement multijoueur en ligne (MMORPG) se déroulant dans le monde fantastique du Krosmoz. Les joueurs incarnent des personnages de différentes classes et races, chacun avec ses compétences uniques, et partent à l’aventure pour retrouver les légendaires œufs de dragon appelés Dofus. Le jeu combine exploration, quêtes, combats tactiques au tour par tour et interactions sociales avec d’autres joueurs. Avec ses graphismes en 2D colorés et son univers riche, Dofus offre une expérience immersive, stratégique et communautaire, adaptée aux fans de jeux de rôle et d’aventure.",
-    genre: "MMORPG, stratégie, aventure",
-    release_year: new Date('2004'),
-    picture: "https://images.igdb.com/igdb/image/upload/t_cover_big/co93i0.webp"
+    name: "RESIDENT EVIL 4 REMAKE",
+    description: "Resident Evil 4 Remake est une réimagination du classique jeu d'action-aventure et d'horreur de survie. Les joueurs incarnent Leon S. Kennedy, un agent du gouvernement américain, qui est envoyé en Europe pour sauver la fille du président, Ashley Graham, kidnappée par un culte mystérieux. Le jeu se déroule dans un village isolé, où Leon doit affronter des ennemis terrifiants, résoudre des énigmes et survivre à des situations de plus en plus intenses. Avec des graphismes améliorés, un gameplay repensé et une atmosphère immersive, Resident Evil 4 Remake vise à capturer l'essence du jeu original tout en offrant une expérience moderne et captivante.",
+    genre: "Action, aventure, horreur",
+    release_year: new Date('2023'),
+    picture: "https://images.igdb.com/igdb/image/upload/t_cover_big/co6bo0.webp"
 });
 const game10 = await Game.create({
-    name: "DISNEY DREAMLIGHT VALLEY",
-    description: "Disney Dreamlight Valley est un jeu hybride mêlant simulation de vie et aventure, où les joueurs sont invités à restaurer un vallon magique envahi par des ronces malveillantes. Incarnez un personnage personnalisable et explorez des royaumes inspirés des univers Disney et Pixar, tels que La Belle et la Bête, Inside Out, Peter Pan et Aladdin. Au fil de l'aventure, vous rencontrerez des personnages emblématiques, résoudrez des énigmes et participerez à des quêtes captivantes pour redonner vie à la vallée.",
-    genre: "Simulation de vie, aventure",
-    release_year: new Date('2023'),
-    picture: "https://images.igdb.com/igdb/image/upload/t_cover_big/co4p0c.webp"
+    name: "BLOODBORNE",
+    description: "Bloodborne est un jeu d'action-RPG développé par FromSoftware, se déroulant dans un univers gothique et cauchemardesque. Les joueurs incarnent un chasseur de monstres dans la ville maudite de Yharnam, où ils doivent affronter des créatures terrifiantes et des ennemis redoutables. Le jeu est connu pour son gameplay rapide et agressif, son atmosphère immersive et son histoire cryptique. Les joueurs peuvent personnaliser leur personnage, améliorer leurs compétences et explorer des environnements interconnectés remplis de secrets et de défis. Avec son esthétique unique et son ambiance oppressante, Bloodborne est considéré comme l'un des meilleurs jeux de la génération.",
+    genre: "Action-RPG, horreur",
+    release_year: new Date('2015'),
+    picture: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1rba.webp"
 });
 const game11 = await Game.create({
-    name: "FAR CRY 6",
-    description: "Far Cry 6 transporte les joueurs dans le pays fictif de Yara, inspiré de Cuba, où ils incarnent Dani Rojas, un guérillero luttant contre le régime oppressif du dictateur Antón Castillo, interprété par Giancarlo Esposito. Le jeu propose un vaste monde ouvert à explorer, avec des environnements variés allant des plages tropicales aux jungles denses et aux villes animées. Les joueurs peuvent utiliser une variété d'armes, de véhicules et de compétences pour mener des missions, recruter des alliés et participer à des combats intenses contre les forces gouvernementales. Avec son scénario captivant, ses personnages mémorables et son gameplay dynamique, Far Cry 6 offre une expérience immersive et palpitante dans un cadre exotique.",
-    genre: "FPS, action-aventure",
+    name: "SEKIRO: SHADOWS DIE TWICE",
+    description: "Sekiro: Shadows Die Twice est un jeu d'action-aventure développé par FromSoftware, se déroulant dans un Japon féodal fictif. Les joueurs incarnent un shinobi nommé Wolf, qui doit sauver son maître kidnappé et venger sa famille. Le jeu se distingue par son système de combat exigeant, mettant l'accent sur la précision et la stratégie. Les joueurs peuvent explorer un monde interconnecté, rempli de secrets, d'ennemis redoutables et de boss épiques. Avec son esthétique unique, son gameplay innovant et sa narration immersive, Sekiro a reçu des éloges critiques et a remporté plusieurs prix, dont le titre de Jeu de l'année.",
+    genre: "Action-aventure, RPG",
     release_year: new Date('2021'),
-    picture: "https://images.igdb.com/igdb/image/upload/t_cover_big/co2npg.webp"
+    picture: "https://images.igdb.com/igdb/image/upload/t_cover_big/co2a23.webp"
 });
 const game12 = await Game.create({
-    name: "THE LEGEND OF ZELDA: TEARS OF THE KINGDOM",
-    description: "The Legend of Zelda: Tears of the Kingdom est un jeu d'action-aventure en monde ouvert développé par Nintendo, suite directe de Breath of the Wild. Le jeu se déroule à Hyrule, où Link doit explorer des environnements variés, résoudre des énigmes complexes et combattre des ennemis redoutables pour sauver la princesse Zelda et restaurer la paix dans le royaume. Avec des graphismes époustouflants, une bande-son immersive et un gameplay innovant, Tears of the Kingdom offre une expérience riche en exploration, en aventure et en découverte.",
+    name: "GOD OF WAR RAGNAROK",
+    description: "God of War Ragnarök est un jeu d'action-aventure développé par Santa Monica Studio et publié par Sony Interactive Entertainment. Suite directe de God of War (2018), le jeu suit les aventures de Kratos et de son fils Atreus alors qu'ils naviguent à travers les neuf royaumes de la mythologie nordique. Les joueurs doivent affronter de nouveaux ennemis, résoudre des énigmes et découvrir des secrets tout en explorant des environnements magnifiques et variés. Avec un système de combat amélioré, une narration immersive et des graphismes époustouflants, God of War Ragnarök promet d'offrir une expérience inoubliable aux fans de la franchise.",
+    genre: "Action-aventure, RPG",
+    release_year: new Date('2022'),
+    picture: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5s5v.webp"
+});
+
+const game13 = await Game.create({
+    name: "MAFIA: THE OLD COUNTRY",
+    description: "Mafia: The Old Country est un jeu d'action-aventure en monde ouvert qui plonge les joueurs dans l'univers du crime organisé des années 1930 en Sicile. Incarnez un jeune homme cherchant à gravir les échelons de la pègre tout en naviguant entre loyauté, trahison et pouvoir. Le jeu offre une narration cinématographique, des fusillades intenses et une reconstitution historique immersive.",
     genre: "Action-aventure, monde ouvert",
-    release_year: new Date('2023'),
-    picture: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5vmg.webp"
+    release_year: new Date('2025'),
+    picture: "https://images.igdb.com/igdb/image/upload/t_cover_big/coa9dq.webp"
 });
 
 
-// Création des défis (Challenge) : on utilise username et pas user_id
+const game14 = await Game.create({
+    name: "THE ELDER SCROLLS V: SKYRIM",
+    description: "The Elder Scrolls V: Skyrim est un RPG en monde ouvert développé par Bethesda Game Studios. Les joueurs incarnent le Dovahkiin, un héros capable d’absorber les âmes des dragons. Explorez la province de Bordeciel, accomplissez des quêtes épiques, rejoignez des guildes et façonnez votre destin dans un univers riche et vivant.",
+    genre: "RPG, monde ouvert, fantasy",
+    release_year: new Date('2011'),
+    picture: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1tnw.webp"
+});
+
+
+const game15 = await Game.create({
+    name: "THE ELDER SCROLLS IV: OBLIVION",
+    description: "The Elder Scrolls IV: Oblivion est un jeu de rôle en monde ouvert acclamé par la critique. Plongez dans le royaume impérial de Cyrodiil et combattez les forces démoniaques venues d’Oblivion. Grâce à sa liberté d’exploration, ses quêtes profondes et son univers immersif, Oblivion a redéfini le genre RPG occidental.",
+    genre: "RPG, monde ouvert, fantasy",
+    release_year: new Date('2006'),
+    picture: "https://images.igdb.com/igdb/image/upload/t_cover_big/co8fpz.webp"
+});
+
+const game16 = await Game.create({
+    name: "THE WITCHER 3: WILD HUNT",
+    description: "The Witcher 3: Wild Hunt est un RPG en monde ouvert développé par CD Projekt Red. Incarnez Geralt de Riv, un sorceleur chasseur de monstres, dans une quête épique à travers des royaumes déchirés par la guerre. Avec ses choix moraux, ses quêtes complexes et ses graphismes somptueux, le jeu est considéré comme une référence du genre.",
+    genre: "Action-RPG, monde ouvert, fantasy",
+    release_year: new Date('2015'),
+    picture: "https://images.igdb.com/igdb/image/upload/t_cover_big/coaarl.webp"
+});
+
+
+const game17 = await Game.create({
+    name: "EXPEDITION 33",
+    description: "Expedition 33 est un jeu d'aventure narratif et stratégique qui suit un groupe d'explorateurs dans un monde post-apocalyptique mystérieux. Mélangeant exploration, combat tactique et choix narratifs, le jeu met l'accent sur la survie, la découverte et la gestion d'équipe au sein d'environnements magnifiques mais dangereux.",
+    genre: "Aventure, stratégie, narration",
+    release_year: new Date('2025'),
+    picture: "https://images.igdb.com/igdb/image/upload/t_cover_big/co9gam.webp"
+});
+
+
+const game18 = await Game.create({
+    name: "CRASH BANDICOOT 4: IT’S ABOUT TIME",
+    description: "Crash Bandicoot 4: It’s About Time est un jeu de plateforme développé par Toys for Bob. Rejoignez Crash, Coco et leurs amis dans une aventure pleine d’humour et de défis à travers le temps et l’espace. Avec de nouveaux pouvoirs, des graphismes colorés et une difficulté stimulante, ce titre modernise la formule classique de la série.",
+    genre: "Plateforme, action, aventure",
+    release_year: new Date('2020'),
+    picture: "https://images.igdb.com/igdb/image/upload/t_cover_big/co2hp4.webp"
+});
+
+
+const game19 = await Game.create({
+    name: "GOAT SIMULATOR 3",
+    description: "Goat Simulator 3 est un jeu de simulation humoristique où les joueurs incarnent une chèvre dans un monde ouvert chaotique. Cassez tout sur votre passage, expérimentez des situations absurdes et invitez vos amis pour des parties multijoueur délirantes. C’est une expérience absurde et hilarante qui ne se prend jamais au sérieux.",
+    genre: "Simulation, bac à sable, humour",
+    release_year: new Date('2022'),
+    picture: "https://images.igdb.com/igdb/image/upload/t_cover_big/co4uks.webp"
+});
+
+
+const game20 = await Game.create({
+    name: "VALORANT",
+    description: "Valorant est un jeu de tir tactique à la première personne développé par Riot Games. Mélangeant stratégie, précision et compétences uniques de chaque agent, le jeu met l'accent sur le travail d’équipe et la compétition. Chaque partie est un affrontement intense où la coordination et la maîtrise des capacités font la différence.",
+    genre: "FPS, tactique, multijoueur compétitif",
+    release_year: new Date('2020'),
+    picture: "https://images.igdb.com/igdb/image/upload/t_cover_big/coa7oc.webp"
+});
+
+
+const game21 = await Game.create({
+    name: "GRAN TURISMO 7",
+    description: "Gran Turismo 7 est un jeu de simulation automobile développé par Polyphony Digital. Offrant un réalisme exceptionnel, une collection impressionnante de voitures et de circuits du monde entier, il s’adresse aux passionnés de course. Le jeu combine réalisme technique, personnalisation approfondie et sensations de conduite authentiques.",
+    genre: "Course, simulation, réalisme",
+    release_year: new Date('2022'),
+    picture: "https://images.igdb.com/igdb/image/upload/t_cover_big/co2g84.webp"
+});
+
+
+
+// Création des challenges
+
+/*CYBERPUNK 2077*/
 const challenge1 = await Challenge.create({
-    name: "Survivant des 10 minutes",
-    description: "Tiens-toi en vie pendant au moins 10 minutes sans mourir.",
+    name: "Légende de Night City",
+    description: "Atteignez le niveau de réputation maximale dans Night City et devenez une véritable légende urbaine.",
     picture: game1.picture,
     release_date: new Date(),
     game_id: game1.id,
     user_id: user1.id,
     username: user1.username
 });
-// --- CHALLENGES EXISTANTS AMÉLIORÉS ---
 
 const challenge2 = await Challenge.create({
-    name: "Tir parfait",
-    description: "Montre ta précision ultime : réussis 10 tirs à la tête consécutifs sans en manquer un seul. La moindre erreur te ramènera à zéro — calme, précision et timing seront essentiels.",
-    picture: game2.picture,
-    release_date: new Date(),
-    game_id: game2.id,
-    user_id: user2.id,
-    username: user2.username
-});
-
-const challenge3 = await Challenge.create({
-    name: "Sans utiliser de soins",
-    description: "Termine un niveau complet sans utiliser de soins ni de boucliers. Chaque erreur pourrait être fatale, donc anticipe, esquive et économise tes ressources pour survivre jusqu’à la fin.",
-    picture: game3.picture,
-    release_date: new Date(),
-    game_id: game3.id,
-    user_id: user3.id,
-    username: user3.username
-});
-
-const challenge4 = await Challenge.create({
-    name: "Vitesse éclair",
-    description: "Termine une mission en moins de 5 minutes. Optimise ton itinéraire, ne perds pas de temps à combattre inutilement et prouve que la rapidité est ton meilleur atout.",
+    name: "Pirate suprême",
+    description: "Neutralisez 50 ennemis à l’aide de piratages rapides. Montrez votre maîtrise du netrunning.",
     picture: game1.picture,
     release_date: new Date(),
     game_id: game1.id,
-    user_id: user4.id,
-    username: user4.username
+    user_id: user1.id,
+    username: user1.username
+});
+
+const challenge3 = await Challenge.create({
+    name: "La fin du chemin",
+    description: "Terminez la mission finale de l’histoire principale et découvrez le destin de V.",
+    picture: game1.picture,
+    release_date: new Date(),
+    game_id: game1.id,
+    user_id: user1.id,
+    username: user1.username
+});
+
+/*GTA VI*/
+
+const challenge4 = await Challenge.create({
+    name: "Roi de Leonida",
+    description: "Prenez le contrôle de tous les territoires de Leonida et dominez le crime organisé.",
+    picture: game2.picture,
+    release_date: new Date(),
+    game_id: game2.id,
+    user_id: user1.id,
+    username: user1.username
 });
 
 const challenge5 = await Challenge.create({
-    name: "Pacifiste",
-    description: "Complète un niveau sans éliminer le moindre ennemi. Utilise la furtivité, la diversion et l’intelligence pour progresser sans jamais déclencher le combat.",
+    name: "Casseur de coffres",
+    description: "Réalisez 10 braquages majeurs sans être arrêté par la police.",
     picture: game2.picture,
-    release_date: new Date(2025, 0, 10),
+    release_date: new Date(),
     game_id: game2.id,
     user_id: user1.id,
     username: user1.username
 });
 
 const challenge6 = await Challenge.create({
-    name: "Tireur d'élite",
-    description: "Termine une mission en utilisant uniquement des armes à longue portée. Chaque tir doit être réfléchi et précis : pas de fusils d’assaut, pas de grenades, juste ton œil et ton fusil.",
-    picture: game3.picture,
-    release_date: new Date(),
-    game_id: game3.id,
-    user_id: user2.id,
-    username: user2.username
-});
-
-const challenge7 = await Challenge.create({
-    name: "Mode furtif",
-    description: "Infiltre une zone entière sans te faire repérer une seule fois. Reste dans l’ombre, neutralise discrètement, et atteins ton objectif sans déclencher d’alarme.",
-    picture: game1.picture,
-    release_date: new Date(),
-    game_id: game1.id,
-    user_id: user3.id,
-    username: user3.username
-});
-
-const challenge8 = await Challenge.create({
-    name: "Combat au corps-à-corps",
-    description: "Termine une mission uniquement avec des attaques de mêlée. Pas d’armes à feu, pas de projectiles : montre ta maîtrise du combat rapproché et ton sang-froid.",
+    name: "Fuite parfaite",
+    description: "Échappez à une poursuite de niveau 5 étoiles sans subir de dégâts critiques.",
     picture: game2.picture,
     release_date: new Date(),
     game_id: game2.id,
-    user_id: user4.id,
-    username: user4.username
+    user_id: user1.id,
+    username: user1.username
 });
+/*ELDEN RING*/
 
-const challenge9 = await Challenge.create({
-    name: "Zéro dégât",
-    description: "Finis un niveau sans subir le moindre dégât. Tu devras esquiver, anticiper et jouer à la perfection : une seule erreur, et tout est à recommencer.",
+const challenge7 = await Challenge.create({
+    name: "Seigneur d’Elden",
+    description: "Terminez la quête principale et devenez le Seigneur d’Elden.",
     picture: game3.picture,
     release_date: new Date(),
     game_id: game3.id,
@@ -215,118 +279,588 @@ const challenge9 = await Challenge.create({
     username: user1.username
 });
 
-const challenge10 = await Challenge.create({
-    name: "Récolteur expert",
-    description: "Collecte 100 ressources dans une seule session de jeu. Explore chaque recoin, fouille les coffres et surveille ton inventaire pour atteindre ce score impressionnant.",
-    picture: game1.picture,
-    release_date: new Date(),
-    game_id: game1.id,
-    user_id: user2.id,
-    username: user2.username
-});
-
-const challenge11 = await Challenge.create({
-    name: "Maître des combos",
-    description: "Réalise une série de 20 coups sans interruption. Le timing et la maîtrise des enchaînements seront la clé pour maintenir ta série intacte.",
-    picture: game2.picture,
-    release_date: new Date(),
-    game_id: game2.id,
-    user_id: user3.id,
-    username: user3.username
-});
-
-const challenge12 = await Challenge.create({
-    name: "Explorateur complet",
-    description: "Découvre 100% de la carte dans un niveau. Laisse aucun endroit inexploré et révèle tous les secrets cachés de la zone.",
+const challenge8 = await Challenge.create({
+    name: "Dompteur d’étoiles",
+    description: "Vainquez le Général Radahn lors du festival de Caelid.",
     picture: game3.picture,
     release_date: new Date(),
     game_id: game3.id,
-    user_id: user4.id,
-    username: user4.username
+    user_id: user1.id,
+    username: user1.username
 });
 
-const challenge13 = await Challenge.create({
-    name: "Course contre la montre",
-    description: "Bats un boss en moins de 2 minutes. Utilise tes meilleures compétences et inflige un maximum de dégâts sans relâche pour vaincre avant la fin du chrono.",
-    picture: game1.picture,
+const challenge9 = await Challenge.create({
+    name: "L’Âge des étoiles",
+    description: "Obtenez la fin secrète liée à Ranni et libérez l’Entre-Terre de son destin.",
+    picture: game3.picture,
     release_date: new Date(),
-    game_id: game1.id,
+    game_id: game3.id,
+    user_id: user1.id,
+    username: user1.username
+});
+
+/*MARIO KART 8*/
+
+const challenge10 = await Challenge.create({
+    name: "Champion du Grand Prix",
+    description: "Remportez la coupe spéciale en difficulté 200cc.",
+    picture: game4.picture,
+    release_date: new Date(),
+    game_id: game4.id,
+    user_id: user1.id,
+    username: user1.username
+});
+
+const challenge11 = await Challenge.create({
+    name: "Maître du dérapage",
+    description: "Effectuez 100 boosts parfaits en drift.",
+    picture: game4.picture,
+    release_date: new Date(),
+    game_id: game4.id,
+    user_id: user1.id,
+    username: user1.username
+});
+
+const challenge12 = await Challenge.create({
+    name: "Sans faute",
+    description: "Gagnez 4 courses d’affilée sans tomber ni être touché par un objet.",
+    picture: game4.picture,
+    release_date: new Date(),
+    game_id: game4.id,
+    user_id: user1.id,
+    username: user1.username
+});
+
+
+/*GHOST OF TSUSHIMA*/
+
+const challenge13 = await Challenge.create({
+    name: "Le fantôme de Tsushima",
+    description: "Terminez toutes les quêtes principales et devenez une légende sur l’île.",
+    picture: game5.picture,
+    release_date: new Date(),
+    game_id: game5.id,
     user_id: user1.id,
     username: user1.username
 });
 
 const challenge14 = await Challenge.create({
-    name: "Aucun objet",
-    description: "Termine une mission sans utiliser le moindre objet ou compétence spéciale. Seules tes capacités de base feront la différence entre la victoire et la défaite.",
-    picture: game2.picture,
+    name: "Maître du katana",
+    description: "Débloquez toutes les postures et remportez 50 duels.",
+    picture: game5.picture,
     release_date: new Date(),
-    game_id: game2.id,
-    user_id: user2.id,
-    username: user2.username
+    game_id: game5.id,
+    user_id: user1.id,
+    username: user1.username
 });
 
 const challenge15 = await Challenge.create({
-    name: "Champion des défis",
-    description: "Accomplis 5 défis secondaires en une seule partie. Planifie ton itinéraire, optimise ton temps et montre que rien ne t’arrête.",
-    picture: game3.picture,
+    name: "Souffle du vent",
+    description: "Explorez 100 % de la carte et trouvez tous les sanctuaires.",
+    picture: game5.picture,
     release_date: new Date(),
-    game_id: game3.id,
-    user_id: user3.id,
-    username: user3.username
+    game_id: game5.id,
+    user_id: user1.id,
+    username: user1.username
 });
+
+/*DAYS GONE*/
 
 const challenge16 = await Challenge.create({
-    name: "Zigzag infernal",
-    description: "Esquive 50 attaques ennemies sans te faire toucher. Tes réflexes et ton anticipation seront mis à rude épreuve — reste mobile et imprévisible.",
-    picture: game1.picture,
+    name: "Chasseur de hordes",
+    description: "Éliminez toutes les hordes présentes dans la région.",
+    picture: game6.picture,
     release_date: new Date(),
-    game_id: game1.id,
-    user_id: user4.id,
-    username: user4.username
+    game_id: game6.id,
+    user_id: user1.id,
+    username: user1.username
 });
-
-
-// --- NOUVEAUX CHALLENGES AJOUTÉS ---
 
 const challenge17 = await Challenge.create({
     name: "Survivant ultime",
-    description: "Survis à 10 vagues d’ennemis sans mourir ni te cacher. C’est un test d’endurance, de gestion des ressources et de concentration absolue.",
-    picture: game2.picture,
+    description: "Survivez à 10 vagues d’ennemis sans mourir ni vous cacher.",
+    picture: game6.picture,
     release_date: new Date(),
-    game_id: game2.id,
+    game_id: game6.id,
     user_id: user1.id,
     username: user1.username
 });
 
 const challenge18 = await Challenge.create({
-    name: "Sans alarme",
-    description: "Termine une mission d’infiltration sans déclencher une seule alarme. La moindre erreur sera fatale : planifie chaque pas et observe tes adversaires.",
-    picture: game3.picture,
+    name: "Rider de l’apocalypse",
+    description: "Personnalisez votre moto au maximum et parcourez 500 km sans tomber.",
+    picture: game6.picture,
     release_date: new Date(),
-    game_id: game3.id,
+    game_id: game6.id,
+    user_id: user1.id,
+    username: user1.username
+});
+
+/*FINAL FANTASY 7 REMAKE*/
+
+const challenge19 = await Challenge.create({
+    name: "Héros de Midgar",
+    description: "Terminez la mission principale de Midgar et sauvez le secteur 7.",
+    picture: game7.picture,
+    release_date: new Date(),
+    game_id: game7.id,
     user_id: user2.id,
     username: user2.username
 });
 
-const challenge19 = await Challenge.create({
-    name: "Coureur infatigable",
-    description: "Parcours une distance totale de 10 km dans le jeu sans utiliser de véhicule ni repos. Montre ton endurance et ta détermination.",
-    picture: game1.picture,
+const challenge20 = await Challenge.create({
+    name: "Matraque de choc",
+    description: "Débloquez toutes les matérias et maîtrisez leur puissance.",
+    picture: game7.picture,
     release_date: new Date(),
-    game_id: game1.id,
+    game_id: game7.id,
+    user_id: user1.id,
+    username: user1.username
+});
+
+const challenge21 = await Challenge.create({
+    name: "Élu de l’étoile",
+    description: "Obtenez la fin canonique du jeu en accomplissant toutes les quêtes secondaires majeures.",
+    picture: game7.picture,
+    release_date: new Date(),
+    game_id: game7.id,
     user_id: user3.id,
     username: user3.username
 });
 
-const challenge20 = await Challenge.create({
-    name: "Maître stratège",
-    description: "Remporte une mission difficile en mode solo sans subir de pertes ni gaspiller de munitions. Chaque balle compte, chaque décision aussi.",
-    picture: game2.picture,
+/*SILENT HILL 2*/
+
+const challenge22 = await Challenge.create({
+    name: "Cauchemar absolu",
+    description: "Terminez le jeu avec la fin « Good + True » en explorant tous les secrets.",
+    picture: game8.picture,
     release_date: new Date(),
-    game_id: game2.id,
+    game_id: game8.id,
     user_id: user4.id,
     username: user4.username
 });
+
+const challenge23 = await Challenge.create({
+    name: "Confrontation avec Pyramid Head",
+    description: "Vainquez Pyramid Head sans utiliser de médikits.",
+    picture: game8.picture,
+    release_date: new Date(),
+    game_id: game8.id,
+    user_id: user2.id,
+    username: user2.username
+});
+
+const challenge24 = await Challenge.create({
+    name: "Journaliste du mystère",
+    description: "Collectez tous les journaux et documents secrets de Silent Hill.",
+    picture: game8.picture,
+    release_date: new Date(),
+    game_id: game8.id,
+    user_id: user1.id,
+    username: user1.username
+});
+
+/*RESIDENT EVIL 4 REMAKE*/
+const challenge25 = await Challenge.create({
+    name: "Agent d’élite",
+    description: "Terminez le jeu en difficulté Professional.",
+    picture: game9.picture,
+    release_date: new Date(),
+    game_id: game9.id,
+    user_id: user3.id,
+    username: user3.username
+});
+
+const challenge26 = await Challenge.create({
+    name: "Maîtrise des armes",
+    description: "Obtenez toutes les armes et améliorez-les au maximum.",
+    picture: game9.picture,
+    release_date: new Date(),
+    game_id: game9.id,
+    user_id: user2.id,
+    username: user2.username
+});
+
+const challenge27 = await Challenge.create({
+    name: "Zéro perte",
+    description: "Terminez le jeu sans utiliser de herbes ou de soins.",
+    picture: game9.picture,
+    release_date: new Date(),
+    game_id: game9.id,
+    user_id: user4.id,
+    username: user4.username
+});
+
+/*BLOODBORNE*/
+const challenge28 = await Challenge.create({
+    name: "Chasseur suprême",
+    description: "Vainquez le boss final et terminez l’histoire principale.",
+    picture: game10.picture,
+    release_date: new Date(),
+    game_id: game10.id,
+    user_id: user1.id,
+    username: user1.username
+});
+
+const challenge29 = await Challenge.create({
+    name: "Collectionneur de secrets",
+    description: "Obtenez tous les équipements et runes du jeu.",
+    picture: game10.picture,
+    release_date: new Date(),
+    game_id: game10.id,
+    user_id: user2.id,
+    username: user2.username
+});
+
+const challenge30 = await Challenge.create({
+    name: "Maître de la vitesse",
+    description: "Vainquez le Cleric Beast en moins de 5 minutes.",
+    picture: game10.picture,
+    release_date: new Date(),
+    game_id: game10.id,
+    user_id: user3.id,
+    username: user3.username
+});
+
+/*SEKIRO: SHADOWS DIE TWICE*/
+const challenge31 = await Challenge.create({
+    name: "Shinobi invincible",
+    description: "Vainquez Isshin, le Seigneur, sans mourir une seule fois.",
+    picture: game11.picture,
+    release_date: new Date(),
+    game_id: game11.id,
+    user_id: user4.id,
+    username: user4.username
+});
+
+const challenge32 = await Challenge.create({
+    name: "Maître du katana",
+    description: "Maîtrisez toutes les postures et techniques de combat.",
+    picture: game11.picture,
+    release_date: new Date(),
+    game_id: game11.id,
+    user_id: user1.id,
+    username: user1.username
+});
+
+const challenge33 = await Challenge.create({
+    name: "Explorateur de Hirata",
+    description: "Découvrez tous les secrets et zones cachées du château d’Hirata.",
+    picture: game11.picture,
+    release_date: new Date(),
+    game_id: game11.id,
+    user_id: user2.id,
+    username: user2.username
+});
+
+/*GOD OF WAR RAGNAROK*/
+
+const challenge34 = await Challenge.create({
+    name: "Dieu de la guerre",
+    description: "Vainquez tous les boss principaux et terminez l’histoire principale.",
+    picture: game12.picture,
+    release_date: new Date(),
+    game_id: game12.id,
+    user_id: user3.id,
+    username: user3.username
+});
+
+const challenge35 = await Challenge.create({
+    name: "Maître du Leviathan",
+    description: "Débloquez toutes les compétences et améliorations de l’arme Leviathan.",
+    picture: game12.picture,
+    release_date: new Date(),
+    game_id: game12.id,
+    user_id: user1.id,
+    username: user1.username
+});
+
+const challenge36 = await Challenge.create({
+    name: "Explorateur des Neuf Royaumes",
+    description: "Découvrez tous les secrets et coffres cachés des neuf royaumes.",
+    picture: game12.picture,
+    release_date: new Date(),
+    game_id: game12.id,
+    user_id: user4.id,
+    username: user4.username
+});
+
+/*Mafia: The Old Country*/
+const challenge37 = await Challenge.create({
+    name: "Boss de la pègre",
+    description: "Complétez toutes les missions principales et prenez le contrôle de la mafia.",
+    picture: game13.picture,
+    release_date: new Date(),
+    game_id: game13.id,
+    user_id: user2.id,
+    username: user2.username
+});
+
+const challenge38 = await Challenge.create({
+    name: "Collectionneur d’armes",
+    description: "Obtenez toutes les armes et véhicules disponibles dans le jeu.",
+    picture: game13.picture,
+    release_date: new Date(),
+    game_id: game13.id,
+    user_id: user1.id,
+    username: user1.username
+});
+
+const challenge39 = await Challenge.create({
+    name: "Maître de la discrétion",
+    description: "Terminez toutes les missions sans déclencher d’alarme ni attirer la police.",
+    picture: game13.picture,
+    release_date: new Date(),
+    game_id: game13.id,
+    user_id: user4.id,
+    username: user4.username
+});
+/*THE ELDER SCROLLS V: SKYRIM*/
+const challenge40 = await Challenge.create({
+    name: "Dovahkiin légendaire",
+    description: "Terminez la quête principale et absorbez l’âme de tous les dragons.",
+    picture: game14.picture,
+    release_date: new Date(),
+    game_id: game14.id,
+    user_id: user1.id,
+    username: user1.username
+});
+
+const challenge41 = await Challenge.create({
+    name: "Maître des guildes",
+    description: "Rejoignez et terminez toutes les quêtes majeures des guildes.",
+    picture: game14.picture,
+    release_date: new Date(),
+    game_id: game14.id,
+    user_id: user3.id,
+    username: user3.username
+});
+
+const challenge42 = await Challenge.create({
+    name: "Explorateur complet",
+    description: "Découvrez 100% de la carte et toutes les zones cachées.",
+    picture: game14.picture,
+    release_date: new Date(),
+    game_id: game14.id,
+    user_id: user2.id,
+    username: user2.username
+});
+/*THE ELDER SCROLLS IV: OBLIVION*/
+const challenge43 = await Challenge.create({
+    name: "Chevalier impérial",
+    description: "Terminez la quête principale et devenez membre de l’Ordre des Chevaliers.",
+    picture: game15.picture,
+    release_date: new Date(),
+    game_id: game15.id,
+    user_id: user4.id,
+    username: user4.username
+});
+
+const challenge44 = await Challenge.create({
+    name: "Maître des sorts",
+    description: "Apprenez et maîtrisez tous les sorts du jeu.",
+    picture: game15.picture,
+    release_date: new Date(),
+    game_id: game15.id,
+    user_id: user1.id,
+    username: user1.username
+});
+
+const challenge45 = await Challenge.create({
+    name: "Explorateur d’Oblivion",
+    description: "Découvrez toutes les dimensions et complétez toutes les quêtes secondaires.",
+    picture: game15.picture,
+    release_date: new Date(),
+    game_id: game15.id,
+    user_id: user3.id,
+    username: user3.username
+});
+/*THE WITCHER 3: WILD HUNT*/
+const challenge46 = await Challenge.create({
+    name: "Chasseur de monstres",
+    description: "Tuez tous les monstres de la carte et terminez toutes les missions secondaires.",
+    picture: game16.picture,
+    release_date: new Date(),
+    game_id: game16.id,
+    user_id: user2.id,
+    username: user2.username
+});
+
+const challenge47 = await Challenge.create({
+    name: "Maître alchimiste",
+    description: "Créez toutes les potions et élixirs disponibles et améliorez-les.",
+    picture: game16.picture,
+    release_date: new Date(),
+    game_id: game16.id,
+    user_id: user1.id,
+    username: user1.username
+});
+
+const challenge48 = await Challenge.create({
+    name: "Explorateur de Skellige",
+    description: "Découvrez toutes les îles et quêtes cachées des archipels de Skellige.",
+    picture: game16.picture,
+    release_date: new Date(),
+    game_id: game16.id,
+    user_id: user4.id,
+    username: user4.username
+});
+/*EXPEDITION 33*/
+const challenge49 = await Challenge.create({
+    name: "Survivant tactique",
+    description: "Terminez la mission principale sans perdre un membre de l’équipe.",
+    picture: game17.picture,
+    release_date: new Date(),
+    game_id: game17.id,
+    user_id: user3.id,
+    username: user3.username
+});
+
+const challenge50 = await Challenge.create({
+    name: "Maître stratège",
+    description: "Complétez toutes les missions secondaires et les objectifs bonus.",
+    picture: game17.picture,
+    release_date: new Date(),
+    game_id: game17.id,
+    user_id: user1.id,
+    username: user1.username
+});
+
+const challenge51 = await Challenge.create({
+    name: "Explorateur du monde perdu",
+    description: "Découvrez toutes les zones et secrets du monde post-apocalyptique.",
+    picture: game17.picture,
+    release_date: new Date(),
+    game_id: game17.id,
+    user_id: user4.id,
+    username: user4.username
+});
+/*CRASH BANDICOOT 4: IT’S ABOUT TIME*/
+const challenge52 = await Challenge.create({
+    name: "Tourbillon temporel",
+    description: "Terminez tous les niveaux de manière parfaite avec toutes les gemmes.",
+    picture: game18.picture,
+    release_date: new Date(),
+    game_id: game18.id,
+    user_id: user2.id,
+    username: user2.username
+});
+
+const challenge53 = await Challenge.create({
+    name: "Maître des pouvoirs",
+    description: "Utilisez tous les nouveaux pouvoirs sur chaque niveau avec succès.",
+    picture: game18.picture,
+    release_date: new Date(),
+    game_id: game18.id,
+    user_id: user1.id,
+    username: user1.username
+});
+
+const challenge54 = await Challenge.create({
+    name: "Chasseur de reliques",
+    description: "Récupérez toutes les reliques et secrets cachés du jeu.",
+    picture: game18.picture,
+    release_date: new Date(),
+    game_id: game18.id,
+    user_id: user4.id,
+    username: user4.username
+});
+/*GOAT SIMULATOR 3*/
+const challenge55 = await Challenge.create({
+    name: "Chaos total",
+    description: "Cassez tous les bâtiments et véhicules d’une ville entière.",
+    picture: game19.picture,
+    release_date: new Date(),
+    game_id: game19.id,
+    user_id: user3.id,
+    username: user3.username
+});
+
+const challenge56 = await Challenge.create({
+    name: "Goat acrobat",
+    description: "Réalisez toutes les cascades et sauts extrêmes du jeu.",
+    picture: game19.picture,
+    release_date: new Date(),
+    game_id: game19.id,
+    user_id: user2.id,
+    username: user2.username
+});
+
+const challenge57 = await Challenge.create({
+    name: "Maître du sandbox",
+    description: "Explorez tous les coins et interagissez avec tous les objets disponibles.",
+    picture: game19.picture,
+    release_date: new Date(),
+    game_id: game19.id,
+    user_id: user1.id,
+    username: user1.username
+});
+/*VALORANT*/
+const challenge58 = await Challenge.create({
+    name: "Sniper d’élite",
+    description: "Obtenez 20 éliminations consécutives avec un fusil de précision.",
+    picture: game20.picture,
+    release_date: new Date(),
+    game_id: game20.id,
+    user_id: user4.id,
+    username: user4.username
+});
+
+const challenge59 = await Challenge.create({
+    name: "Maître stratège",
+    description: "Gagnez 5 parties consécutives en jouant en équipe.",
+    picture: game20.picture,
+    release_date: new Date(),
+    game_id: game20.id,
+    user_id: user1.id,
+    username: user1.username
+});
+
+const challenge60 = await Challenge.create({
+    name: "Agent polyvalent",
+    description: "Terminez une partie en utilisant tous les agents au moins une fois.",
+    picture: game20.picture,
+    release_date: new Date(),
+    game_id: game20.id,
+    user_id: user3.id,
+    username: user3.username
+});
+/*GRAN TURISMO 7*/
+const challenge61 = await Challenge.create({
+    name: "Champion de circuit",
+    description: "Terminez toutes les courses principales en première position.",
+    picture: game21.picture,
+    release_date: new Date(),
+    game_id: game21.id,
+    user_id: user2.id,
+    username: user2.username
+});
+
+const challenge62 = await Challenge.create({
+    name: "Collectionneur de voitures",
+    description: "Obtenez toutes les voitures disponibles dans le jeu.",
+    picture: game21.picture,
+    release_date: new Date(),
+    game_id: game21.id,
+    user_id: user3.id,
+    username: user3.username
+});
+
+const challenge63 = await Challenge.create({
+    name: "Maître du temps",
+    description: "Terminez toutes les courses chronométrées sous le temps imparti.",
+    picture: game21.picture,
+    release_date: new Date(),
+    game_id: game21.id,
+    user_id: user1.id,
+    username: user1.username
+});
+
+
+
+
+
+
 
 
 

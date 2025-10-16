@@ -11,7 +11,7 @@ class GameController extends CoreController {
   gamesListPage = async (req, res) => {
     try {
       const page = parseInt(req.query.page) || 1;
-      const limit = 6;
+      const limit = 8;
       const offset = (page - 1) * limit;
 
       // Fetch games with pagination
