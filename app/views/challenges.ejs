@@ -22,14 +22,29 @@
     <% } %>
   </ul>
 
-  <div class="pagination">
+   <div class="pagination">
     <% if (totalPages > 1) { %>
-      <% for (let i = 1; i <= totalPages; i++) { %>
-        <% if (i === page) { %>
-          <span class="pagination__span"><%= i %></span>
-        <% } else { %>
-          <a href="/challenges?page=<%= i %>" class="pagination__a"><%= i %></a>
-        <% } %>
+      <% // Flèche précédente %>
+      <% if (page > 1) { %>
+        <a href="/challenges?page=<%= page - 1 %>" class="pagination__a">&laquo;</a>
+      <% } %>
+
+      <% // Page précédente %>
+      <% if (page > 1) { %>
+        <a href="/challenges?page=<%= page - 1 %>" class="pagination__a"><%= page - 1 %></a>
+      <% } %>
+
+      <% // Page courante %>
+      <span class="pagination__span"><%= page %></span>
+
+      <% // Page suivante %>
+      <% if (page < totalPages) { %>
+        <a href="/challenges?page=<%= page + 1 %>" class="pagination__a"><%= page + 1 %></a>
+      <% } %>
+
+      <% // Flèche suivante %>
+      <% if (page < totalPages) { %>
+        <a href="/challenges?page=<%= page + 1 %>" class="pagination__a">&raquo;</a>
       <% } %>
     <% } %>
   </div>

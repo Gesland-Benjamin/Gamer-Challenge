@@ -81,11 +81,8 @@
 }
 
 .team-section__member-name:hover {
-  display: block;
-  font-weight: bold;
   font-size: 2rem;
   color: #6bff05;
-  margin-bottom: 5px;
 }
 
 .team-section__member-role {
