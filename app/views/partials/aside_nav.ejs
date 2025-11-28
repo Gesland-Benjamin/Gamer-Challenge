@@ -1,4 +1,3 @@
-<body>
   <link rel="stylesheet" href="/css/navside.css">
 
   <!-- Burger Checkbox -->
@@ -29,11 +28,21 @@
 
       <ul class="navside__list navside__list--mobile">
         <li><a href="/">ACCUEIL</a></li>
-        <li><a href="/me">MES INFORMATIONS</a></li>
-        <li><a href="/mychallenges">MON PROFIL</a></li>
+        <% if (session && session.user) { %>
+          <li><a href="/me">MES INFORMATIONS</a></li>
+          <li><a href="/mychallenges">MON PROFIL</a></li>
+          <li>
+            <form method="post" action="/logout" class="navside__logout-form">
+              <button type="submit" class="navside__logout-btn">DÉCONNEXION</button>
+            </form>
+          </li>
+        <% } else { %>
+          <li><a href="/register">INSCRIPTION / CONNEXION</a></li>
+        <% } %>
         <li><a href="/games">JEUX</a></li>
         <li><a href="/challenges">CHALLENGES</a></li>
         <li><a href="/ladder">CLASSEMENT</a></li>
+
         <li>
           <form action="/search" method="GET" class="navside__search-form">
             <input type="text" name="q" placeholder="Rechercher..." class="navside__search-input" required />
@@ -49,8 +58,8 @@
         </li>
         <li><a href="/about">A PROPOS</a></li>
         <li><a href="/contact">NOUS CONTACTER</a></li>
+
       </ul>
 
     </nav>
   </aside>
-</body>

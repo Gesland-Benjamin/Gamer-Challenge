@@ -36,6 +36,34 @@
       </ul>
     </section>
   </div>
-</main>
+  
+      <div class="pagination">
+        <% if (typeof totalPages !== 'undefined' && totalPages > 1) { %>
+          <% // Flèche précédente %>
+          <% if (page > 1) { %>
+            <a href="/mychallenges?page=<%= page - 1 %>" class="pagination__a">&laquo;</a>
+          <% } %>
+
+          <% // Page précédente %>
+          <% if (page > 1) { %>
+            <a href="/mychallenges?page=<%= page - 1 %>" class="pagination__a"><%= page - 1 %></a>
+          <% } %>
+
+          <% // Page courante %>
+          <span class="pagination__span"><%= page %></span>
+
+          <% // Page suivante %>
+          <% if (page < totalPages) { %>
+            <a href="/mychallenges?page=<%= page + 1 %>" class="pagination__a"><%= page + 1 %></a>
+          <% } %>
+
+          <% // Flèche suivante %>
+          <% if (page < totalPages) { %>
+            <a href="/mychallenges?page=<%= page + 1 %>" class="pagination__a">&raquo;</a>
+          <% } %>
+        <% } %>
+      </div>
+
+    </main>
 
 <%- include('partials/footer.ejs') %>
