@@ -1,112 +1,100 @@
-
-/* --- Structure générale --- */
+/* LEGAL PAGE - Cyberpunk Gaming */
 .legal-main {
-  padding: calc(var(--default-spacing) * 3) var(--default-spacing);
+  padding: 2rem 1rem;
   font-family: var(--main-font);
-  color: #fff;
+  color: var(--text-primary);
+  width: 100%;
+  max-width: 900px;
 }
 
 .legal-container {
   max-width: 900px;
   margin: 0 auto;
-  background: #000000a9;
-  color: var(--deepblue-color);
-  border-radius: 1.2rem;
-  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
-  padding: calc(var(--default-spacing) * 2.5)
-           calc(var(--default-spacing) * 3);
+  background: var(--bg-card);
+  border: 1px solid rgba(0, 240, 255, 0.06);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  padding: 2.5rem 2rem;
   line-height: 1.7;
 }
 
-/* --- Titre principal --- */
 .legal-title {
   text-align: center;
-  font-size: 2.4rem;
-  font-weight: 700;
-  color: white;
-  margin-bottom: 2rem;
+  font-size: 1.8rem;
+  font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 3px;
+  background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 2rem;
 }
 
-/* --- Sections principales --- */
 .legal-section {
-  margin-bottom: 2.5rem;
-  border-left: 4px solid var(--lightgreen-color);
-  padding-left: 1rem;
+  margin-bottom: 2rem;
+  border-left: 3px solid var(--neon-cyan);
+  padding-left: 1.2rem;
+}
+
+.legal-section:nth-child(even) {
+  border-left-color: var(--neon-purple);
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 0 12px 12px 0;
+  padding: 1rem 1.2rem;
 }
 
 .legal-heading {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: white;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
   margin-bottom: 1rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
-/* --- Sous-sections --- */
 .legal-subsection {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.2rem;
 }
 
 .legal-subheading {
-  font-size: 1.15rem;
+  font-size: 1rem;
   font-weight: 600;
-  color: white;
+  color: var(--neon-cyan);
   margin-bottom: 0.5rem;
+  letter-spacing: 0.5px;
 }
 
-/* --- Texte et contenu --- */
 .legal-text {
-  margin-bottom: 0.8rem;
-  color: #ffffff;
-  font-size: 1rem;
+  margin-bottom: 0.6rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
 }
 
 .legal-list {
   padding-left: 1.5rem;
-  margin-bottom: 1rem;
-  color: #ffffff;
+  margin-bottom: 0.8rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
 }
 
 .legal-list li {
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.3rem;
 }
 
-/* --- Liens --- */
 .legal-link {
-  color: var(--green-color);
-  font-weight: 500;
+  color: var(--neon-cyan);
+  font-weight: 600;
   text-decoration: none;
-  transition: color 0.2s ease, text-decoration 0.2s ease;
+  transition: all 0.3s ease;
 }
 
 .legal-link:hover {
-  color: var(--fluogreen-color);
-  text-decoration: underline;
+  color: var(--neon-purple);
+  text-shadow: 0 0 10px rgba(139, 92, 246, 0.3);
 }
 
-/* --- Encadré subtil pour la lisibilité --- */
-.legal-section:nth-child(even) {
-  background-color: rgba(85, 203, 4, 0.05);
-  border-radius: 0.8rem;
-  padding: 1.2rem;
-}
-
-/* --- Responsive --- */
 @media (max-width: 768px) {
-  .legal-container {
-    padding: 2rem 1.5rem;
-  }
-
-  .legal-title {
-    font-size: 1.8rem;
-  }
-
-  .legal-heading {
-    font-size: 1.3rem;
-  }
-
-  .legal-subheading {
-    font-size: 1rem;
-  }
+  .legal-container { padding: 1.5rem 1rem; }
+  .legal-title { font-size: 1.4rem; }
 }

@@ -7,16 +7,6 @@
   --main-font: "Poppins", sans-serif;
 }
 
-
-:root {
-  --green-color: #449f05;
-  --lightgreen-color: #55cb04;
-  --fluogreen-color: #6bff05;
-  --deepblue-color: #043640;
-  --blue-color: #034b57;
-  --main-font: "Poppins", sans-serif;
-}
-
 /* ========== BLOCK PRINCIPAL ========== */
 .add-game {
   height: 100vh;

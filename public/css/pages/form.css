@@ -1,31 +1,30 @@
-/* FORMULAIRE */
-
+/* FORMULAIRE - Cyberpunk Gaming */
 .forms-container {
   display: flex;
-  gap: 10rem;
+  gap: 3rem;
   justify-content: center;
   align-items: flex-start;
   margin: 2rem 0;
+  flex-wrap: wrap;
 }
+
 .forms-container > div {
-  width: 350px;
-  min-width: 350px;
-  max-width: 350px;
+  width: 380px;
+  max-width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .forms-container form {
-  background: #11380f;
-  border: 3px solid #44b716; 
+  background: var(--bg-card);
+  border: 1px solid rgba(0, 240, 255, 0.1);
   padding: 2rem 1.5rem;
-  border-radius: 18px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
-  color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  color: var(--text-primary);
   width: 100%;
-  max-width: 350px;
-  min-width: unset;
+  max-width: 380px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -35,41 +34,67 @@
   display: block;
   width: 100%;
   text-align: center;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   font-weight: 700;
-  color: white;
-  margin-bottom: 1.2rem;
-  letter-spacing: 1px;
-  font-family: "Poppins", Arial, sans-serif;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  letter-spacing: 2px;
   text-transform: uppercase;
+  background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-.input {
-  background-color: #081c08;
-  color: white;
-  border: none;
-  border-radius: 25px;
-  padding: 13px;
-  margin: 20px 0;
+/* override inputs de style.css pour les formulaires */
+.forms-container .input,
+.forms-container input,
+.forms-container textarea,
+.forms-container select {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 12px;
+  margin: 10px 0;
+  color: var(--text-primary);
+  font-family: var(--main-font);
+  font-size: 0.9rem;
   width: 100%;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+  transition: all 0.3s ease;
+}
+
+.forms-container .input:focus,
+.forms-container input:focus,
+.forms-container textarea:focus {
+  outline: none;
+  border-color: var(--neon-cyan);
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.1);
+  background: rgba(0, 240, 255, 0.03);
 }
 
 .myButton-form {
   display: block;
-  margin: 1.5rem auto 0 auto;
-  background-color: var(--green-color);
-  border-radius: 28px;
-  border: 1px solid #18ab29;
+  margin: 1.5rem auto 0;
+  background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+  border: none;
+  border-radius: 8px;
   cursor: pointer;
   color: #ffffff;
-  font-family: "Poppins", sans-serif;
-  font-size: 1rem;
-  font-weight: bold;
-  padding: 0.3rem 2rem;
+  font-family: var(--main-font);
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.6rem 2rem;
   text-decoration: none;
-  text-shadow: 0px 1px 0px #2f6627;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 240, 255, 0.2);
+}
+
+.myButton-form:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 240, 255, 0.35);
 }
 
 .center-btn {
@@ -88,28 +113,25 @@
 
 .input-with-icon .input {
   flex: 1;
-  padding-right: 2.2em; /* espace pour l'icône */
+  padding-right: 2.2em;
 }
 
 .edit-icon {
   position: absolute;
   right: 12px;
-  color: #44b716;
-  font-size: 1.1em;
-  pointer-events: none; 
+  color: var(--neon-cyan);
+  font-size: 1em;
+  pointer-events: none;
 }
 
-/* Encadrement pour les groupes de boutons sur la page admin */
 .buttons-container {
-  background: #11380f;
-  border: 3px solid #44b716;
+  background: var(--bg-card);
+  border: 1px solid rgba(0, 240, 255, 0.1);
   padding: 2rem 1.5rem;
-  border-radius: 18px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
-  color: #fff;
-  width: 350px;
-  max-width: 350px;
-  min-width: 350px;
+  border-radius: 16px;
+  color: var(--text-primary);
+  width: 380px;
+  max-width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -117,76 +139,22 @@
   gap: 1rem;
 }
 
-
 .buttons-container .myButton-form {
   width: 100%;
   margin: 0.5rem 0;
 }
 
-/* Centrer le formulaire de la page contact */
-#contact-page {
-  display: flex;              /* flex sur le main */
-  justify-content: center;    /* centre horizontalement */
-  align-items: flex-start; /* plutôt que center */
-  min-height: calc(100vh - 150px); /* diminue la hauteur totale pour compenser header/footer */
-  flex-direction: column;     /* empile verticalement les enfants si besoin */
+.forms-container label {
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  margin-bottom: 0.3rem;
+  align-self: flex-start;
 }
 
-#contact-page .forms-container {
-  display: flex !important;   /* forcer flex */
-  flex-direction: column;     /* empile verticalement */
-  justify-content: center !important; 
-  align-items: center !important;
-  margin: 0 !important;       /* supprime les marges globales */
-  gap: 0 !important;
-  width: 100%;                /* optionnel : prend toute la largeur */
-}
-
-#me-page .forms-container {
-  display: flex !important;   /* forcer flex */
-  justify-content: center !important; 
-  margin: 3rem !important;       /* supprime les marges globales */
-  gap: 10rem !important;              /* optionnel : prend toute la largeur */
-}
-
-/* Media queries 885px à 1279px */
-
-@media (885px <= width <= 1279px) {
+@media (max-width: 768px) {
   .forms-container {
-    gap: 5rem;
-    margin: 2rem 0;
-    flex-wrap: wrap;
-    padding: 1rem;
-    justify-content: center;   /* Ajouté */
-    align-items: center;       /* Ajouté */
-  }
-} 
-
-/* Media queries 769px à 885px */
-
-@media (769px <= width <= 884px) {
-  .forms-container {
-    gap: 5rem;
-    margin: 2rem 0;
-    flex-wrap: wrap;
-    padding: 1rem;
-    justify-content: center;   /* Ajouté */
-    align-items: center;       /* Ajouté */
-  }
-}
-
-/* Media queries >768px */
-
-@media (width < 768px) {
-  .forms-container {
-    flex-direction: column;
-    align-items: center;
-    gap: 3rem; /* réduit l'espacement entre les cartes */
-    margin: 2rem 0;
+    gap: 2rem;
     padding: 1rem;
   }
+  .forms-container > div { width: 100%; }
 }
-
-
-
-

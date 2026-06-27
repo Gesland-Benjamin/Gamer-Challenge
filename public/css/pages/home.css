@@ -1,64 +1,171 @@
-
-/* TITRES & MASCOTTES */
+/* HOME PAGE - Cyberpunk Gaming */
 .main__logos-row {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 3rem; /* espace entre les logos */
+  gap: 2rem;
+  padding: 2rem 1rem 0;
+  width: 100%;
+  max-width: 1200px;
 }
 
-.main-logo{
-  width: 55%;
-  height: auto;;
+.main-logo {
+  width: 50%;
+  height: auto;
+  filter: drop-shadow(0 0 30px rgba(0, 240, 255, 0.15));
+  transition: filter 0.4s ease;
+}
+
+.main-logo:hover {
+  filter: drop-shadow(0 0 50px rgba(0, 240, 255, 0.3));
 }
 
 .main-logo-right {
-  margin-left: auto;
-  margin-right: 0; 
-  width: 45%;         
+  width: 40%;
   height: auto;
+  filter: drop-shadow(0 0 20px rgba(139, 92, 246, 0.15));
+  transition: filter 0.4s ease;
 }
 
-
-/* WRAPPER */
+.main-logo-right:hover {
+  filter: drop-shadow(0 0 40px rgba(139, 92, 246, 0.3));
+}
 
 .home__top-title-wrapper {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%; /* s'assurer que le wrapper prend toute la largeur */
-  max-width: 1200px; /* optionnel : limite largeur si tu veux */
+  width: 100%;
+  max-width: 1200px;
+  margin: 2.5rem auto 1rem;
 }
 
 .home__top-title {
-  font-size: 2rem; /* ou ta taille originale */
+  font-size: 1.8rem;
   text-align: center;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800;
 }
 
 .home__top-bar {
-  position: relative; /* ou absolute si tu veux */
-  width: 100%;        /* prend toute la largeur du wrapper */
-  max-width: 100%;    /* pour éviter que flex-center ne réduise la largeur */
-  height: 8px;        /* hauteur de la barre */
-  background: linear-gradient(to right, transparent, #32ff0a, transparent);
-  box-shadow: 0 0 10px rgba(50, 255, 10, 0.6);
-  margin-top: 8px;    /* espace sous le titre */
+  width: 100%;
+  max-width: 600px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--neon-cyan), var(--neon-purple), transparent);
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+  margin-top: 4px;
+  border-radius: 1px;
 }
 
-/* Media queries : 481px à 768px  */
-
-@media ( width <= 768px) {
-
-  .main-logo{
-  width: 90%;
-  height: auto;
+/* CARDS HOMEPAGE */
+.top-challenges-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 
-  .main-logo-right {
-  display: none;
+.top-challenges-section .challenges-list {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+  padding: 0.5rem;
+  max-width: 1200px;
 }
 
-  
+.top-challenges-section .challenge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 280px;
+  background: var(--bg-card);
+  border: 1px solid rgba(0, 240, 255, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  color: var(--text-primary);
+  padding: 0;
+  margin-bottom: 1rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  position: relative;
+}
+
+.top-challenges-section .challenge::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.top-challenges-section .challenge:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(0, 240, 255, 0.15), 0 0 0 1px rgba(0, 240, 255, 0.2);
+}
+
+.top-challenges-section .challenge:hover::before {
+  opacity: 1;
+}
+
+.top-challenges-section .challenge img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  object-position: top;
+  border-bottom: 1px solid rgba(0, 240, 255, 0.08);
+  transition: transform 0.4s ease;
+}
+
+.top-challenges-section .challenge:hover img {
+  transform: scale(1.03);
+}
+
+.top-challenges-section .challenge h2 {
+  margin: 12px 0 4px;
+  text-align: center;
+  width: 100%;
+  font-size: 0.9rem;
+  padding: 0 16px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.top-challenges-section .challenge p {
+  margin: 4px 0 16px;
+  text-align: center;
+  width: 100%;
+  font-size: 0.8rem;
+  color: var(--neon-cyan);
+  font-weight: 500;
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+  .main-logo { width: 90%; }
+  .main-logo-right { display: none; }
+  .home__top-title { font-size: 1.3rem; }
+  .top-challenges-section .challenge { width: 100%; max-width: 320px; }
+}
+
+@media (max-width: 480px) {
+  .home__top-title { font-size: 1rem; }
+  .main__logos-row { gap: 1rem; padding: 1rem 0.5rem 0; }
 }

@@ -1,33 +1,16 @@
-:root {
-  --green: #4dff4d;
-  --dark-green: #003311;
-  --text-light: #e0e0e0;
-  font-family: "Poppins", sans-serif;
-  color: white;
-}
-
-/* ----- STRUCTURE GLOBALE ----- */
-body {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-  /* ✅ empêche le scroll horizontal */
-  background-color: #000;
-  /* optionnel, fond neutre */
-}
-
+/* GAME DETAIL - Cyberpunk Gaming */
 .game-page-main {
   margin: 1rem auto;
   padding: 2rem;
-  max-width: 1200px;
+  max-width: 1000px;
   width: 100%;
   box-sizing: border-box;
-  border-radius: 2rem;
-  box-shadow: 0 0 30px rgba(107, 255, 5, 0.5);
-  background-color: rgba(0, 20, 0, 0.7);
+  border-radius: 16px;
+  background: var(--bg-card);
+  border: 1px solid rgba(0, 240, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 }
 
-/* ----- EN-TÊTE DU JEU ----- */
 .game-header {
   display: flex;
   align-items: flex-start;
@@ -35,66 +18,68 @@ body {
   gap: 2rem;
   margin-bottom: 2rem;
   flex-wrap: wrap;
-  /* ✅ s’adapte aux petits écrans */
 }
 
 .game-header__cover-wrapper {
-  flex: 0 0 250px;
-  /* ✅ taille réduite */
+  flex: 0 0 220px;
 }
 
 .game-header__cover {
-  width: 250px;
+  width: 220px;
   height: auto;
   border-radius: 12px;
-  border: 3px solid var(--green);
-  box-shadow: 0 0 10px rgba(77, 255, 77, 0.4);
+  border: 1px solid rgba(0, 240, 255, 0.15);
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.08);
 }
 
-/* ----- INFOS DU JEU ----- */
 .game-header__game-info {
   flex: 1;
-  min-width: 300px;
-  max-width: 600px;
-  /* ✅ évite d’occuper trop d’espace */
+  min-width: 280px;
 }
 
 .game-header__game-info__name {
-  font-size: 1.8rem;
-  color: var(--green);
-  text-shadow: 0 0 8px rgba(77, 255, 77, 0.8);
+  font-size: 1.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 .game-header__game-info__game-description {
-  color: var(--text-light);
-  line-height: 1.5;
+  color: var(--text-secondary);
+  line-height: 1.7;
   margin-bottom: 1rem;
-  font-size: 1rem;
+  font-size: 0.95rem;
 }
 
 .game-header__game-info__game-date,
 .game-header__game-info__game-meta {
-  font-weight: bold;
-  color: #9aff9a;
-  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--neon-cyan);
+  font-size: 0.85rem;
 }
 
 .game-header__challenges-game-bar {
   width: 100%;
-  height: 4px;
-  background: linear-gradient(90deg, transparent, var(--green), transparent);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--neon-cyan), transparent);
   margin: 2rem 0;
-  border-radius: 2px;
 }
 
-/* ----- SECTION CHALLENGES ----- */
 .challenges-section__title {
-  color: white;
-  font-size: 1.6rem;
-  margin: 1.5rem 0 1rem 0;
+  font-size: 1.2rem;
+  margin: 1.5rem 0 1rem;
   text-align: center;
-  text-shadow: 0 0 5px rgba(107, 255, 5, 0.7);
+  letter-spacing: 2px;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .challenges-section {
@@ -104,46 +89,37 @@ body {
 .challenges-section__challenges-list {
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;
-  width: 100%;
+  gap: 0.6rem;
 }
 
-/* Chaque défi */
 .challenges-section__challenge {
-  background-color: transparent;
-  border: 1px solid var(--green);
-  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
   padding: 0.8rem 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: all 0.3s ease;
 }
 
 .challenges-section__challenge:hover {
-  transform: scale(1.01);
-  box-shadow: 0 0 10px rgba(77, 255, 77, 0.3);
-}
-
-/* ✅ Fond vert foncé uniquement pour les noms */
-.challenge h3 {
-  margin: 0;
-  font-size: 1rem;
-  background-color: var(--dark-green);
-  padding: 0.3rem 0.6rem;
-  border-radius: 8px;
-  border: 1px solid var(--green);
-  box-shadow: 0 0 6px rgba(77, 255, 77, 0.3);
+  border-color: var(--neon-cyan);
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.05);
+  transform: translateX(4px);
 }
 
 .challenges-section__name {
-  color: var(--text-light);
+  color: var(--text-primary);
   text-decoration: none;
   font-weight: 500;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .challenges-section__name:hover {
-  color: var(--green);
+  color: var(--neon-cyan);
 }
 
 .challenge-votes {
@@ -153,29 +129,28 @@ body {
 }
 
 .challenge-votes span {
-  font-weight: bold;
-  color: var(--green);
-}
-
-.fa-solid {
-  color: var(--text-light)
+  font-weight: 600;
+  color: var(--neon-cyan);
 }
 
 .challenges-section__like-btn {
   background: none;
-  color: #000;
   border: none;
-  border-radius: 8px;
   cursor: pointer;
-  font-weight: bold;
-  font-size: 0.9rem;
-  padding: 0.4rem 0.8rem;
+  font-size: 1rem;
+  padding: 0.3rem;
+  color: var(--text-secondary);
+  transition: all 0.3s ease;
+}
+
+.challenges-section__like-btn:hover i {
+  color: var(--neon-pink);
 }
 
 .challenges-section__like-btn.liked i {
-  color : #33cc33;
+  color: var(--neon-pink) !important;
+  text-shadow: 0 0 10px rgba(255, 0, 128, 0.5);
 }
-
 
 .challenges-section__challenge-likes {
   display: flex;
@@ -183,39 +158,19 @@ body {
   gap: 8px;
 }
 
-
 .challenges-section__vote-count {
   display: flex;
-  /* pour centrer la hauteur de la ligne */
   align-items: center;
-  line-height: 1;
-  font-weight: bold;
-  /* tu l’avais sur .challenge-votes span */
-  color: var(--green);
+  font-weight: 600;
+  color: var(--neon-cyan);
 }
 
-/* ----- ACTIONS ----- */
 .game-actions {
   margin-top: 2rem;
   text-align: center;
 }
 
-.game-actions__btn {
-  display: inline-block;
-  background-color: var(--green-color);
-  color: white;
-  cursor: pointer;
-  margin: 1rem;
-  padding: 0.7em;
-  text-decoration: none;
-  border-radius: 25px;
-  font-weight: bold;
-  font-size: 0.9rem;
-  border: none;
-  transition: transform 0.2s ease, background-color 0.2s ease;
-}
-
-.game-actions__btn:hover {
-  background-color: #33cc33;
-  transform: scale(1.05);
+@media (max-width: 640px) {
+  .game-header { flex-direction: column; align-items: center; text-align: center; }
+  .game-header__cover-wrapper { flex: 0; }
 }

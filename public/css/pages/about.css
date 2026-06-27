@@ -1,50 +1,46 @@
-
-/* ==============================
-   ABOUT PAGE
-   ============================== */
+/* ABOUT PAGE - Cyberpunk Gaming */
 .about-page {
-  padding: 50px 20px;
-  max-width: 1200px;
+  padding: 3rem 1.5rem;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
-/* --- About Section --- */
-.about-section {
-  margin-bottom: 60px;
-  text-align: center;
-}
-
 .about-section__title {
-  font-size: 3rem;
-  margin-bottom: 20px;
-  color: white ;
+  font-size: 2rem;
+  font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
+  background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1.5rem;
+  text-align: center;
 }
 
 .about-section__content {
-  max-width: 1000px;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .about-section__paragraph {
-  font-size: 1.1rem;
+  font-size: 0.95rem;
   line-height: 1.8;
-  margin-bottom: 20px;
-}
-
-/* ==============================
-   TEAM SECTION
-   ============================== */
-.team-section {
-  text-align: center;
+  margin-bottom: 1.2rem;
+  color: var(--text-secondary);
 }
 
 .team-section__title {
-  font-size: 2.5rem;
-  margin-bottom: 30px;
-  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 1.5px;
+  letter-spacing: 3px;
+  background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-align: center;
+  margin: 3rem 0 2rem;
 }
 
 .team-section__list {
@@ -53,82 +49,40 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 15px;
+  gap: 1rem;
 }
 
 .team-section__member {
-  background-color: #00000067;
-  border: 2px solid #6bff05;
+  background: var(--bg-card);
+  border: 1px solid rgba(0, 240, 255, 0.08);
   border-radius: 12px;
-  padding: 15px 25px;
-  width: 220px;
+  padding: 1.2rem 1.5rem;
+  width: 200px;
   transition: all 0.3s ease;
   text-align: center;
-  margin-bottom: 1rem;
 }
 
 .team-section__member:hover {
-  transform: translateY(-5px);
-  border-color: #6bff05;
-  box-shadow: 0 4px 15px #6bff05
+  border-color: var(--neon-cyan);
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.08);
+  transform: translateY(-3px);
 }
 
 .team-section__member-name {
   display: block;
-  font-weight: bold;
-  font-size: 1.2rem;
-  color: #ffffff;
-  margin-bottom: 5px;
-}
-
-
-.team-section__member-name:hover {
-  display: block;
-  font-weight: bold;
-  font-size: 2rem;
-  color: #6bff05;
-  margin-bottom: 5px;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+  letter-spacing: 0.5px;
 }
 
 .team-section__member-role {
   display: block;
-  font-size: 1rem;
-  color: #ffffff;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
 }
 
-/* ==============================
-   RESPONSIVE
-   ============================== */
 @media (max-width: 768px) {
-  .about-section__title {
-    font-size: 2.2rem;
-  }
-
-  .team-section__title {
-    font-size: 2rem;
-  }
-
-  .team-section__list {
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .team-section__member {
-    width: 80%;
-    margin: 0 auto;
-  }
-}
-
-@media (max-width: 480px) {
-  .about-section__title {
-    font-size: 1.8rem;
-  }
-
-  .team-section__title {
-    font-size: 1.6rem;
-  }
-
-  .about-section__paragraph {
-    font-size: 1rem;
-  }
+  .team-section__member { width: 160px; }
 }

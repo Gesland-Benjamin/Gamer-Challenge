@@ -10,6 +10,50 @@
 
     <p class="footer-gamerchallenges__tag">2025 - GamerChallenges</p>
 
-  </div>    
+<script>
+(function() {
+  'use strict';
+  var menu = document.querySelector('.navside__menu');
+  var burgerDesktop = document.getElementById('header-burger');
+  var burgerMobile = document.getElementById('mobile-burger');
+  var isOpen = false;
+
+  function toggleMenu() {
+    isOpen = !isOpen;
+    menu.classList.toggle('navside__menu--open', isOpen);
+    if (burgerDesktop) burgerDesktop.classList.toggle('header__burger--open', isOpen);
+    if (burgerMobile) burgerMobile.classList.toggle('navside__burger--open', isOpen);
+  }
+
+  function closeMenu() {
+    if (!isOpen) return;
+    isOpen = false;
+    menu.classList.remove('navside__menu--open');
+    if (burgerDesktop) burgerDesktop.classList.remove('header__burger--open');
+    if (burgerMobile) burgerMobile.classList.remove('navside__burger--open');
+  }
+
+  if (burgerDesktop) {
+    burgerDesktop.addEventListener('click', function(e) {
+      e.stopPropagation();
+      toggleMenu();
+    });
+  }
+  if (burgerMobile) {
+    burgerMobile.addEventListener('click', function(e) {
+      e.stopPropagation();
+      toggleMenu();
+    });
+  }
+
+  document.addEventListener('click', function(e) {
+    if (isOpen && menu && !menu.contains(e.target) &&
+        (!burgerDesktop || !burgerDesktop.contains(e.target)) &&
+        (!burgerMobile || !burgerMobile.contains(e.target))) {
+      closeMenu();
+    }
+  });
+})();
+</script>
 </body>
 </html>

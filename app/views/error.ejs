@@ -1,5 +1,8 @@
+<%- include('partials/header') %>
+<%- include('partials/aside_nav') %>
+
 <main>
-      <section style="text-align:center; margin: 8rem 0; color: blue;">
+      <section style="text-align:center; margin: 8rem 0;">
         <h1>Oups, une erreur est survenue !</h1>
 
         <% if (typeof message !== "undefined") { %>
@@ -10,3 +13,5 @@
         <a class="button" href="/">Retour à l'accueil</a>
       </section>
     </main>
+
+<%- include('partials/footer') %>
